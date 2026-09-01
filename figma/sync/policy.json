@@ -1,0 +1,30 @@
+{
+  "$schema": "https://depo-ui.invalid/schemas/figma-sync-policy.schema.json",
+  "version": 1,
+  "sourceOfTruth": "repository",
+  "directions": {
+    "push": "Repository mapping and token values are previewed before an explicit Figma publish.",
+    "pull": "Figma data is read-only input for a diff report; it never writes token or metadata source files."
+  },
+  "transport": {
+    "rest": {
+      "requires": ["FIGMA_ACCESS_TOKEN", "FIGMA_FILE_KEY", "FIGMA_API_URL"],
+      "default": false
+    },
+    "pluginApi": {
+      "fallback": true,
+      "write": "Only an explicitly invoked, reviewed publish step may write to Figma."
+    }
+  },
+  "publish": {
+    "dryRunDefault": true,
+    "requiresExplicitApply": true,
+    "requiresOwnerApproval": true,
+    "deletesExtraFigmaObjects": false
+  },
+  "secrets": {
+    "allowedEnvironmentVariables": ["FIGMA_ACCESS_TOKEN", "FIGMA_FILE_KEY", "FIGMA_API_URL"],
+    "persistToRepository": false,
+    "logValues": false
+  }
+}

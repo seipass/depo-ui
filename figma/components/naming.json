@@ -1,0 +1,21 @@
+{
+  "$schema": "https://depo-ui.invalid/schemas/figma-component-naming.schema.json",
+  "version": 1,
+  "componentSetPattern": "Depo UI/{category}/{name}",
+  "sourcePolicy": "Component names and categories come from specs/components/*.json.",
+  "propertyNames": {
+    "variant": "Variant",
+    "size": "Size",
+    "tone": "Tone",
+    "state": "State",
+    "lifecycle": "Lifecycle"
+  },
+  "propertyTypes": {
+    "Variant": "VARIANT",
+    "Size": "VARIANT",
+    "Tone": "VARIANT",
+    "State": "VARIANT",
+    "Lifecycle": "TEXT"
+  },
+  "lifecycleValues": ["proposal", "trial", "stable", "deprecated", "removed"]
+}

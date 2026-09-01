@@ -1,0 +1,3283 @@
+{
+  "$schema": "https://depo-ui.invalid/schemas/figma-component-mapping.schema.json",
+  "generatedBy": "tooling/figma-sync/generate.mjs",
+  "naming": {
+    "$schema": "https://depo-ui.invalid/schemas/figma-component-naming.schema.json",
+    "version": 1,
+    "componentSetPattern": "Depo UI/{category}/{name}",
+    "sourcePolicy": "Component names and categories come from specs/components/*.json.",
+    "propertyNames": {
+      "variant": "Variant",
+      "size": "Size",
+      "tone": "Tone",
+      "state": "State",
+      "lifecycle": "Lifecycle"
+    },
+    "propertyTypes": {
+      "Variant": "VARIANT",
+      "Size": "VARIANT",
+      "Tone": "VARIANT",
+      "State": "VARIANT",
+      "Lifecycle": "TEXT"
+    },
+    "lifecycleValues": [
+      "proposal",
+      "trial",
+      "stable",
+      "deprecated",
+      "removed"
+    ]
+  },
+  "source": "specs/components",
+  "components": [
+    {
+      "category": "actions",
+      "componentSet": "Depo UI/actions/Button",
+      "depoUiKey": "component.actions.Button",
+      "lifecycle": "trial",
+      "metadataPath": "specs/components/actions/Button.json",
+      "name": "Button",
+      "propertyDefinitions": {
+        "Variant": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "solid",
+            "soft",
+            "outline",
+            "ghost",
+            "link"
+          ]
+        },
+        "Size": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "sm",
+            "md",
+            "lg"
+          ]
+        },
+        "Tone": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "neutral",
+            "primary",
+            "secondary",
+            "success",
+            "warning",
+            "danger"
+          ]
+        },
+        "State": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "rest",
+            "hover",
+            "pressed",
+            "focus-visible",
+            "disabled",
+            "loading",
+            "invalid"
+          ]
+        },
+        "Lifecycle": {
+          "type": "TEXT",
+          "allowedValues": [
+            "trial"
+          ]
+        }
+      },
+      "sourcePath": "packages/components/src/actions/Button"
+    },
+    {
+      "category": "actions",
+      "componentSet": "Depo UI/actions/IconButton",
+      "depoUiKey": "component.actions.IconButton",
+      "lifecycle": "trial",
+      "metadataPath": "specs/components/actions/IconButton.json",
+      "name": "IconButton",
+      "propertyDefinitions": {
+        "Variant": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "solid",
+            "soft",
+            "outline",
+            "ghost",
+            "link"
+          ]
+        },
+        "Size": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "sm",
+            "md",
+            "lg"
+          ]
+        },
+        "Tone": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "neutral",
+            "primary",
+            "secondary",
+            "success",
+            "warning",
+            "danger"
+          ]
+        },
+        "State": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "rest",
+            "hover",
+            "pressed",
+            "focus-visible",
+            "disabled",
+            "loading",
+            "invalid"
+          ]
+        },
+        "Lifecycle": {
+          "type": "TEXT",
+          "allowedValues": [
+            "trial"
+          ]
+        }
+      },
+      "sourcePath": "packages/components/src/actions/IconButton"
+    },
+    {
+      "category": "actions",
+      "componentSet": "Depo UI/actions/Link",
+      "depoUiKey": "component.actions.Link",
+      "lifecycle": "trial",
+      "metadataPath": "specs/components/actions/Link.json",
+      "name": "Link",
+      "propertyDefinitions": {
+        "Variant": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "solid",
+            "soft",
+            "outline",
+            "ghost",
+            "link"
+          ]
+        },
+        "Size": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "sm",
+            "md",
+            "lg"
+          ]
+        },
+        "Tone": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "neutral",
+            "primary",
+            "secondary",
+            "success",
+            "warning",
+            "danger"
+          ]
+        },
+        "State": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "rest",
+            "hover",
+            "pressed",
+            "focus-visible",
+            "disabled",
+            "loading",
+            "invalid"
+          ]
+        },
+        "Lifecycle": {
+          "type": "TEXT",
+          "allowedValues": [
+            "trial"
+          ]
+        }
+      },
+      "sourcePath": "packages/components/src/actions/Link"
+    },
+    {
+      "category": "actions",
+      "componentSet": "Depo UI/actions/SplitButton",
+      "depoUiKey": "component.actions.SplitButton",
+      "lifecycle": "trial",
+      "metadataPath": "specs/components/actions/SplitButton.json",
+      "name": "SplitButton",
+      "propertyDefinitions": {
+        "Variant": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "solid",
+            "soft",
+            "outline",
+            "ghost",
+            "link"
+          ]
+        },
+        "Size": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "sm",
+            "md",
+            "lg"
+          ]
+        },
+        "Tone": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "neutral",
+            "primary",
+            "secondary",
+            "success",
+            "warning",
+            "danger"
+          ]
+        },
+        "State": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "rest",
+            "hover",
+            "pressed",
+            "focus-visible",
+            "disabled",
+            "loading",
+            "invalid"
+          ]
+        },
+        "Lifecycle": {
+          "type": "TEXT",
+          "allowedValues": [
+            "trial"
+          ]
+        }
+      },
+      "sourcePath": "packages/components/src/actions/SplitButton"
+    },
+    {
+      "category": "data-display",
+      "componentSet": "Depo UI/data-display/Avatar",
+      "depoUiKey": "component.data-display.Avatar",
+      "lifecycle": "trial",
+      "metadataPath": "specs/components/data-display/Avatar.json",
+      "name": "Avatar",
+      "propertyDefinitions": {
+        "Variant": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "solid",
+            "soft",
+            "outline",
+            "ghost",
+            "link"
+          ]
+        },
+        "Size": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "sm",
+            "md",
+            "lg"
+          ]
+        },
+        "Tone": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "neutral",
+            "primary",
+            "secondary",
+            "success",
+            "warning",
+            "danger"
+          ]
+        },
+        "State": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "rest",
+            "hover",
+            "pressed",
+            "focus-visible",
+            "disabled",
+            "loading",
+            "invalid"
+          ]
+        },
+        "Lifecycle": {
+          "type": "TEXT",
+          "allowedValues": [
+            "trial"
+          ]
+        }
+      },
+      "sourcePath": "packages/components/src/data-display/Avatar"
+    },
+    {
+      "category": "data-display",
+      "componentSet": "Depo UI/data-display/Badge",
+      "depoUiKey": "component.data-display.Badge",
+      "lifecycle": "trial",
+      "metadataPath": "specs/components/data-display/Badge.json",
+      "name": "Badge",
+      "propertyDefinitions": {
+        "Variant": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "solid",
+            "soft",
+            "outline",
+            "ghost",
+            "link"
+          ]
+        },
+        "Size": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "sm",
+            "md",
+            "lg"
+          ]
+        },
+        "Tone": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "neutral",
+            "primary",
+            "secondary",
+            "success",
+            "warning",
+            "danger"
+          ]
+        },
+        "State": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "rest",
+            "hover",
+            "pressed",
+            "focus-visible",
+            "disabled",
+            "loading",
+            "invalid"
+          ]
+        },
+        "Lifecycle": {
+          "type": "TEXT",
+          "allowedValues": [
+            "trial"
+          ]
+        }
+      },
+      "sourcePath": "packages/components/src/data-display/Badge"
+    },
+    {
+      "category": "data-display",
+      "componentSet": "Depo UI/data-display/Card",
+      "depoUiKey": "component.data-display.Card",
+      "lifecycle": "trial",
+      "metadataPath": "specs/components/data-display/Card.json",
+      "name": "Card",
+      "propertyDefinitions": {
+        "Variant": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "solid",
+            "soft",
+            "outline",
+            "ghost",
+            "link"
+          ]
+        },
+        "Size": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "sm",
+            "md",
+            "lg"
+          ]
+        },
+        "Tone": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "neutral",
+            "primary",
+            "secondary",
+            "success",
+            "warning",
+            "danger"
+          ]
+        },
+        "State": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "rest",
+            "hover",
+            "pressed",
+            "focus-visible",
+            "disabled",
+            "loading",
+            "invalid"
+          ]
+        },
+        "Lifecycle": {
+          "type": "TEXT",
+          "allowedValues": [
+            "trial"
+          ]
+        }
+      },
+      "sourcePath": "packages/components/src/data-display/Card"
+    },
+    {
+      "category": "data-display",
+      "componentSet": "Depo UI/data-display/Code",
+      "depoUiKey": "component.data-display.Code",
+      "lifecycle": "trial",
+      "metadataPath": "specs/components/data-display/Code.json",
+      "name": "Code",
+      "propertyDefinitions": {
+        "Variant": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "solid",
+            "soft",
+            "outline",
+            "ghost",
+            "link"
+          ]
+        },
+        "Size": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "sm",
+            "md",
+            "lg"
+          ]
+        },
+        "Tone": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "neutral",
+            "primary",
+            "secondary",
+            "success",
+            "warning",
+            "danger"
+          ]
+        },
+        "State": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "rest",
+            "hover",
+            "pressed",
+            "focus-visible",
+            "disabled",
+            "loading",
+            "invalid"
+          ]
+        },
+        "Lifecycle": {
+          "type": "TEXT",
+          "allowedValues": [
+            "trial"
+          ]
+        }
+      },
+      "sourcePath": "packages/components/src/data-display/Code"
+    },
+    {
+      "category": "data-display",
+      "componentSet": "Depo UI/data-display/DataGrid",
+      "depoUiKey": "component.data-display.DataGrid",
+      "lifecycle": "trial",
+      "metadataPath": "specs/components/data-display/DataGrid.json",
+      "name": "DataGrid",
+      "propertyDefinitions": {
+        "Variant": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "solid",
+            "soft",
+            "outline",
+            "ghost",
+            "link"
+          ]
+        },
+        "Size": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "sm",
+            "md",
+            "lg"
+          ]
+        },
+        "Tone": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "neutral",
+            "primary",
+            "secondary",
+            "success",
+            "warning",
+            "danger"
+          ]
+        },
+        "State": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "rest",
+            "hover",
+            "pressed",
+            "focus-visible",
+            "disabled",
+            "loading",
+            "invalid"
+          ]
+        },
+        "Lifecycle": {
+          "type": "TEXT",
+          "allowedValues": [
+            "trial"
+          ]
+        }
+      },
+      "sourcePath": "packages/components/src/data-display/DataGrid"
+    },
+    {
+      "category": "data-display",
+      "componentSet": "Depo UI/data-display/Kbd",
+      "depoUiKey": "component.data-display.Kbd",
+      "lifecycle": "trial",
+      "metadataPath": "specs/components/data-display/Kbd.json",
+      "name": "Kbd",
+      "propertyDefinitions": {
+        "Variant": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "solid",
+            "soft",
+            "outline",
+            "ghost",
+            "link"
+          ]
+        },
+        "Size": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "sm",
+            "md",
+            "lg"
+          ]
+        },
+        "Tone": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "neutral",
+            "primary",
+            "secondary",
+            "success",
+            "warning",
+            "danger"
+          ]
+        },
+        "State": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "rest",
+            "hover",
+            "pressed",
+            "focus-visible",
+            "disabled",
+            "loading",
+            "invalid"
+          ]
+        },
+        "Lifecycle": {
+          "type": "TEXT",
+          "allowedValues": [
+            "trial"
+          ]
+        }
+      },
+      "sourcePath": "packages/components/src/data-display/Kbd"
+    },
+    {
+      "category": "data-display",
+      "componentSet": "Depo UI/data-display/KeyValue",
+      "depoUiKey": "component.data-display.KeyValue",
+      "lifecycle": "trial",
+      "metadataPath": "specs/components/data-display/KeyValue.json",
+      "name": "KeyValue",
+      "propertyDefinitions": {
+        "Variant": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "solid",
+            "soft",
+            "outline",
+            "ghost",
+            "link"
+          ]
+        },
+        "Size": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "sm",
+            "md",
+            "lg"
+          ]
+        },
+        "Tone": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "neutral",
+            "primary",
+            "secondary",
+            "success",
+            "warning",
+            "danger"
+          ]
+        },
+        "State": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "rest",
+            "hover",
+            "pressed",
+            "focus-visible",
+            "disabled",
+            "loading",
+            "invalid"
+          ]
+        },
+        "Lifecycle": {
+          "type": "TEXT",
+          "allowedValues": [
+            "trial"
+          ]
+        }
+      },
+      "sourcePath": "packages/components/src/data-display/KeyValue"
+    },
+    {
+      "category": "data-display",
+      "componentSet": "Depo UI/data-display/List",
+      "depoUiKey": "component.data-display.List",
+      "lifecycle": "trial",
+      "metadataPath": "specs/components/data-display/List.json",
+      "name": "List",
+      "propertyDefinitions": {
+        "Variant": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "solid",
+            "soft",
+            "outline",
+            "ghost",
+            "link"
+          ]
+        },
+        "Size": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "sm",
+            "md",
+            "lg"
+          ]
+        },
+        "Tone": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "neutral",
+            "primary",
+            "secondary",
+            "success",
+            "warning",
+            "danger"
+          ]
+        },
+        "State": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "rest",
+            "hover",
+            "pressed",
+            "focus-visible",
+            "disabled",
+            "loading",
+            "invalid"
+          ]
+        },
+        "Lifecycle": {
+          "type": "TEXT",
+          "allowedValues": [
+            "trial"
+          ]
+        }
+      },
+      "sourcePath": "packages/components/src/data-display/List"
+    },
+    {
+      "category": "data-display",
+      "componentSet": "Depo UI/data-display/Stat",
+      "depoUiKey": "component.data-display.Stat",
+      "lifecycle": "trial",
+      "metadataPath": "specs/components/data-display/Stat.json",
+      "name": "Stat",
+      "propertyDefinitions": {
+        "Variant": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "solid",
+            "soft",
+            "outline",
+            "ghost",
+            "link"
+          ]
+        },
+        "Size": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "sm",
+            "md",
+            "lg"
+          ]
+        },
+        "Tone": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "neutral",
+            "primary",
+            "secondary",
+            "success",
+            "warning",
+            "danger"
+          ]
+        },
+        "State": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "rest",
+            "hover",
+            "pressed",
+            "focus-visible",
+            "disabled",
+            "loading",
+            "invalid"
+          ]
+        },
+        "Lifecycle": {
+          "type": "TEXT",
+          "allowedValues": [
+            "trial"
+          ]
+        }
+      },
+      "sourcePath": "packages/components/src/data-display/Stat"
+    },
+    {
+      "category": "data-display",
+      "componentSet": "Depo UI/data-display/Table",
+      "depoUiKey": "component.data-display.Table",
+      "lifecycle": "trial",
+      "metadataPath": "specs/components/data-display/Table.json",
+      "name": "Table",
+      "propertyDefinitions": {
+        "Variant": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "solid",
+            "soft",
+            "outline",
+            "ghost",
+            "link"
+          ]
+        },
+        "Size": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "sm",
+            "md",
+            "lg"
+          ]
+        },
+        "Tone": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "neutral",
+            "primary",
+            "secondary",
+            "success",
+            "warning",
+            "danger"
+          ]
+        },
+        "State": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "rest",
+            "hover",
+            "pressed",
+            "focus-visible",
+            "disabled",
+            "loading",
+            "invalid"
+          ]
+        },
+        "Lifecycle": {
+          "type": "TEXT",
+          "allowedValues": [
+            "trial"
+          ]
+        }
+      },
+      "sourcePath": "packages/components/src/data-display/Table"
+    },
+    {
+      "category": "data-display",
+      "componentSet": "Depo UI/data-display/Tag",
+      "depoUiKey": "component.data-display.Tag",
+      "lifecycle": "trial",
+      "metadataPath": "specs/components/data-display/Tag.json",
+      "name": "Tag",
+      "propertyDefinitions": {
+        "Variant": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "solid",
+            "soft",
+            "outline",
+            "ghost",
+            "link"
+          ]
+        },
+        "Size": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "sm",
+            "md",
+            "lg"
+          ]
+        },
+        "Tone": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "neutral",
+            "primary",
+            "secondary",
+            "success",
+            "warning",
+            "danger"
+          ]
+        },
+        "State": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "rest",
+            "hover",
+            "pressed",
+            "focus-visible",
+            "disabled",
+            "loading",
+            "invalid"
+          ]
+        },
+        "Lifecycle": {
+          "type": "TEXT",
+          "allowedValues": [
+            "trial"
+          ]
+        }
+      },
+      "sourcePath": "packages/components/src/data-display/Tag"
+    },
+    {
+      "category": "data-display",
+      "componentSet": "Depo UI/data-display/Tree",
+      "depoUiKey": "component.data-display.Tree",
+      "lifecycle": "trial",
+      "metadataPath": "specs/components/data-display/Tree.json",
+      "name": "Tree",
+      "propertyDefinitions": {
+        "Variant": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "solid",
+            "soft",
+            "outline",
+            "ghost",
+            "link"
+          ]
+        },
+        "Size": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "sm",
+            "md",
+            "lg"
+          ]
+        },
+        "Tone": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "neutral",
+            "primary",
+            "secondary",
+            "success",
+            "warning",
+            "danger"
+          ]
+        },
+        "State": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "rest",
+            "hover",
+            "pressed",
+            "focus-visible",
+            "disabled",
+            "loading",
+            "invalid"
+          ]
+        },
+        "Lifecycle": {
+          "type": "TEXT",
+          "allowedValues": [
+            "trial"
+          ]
+        }
+      },
+      "sourcePath": "packages/components/src/data-display/Tree"
+    },
+    {
+      "category": "disclosure",
+      "componentSet": "Depo UI/disclosure/Accordion",
+      "depoUiKey": "component.disclosure.Accordion",
+      "lifecycle": "trial",
+      "metadataPath": "specs/components/disclosure/Accordion.json",
+      "name": "Accordion",
+      "propertyDefinitions": {
+        "Variant": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "solid",
+            "soft",
+            "outline",
+            "ghost",
+            "link"
+          ]
+        },
+        "Size": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "sm",
+            "md",
+            "lg"
+          ]
+        },
+        "Tone": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "neutral",
+            "primary",
+            "secondary",
+            "success",
+            "warning",
+            "danger"
+          ]
+        },
+        "State": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "rest",
+            "hover",
+            "pressed",
+            "focus-visible",
+            "disabled",
+            "loading",
+            "invalid"
+          ]
+        },
+        "Lifecycle": {
+          "type": "TEXT",
+          "allowedValues": [
+            "trial"
+          ]
+        }
+      },
+      "sourcePath": "packages/components/src/disclosure/Accordion"
+    },
+    {
+      "category": "disclosure",
+      "componentSet": "Depo UI/disclosure/Disclosure",
+      "depoUiKey": "component.disclosure.Disclosure",
+      "lifecycle": "trial",
+      "metadataPath": "specs/components/disclosure/Disclosure.json",
+      "name": "Disclosure",
+      "propertyDefinitions": {
+        "Variant": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "solid",
+            "soft",
+            "outline",
+            "ghost",
+            "link"
+          ]
+        },
+        "Size": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "sm",
+            "md",
+            "lg"
+          ]
+        },
+        "Tone": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "neutral",
+            "primary",
+            "secondary",
+            "success",
+            "warning",
+            "danger"
+          ]
+        },
+        "State": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "rest",
+            "hover",
+            "pressed",
+            "focus-visible",
+            "disabled",
+            "loading",
+            "invalid"
+          ]
+        },
+        "Lifecycle": {
+          "type": "TEXT",
+          "allowedValues": [
+            "trial"
+          ]
+        }
+      },
+      "sourcePath": "packages/components/src/disclosure/Disclosure"
+    },
+    {
+      "category": "feedback",
+      "componentSet": "Depo UI/feedback/Banner",
+      "depoUiKey": "component.feedback.Banner",
+      "lifecycle": "trial",
+      "metadataPath": "specs/components/feedback/Banner.json",
+      "name": "Banner",
+      "propertyDefinitions": {
+        "Variant": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "solid",
+            "soft",
+            "outline",
+            "ghost",
+            "link"
+          ]
+        },
+        "Size": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "sm",
+            "md",
+            "lg"
+          ]
+        },
+        "Tone": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "neutral",
+            "primary",
+            "secondary",
+            "success",
+            "warning",
+            "danger"
+          ]
+        },
+        "State": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "rest",
+            "hover",
+            "pressed",
+            "focus-visible",
+            "disabled",
+            "loading",
+            "invalid"
+          ]
+        },
+        "Lifecycle": {
+          "type": "TEXT",
+          "allowedValues": [
+            "trial"
+          ]
+        }
+      },
+      "sourcePath": "packages/components/src/feedback/Banner"
+    },
+    {
+      "category": "feedback",
+      "componentSet": "Depo UI/feedback/EmptyState",
+      "depoUiKey": "component.feedback.EmptyState",
+      "lifecycle": "trial",
+      "metadataPath": "specs/components/feedback/EmptyState.json",
+      "name": "EmptyState",
+      "propertyDefinitions": {
+        "Variant": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "solid",
+            "soft",
+            "outline",
+            "ghost",
+            "link"
+          ]
+        },
+        "Size": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "sm",
+            "md",
+            "lg"
+          ]
+        },
+        "Tone": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "neutral",
+            "primary",
+            "secondary",
+            "success",
+            "warning",
+            "danger"
+          ]
+        },
+        "State": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "rest",
+            "hover",
+            "pressed",
+            "focus-visible",
+            "disabled",
+            "loading",
+            "invalid"
+          ]
+        },
+        "Lifecycle": {
+          "type": "TEXT",
+          "allowedValues": [
+            "trial"
+          ]
+        }
+      },
+      "sourcePath": "packages/components/src/feedback/EmptyState"
+    },
+    {
+      "category": "feedback",
+      "componentSet": "Depo UI/feedback/ErrorState",
+      "depoUiKey": "component.feedback.ErrorState",
+      "lifecycle": "trial",
+      "metadataPath": "specs/components/feedback/ErrorState.json",
+      "name": "ErrorState",
+      "propertyDefinitions": {
+        "Variant": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "solid",
+            "soft",
+            "outline",
+            "ghost",
+            "link"
+          ]
+        },
+        "Size": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "sm",
+            "md",
+            "lg"
+          ]
+        },
+        "Tone": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "neutral",
+            "primary",
+            "secondary",
+            "success",
+            "warning",
+            "danger"
+          ]
+        },
+        "State": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "rest",
+            "hover",
+            "pressed",
+            "focus-visible",
+            "disabled",
+            "loading",
+            "invalid"
+          ]
+        },
+        "Lifecycle": {
+          "type": "TEXT",
+          "allowedValues": [
+            "trial"
+          ]
+        }
+      },
+      "sourcePath": "packages/components/src/feedback/ErrorState"
+    },
+    {
+      "category": "feedback",
+      "componentSet": "Depo UI/feedback/InlineMessage",
+      "depoUiKey": "component.feedback.InlineMessage",
+      "lifecycle": "trial",
+      "metadataPath": "specs/components/feedback/InlineMessage.json",
+      "name": "InlineMessage",
+      "propertyDefinitions": {
+        "Variant": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "solid",
+            "soft",
+            "outline",
+            "ghost",
+            "link"
+          ]
+        },
+        "Size": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "sm",
+            "md",
+            "lg"
+          ]
+        },
+        "Tone": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "neutral",
+            "primary",
+            "secondary",
+            "success",
+            "warning",
+            "danger"
+          ]
+        },
+        "State": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "rest",
+            "hover",
+            "pressed",
+            "focus-visible",
+            "disabled",
+            "loading",
+            "invalid"
+          ]
+        },
+        "Lifecycle": {
+          "type": "TEXT",
+          "allowedValues": [
+            "trial"
+          ]
+        }
+      },
+      "sourcePath": "packages/components/src/feedback/InlineMessage"
+    },
+    {
+      "category": "feedback",
+      "componentSet": "Depo UI/feedback/ProgressBar",
+      "depoUiKey": "component.feedback.ProgressBar",
+      "lifecycle": "trial",
+      "metadataPath": "specs/components/feedback/ProgressBar.json",
+      "name": "ProgressBar",
+      "propertyDefinitions": {
+        "Variant": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "solid",
+            "soft",
+            "outline",
+            "ghost",
+            "link"
+          ]
+        },
+        "Size": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "sm",
+            "md",
+            "lg"
+          ]
+        },
+        "Tone": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "neutral",
+            "primary",
+            "secondary",
+            "success",
+            "warning",
+            "danger"
+          ]
+        },
+        "State": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "rest",
+            "hover",
+            "pressed",
+            "focus-visible",
+            "disabled",
+            "loading",
+            "invalid"
+          ]
+        },
+        "Lifecycle": {
+          "type": "TEXT",
+          "allowedValues": [
+            "trial"
+          ]
+        }
+      },
+      "sourcePath": "packages/components/src/feedback/ProgressBar"
+    },
+    {
+      "category": "feedback",
+      "componentSet": "Depo UI/feedback/Skeleton",
+      "depoUiKey": "component.feedback.Skeleton",
+      "lifecycle": "trial",
+      "metadataPath": "specs/components/feedback/Skeleton.json",
+      "name": "Skeleton",
+      "propertyDefinitions": {
+        "Variant": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "solid",
+            "soft",
+            "outline",
+            "ghost",
+            "link"
+          ]
+        },
+        "Size": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "sm",
+            "md",
+            "lg"
+          ]
+        },
+        "Tone": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "neutral",
+            "primary",
+            "secondary",
+            "success",
+            "warning",
+            "danger"
+          ]
+        },
+        "State": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "rest",
+            "hover",
+            "pressed",
+            "focus-visible",
+            "disabled",
+            "loading",
+            "invalid"
+          ]
+        },
+        "Lifecycle": {
+          "type": "TEXT",
+          "allowedValues": [
+            "trial"
+          ]
+        }
+      },
+      "sourcePath": "packages/components/src/feedback/Skeleton"
+    },
+    {
+      "category": "feedback",
+      "componentSet": "Depo UI/feedback/Spinner",
+      "depoUiKey": "component.feedback.Spinner",
+      "lifecycle": "trial",
+      "metadataPath": "specs/components/feedback/Spinner.json",
+      "name": "Spinner",
+      "propertyDefinitions": {
+        "Variant": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "solid",
+            "soft",
+            "outline",
+            "ghost",
+            "link"
+          ]
+        },
+        "Size": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "sm",
+            "md",
+            "lg"
+          ]
+        },
+        "Tone": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "neutral",
+            "primary",
+            "secondary",
+            "success",
+            "warning",
+            "danger"
+          ]
+        },
+        "State": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "rest",
+            "hover",
+            "pressed",
+            "focus-visible",
+            "disabled",
+            "loading",
+            "invalid"
+          ]
+        },
+        "Lifecycle": {
+          "type": "TEXT",
+          "allowedValues": [
+            "trial"
+          ]
+        }
+      },
+      "sourcePath": "packages/components/src/feedback/Spinner"
+    },
+    {
+      "category": "feedback",
+      "componentSet": "Depo UI/feedback/Toast",
+      "depoUiKey": "component.feedback.Toast",
+      "lifecycle": "trial",
+      "metadataPath": "specs/components/feedback/Toast.json",
+      "name": "Toast",
+      "propertyDefinitions": {
+        "Variant": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "solid",
+            "soft",
+            "outline",
+            "ghost",
+            "link"
+          ]
+        },
+        "Size": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "sm",
+            "md",
+            "lg"
+          ]
+        },
+        "Tone": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "neutral",
+            "primary",
+            "secondary",
+            "success",
+            "warning",
+            "danger"
+          ]
+        },
+        "State": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "rest",
+            "hover",
+            "pressed",
+            "focus-visible",
+            "disabled",
+            "loading",
+            "invalid"
+          ]
+        },
+        "Lifecycle": {
+          "type": "TEXT",
+          "allowedValues": [
+            "trial"
+          ]
+        }
+      },
+      "sourcePath": "packages/components/src/feedback/Toast"
+    },
+    {
+      "category": "forms",
+      "componentSet": "Depo UI/forms/Checkbox",
+      "depoUiKey": "component.forms.Checkbox",
+      "lifecycle": "trial",
+      "metadataPath": "specs/components/forms/Checkbox.json",
+      "name": "Checkbox",
+      "propertyDefinitions": {
+        "Variant": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "solid",
+            "soft",
+            "outline",
+            "ghost",
+            "link"
+          ]
+        },
+        "Size": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "sm",
+            "md",
+            "lg"
+          ]
+        },
+        "Tone": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "neutral",
+            "primary",
+            "secondary",
+            "success",
+            "warning",
+            "danger"
+          ]
+        },
+        "State": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "rest",
+            "hover",
+            "pressed",
+            "focus-visible",
+            "disabled",
+            "loading",
+            "invalid"
+          ]
+        },
+        "Lifecycle": {
+          "type": "TEXT",
+          "allowedValues": [
+            "trial"
+          ]
+        }
+      },
+      "sourcePath": "packages/components/src/forms/Checkbox"
+    },
+    {
+      "category": "forms",
+      "componentSet": "Depo UI/forms/CheckboxGroup",
+      "depoUiKey": "component.forms.CheckboxGroup",
+      "lifecycle": "trial",
+      "metadataPath": "specs/components/forms/CheckboxGroup.json",
+      "name": "CheckboxGroup",
+      "propertyDefinitions": {
+        "Variant": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "solid",
+            "soft",
+            "outline",
+            "ghost",
+            "link"
+          ]
+        },
+        "Size": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "sm",
+            "md",
+            "lg"
+          ]
+        },
+        "Tone": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "neutral",
+            "primary",
+            "secondary",
+            "success",
+            "warning",
+            "danger"
+          ]
+        },
+        "State": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "rest",
+            "hover",
+            "pressed",
+            "focus-visible",
+            "disabled",
+            "loading",
+            "invalid"
+          ]
+        },
+        "Lifecycle": {
+          "type": "TEXT",
+          "allowedValues": [
+            "trial"
+          ]
+        }
+      },
+      "sourcePath": "packages/components/src/forms/CheckboxGroup"
+    },
+    {
+      "category": "forms",
+      "componentSet": "Depo UI/forms/Combobox",
+      "depoUiKey": "component.forms.Combobox",
+      "lifecycle": "trial",
+      "metadataPath": "specs/components/forms/Combobox.json",
+      "name": "Combobox",
+      "propertyDefinitions": {
+        "Variant": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "solid",
+            "soft",
+            "outline",
+            "ghost",
+            "link"
+          ]
+        },
+        "Size": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "sm",
+            "md",
+            "lg"
+          ]
+        },
+        "Tone": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "neutral",
+            "primary",
+            "secondary",
+            "success",
+            "warning",
+            "danger"
+          ]
+        },
+        "State": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "rest",
+            "hover",
+            "pressed",
+            "focus-visible",
+            "disabled",
+            "loading",
+            "invalid"
+          ]
+        },
+        "Lifecycle": {
+          "type": "TEXT",
+          "allowedValues": [
+            "trial"
+          ]
+        }
+      },
+      "sourcePath": "packages/components/src/forms/Combobox"
+    },
+    {
+      "category": "forms",
+      "componentSet": "Depo UI/forms/DateInput",
+      "depoUiKey": "component.forms.DateInput",
+      "lifecycle": "trial",
+      "metadataPath": "specs/components/forms/DateInput.json",
+      "name": "DateInput",
+      "propertyDefinitions": {
+        "Variant": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "solid",
+            "soft",
+            "outline",
+            "ghost",
+            "link"
+          ]
+        },
+        "Size": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "sm",
+            "md",
+            "lg"
+          ]
+        },
+        "Tone": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "neutral",
+            "primary",
+            "secondary",
+            "success",
+            "warning",
+            "danger"
+          ]
+        },
+        "State": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "rest",
+            "hover",
+            "pressed",
+            "focus-visible",
+            "disabled",
+            "loading",
+            "invalid"
+          ]
+        },
+        "Lifecycle": {
+          "type": "TEXT",
+          "allowedValues": [
+            "trial"
+          ]
+        }
+      },
+      "sourcePath": "packages/components/src/forms/DateInput"
+    },
+    {
+      "category": "forms",
+      "componentSet": "Depo UI/forms/DatePicker",
+      "depoUiKey": "component.forms.DatePicker",
+      "lifecycle": "trial",
+      "metadataPath": "specs/components/forms/DatePicker.json",
+      "name": "DatePicker",
+      "propertyDefinitions": {
+        "Variant": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "solid",
+            "soft",
+            "outline",
+            "ghost",
+            "link"
+          ]
+        },
+        "Size": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "sm",
+            "md",
+            "lg"
+          ]
+        },
+        "Tone": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "neutral",
+            "primary",
+            "secondary",
+            "success",
+            "warning",
+            "danger"
+          ]
+        },
+        "State": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "rest",
+            "hover",
+            "pressed",
+            "focus-visible",
+            "disabled",
+            "loading",
+            "invalid"
+          ]
+        },
+        "Lifecycle": {
+          "type": "TEXT",
+          "allowedValues": [
+            "trial"
+          ]
+        }
+      },
+      "sourcePath": "packages/components/src/forms/DatePicker"
+    },
+    {
+      "category": "forms",
+      "componentSet": "Depo UI/forms/Field",
+      "depoUiKey": "component.forms.Field",
+      "lifecycle": "trial",
+      "metadataPath": "specs/components/forms/Field.json",
+      "name": "Field",
+      "propertyDefinitions": {
+        "Variant": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "solid",
+            "soft",
+            "outline",
+            "ghost",
+            "link"
+          ]
+        },
+        "Size": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "sm",
+            "md",
+            "lg"
+          ]
+        },
+        "Tone": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "neutral",
+            "primary",
+            "secondary",
+            "success",
+            "warning",
+            "danger"
+          ]
+        },
+        "State": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "rest",
+            "hover",
+            "pressed",
+            "focus-visible",
+            "disabled",
+            "loading",
+            "invalid"
+          ]
+        },
+        "Lifecycle": {
+          "type": "TEXT",
+          "allowedValues": [
+            "trial"
+          ]
+        }
+      },
+      "sourcePath": "packages/components/src/forms/Field"
+    },
+    {
+      "category": "forms",
+      "componentSet": "Depo UI/forms/FileUpload",
+      "depoUiKey": "component.forms.FileUpload",
+      "lifecycle": "trial",
+      "metadataPath": "specs/components/forms/FileUpload.json",
+      "name": "FileUpload",
+      "propertyDefinitions": {
+        "Variant": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "solid",
+            "soft",
+            "outline",
+            "ghost",
+            "link"
+          ]
+        },
+        "Size": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "sm",
+            "md",
+            "lg"
+          ]
+        },
+        "Tone": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "neutral",
+            "primary",
+            "secondary",
+            "success",
+            "warning",
+            "danger"
+          ]
+        },
+        "State": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "rest",
+            "hover",
+            "pressed",
+            "focus-visible",
+            "disabled",
+            "loading",
+            "invalid"
+          ]
+        },
+        "Lifecycle": {
+          "type": "TEXT",
+          "allowedValues": [
+            "trial"
+          ]
+        }
+      },
+      "sourcePath": "packages/components/src/forms/FileUpload"
+    },
+    {
+      "category": "forms",
+      "componentSet": "Depo UI/forms/NumberInput",
+      "depoUiKey": "component.forms.NumberInput",
+      "lifecycle": "trial",
+      "metadataPath": "specs/components/forms/NumberInput.json",
+      "name": "NumberInput",
+      "propertyDefinitions": {
+        "Variant": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "solid",
+            "soft",
+            "outline",
+            "ghost",
+            "link"
+          ]
+        },
+        "Size": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "sm",
+            "md",
+            "lg"
+          ]
+        },
+        "Tone": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "neutral",
+            "primary",
+            "secondary",
+            "success",
+            "warning",
+            "danger"
+          ]
+        },
+        "State": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "rest",
+            "hover",
+            "pressed",
+            "focus-visible",
+            "disabled",
+            "loading",
+            "invalid"
+          ]
+        },
+        "Lifecycle": {
+          "type": "TEXT",
+          "allowedValues": [
+            "trial"
+          ]
+        }
+      },
+      "sourcePath": "packages/components/src/forms/NumberInput"
+    },
+    {
+      "category": "forms",
+      "componentSet": "Depo UI/forms/Radio",
+      "depoUiKey": "component.forms.Radio",
+      "lifecycle": "trial",
+      "metadataPath": "specs/components/forms/Radio.json",
+      "name": "Radio",
+      "propertyDefinitions": {
+        "Variant": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "solid",
+            "soft",
+            "outline",
+            "ghost",
+            "link"
+          ]
+        },
+        "Size": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "sm",
+            "md",
+            "lg"
+          ]
+        },
+        "Tone": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "neutral",
+            "primary",
+            "secondary",
+            "success",
+            "warning",
+            "danger"
+          ]
+        },
+        "State": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "rest",
+            "hover",
+            "pressed",
+            "focus-visible",
+            "disabled",
+            "loading",
+            "invalid"
+          ]
+        },
+        "Lifecycle": {
+          "type": "TEXT",
+          "allowedValues": [
+            "trial"
+          ]
+        }
+      },
+      "sourcePath": "packages/components/src/forms/Radio"
+    },
+    {
+      "category": "forms",
+      "componentSet": "Depo UI/forms/RadioGroup",
+      "depoUiKey": "component.forms.RadioGroup",
+      "lifecycle": "trial",
+      "metadataPath": "specs/components/forms/RadioGroup.json",
+      "name": "RadioGroup",
+      "propertyDefinitions": {
+        "Variant": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "solid",
+            "soft",
+            "outline",
+            "ghost",
+            "link"
+          ]
+        },
+        "Size": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "sm",
+            "md",
+            "lg"
+          ]
+        },
+        "Tone": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "neutral",
+            "primary",
+            "secondary",
+            "success",
+            "warning",
+            "danger"
+          ]
+        },
+        "State": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "rest",
+            "hover",
+            "pressed",
+            "focus-visible",
+            "disabled",
+            "loading",
+            "invalid"
+          ]
+        },
+        "Lifecycle": {
+          "type": "TEXT",
+          "allowedValues": [
+            "trial"
+          ]
+        }
+      },
+      "sourcePath": "packages/components/src/forms/RadioGroup"
+    },
+    {
+      "category": "forms",
+      "componentSet": "Depo UI/forms/SearchField",
+      "depoUiKey": "component.forms.SearchField",
+      "lifecycle": "trial",
+      "metadataPath": "specs/components/forms/SearchField.json",
+      "name": "SearchField",
+      "propertyDefinitions": {
+        "Variant": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "solid",
+            "soft",
+            "outline",
+            "ghost",
+            "link"
+          ]
+        },
+        "Size": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "sm",
+            "md",
+            "lg"
+          ]
+        },
+        "Tone": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "neutral",
+            "primary",
+            "secondary",
+            "success",
+            "warning",
+            "danger"
+          ]
+        },
+        "State": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "rest",
+            "hover",
+            "pressed",
+            "focus-visible",
+            "disabled",
+            "loading",
+            "invalid"
+          ]
+        },
+        "Lifecycle": {
+          "type": "TEXT",
+          "allowedValues": [
+            "trial"
+          ]
+        }
+      },
+      "sourcePath": "packages/components/src/forms/SearchField"
+    },
+    {
+      "category": "forms",
+      "componentSet": "Depo UI/forms/Select",
+      "depoUiKey": "component.forms.Select",
+      "lifecycle": "trial",
+      "metadataPath": "specs/components/forms/Select.json",
+      "name": "Select",
+      "propertyDefinitions": {
+        "Variant": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "solid",
+            "soft",
+            "outline",
+            "ghost",
+            "link"
+          ]
+        },
+        "Size": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "sm",
+            "md",
+            "lg"
+          ]
+        },
+        "Tone": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "neutral",
+            "primary",
+            "secondary",
+            "success",
+            "warning",
+            "danger"
+          ]
+        },
+        "State": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "rest",
+            "hover",
+            "pressed",
+            "focus-visible",
+            "disabled",
+            "loading",
+            "invalid"
+          ]
+        },
+        "Lifecycle": {
+          "type": "TEXT",
+          "allowedValues": [
+            "trial"
+          ]
+        }
+      },
+      "sourcePath": "packages/components/src/forms/Select"
+    },
+    {
+      "category": "forms",
+      "componentSet": "Depo UI/forms/Slider",
+      "depoUiKey": "component.forms.Slider",
+      "lifecycle": "trial",
+      "metadataPath": "specs/components/forms/Slider.json",
+      "name": "Slider",
+      "propertyDefinitions": {
+        "Variant": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "solid",
+            "soft",
+            "outline",
+            "ghost",
+            "link"
+          ]
+        },
+        "Size": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "sm",
+            "md",
+            "lg"
+          ]
+        },
+        "Tone": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "neutral",
+            "primary",
+            "secondary",
+            "success",
+            "warning",
+            "danger"
+          ]
+        },
+        "State": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "rest",
+            "hover",
+            "pressed",
+            "focus-visible",
+            "disabled",
+            "loading",
+            "invalid"
+          ]
+        },
+        "Lifecycle": {
+          "type": "TEXT",
+          "allowedValues": [
+            "trial"
+          ]
+        }
+      },
+      "sourcePath": "packages/components/src/forms/Slider"
+    },
+    {
+      "category": "forms",
+      "componentSet": "Depo UI/forms/Switch",
+      "depoUiKey": "component.forms.Switch",
+      "lifecycle": "trial",
+      "metadataPath": "specs/components/forms/Switch.json",
+      "name": "Switch",
+      "propertyDefinitions": {
+        "Variant": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "solid",
+            "soft",
+            "outline",
+            "ghost",
+            "link"
+          ]
+        },
+        "Size": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "sm",
+            "md",
+            "lg"
+          ]
+        },
+        "Tone": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "neutral",
+            "primary",
+            "secondary",
+            "success",
+            "warning",
+            "danger"
+          ]
+        },
+        "State": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "rest",
+            "hover",
+            "pressed",
+            "focus-visible",
+            "disabled",
+            "loading",
+            "invalid"
+          ]
+        },
+        "Lifecycle": {
+          "type": "TEXT",
+          "allowedValues": [
+            "trial"
+          ]
+        }
+      },
+      "sourcePath": "packages/components/src/forms/Switch"
+    },
+    {
+      "category": "forms",
+      "componentSet": "Depo UI/forms/TextInput",
+      "depoUiKey": "component.forms.TextInput",
+      "lifecycle": "trial",
+      "metadataPath": "specs/components/forms/TextInput.json",
+      "name": "TextInput",
+      "propertyDefinitions": {
+        "Variant": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "solid",
+            "soft",
+            "outline",
+            "ghost",
+            "link"
+          ]
+        },
+        "Size": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "sm",
+            "md",
+            "lg"
+          ]
+        },
+        "Tone": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "neutral",
+            "primary",
+            "secondary",
+            "success",
+            "warning",
+            "danger"
+          ]
+        },
+        "State": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "rest",
+            "hover",
+            "pressed",
+            "focus-visible",
+            "disabled",
+            "loading",
+            "invalid"
+          ]
+        },
+        "Lifecycle": {
+          "type": "TEXT",
+          "allowedValues": [
+            "trial"
+          ]
+        }
+      },
+      "sourcePath": "packages/components/src/forms/TextInput"
+    },
+    {
+      "category": "forms",
+      "componentSet": "Depo UI/forms/Textarea",
+      "depoUiKey": "component.forms.Textarea",
+      "lifecycle": "trial",
+      "metadataPath": "specs/components/forms/Textarea.json",
+      "name": "Textarea",
+      "propertyDefinitions": {
+        "Variant": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "solid",
+            "soft",
+            "outline",
+            "ghost",
+            "link"
+          ]
+        },
+        "Size": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "sm",
+            "md",
+            "lg"
+          ]
+        },
+        "Tone": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "neutral",
+            "primary",
+            "secondary",
+            "success",
+            "warning",
+            "danger"
+          ]
+        },
+        "State": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "rest",
+            "hover",
+            "pressed",
+            "focus-visible",
+            "disabled",
+            "loading",
+            "invalid"
+          ]
+        },
+        "Lifecycle": {
+          "type": "TEXT",
+          "allowedValues": [
+            "trial"
+          ]
+        }
+      },
+      "sourcePath": "packages/components/src/forms/Textarea"
+    },
+    {
+      "category": "navigation",
+      "componentSet": "Depo UI/navigation/Breadcrumbs",
+      "depoUiKey": "component.navigation.Breadcrumbs",
+      "lifecycle": "trial",
+      "metadataPath": "specs/components/navigation/Breadcrumbs.json",
+      "name": "Breadcrumbs",
+      "propertyDefinitions": {
+        "Variant": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "solid",
+            "soft",
+            "outline",
+            "ghost",
+            "link"
+          ]
+        },
+        "Size": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "sm",
+            "md",
+            "lg"
+          ]
+        },
+        "Tone": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "neutral",
+            "primary",
+            "secondary",
+            "success",
+            "warning",
+            "danger"
+          ]
+        },
+        "State": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "rest",
+            "hover",
+            "pressed",
+            "focus-visible",
+            "disabled",
+            "loading",
+            "invalid"
+          ]
+        },
+        "Lifecycle": {
+          "type": "TEXT",
+          "allowedValues": [
+            "trial"
+          ]
+        }
+      },
+      "sourcePath": "packages/components/src/navigation/Breadcrumbs"
+    },
+    {
+      "category": "navigation",
+      "componentSet": "Depo UI/navigation/CommandPalette",
+      "depoUiKey": "component.navigation.CommandPalette",
+      "lifecycle": "trial",
+      "metadataPath": "specs/components/navigation/CommandPalette.json",
+      "name": "CommandPalette",
+      "propertyDefinitions": {
+        "Variant": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "solid",
+            "soft",
+            "outline",
+            "ghost",
+            "link"
+          ]
+        },
+        "Size": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "sm",
+            "md",
+            "lg"
+          ]
+        },
+        "Tone": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "neutral",
+            "primary",
+            "secondary",
+            "success",
+            "warning",
+            "danger"
+          ]
+        },
+        "State": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "rest",
+            "hover",
+            "pressed",
+            "focus-visible",
+            "disabled",
+            "loading",
+            "invalid"
+          ]
+        },
+        "Lifecycle": {
+          "type": "TEXT",
+          "allowedValues": [
+            "trial"
+          ]
+        }
+      },
+      "sourcePath": "packages/components/src/navigation/CommandPalette"
+    },
+    {
+      "category": "navigation",
+      "componentSet": "Depo UI/navigation/Menu",
+      "depoUiKey": "component.navigation.Menu",
+      "lifecycle": "trial",
+      "metadataPath": "specs/components/navigation/Menu.json",
+      "name": "Menu",
+      "propertyDefinitions": {
+        "Variant": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "solid",
+            "soft",
+            "outline",
+            "ghost",
+            "link"
+          ]
+        },
+        "Size": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "sm",
+            "md",
+            "lg"
+          ]
+        },
+        "Tone": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "neutral",
+            "primary",
+            "secondary",
+            "success",
+            "warning",
+            "danger"
+          ]
+        },
+        "State": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "rest",
+            "hover",
+            "pressed",
+            "focus-visible",
+            "disabled",
+            "loading",
+            "invalid"
+          ]
+        },
+        "Lifecycle": {
+          "type": "TEXT",
+          "allowedValues": [
+            "trial"
+          ]
+        }
+      },
+      "sourcePath": "packages/components/src/navigation/Menu"
+    },
+    {
+      "category": "navigation",
+      "componentSet": "Depo UI/navigation/MenuButton",
+      "depoUiKey": "component.navigation.MenuButton",
+      "lifecycle": "trial",
+      "metadataPath": "specs/components/navigation/MenuButton.json",
+      "name": "MenuButton",
+      "propertyDefinitions": {
+        "Variant": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "solid",
+            "soft",
+            "outline",
+            "ghost",
+            "link"
+          ]
+        },
+        "Size": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "sm",
+            "md",
+            "lg"
+          ]
+        },
+        "Tone": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "neutral",
+            "primary",
+            "secondary",
+            "success",
+            "warning",
+            "danger"
+          ]
+        },
+        "State": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "rest",
+            "hover",
+            "pressed",
+            "focus-visible",
+            "disabled",
+            "loading",
+            "invalid"
+          ]
+        },
+        "Lifecycle": {
+          "type": "TEXT",
+          "allowedValues": [
+            "trial"
+          ]
+        }
+      },
+      "sourcePath": "packages/components/src/navigation/MenuButton"
+    },
+    {
+      "category": "navigation",
+      "componentSet": "Depo UI/navigation/Pagination",
+      "depoUiKey": "component.navigation.Pagination",
+      "lifecycle": "trial",
+      "metadataPath": "specs/components/navigation/Pagination.json",
+      "name": "Pagination",
+      "propertyDefinitions": {
+        "Variant": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "solid",
+            "soft",
+            "outline",
+            "ghost",
+            "link"
+          ]
+        },
+        "Size": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "sm",
+            "md",
+            "lg"
+          ]
+        },
+        "Tone": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "neutral",
+            "primary",
+            "secondary",
+            "success",
+            "warning",
+            "danger"
+          ]
+        },
+        "State": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "rest",
+            "hover",
+            "pressed",
+            "focus-visible",
+            "disabled",
+            "loading",
+            "invalid"
+          ]
+        },
+        "Lifecycle": {
+          "type": "TEXT",
+          "allowedValues": [
+            "trial"
+          ]
+        }
+      },
+      "sourcePath": "packages/components/src/navigation/Pagination"
+    },
+    {
+      "category": "navigation",
+      "componentSet": "Depo UI/navigation/SideNav",
+      "depoUiKey": "component.navigation.SideNav",
+      "lifecycle": "trial",
+      "metadataPath": "specs/components/navigation/SideNav.json",
+      "name": "SideNav",
+      "propertyDefinitions": {
+        "Variant": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "solid",
+            "soft",
+            "outline",
+            "ghost",
+            "link"
+          ]
+        },
+        "Size": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "sm",
+            "md",
+            "lg"
+          ]
+        },
+        "Tone": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "neutral",
+            "primary",
+            "secondary",
+            "success",
+            "warning",
+            "danger"
+          ]
+        },
+        "State": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "rest",
+            "hover",
+            "pressed",
+            "focus-visible",
+            "disabled",
+            "loading",
+            "invalid"
+          ]
+        },
+        "Lifecycle": {
+          "type": "TEXT",
+          "allowedValues": [
+            "trial"
+          ]
+        }
+      },
+      "sourcePath": "packages/components/src/navigation/SideNav"
+    },
+    {
+      "category": "navigation",
+      "componentSet": "Depo UI/navigation/TopNav",
+      "depoUiKey": "component.navigation.TopNav",
+      "lifecycle": "trial",
+      "metadataPath": "specs/components/navigation/TopNav.json",
+      "name": "TopNav",
+      "propertyDefinitions": {
+        "Variant": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "solid",
+            "soft",
+            "outline",
+            "ghost",
+            "link"
+          ]
+        },
+        "Size": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "sm",
+            "md",
+            "lg"
+          ]
+        },
+        "Tone": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "neutral",
+            "primary",
+            "secondary",
+            "success",
+            "warning",
+            "danger"
+          ]
+        },
+        "State": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "rest",
+            "hover",
+            "pressed",
+            "focus-visible",
+            "disabled",
+            "loading",
+            "invalid"
+          ]
+        },
+        "Lifecycle": {
+          "type": "TEXT",
+          "allowedValues": [
+            "trial"
+          ]
+        }
+      },
+      "sourcePath": "packages/components/src/navigation/TopNav"
+    },
+    {
+      "category": "overlays",
+      "componentSet": "Depo UI/overlays/Dialog",
+      "depoUiKey": "component.overlays.Dialog",
+      "lifecycle": "trial",
+      "metadataPath": "specs/components/overlays/Dialog.json",
+      "name": "Dialog",
+      "propertyDefinitions": {
+        "Variant": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "solid",
+            "soft",
+            "outline",
+            "ghost",
+            "link"
+          ]
+        },
+        "Size": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "sm",
+            "md",
+            "lg"
+          ]
+        },
+        "Tone": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "neutral",
+            "primary",
+            "secondary",
+            "success",
+            "warning",
+            "danger"
+          ]
+        },
+        "State": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "rest",
+            "hover",
+            "pressed",
+            "focus-visible",
+            "disabled",
+            "loading",
+            "invalid"
+          ]
+        },
+        "Lifecycle": {
+          "type": "TEXT",
+          "allowedValues": [
+            "trial"
+          ]
+        }
+      },
+      "sourcePath": "packages/components/src/overlays/Dialog"
+    },
+    {
+      "category": "overlays",
+      "componentSet": "Depo UI/overlays/Drawer",
+      "depoUiKey": "component.overlays.Drawer",
+      "lifecycle": "trial",
+      "metadataPath": "specs/components/overlays/Drawer.json",
+      "name": "Drawer",
+      "propertyDefinitions": {
+        "Variant": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "solid",
+            "soft",
+            "outline",
+            "ghost",
+            "link"
+          ]
+        },
+        "Size": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "sm",
+            "md",
+            "lg"
+          ]
+        },
+        "Tone": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "neutral",
+            "primary",
+            "secondary",
+            "success",
+            "warning",
+            "danger"
+          ]
+        },
+        "State": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "rest",
+            "hover",
+            "pressed",
+            "focus-visible",
+            "disabled",
+            "loading",
+            "invalid"
+          ]
+        },
+        "Lifecycle": {
+          "type": "TEXT",
+          "allowedValues": [
+            "trial"
+          ]
+        }
+      },
+      "sourcePath": "packages/components/src/overlays/Drawer"
+    },
+    {
+      "category": "overlays",
+      "componentSet": "Depo UI/overlays/Popover",
+      "depoUiKey": "component.overlays.Popover",
+      "lifecycle": "trial",
+      "metadataPath": "specs/components/overlays/Popover.json",
+      "name": "Popover",
+      "propertyDefinitions": {
+        "Variant": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "solid",
+            "soft",
+            "outline",
+            "ghost",
+            "link"
+          ]
+        },
+        "Size": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "sm",
+            "md",
+            "lg"
+          ]
+        },
+        "Tone": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "neutral",
+            "primary",
+            "secondary",
+            "success",
+            "warning",
+            "danger"
+          ]
+        },
+        "State": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "rest",
+            "hover",
+            "pressed",
+            "focus-visible",
+            "disabled",
+            "loading",
+            "invalid"
+          ]
+        },
+        "Lifecycle": {
+          "type": "TEXT",
+          "allowedValues": [
+            "trial"
+          ]
+        }
+      },
+      "sourcePath": "packages/components/src/overlays/Popover"
+    },
+    {
+      "category": "overlays",
+      "componentSet": "Depo UI/overlays/Tooltip",
+      "depoUiKey": "component.overlays.Tooltip",
+      "lifecycle": "trial",
+      "metadataPath": "specs/components/overlays/Tooltip.json",
+      "name": "Tooltip",
+      "propertyDefinitions": {
+        "Variant": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "solid",
+            "soft",
+            "outline",
+            "ghost",
+            "link"
+          ]
+        },
+        "Size": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "sm",
+            "md",
+            "lg"
+          ]
+        },
+        "Tone": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "neutral",
+            "primary",
+            "secondary",
+            "success",
+            "warning",
+            "danger"
+          ]
+        },
+        "State": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "rest",
+            "hover",
+            "pressed",
+            "focus-visible",
+            "disabled",
+            "loading",
+            "invalid"
+          ]
+        },
+        "Lifecycle": {
+          "type": "TEXT",
+          "allowedValues": [
+            "trial"
+          ]
+        }
+      },
+      "sourcePath": "packages/components/src/overlays/Tooltip"
+    },
+    {
+      "category": "selection",
+      "componentSet": "Depo UI/selection/SegmentedControl",
+      "depoUiKey": "component.selection.SegmentedControl",
+      "lifecycle": "trial",
+      "metadataPath": "specs/components/selection/SegmentedControl.json",
+      "name": "SegmentedControl",
+      "propertyDefinitions": {
+        "Variant": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "solid",
+            "soft",
+            "outline",
+            "ghost",
+            "link"
+          ]
+        },
+        "Size": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "sm",
+            "md",
+            "lg"
+          ]
+        },
+        "Tone": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "neutral",
+            "primary",
+            "secondary",
+            "success",
+            "warning",
+            "danger"
+          ]
+        },
+        "State": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "rest",
+            "hover",
+            "pressed",
+            "focus-visible",
+            "disabled",
+            "loading",
+            "invalid"
+          ]
+        },
+        "Lifecycle": {
+          "type": "TEXT",
+          "allowedValues": [
+            "trial"
+          ]
+        }
+      },
+      "sourcePath": "packages/components/src/selection/SegmentedControl"
+    },
+    {
+      "category": "selection",
+      "componentSet": "Depo UI/selection/Tabs",
+      "depoUiKey": "component.selection.Tabs",
+      "lifecycle": "trial",
+      "metadataPath": "specs/components/selection/Tabs.json",
+      "name": "Tabs",
+      "propertyDefinitions": {
+        "Variant": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "solid",
+            "soft",
+            "outline",
+            "ghost",
+            "link"
+          ]
+        },
+        "Size": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "sm",
+            "md",
+            "lg"
+          ]
+        },
+        "Tone": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "neutral",
+            "primary",
+            "secondary",
+            "success",
+            "warning",
+            "danger"
+          ]
+        },
+        "State": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "rest",
+            "hover",
+            "pressed",
+            "focus-visible",
+            "disabled",
+            "loading",
+            "invalid"
+          ]
+        },
+        "Lifecycle": {
+          "type": "TEXT",
+          "allowedValues": [
+            "trial"
+          ]
+        }
+      },
+      "sourcePath": "packages/components/src/selection/Tabs"
+    },
+    {
+      "category": "selection",
+      "componentSet": "Depo UI/selection/ToggleButton",
+      "depoUiKey": "component.selection.ToggleButton",
+      "lifecycle": "trial",
+      "metadataPath": "specs/components/selection/ToggleButton.json",
+      "name": "ToggleButton",
+      "propertyDefinitions": {
+        "Variant": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "solid",
+            "soft",
+            "outline",
+            "ghost",
+            "link"
+          ]
+        },
+        "Size": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "sm",
+            "md",
+            "lg"
+          ]
+        },
+        "Tone": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "neutral",
+            "primary",
+            "secondary",
+            "success",
+            "warning",
+            "danger"
+          ]
+        },
+        "State": {
+          "type": "VARIANT",
+          "allowedValues": [
+            "rest",
+            "hover",
+            "pressed",
+            "focus-visible",
+            "disabled",
+            "loading",
+            "invalid"
+          ]
+        },
+        "Lifecycle": {
+          "type": "TEXT",
+          "allowedValues": [
+            "trial"
+          ]
+        }
+      },
+      "sourcePath": "packages/components/src/selection/ToggleButton"
+    }
+  ],
+  "version": 1
+}

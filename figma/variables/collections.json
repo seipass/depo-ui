@@ -1,0 +1,33 @@
+{
+  "$schema": "https://depo-ui.invalid/schemas/figma-variables-collections.schema.json",
+  "version": 1,
+  "sourceOfTruth": "packages/tokens/src",
+  "collection": {
+    "key": "depo-ui-semantic",
+    "name": "Depo UI / Semantic",
+    "description": "Semantic variables projected from the Depo UI token source.",
+    "modes": [
+      {
+        "id": "dark",
+        "name": "Dark",
+        "source": "packages/tokens/src/themes/dark.json"
+      },
+      {
+        "id": "light",
+        "name": "Light",
+        "source": "packages/tokens/src/themes/light.json"
+      },
+      {
+        "id": "high-contrast",
+        "name": "High Contrast",
+        "source": "packages/tokens/src/themes/high-contrast.json"
+      }
+    ]
+  },
+  "tokenNaming": {
+    "prefix": "Depo UI/Variables/",
+    "separator": "/",
+    "sourceTier": "semantic",
+    "referencePolicy": "Reference tokens are never exposed as Product-facing Figma variables."
+  }
+}

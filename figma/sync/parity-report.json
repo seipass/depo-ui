@@ -1,0 +1,23 @@
+{
+  "generatedBy": "tooling/figma-sync/report.mjs",
+  "version": 1,
+  "sourceOfTruth": "repository",
+  "variables": {
+    "expected": 125,
+    "mapped": 125,
+    "modes": [
+      "dark",
+      "light",
+      "high-contrast"
+    ]
+  },
+  "components": {
+    "mapped": 56,
+    "source": "specs/components"
+  },
+  "limitations": [
+    "No live Figma credentials or remote file are required for CI parity checks.",
+    "Figma-to-repository pull is read-only and requires human review before source changes.",
+    "Manual publish and screen-level visual parity remain outside this repository-only report."
+  ]
+}

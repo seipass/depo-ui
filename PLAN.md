@@ -1,6 +1,6 @@
 # Depo UI Design System Plan
 
-> Status: Phase 0 — Repository Foundation、Phase 1 — Tokens、Phase 2 — Foundations、Phase 3 — Primitives、Phase 4A — Basic Controls、Phase 4B — Overlay Infrastructure、Phase 4C — Composite Components、Phase 5 — Advanced Components、Phase 6 — Patterns、Phase 7 — Accessibility Infrastructure implemented; Phase 8 — Figma Integration has not started. このファイルは白紙のリポジトリから Depo UI Design System を実装するための設計書であり、実装時の Source of Truth である。
+> Status: Phase 0 — Repository Foundation、Phase 1 — Tokens、Phase 2 — Foundations、Phase 3 — Primitives、Phase 4A — Basic Controls、Phase 4B — Overlay Infrastructure、Phase 4C — Composite Components、Phase 5 — Advanced Components、Phase 6 — Patterns、Phase 7 — Accessibility Infrastructure、Phase 8 — Figma Integration implemented; Phase 9 — Documentation has not started. このファイルは白紙のリポジトリから Depo UI Design System を実装するための設計書であり、実装時の Source of Truth である。
 >
 > Research baseline: 2026-09-01（技術のバージョンは実装開始時に公式ドキュメントで再確認し、採用したバージョンを ADR に記録する）。
 
@@ -1678,6 +1678,17 @@ figma/variables/、figma/components/、figma/mapping/、figma/sync/、tooling/fi
 **Exit criteria**
 
 Figma 側だけの秘密値がなく、push/pull の責任と権限が明確で、Parity report が CI と Docs から参照できる。
+
+**Phase status**
+
+- Status: Completed. Figma Variables collection/modes, Component naming/property policy, generated token and Component mappings, repository-first sync model, parity report, dry-run push, and read-only pull are implemented in `figma/` and `tooling/figma-sync/`.
+- Placement decision: `figma/variables/collections.json`, `figma/components/naming.json`, and `figma/sync/policy.json` are human-maintained policy. `figma/mapping/tokens.json` and `figma/mapping/components.json` are generated from `packages/tokens/src/` and `specs/components/`; `figma/sync/parity-report.json` is generated evidence. Token values are resolved at runtime for comparison and are not copied into Figma mapping JSON.
+- Sync boundary: `tooling/figma-sync/model.mjs` owns stable-key mapping, mode/type conversion, extra/missing/changed/rename diff, credential detection, and transport selection. `sync.mjs` emits a non-destructive push preview by default and a read-only pull report; no REST or Plugin API call is made without a future explicit adapter/publish implementation. Extra Figma objects are never auto-deleted.
+- Tests: `pnpm figma:generate`, `pnpm figma:report`, `pnpm figma:check`, `pnpm figma:preview`, `pnpm figma:pull`, Figma-specific Vitest 7 tests, `pnpm test` (68 files、107 tests), `pnpm build`, `pnpm typecheck`, `pnpm lint`, `pnpm format:check`, `pnpm lint:deps`, and `pnpm lint:raw-values` passed. Coverage includes token/mode/property/lifecycle parity, rename detection, dry-run sync, read-only pull, and credential absence.
+- Lifecycle: Mapping policy and generated parity evidence remain `Trial` until an owner-approved Figma file, production usage, manual visual review, and Governance Stable evidence exist. Figma mapping names use the same Component and property vocabulary as code.
+- Known limitations: No live Figma credential or remote file is available in CI/local verification, so REST/Plugin publish and screen-level visual parity remain manual follow-up work. The repository can detect drift from an exported snapshot without allowing that snapshot to overwrite token or metadata source.
+- Commit: `feat(phase-8): integrate figma architecture`
+- Blocked items: none for repository-side Phase 8; live publish requires an external Figma file, credentials, adapter, and owner approval.
 
 ### Phase 9 — Documentation
 
