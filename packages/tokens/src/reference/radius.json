@@ -1,36 +1,36 @@
 {
   "radius": {
-    "none": {
+    "reference-none": {
       "$type": "dimension",
       "$value": { "value": 0, "unit": "px" },
       "$description": "No rounding",
       "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }
     },
-    "sm": {
+    "reference-sm": {
       "$type": "dimension",
       "$value": { "value": 4, "unit": "px" },
       "$description": "Small control rounding",
       "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }
     },
-    "md": {
+    "reference-md": {
       "$type": "dimension",
       "$value": { "value": 6, "unit": "px" },
       "$description": "Default component rounding",
       "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }
     },
-    "lg": {
+    "reference-lg": {
       "$type": "dimension",
       "$value": { "value": 8, "unit": "px" },
       "$description": "Panel rounding",
       "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }
     },
-    "xl": {
+    "reference-xl": {
       "$type": "dimension",
       "$value": { "value": 12, "unit": "px" },
       "$description": "Large surface rounding",
       "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }
     },
-    "full": {
+    "reference-full": {
       "$type": "dimension",
       "$value": { "value": 9999, "unit": "px" },
       "$description": "Pill rounding",

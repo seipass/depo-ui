@@ -1,5 +1,13 @@
 {
   "space": {
+    "detail": {
+      "hairline": {
+        "$type": "dimension",
+        "$value": "{space.hairline}",
+        "$description": "Fine detail and focus separation spacing",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      }
+    },
     "control": {
       "inline": {
         "$type": "dimension",

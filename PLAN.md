@@ -1,6 +1,6 @@
 # Depo UI Design System Plan
 
-> Status: Phase 0 — Repository Foundation and Phase 1 — Tokens implemented; Phase 2 — Foundations has not started. このファイルは白紙のリポジトリから Depo UI Design System を実装するための設計書であり、実装時の Source of Truth である。
+> Status: Phase 0 — Repository Foundation、Phase 1 — Tokens、Phase 2 — Foundations implemented; Phase 3 — Primitives has not started. このファイルは白紙のリポジトリから Depo UI Design System を実装するための設計書であり、実装時の Source of Truth である。
 >
 > Research baseline: 2026-09-01（技術のバージョンは実装開始時に公式ドキュメントで再確認し、採用したバージョンを ADR に記録する）。
 
@@ -447,7 +447,7 @@ Design Token の exchange format は DTCG Format Module 2025.10 を基準にす�
 
 ### 7.3 ディレクトリと生成物
 
-packages/tokens/src/reference/ は color.json、spacing.json、typography.json、sizing.json、radius.json、border.json、elevation.json、motion.json、layout.json、density.json に分ける。src/semantic/ は color.json、spacing.json、typography.json、sizing.json、motion.json、layout.json、density.json とし、Theme 固有の値は src/themes/dark.json、light.json、high-contrast.json に置く。
+packages/tokens/src/reference/ は color.json、spacing.json、typography.json、sizing.json、radius.json、border.json、elevation.json、motion.json、layout.json、density.json に分ける。src/semantic/ は color.json、spacing.json、typography.json、sizing.json、motion.json、layout.json、density.json、radius.json、border.json、elevation.json とし、Theme 固有の値は src/themes/dark.json、light.json、high-contrast.json に置く。
 
 generated/ は commit して差分をレビュー可能にする。tokens.css、tokens.ts、tokens.js、tokens.d.ts、manifest.json は build で再生成し、pnpm tokens:build && git diff --exit-code -- packages/tokens/generated を CI に置く。生成物を直接編集した場合は CI が失敗する。tokens.js は ESM consumer が実行時に利用する生成入口であり、他の生成物と同じく直接編集しない。
 
@@ -1312,7 +1312,7 @@ Phase 1。
 
 **Files / directories**
 
-packages/foundations/、specs/foundations/、packages/tokens/src/reference/・semantic/ の非色ファイル、testing/themes/、specs/decisions/ADR-002-spacing-scale.md、ADR-003-density-model.md。
+tsconfig.base.json、packages/foundations/src/、packages/foundations/tsconfig.json、packages/foundations/tsconfig.build.json、tooling/foundation-build/、specs/foundations/、packages/tokens/src/reference/・semantic/ の非色ファイル、testing/foundations.test.mjs、apps/visual-tests/tests/foundations.spec.ts、specs/decisions/ADR-002-spacing-scale.md、ADR-003-density-model.md。
 
 **Tasks**
 
@@ -1320,6 +1320,7 @@ packages/foundations/、specs/foundations/、packages/tokens/src/reference/・se
 - font stack、type scale、line-height、CJK/RTL fallback、logical layout property を定義する。
 - data-density、Theme root、Direction、Layer、container query、shell fallback breakpoint の contract を作る。
 - motion token と reduced-motion stylesheet を設計する。
+- Foundation CSS/APIをpackages/foundations/src/に実装し、semantic variableだけを参照する。Iconographyの命名、size、stroke、RTL、accessibility規則をspecs/foundations/iconography.mdに記録する。
 
 **Tests**
 
@@ -1330,6 +1331,14 @@ packages/foundations/、specs/foundations/、packages/tokens/src/reference/・se
 **Exit criteria**
 
 すべての Core Component が利用する最小 Foundation contract と CSS/API が文書化され、arbitrary value がなく、Responsive/Density/Motion の Test harness が使える。
+
+**Phase status**
+
+- Status: Completed
+- Tests: pnpm tokens:build、pnpm tokens:check、pnpm --filter @depo-ui/foundations typecheck、pnpm --filter @depo-ui/foundations test、pnpm --filter @depo-ui/foundations build、pnpm lint:tokens、pnpm lint:raw-values、pnpm lint:deps、pnpm format:check、pnpm lint、pnpm typecheck、pnpm test、pnpm build、pnpm test:visual
+- Commit: feat(phase-2): implement foundations
+- Known limitations: React/Component/Primitive source、real component visual fixtures、Figma Variables、manual screen-reader evidenceは後続Phaseで追加する。Foundation browser fixtureはChromiumで検証済みで、他browserのmatrixとmanual evidenceは後続Phaseで拡張する。turboのplaceholder packageはdistをまだ出力しないため、root buildでは後続Phaseまでoutput warningが残る。
+- Blocked items: なし。
 
 ### Phase 3 — Primitives
 

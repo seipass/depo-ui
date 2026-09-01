@@ -42,6 +42,7 @@ export declare const semanticTokens: {
   readonly "color.disabled.fg": "--dui-color-disabled-fg";
   readonly "color.disabled.bg": "--dui-color-disabled-bg";
   readonly "color.disabled.border": "--dui-color-disabled-border";
+  readonly "space.detail.hairline": "--dui-space-detail-hairline";
   readonly "space.control.inline": "--dui-space-control-inline";
   readonly "space.control.block": "--dui-space-control-block";
   readonly "space.control.group": "--dui-space-control-group";
@@ -52,6 +53,8 @@ export declare const semanticTokens: {
   readonly "space.stack.sm": "--dui-space-stack-sm";
   readonly "space.stack.md": "--dui-space-stack-md";
   readonly "space.stack.lg": "--dui-space-stack-lg";
+  readonly "typography.display-large.size": "--dui-typography-display-large-size";
+  readonly "typography.display-small.size": "--dui-typography-display-small-size";
   readonly "typography.body.family": "--dui-typography-body-family";
   readonly "typography.body.size": "--dui-typography-body-size";
   readonly "typography.body.lineHeight": "--dui-typography-body-line-height";
@@ -64,6 +67,9 @@ export declare const semanticTokens: {
   readonly "typography.heading.size": "--dui-typography-heading-size";
   readonly "typography.heading.lineHeight": "--dui-typography-heading-line-height";
   readonly "typography.heading.weight": "--dui-typography-heading-weight";
+  readonly "typography.heading-large.size": "--dui-typography-heading-large-size";
+  readonly "typography.heading-small.size": "--dui-typography-heading-small-size";
+  readonly "typography.supporting.size": "--dui-typography-supporting-size";
   readonly "typography.code.family": "--dui-typography-code-family";
   readonly "typography.code.size": "--dui-typography-code-size";
   readonly "typography.code.lineHeight": "--dui-typography-code-line-height";
@@ -76,6 +82,7 @@ export declare const semanticTokens: {
   readonly "size.icon.lg": "--dui-size-icon-lg";
   readonly "size.content.measure": "--dui-size-content-measure";
   readonly "size.content.panel": "--dui-size-content-panel";
+  readonly "motion.duration.reduced": "--dui-motion-duration-reduced";
   readonly "motion.duration.feedback": "--dui-motion-duration-feedback";
   readonly "motion.duration.standard": "--dui-motion-duration-standard";
   readonly "motion.duration.overlay": "--dui-motion-duration-overlay";
@@ -103,6 +110,20 @@ export declare const semanticTokens: {
   readonly "density.touch.controlHeight": "--dui-density-touch-control-height";
   readonly "density.touch.rowHeight": "--dui-density-touch-row-height";
   readonly "density.touch.gap": "--dui-density-touch-gap";
+  readonly "radius.none": "--dui-radius-none";
+  readonly "radius.control.sm": "--dui-radius-control-sm";
+  readonly "radius.control.md": "--dui-radius-control-md";
+  readonly "radius.panel": "--dui-radius-panel";
+  readonly "radius.overlay": "--dui-radius-overlay";
+  readonly "radius.pill": "--dui-radius-pill";
+  readonly "border.width.none": "--dui-border-width-none";
+  readonly "border.width.default": "--dui-border-width-default";
+  readonly "border.width.strong": "--dui-border-width-strong";
+  readonly "elevation.surface.base": "--dui-elevation-surface-base";
+  readonly "elevation.surface.raised": "--dui-elevation-surface-raised";
+  readonly "elevation.surface.floating": "--dui-elevation-surface-floating";
+  readonly "elevation.surface.popover": "--dui-elevation-surface-popover";
+  readonly "elevation.surface.modal": "--dui-elevation-surface-modal";
 };
 export declare const themes: {
   readonly dark: Readonly<Record<string, string>>;

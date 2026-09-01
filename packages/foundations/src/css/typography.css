@@ -1,0 +1,42 @@
+:where(h1, h2, h3, h4, h5, h6) {
+  margin-block: 0;
+  color: var(--dui-color-fg-primary);
+  font-family: var(--dui-typography-heading-family);
+  font-weight: var(--dui-typography-heading-weight);
+  line-height: var(--dui-typography-heading-line-height);
+  text-wrap: balance;
+}
+
+:where(h1) {
+  font-size: var(--dui-typography-display-large-size);
+}
+
+:where(h2) {
+  font-size: var(--dui-typography-display-small-size);
+}
+
+:where(h3) {
+  font-size: var(--dui-typography-heading-large-size);
+}
+
+:where(h4) {
+  font-size: var(--dui-typography-heading-small-size);
+}
+
+:where(p, ul, ol, dl, pre, blockquote) {
+  margin-block: 0;
+}
+
+:where(code, kbd, pre) {
+  font-family: var(--dui-typography-code-family);
+  font-size: var(--dui-typography-code-size);
+  line-height: var(--dui-typography-code-line-height);
+}
+
+:where(small) {
+  font-size: var(--dui-typography-supporting-size);
+}
+
+:where([data-text-measure]) {
+  max-inline-size: var(--dui-size-content-measure);
+}

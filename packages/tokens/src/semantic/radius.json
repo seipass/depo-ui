@@ -1,0 +1,42 @@
+{
+  "radius": {
+    "none": {
+      "$type": "dimension",
+      "$value": "{radius.reference-none}",
+      "$description": "No rounding",
+      "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+    },
+    "control": {
+      "sm": {
+        "$type": "dimension",
+        "$value": "{radius.reference-sm}",
+        "$description": "Small control rounding",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      },
+      "md": {
+        "$type": "dimension",
+        "$value": "{radius.reference-md}",
+        "$description": "Default control rounding",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      }
+    },
+    "panel": {
+      "$type": "dimension",
+      "$value": "{radius.reference-lg}",
+      "$description": "Panel rounding",
+      "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+    },
+    "overlay": {
+      "$type": "dimension",
+      "$value": "{radius.reference-xl}",
+      "$description": "Overlay rounding",
+      "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+    },
+    "pill": {
+      "$type": "dimension",
+      "$value": "{radius.reference-full}",
+      "$description": "Pill and badge rounding",
+      "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+    }
+  }
+}

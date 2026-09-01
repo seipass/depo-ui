@@ -1,6 +1,12 @@
 {
   "motion": {
     "duration": {
+      "reduced": {
+        "$type": "duration",
+        "$value": "{motion.duration.instant}",
+        "$description": "Reduced-motion instant duration",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      },
       "feedback": {
         "$type": "duration",
         "$value": "{motion.duration.fast}",

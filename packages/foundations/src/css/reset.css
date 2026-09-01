@@ -1,0 +1,51 @@
+@import '@depo-ui/tokens/css';
+
+:where(*, *::before, *::after) {
+  box-sizing: border-box;
+}
+
+:where(html) {
+  min-block-size: 100%;
+  background: var(--dui-color-bg-canvas);
+  color-scheme: dark;
+  text-size-adjust: 100%;
+}
+
+:where(body) {
+  min-block-size: 100%;
+  margin: 0;
+  background: var(--dui-color-bg-canvas);
+  color: var(--dui-color-fg-primary);
+  font-family: var(--dui-typography-body-family);
+  font-size: var(--dui-typography-body-size);
+  font-weight: var(--dui-typography-body-weight);
+  line-height: var(--dui-typography-body-line-height);
+}
+
+:where(button, input, textarea, select) {
+  color: inherit;
+  font: inherit;
+}
+
+:where(button, [role='button'], a, input, textarea, select, summary):focus-visible {
+  outline: var(--dui-border-width-strong) solid var(--dui-color-focus-ring);
+  outline-offset: var(--dui-space-detail-hairline);
+}
+
+:where(a) {
+  color: var(--dui-color-fg-link);
+}
+
+:where(img, svg, video, canvas) {
+  max-inline-size: 100%;
+  block-size: auto;
+}
+
+:where(table) {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+:where([hidden]) {
+  display: none !important;
+}

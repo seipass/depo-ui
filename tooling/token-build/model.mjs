@@ -27,6 +27,9 @@ const semanticFiles = [
   'motion.json',
   'layout.json',
   'density.json',
+  'radius.json',
+  'border.json',
+  'elevation.json',
 ];
 
 const requiredPalette = {

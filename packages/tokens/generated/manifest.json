@@ -1,7 +1,7 @@
 {
   "format": "DTCG Format Module 2025.10",
   "schemaVersion": 1,
-  "sourceHash": "e34f9797ae6bb116f63726bf4369cb971071d8cdc2f3bedf0fc754b673c831bc",
+  "sourceHash": "2d6589ba1e47de92cce7a7a30b1f6f5a90ce2bab6ed21249e782b85f60b49613",
   "sourceFiles": [
     "packages/tokens/src/reference/color.json",
     "packages/tokens/src/reference/spacing.json",
@@ -20,6 +20,9 @@
     "packages/tokens/src/semantic/motion.json",
     "packages/tokens/src/semantic/layout.json",
     "packages/tokens/src/semantic/density.json",
+    "packages/tokens/src/semantic/radius.json",
+    "packages/tokens/src/semantic/border.json",
+    "packages/tokens/src/semantic/elevation.json",
     "packages/tokens/src/themes/dark.json",
     "packages/tokens/src/themes/light.json",
     "packages/tokens/src/themes/high-contrast.json"
@@ -236,6 +239,14 @@
         "type": "color",
         "cssVariable": "--dui-color-disabled-border"
       },
+      "space.detail.hairline": {
+        "value": {
+          "value": 2,
+          "unit": "px"
+        },
+        "type": "dimension",
+        "cssVariable": "--dui-space-detail-hairline"
+      },
       "space.control.inline": {
         "value": {
           "value": 8,
@@ -315,6 +326,22 @@
         },
         "type": "dimension",
         "cssVariable": "--dui-space-stack-lg"
+      },
+      "typography.display-large.size": {
+        "value": {
+          "value": 32,
+          "unit": "px"
+        },
+        "type": "dimension",
+        "cssVariable": "--dui-typography-display-large-size"
+      },
+      "typography.display-small.size": {
+        "value": {
+          "value": 28,
+          "unit": "px"
+        },
+        "type": "dimension",
+        "cssVariable": "--dui-typography-display-small-size"
       },
       "typography.body.family": {
         "value": [
@@ -405,6 +432,30 @@
         "value": 600,
         "type": "fontWeight",
         "cssVariable": "--dui-typography-heading-weight"
+      },
+      "typography.heading-large.size": {
+        "value": {
+          "value": 24,
+          "unit": "px"
+        },
+        "type": "dimension",
+        "cssVariable": "--dui-typography-heading-large-size"
+      },
+      "typography.heading-small.size": {
+        "value": {
+          "value": 20,
+          "unit": "px"
+        },
+        "type": "dimension",
+        "cssVariable": "--dui-typography-heading-small-size"
+      },
+      "typography.supporting.size": {
+        "value": {
+          "value": 12,
+          "unit": "px"
+        },
+        "type": "dimension",
+        "cssVariable": "--dui-typography-supporting-size"
       },
       "typography.code.family": {
         "value": [
@@ -502,6 +553,14 @@
         },
         "type": "dimension",
         "cssVariable": "--dui-size-content-panel"
+      },
+      "motion.duration.reduced": {
+        "value": {
+          "value": 0,
+          "unit": "ms"
+        },
+        "type": "duration",
+        "cssVariable": "--dui-motion-duration-reduced"
       },
       "motion.duration.feedback": {
         "value": {
@@ -695,6 +754,193 @@
         },
         "type": "dimension",
         "cssVariable": "--dui-density-touch-gap"
+      },
+      "radius.none": {
+        "value": {
+          "value": 0,
+          "unit": "px"
+        },
+        "type": "dimension",
+        "cssVariable": "--dui-radius-none"
+      },
+      "radius.control.sm": {
+        "value": {
+          "value": 4,
+          "unit": "px"
+        },
+        "type": "dimension",
+        "cssVariable": "--dui-radius-control-sm"
+      },
+      "radius.control.md": {
+        "value": {
+          "value": 6,
+          "unit": "px"
+        },
+        "type": "dimension",
+        "cssVariable": "--dui-radius-control-md"
+      },
+      "radius.panel": {
+        "value": {
+          "value": 8,
+          "unit": "px"
+        },
+        "type": "dimension",
+        "cssVariable": "--dui-radius-panel"
+      },
+      "radius.overlay": {
+        "value": {
+          "value": 12,
+          "unit": "px"
+        },
+        "type": "dimension",
+        "cssVariable": "--dui-radius-overlay"
+      },
+      "radius.pill": {
+        "value": {
+          "value": 9999,
+          "unit": "px"
+        },
+        "type": "dimension",
+        "cssVariable": "--dui-radius-pill"
+      },
+      "border.width.none": {
+        "value": {
+          "value": 0,
+          "unit": "px"
+        },
+        "type": "dimension",
+        "cssVariable": "--dui-border-width-none"
+      },
+      "border.width.default": {
+        "value": {
+          "value": 1,
+          "unit": "px"
+        },
+        "type": "dimension",
+        "cssVariable": "--dui-border-width-default"
+      },
+      "border.width.strong": {
+        "value": {
+          "value": 2,
+          "unit": "px"
+        },
+        "type": "dimension",
+        "cssVariable": "--dui-border-width-strong"
+      },
+      "elevation.surface.base": {
+        "value": {
+          "color": "#00000066",
+          "offsetX": {
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 0,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 0,
+            "unit": "px"
+          },
+          "spread": {
+            "value": 0,
+            "unit": "px"
+          }
+        },
+        "type": "shadow",
+        "cssVariable": "--dui-elevation-surface-base"
+      },
+      "elevation.surface.raised": {
+        "value": {
+          "color": "#00000040",
+          "offsetX": {
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 2,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 8,
+            "unit": "px"
+          },
+          "spread": {
+            "value": 0,
+            "unit": "px"
+          }
+        },
+        "type": "shadow",
+        "cssVariable": "--dui-elevation-surface-raised"
+      },
+      "elevation.surface.floating": {
+        "value": {
+          "color": "#00000055",
+          "offsetX": {
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 8,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 20,
+            "unit": "px"
+          },
+          "spread": {
+            "value": -4,
+            "unit": "px"
+          }
+        },
+        "type": "shadow",
+        "cssVariable": "--dui-elevation-surface-floating"
+      },
+      "elevation.surface.popover": {
+        "value": {
+          "color": "#00000066",
+          "offsetX": {
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 12,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 28,
+            "unit": "px"
+          },
+          "spread": {
+            "value": -6,
+            "unit": "px"
+          }
+        },
+        "type": "shadow",
+        "cssVariable": "--dui-elevation-surface-popover"
+      },
+      "elevation.surface.modal": {
+        "value": {
+          "color": "#00000088",
+          "offsetX": {
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 20,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 48,
+            "unit": "px"
+          },
+          "spread": {
+            "value": -8,
+            "unit": "px"
+          }
+        },
+        "type": "shadow",
+        "cssVariable": "--dui-elevation-surface-modal"
       }
     },
     "light": {
@@ -908,6 +1154,14 @@
         "type": "color",
         "cssVariable": "--dui-color-disabled-border"
       },
+      "space.detail.hairline": {
+        "value": {
+          "value": 2,
+          "unit": "px"
+        },
+        "type": "dimension",
+        "cssVariable": "--dui-space-detail-hairline"
+      },
       "space.control.inline": {
         "value": {
           "value": 8,
@@ -987,6 +1241,22 @@
         },
         "type": "dimension",
         "cssVariable": "--dui-space-stack-lg"
+      },
+      "typography.display-large.size": {
+        "value": {
+          "value": 32,
+          "unit": "px"
+        },
+        "type": "dimension",
+        "cssVariable": "--dui-typography-display-large-size"
+      },
+      "typography.display-small.size": {
+        "value": {
+          "value": 28,
+          "unit": "px"
+        },
+        "type": "dimension",
+        "cssVariable": "--dui-typography-display-small-size"
       },
       "typography.body.family": {
         "value": [
@@ -1077,6 +1347,30 @@
         "value": 600,
         "type": "fontWeight",
         "cssVariable": "--dui-typography-heading-weight"
+      },
+      "typography.heading-large.size": {
+        "value": {
+          "value": 24,
+          "unit": "px"
+        },
+        "type": "dimension",
+        "cssVariable": "--dui-typography-heading-large-size"
+      },
+      "typography.heading-small.size": {
+        "value": {
+          "value": 20,
+          "unit": "px"
+        },
+        "type": "dimension",
+        "cssVariable": "--dui-typography-heading-small-size"
+      },
+      "typography.supporting.size": {
+        "value": {
+          "value": 12,
+          "unit": "px"
+        },
+        "type": "dimension",
+        "cssVariable": "--dui-typography-supporting-size"
       },
       "typography.code.family": {
         "value": [
@@ -1174,6 +1468,14 @@
         },
         "type": "dimension",
         "cssVariable": "--dui-size-content-panel"
+      },
+      "motion.duration.reduced": {
+        "value": {
+          "value": 0,
+          "unit": "ms"
+        },
+        "type": "duration",
+        "cssVariable": "--dui-motion-duration-reduced"
       },
       "motion.duration.feedback": {
         "value": {
@@ -1367,6 +1669,193 @@
         },
         "type": "dimension",
         "cssVariable": "--dui-density-touch-gap"
+      },
+      "radius.none": {
+        "value": {
+          "value": 0,
+          "unit": "px"
+        },
+        "type": "dimension",
+        "cssVariable": "--dui-radius-none"
+      },
+      "radius.control.sm": {
+        "value": {
+          "value": 4,
+          "unit": "px"
+        },
+        "type": "dimension",
+        "cssVariable": "--dui-radius-control-sm"
+      },
+      "radius.control.md": {
+        "value": {
+          "value": 6,
+          "unit": "px"
+        },
+        "type": "dimension",
+        "cssVariable": "--dui-radius-control-md"
+      },
+      "radius.panel": {
+        "value": {
+          "value": 8,
+          "unit": "px"
+        },
+        "type": "dimension",
+        "cssVariable": "--dui-radius-panel"
+      },
+      "radius.overlay": {
+        "value": {
+          "value": 12,
+          "unit": "px"
+        },
+        "type": "dimension",
+        "cssVariable": "--dui-radius-overlay"
+      },
+      "radius.pill": {
+        "value": {
+          "value": 9999,
+          "unit": "px"
+        },
+        "type": "dimension",
+        "cssVariable": "--dui-radius-pill"
+      },
+      "border.width.none": {
+        "value": {
+          "value": 0,
+          "unit": "px"
+        },
+        "type": "dimension",
+        "cssVariable": "--dui-border-width-none"
+      },
+      "border.width.default": {
+        "value": {
+          "value": 1,
+          "unit": "px"
+        },
+        "type": "dimension",
+        "cssVariable": "--dui-border-width-default"
+      },
+      "border.width.strong": {
+        "value": {
+          "value": 2,
+          "unit": "px"
+        },
+        "type": "dimension",
+        "cssVariable": "--dui-border-width-strong"
+      },
+      "elevation.surface.base": {
+        "value": {
+          "color": "#00000066",
+          "offsetX": {
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 0,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 0,
+            "unit": "px"
+          },
+          "spread": {
+            "value": 0,
+            "unit": "px"
+          }
+        },
+        "type": "shadow",
+        "cssVariable": "--dui-elevation-surface-base"
+      },
+      "elevation.surface.raised": {
+        "value": {
+          "color": "#00000040",
+          "offsetX": {
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 2,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 8,
+            "unit": "px"
+          },
+          "spread": {
+            "value": 0,
+            "unit": "px"
+          }
+        },
+        "type": "shadow",
+        "cssVariable": "--dui-elevation-surface-raised"
+      },
+      "elevation.surface.floating": {
+        "value": {
+          "color": "#00000055",
+          "offsetX": {
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 8,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 20,
+            "unit": "px"
+          },
+          "spread": {
+            "value": -4,
+            "unit": "px"
+          }
+        },
+        "type": "shadow",
+        "cssVariable": "--dui-elevation-surface-floating"
+      },
+      "elevation.surface.popover": {
+        "value": {
+          "color": "#00000066",
+          "offsetX": {
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 12,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 28,
+            "unit": "px"
+          },
+          "spread": {
+            "value": -6,
+            "unit": "px"
+          }
+        },
+        "type": "shadow",
+        "cssVariable": "--dui-elevation-surface-popover"
+      },
+      "elevation.surface.modal": {
+        "value": {
+          "color": "#00000088",
+          "offsetX": {
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 20,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 48,
+            "unit": "px"
+          },
+          "spread": {
+            "value": -8,
+            "unit": "px"
+          }
+        },
+        "type": "shadow",
+        "cssVariable": "--dui-elevation-surface-modal"
       }
     },
     "high-contrast": {
@@ -1580,6 +2069,14 @@
         "type": "color",
         "cssVariable": "--dui-color-disabled-border"
       },
+      "space.detail.hairline": {
+        "value": {
+          "value": 2,
+          "unit": "px"
+        },
+        "type": "dimension",
+        "cssVariable": "--dui-space-detail-hairline"
+      },
       "space.control.inline": {
         "value": {
           "value": 8,
@@ -1659,6 +2156,22 @@
         },
         "type": "dimension",
         "cssVariable": "--dui-space-stack-lg"
+      },
+      "typography.display-large.size": {
+        "value": {
+          "value": 32,
+          "unit": "px"
+        },
+        "type": "dimension",
+        "cssVariable": "--dui-typography-display-large-size"
+      },
+      "typography.display-small.size": {
+        "value": {
+          "value": 28,
+          "unit": "px"
+        },
+        "type": "dimension",
+        "cssVariable": "--dui-typography-display-small-size"
       },
       "typography.body.family": {
         "value": [
@@ -1749,6 +2262,30 @@
         "value": 600,
         "type": "fontWeight",
         "cssVariable": "--dui-typography-heading-weight"
+      },
+      "typography.heading-large.size": {
+        "value": {
+          "value": 24,
+          "unit": "px"
+        },
+        "type": "dimension",
+        "cssVariable": "--dui-typography-heading-large-size"
+      },
+      "typography.heading-small.size": {
+        "value": {
+          "value": 20,
+          "unit": "px"
+        },
+        "type": "dimension",
+        "cssVariable": "--dui-typography-heading-small-size"
+      },
+      "typography.supporting.size": {
+        "value": {
+          "value": 12,
+          "unit": "px"
+        },
+        "type": "dimension",
+        "cssVariable": "--dui-typography-supporting-size"
       },
       "typography.code.family": {
         "value": [
@@ -1846,6 +2383,14 @@
         },
         "type": "dimension",
         "cssVariable": "--dui-size-content-panel"
+      },
+      "motion.duration.reduced": {
+        "value": {
+          "value": 0,
+          "unit": "ms"
+        },
+        "type": "duration",
+        "cssVariable": "--dui-motion-duration-reduced"
       },
       "motion.duration.feedback": {
         "value": {
@@ -2039,6 +2584,193 @@
         },
         "type": "dimension",
         "cssVariable": "--dui-density-touch-gap"
+      },
+      "radius.none": {
+        "value": {
+          "value": 0,
+          "unit": "px"
+        },
+        "type": "dimension",
+        "cssVariable": "--dui-radius-none"
+      },
+      "radius.control.sm": {
+        "value": {
+          "value": 4,
+          "unit": "px"
+        },
+        "type": "dimension",
+        "cssVariable": "--dui-radius-control-sm"
+      },
+      "radius.control.md": {
+        "value": {
+          "value": 6,
+          "unit": "px"
+        },
+        "type": "dimension",
+        "cssVariable": "--dui-radius-control-md"
+      },
+      "radius.panel": {
+        "value": {
+          "value": 8,
+          "unit": "px"
+        },
+        "type": "dimension",
+        "cssVariable": "--dui-radius-panel"
+      },
+      "radius.overlay": {
+        "value": {
+          "value": 12,
+          "unit": "px"
+        },
+        "type": "dimension",
+        "cssVariable": "--dui-radius-overlay"
+      },
+      "radius.pill": {
+        "value": {
+          "value": 9999,
+          "unit": "px"
+        },
+        "type": "dimension",
+        "cssVariable": "--dui-radius-pill"
+      },
+      "border.width.none": {
+        "value": {
+          "value": 0,
+          "unit": "px"
+        },
+        "type": "dimension",
+        "cssVariable": "--dui-border-width-none"
+      },
+      "border.width.default": {
+        "value": {
+          "value": 1,
+          "unit": "px"
+        },
+        "type": "dimension",
+        "cssVariable": "--dui-border-width-default"
+      },
+      "border.width.strong": {
+        "value": {
+          "value": 2,
+          "unit": "px"
+        },
+        "type": "dimension",
+        "cssVariable": "--dui-border-width-strong"
+      },
+      "elevation.surface.base": {
+        "value": {
+          "color": "#00000066",
+          "offsetX": {
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 0,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 0,
+            "unit": "px"
+          },
+          "spread": {
+            "value": 0,
+            "unit": "px"
+          }
+        },
+        "type": "shadow",
+        "cssVariable": "--dui-elevation-surface-base"
+      },
+      "elevation.surface.raised": {
+        "value": {
+          "color": "#00000040",
+          "offsetX": {
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 2,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 8,
+            "unit": "px"
+          },
+          "spread": {
+            "value": 0,
+            "unit": "px"
+          }
+        },
+        "type": "shadow",
+        "cssVariable": "--dui-elevation-surface-raised"
+      },
+      "elevation.surface.floating": {
+        "value": {
+          "color": "#00000055",
+          "offsetX": {
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 8,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 20,
+            "unit": "px"
+          },
+          "spread": {
+            "value": -4,
+            "unit": "px"
+          }
+        },
+        "type": "shadow",
+        "cssVariable": "--dui-elevation-surface-floating"
+      },
+      "elevation.surface.popover": {
+        "value": {
+          "color": "#00000066",
+          "offsetX": {
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 12,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 28,
+            "unit": "px"
+          },
+          "spread": {
+            "value": -6,
+            "unit": "px"
+          }
+        },
+        "type": "shadow",
+        "cssVariable": "--dui-elevation-surface-popover"
+      },
+      "elevation.surface.modal": {
+        "value": {
+          "color": "#00000088",
+          "offsetX": {
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 20,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 48,
+            "unit": "px"
+          },
+          "spread": {
+            "value": -8,
+            "unit": "px"
+          }
+        },
+        "type": "shadow",
+        "cssVariable": "--dui-elevation-surface-modal"
       }
     }
   },
@@ -2640,7 +3372,7 @@
       "description": "Default readable panel maximum"
     },
     {
-      "path": "radius.none",
+      "path": "radius.reference-none",
       "type": "dimension",
       "value": {
         "value": 0,
@@ -2649,7 +3381,7 @@
       "description": "No rounding"
     },
     {
-      "path": "radius.sm",
+      "path": "radius.reference-sm",
       "type": "dimension",
       "value": {
         "value": 4,
@@ -2658,7 +3390,7 @@
       "description": "Small control rounding"
     },
     {
-      "path": "radius.md",
+      "path": "radius.reference-md",
       "type": "dimension",
       "value": {
         "value": 6,
@@ -2667,7 +3399,7 @@
       "description": "Default component rounding"
     },
     {
-      "path": "radius.lg",
+      "path": "radius.reference-lg",
       "type": "dimension",
       "value": {
         "value": 8,
@@ -2676,7 +3408,7 @@
       "description": "Panel rounding"
     },
     {
-      "path": "radius.xl",
+      "path": "radius.reference-xl",
       "type": "dimension",
       "value": {
         "value": 12,
@@ -2685,7 +3417,7 @@
       "description": "Large surface rounding"
     },
     {
-      "path": "radius.full",
+      "path": "radius.reference-full",
       "type": "dimension",
       "value": {
         "value": 9999,
@@ -2694,7 +3426,7 @@
       "description": "Pill rounding"
     },
     {
-      "path": "border.width.none",
+      "path": "border.width.reference-none",
       "type": "dimension",
       "value": {
         "value": 0,
@@ -2703,7 +3435,7 @@
       "description": "No border"
     },
     {
-      "path": "border.width.default",
+      "path": "border.width.reference-default",
       "type": "dimension",
       "value": {
         "value": 1,
@@ -2712,7 +3444,7 @@
       "description": "Default border width"
     },
     {
-      "path": "border.width.strong",
+      "path": "border.width.reference-strong",
       "type": "dimension",
       "value": {
         "value": 2,
@@ -3383,6 +4115,13 @@
       "cssVariable": "--dui-color-disabled-border"
     },
     {
+      "path": "space.detail.hairline",
+      "type": "dimension",
+      "value": "{space.hairline}",
+      "description": "Fine detail and focus separation spacing",
+      "cssVariable": "--dui-space-detail-hairline"
+    },
+    {
       "path": "space.control.inline",
       "type": "dimension",
       "value": "{space.2}",
@@ -3451,6 +4190,20 @@
       "value": "{space.4}",
       "description": "Large stack gap",
       "cssVariable": "--dui-space-stack-lg"
+    },
+    {
+      "path": "typography.display-large.size",
+      "type": "dimension",
+      "value": "{font.size.800}",
+      "description": "Large display size",
+      "cssVariable": "--dui-typography-display-large-size"
+    },
+    {
+      "path": "typography.display-small.size",
+      "type": "dimension",
+      "value": "{font.size.700}",
+      "description": "Small display size",
+      "cssVariable": "--dui-typography-display-small-size"
     },
     {
       "path": "typography.body.family",
@@ -3537,6 +4290,27 @@
       "cssVariable": "--dui-typography-heading-weight"
     },
     {
+      "path": "typography.heading-large.size",
+      "type": "dimension",
+      "value": "{font.size.600}",
+      "description": "Large heading size",
+      "cssVariable": "--dui-typography-heading-large-size"
+    },
+    {
+      "path": "typography.heading-small.size",
+      "type": "dimension",
+      "value": "{font.size.500}",
+      "description": "Small heading size",
+      "cssVariable": "--dui-typography-heading-small-size"
+    },
+    {
+      "path": "typography.supporting.size",
+      "type": "dimension",
+      "value": "{font.size.100}",
+      "description": "Supporting text size",
+      "cssVariable": "--dui-typography-supporting-size"
+    },
+    {
       "path": "typography.code.family",
       "type": "fontFamily",
       "value": "{font.family.mono}",
@@ -3619,6 +4393,13 @@
       "value": "{size.content.max-panel}",
       "description": "Readable panel width",
       "cssVariable": "--dui-size-content-panel"
+    },
+    {
+      "path": "motion.duration.reduced",
+      "type": "duration",
+      "value": "{motion.duration.instant}",
+      "description": "Reduced-motion instant duration",
+      "cssVariable": "--dui-motion-duration-reduced"
     },
     {
       "path": "motion.duration.feedback",
@@ -3808,6 +4589,104 @@
       "value": "{density.reference-touch.gap}",
       "description": "Touch gap",
       "cssVariable": "--dui-density-touch-gap"
+    },
+    {
+      "path": "radius.none",
+      "type": "dimension",
+      "value": "{radius.reference-none}",
+      "description": "No rounding",
+      "cssVariable": "--dui-radius-none"
+    },
+    {
+      "path": "radius.control.sm",
+      "type": "dimension",
+      "value": "{radius.reference-sm}",
+      "description": "Small control rounding",
+      "cssVariable": "--dui-radius-control-sm"
+    },
+    {
+      "path": "radius.control.md",
+      "type": "dimension",
+      "value": "{radius.reference-md}",
+      "description": "Default control rounding",
+      "cssVariable": "--dui-radius-control-md"
+    },
+    {
+      "path": "radius.panel",
+      "type": "dimension",
+      "value": "{radius.reference-lg}",
+      "description": "Panel rounding",
+      "cssVariable": "--dui-radius-panel"
+    },
+    {
+      "path": "radius.overlay",
+      "type": "dimension",
+      "value": "{radius.reference-xl}",
+      "description": "Overlay rounding",
+      "cssVariable": "--dui-radius-overlay"
+    },
+    {
+      "path": "radius.pill",
+      "type": "dimension",
+      "value": "{radius.reference-full}",
+      "description": "Pill and badge rounding",
+      "cssVariable": "--dui-radius-pill"
+    },
+    {
+      "path": "border.width.none",
+      "type": "dimension",
+      "value": "{border.width.reference-none}",
+      "description": "No border width",
+      "cssVariable": "--dui-border-width-none"
+    },
+    {
+      "path": "border.width.default",
+      "type": "dimension",
+      "value": "{border.width.reference-default}",
+      "description": "Default border width",
+      "cssVariable": "--dui-border-width-default"
+    },
+    {
+      "path": "border.width.strong",
+      "type": "dimension",
+      "value": "{border.width.reference-strong}",
+      "description": "Strong and focus border width",
+      "cssVariable": "--dui-border-width-strong"
+    },
+    {
+      "path": "elevation.surface.base",
+      "type": "shadow",
+      "value": "{elevation.base}",
+      "description": "Base surface elevation",
+      "cssVariable": "--dui-elevation-surface-base"
+    },
+    {
+      "path": "elevation.surface.raised",
+      "type": "shadow",
+      "value": "{elevation.raised}",
+      "description": "Raised surface elevation",
+      "cssVariable": "--dui-elevation-surface-raised"
+    },
+    {
+      "path": "elevation.surface.floating",
+      "type": "shadow",
+      "value": "{elevation.floating}",
+      "description": "Floating surface elevation",
+      "cssVariable": "--dui-elevation-surface-floating"
+    },
+    {
+      "path": "elevation.surface.popover",
+      "type": "shadow",
+      "value": "{elevation.popover}",
+      "description": "Popover elevation",
+      "cssVariable": "--dui-elevation-surface-popover"
+    },
+    {
+      "path": "elevation.surface.modal",
+      "type": "shadow",
+      "value": "{elevation.modal}",
+      "description": "Modal elevation",
+      "cssVariable": "--dui-elevation-surface-modal"
     }
   ]
 }

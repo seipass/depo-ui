@@ -1,0 +1,23 @@
+:where([data-motion='standard']) {
+  transition-duration: var(--dui-motion-duration-standard);
+  transition-timing-function: var(--dui-motion-easing-standard);
+}
+
+:where([data-motion='feedback']) {
+  transition-duration: var(--dui-motion-duration-feedback);
+  transition-timing-function: var(--dui-motion-easing-standard);
+}
+
+:where([data-motion='overlay']) {
+  transition-duration: var(--dui-motion-duration-overlay);
+  transition-timing-function: var(--dui-motion-easing-emphasized);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :where(*, *::before, *::after) {
+    scroll-behavior: auto !important;
+    transition-duration: var(--dui-motion-duration-reduced) !important;
+    animation-duration: var(--dui-motion-duration-reduced) !important;
+    animation-iteration-count: 1 !important;
+  }
+}

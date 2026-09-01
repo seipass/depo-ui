@@ -1,0 +1,36 @@
+{
+  "elevation": {
+    "surface": {
+      "base": {
+        "$type": "shadow",
+        "$value": "{elevation.base}",
+        "$description": "Base surface elevation",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      },
+      "raised": {
+        "$type": "shadow",
+        "$value": "{elevation.raised}",
+        "$description": "Raised surface elevation",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      },
+      "floating": {
+        "$type": "shadow",
+        "$value": "{elevation.floating}",
+        "$description": "Floating surface elevation",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      },
+      "popover": {
+        "$type": "shadow",
+        "$value": "{elevation.popover}",
+        "$description": "Popover elevation",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      },
+      "modal": {
+        "$type": "shadow",
+        "$value": "{elevation.modal}",
+        "$description": "Modal elevation",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      }
+    }
+  }
+}

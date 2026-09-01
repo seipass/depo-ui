@@ -1,19 +1,19 @@
 {
   "border": {
     "width": {
-      "none": {
+      "reference-none": {
         "$type": "dimension",
         "$value": { "value": 0, "unit": "px" },
         "$description": "No border",
         "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }
       },
-      "default": {
+      "reference-default": {
         "$type": "dimension",
         "$value": { "value": 1, "unit": "px" },
         "$description": "Default border width",
         "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }
       },
-      "strong": {
+      "reference-strong": {
         "$type": "dimension",
         "$value": { "value": 2, "unit": "px" },
         "$description": "Strong and focus border width",

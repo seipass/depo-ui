@@ -1,5 +1,21 @@
 {
   "typography": {
+    "display-large": {
+      "size": {
+        "$type": "dimension",
+        "$value": "{font.size.800}",
+        "$description": "Large display size",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      }
+    },
+    "display-small": {
+      "size": {
+        "$type": "dimension",
+        "$value": "{font.size.700}",
+        "$description": "Small display size",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      }
+    },
     "body": {
       "family": {
         "$type": "fontFamily",
@@ -75,6 +91,30 @@
         "$type": "fontWeight",
         "$value": "{font.weight.semibold}",
         "$description": "Heading weight",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      }
+    },
+    "heading-large": {
+      "size": {
+        "$type": "dimension",
+        "$value": "{font.size.600}",
+        "$description": "Large heading size",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      }
+    },
+    "heading-small": {
+      "size": {
+        "$type": "dimension",
+        "$value": "{font.size.500}",
+        "$description": "Small heading size",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      }
+    },
+    "supporting": {
+      "size": {
+        "$type": "dimension",
+        "$value": "{font.size.100}",
+        "$description": "Supporting text size",
         "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
       }
     },

@@ -1,0 +1,23 @@
+:where([data-density='compact']) {
+  --dui-density-control-height: var(--dui-density-compact-control-height);
+  --dui-density-row-height: var(--dui-density-compact-row-height);
+  --dui-density-gap: var(--dui-density-compact-gap);
+}
+
+:where([data-density='comfortable']) {
+  --dui-density-control-height: var(--dui-density-comfortable-control-height);
+  --dui-density-row-height: var(--dui-density-comfortable-row-height);
+  --dui-density-gap: var(--dui-density-comfortable-gap);
+}
+
+:where([data-density='touch']) {
+  --dui-density-control-height: var(--dui-density-touch-control-height);
+  --dui-density-row-height: var(--dui-density-touch-row-height);
+  --dui-density-gap: var(--dui-density-touch-gap);
+}
+
+:where([data-density]) {
+  --dui-foundation-control-height: var(--dui-density-control-height);
+  --dui-foundation-row-height: var(--dui-density-row-height);
+  --dui-foundation-gap: var(--dui-density-gap);
+}
