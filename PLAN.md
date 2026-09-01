@@ -1,6 +1,6 @@
 # Depo UI Design System Plan
 
-> Status: Phase 0 — Repository Foundation、Phase 1 — Tokens、Phase 2 — Foundations、Phase 3 — Primitives、Phase 4A — Basic Controls、Phase 4B — Overlay Infrastructure implemented; Phase 4C — Composite Components has not started. このファイルは白紙のリポジトリから Depo UI Design System を実装するための設計書であり、実装時の Source of Truth である。
+> Status: Phase 0 — Repository Foundation、Phase 1 — Tokens、Phase 2 — Foundations、Phase 3 — Primitives、Phase 4A — Basic Controls、Phase 4B — Overlay Infrastructure、Phase 4C — Composite Components、Phase 5 — Advanced Components implemented; Phase 6 — Patterns has not started. このファイルは白紙のリポジトリから Depo UI Design System を実装するための設計書であり、実装時の Source of Truth である。
 >
 > Research baseline: 2026-09-01（技術のバージョンは実装開始時に公式ドキュメントで再確認し、採用したバージョンを ADR に記録する）。
 
@@ -1542,6 +1542,18 @@ FileUpload、Slider、Disclosure/Accordion の配置基準は次のとおりと�
 **Exit criteria**
 
 複雑な interaction が isolated story と real browser test で再現可能で、未対応の screen reader/keyboard limitation、performance boundary、fallback、error recovery が Docs と lifecycle に記載される。DataGrid 等の Advanced Component は Stable gate 前に production-like large-data fixture を通過する。
+
+**Phase status**
+
+- Status: Completed。Combobox、DatePicker、FileUpload、Slider、DataGrid、Tree、CommandPalette、Drawer を `packages/components/src/` の分類配下に実装し、各 Component の metadata、source、styles、tokens、story、visual fixture、unit/a11y test を揃えた。
+- Dependency decision: Combobox、DatePicker、CommandPalette、Drawer は Phase 4B の Popover/Dialog、Portal、DismissableLayer、FocusScope、positioning、scroll lock を必要な範囲だけ利用する。FileUpload と Slider は native input を基礎にし、Tree は独自の二次元ではない roving focus model、DataGrid は semantic `role="grid"` と最小限の selection/sort/edit/pinning contract を持つ。Table は Phase 4A の semantic static table のまま再実装しない。
+- Placement decision: Advanced Component の source は `packages/components/src/forms/`、`data-display/`、`navigation/`、`overlays/` に置き、共有 overlay/accessibility/DOM helper は既存の `packages/accessibility/src/`、`packages/utilities/src/`、Phase 4B の境界を再利用する。巨大な Advanced manager や Product 固有 adapter は追加しない。
+- Tests: `pnpm --filter @depo-ui/components typecheck`、`pnpm test:a11y`（59 files、80 tests）、`pnpm test:visual`（19 browser tests）、`pnpm test`、`pnpm build`、`pnpm typecheck`、`pnpm lint`、`pnpm lint:deps`、`pnpm lint:raw-values`、`pnpm format:check` が通過した。Advanced 固有では contract Vitest 3 tests、各 Component の unit/a11y test、Chromium 3 tests、axe、narrow viewport、grid/tree focus、forced colors、reduced motion を確認した。
+- Review evidence: Combobox の active descendant/listbox、DatePicker の dialog trigger、DataGrid の row/column semantics、Tree の level/expanded state、Drawer の modal role と focus boundary、FileUpload の error/progress、Slider の native range、CommandPalette の command result contract を確認した。React 19 ref-as-prop、Theme、Density、Long/CJK text、Responsive の共通方針は既存 Phase の contract を継承する。
+- Lifecycle: Phase 5 Component はすべて `Trial`。Production usage、owner、manual screen-reader evidence、API/A11y/Figma parity を含む Stable gate は Governance の条件を満たすまで変更しない。
+- Known limitations: DataGrid はこの Phase では resize drag、virtualization、column chooser、server-side data adapter を実装せず、基本の sorting/selection/editing/pinning boundary に限定する。DatePicker は native date input を calendar fallback として使い、range calendar UI は後続の仕様拡張対象とする。Combobox、CommandPalette、Tree、Drawer の screen-reader/manual evidence と Safari/Firefox matrix は後続で拡張する。Browser automation は Chromium、visual fixture は deterministic static fixture を前提とする。
+- Commit: `feat(phase-5): implement advanced components`
+- Blocked items: なし。
 
 ### Phase 4A〜4C / Phase 5 component implementation phase matrix
 

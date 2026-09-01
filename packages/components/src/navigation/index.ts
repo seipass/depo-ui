@@ -1,5 +1,7 @@
 export { Breadcrumbs } from './Breadcrumbs/index.js';
 export type { BreadcrumbItem, BreadcrumbsProps } from './Breadcrumbs/index.js';
+export { CommandPalette } from './CommandPalette/index.js';
+export type { Command, CommandPaletteProps } from './CommandPalette/index.js';
 export { Menu } from './Menu/index.js';
 export type { MenuItemData, MenuProps } from './Menu/index.js';
 export { MenuButton } from './MenuButton/index.js';
