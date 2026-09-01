@@ -1,0 +1,12 @@
+{
+  "id": "data-management",
+  "name": "Data management",
+  "purpose": "Browse, filter, sort, paginate, and inspect records with a stable data context.",
+  "source": "packages/patterns/src/data-management/DataManagement.tsx",
+  "components": ["Table", "DataGrid", "SearchField", "Select", "Pagination", "Drawer"],
+  "states": ["idle", "fetching", "ready", "empty", "error"],
+  "recovery": ["retry", "preserve query", "detail alternative"],
+  "responsive": "Prioritize columns and provide a detail alternative for narrow containers.",
+  "accessibility": ["table/grid distinction", "keyboard grid model", "selection announcement"],
+  "lifecycle": "trial"
+}

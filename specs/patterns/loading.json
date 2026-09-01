@@ -1,0 +1,11 @@
+{
+  "id": "loading",
+  "name": "Loading",
+  "purpose": "Understand what is loading while existing content remains stable where possible.",
+  "components": ["Skeleton", "Spinner", "ProgressBar", "InlineMessage"],
+  "states": ["idle", "loading", "content", "empty", "error"],
+  "recovery": ["timeout", "retry", "preserve content"],
+  "responsive": "Reserve layout space and avoid hiding required content behind a skeleton.",
+  "accessibility": ["status", "aria-busy", "reduced motion"],
+  "lifecycle": "trial"
+}

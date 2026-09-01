@@ -1,0 +1,11 @@
+{
+  "id": "delete",
+  "name": "Delete",
+  "purpose": "Remove a resource only after understanding its impact.",
+  "components": ["Button", "IconButton", "Dialog", "Toast"],
+  "states": ["idle", "confirm", "deleting", "deleted", "error"],
+  "recovery": ["retry", "undo or restore", "preserve affected count"],
+  "responsive": "Keep destructive and safe actions in a predictable order at every width.",
+  "accessibility": ["explicit confirmation", "safe default focus", "non-color warning"],
+  "lifecycle": "trial"
+}

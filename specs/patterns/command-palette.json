@@ -1,0 +1,11 @@
+{
+  "id": "command-palette",
+  "name": "Command palette",
+  "purpose": "Find and run a command from the keyboard while preserving context.",
+  "components": ["CommandPalette", "Combobox", "Kbd", "Dialog"],
+  "states": ["closed", "open", "query", "result", "empty", "executing", "error"],
+  "recovery": ["keep query", "retry command", "permission explanation"],
+  "responsive": "Use a full-width modal surface on narrow screens and a constrained panel on wide screens.",
+  "accessibility": ["Ctrl/Cmd+K is supplemental", "focus trap", "result announcement", "Escape"],
+  "lifecycle": "trial"
+}

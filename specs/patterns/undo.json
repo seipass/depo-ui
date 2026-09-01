@@ -1,0 +1,11 @@
+{
+  "id": "undo",
+  "name": "Undo",
+  "purpose": "Reverse a recent reversible action before its recovery window expires.",
+  "components": ["Toast", "Button"],
+  "states": ["completed", "undo-window", "restored", "expired"],
+  "recovery": ["undo failure resync", "history alternative", "do not lose source"],
+  "responsive": "Make the action reachable without blocking the page or moving focus unexpectedly.",
+  "accessibility": ["live region", "timeout awareness", "alternate recovery"],
+  "lifecycle": "trial"
+}

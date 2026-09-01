@@ -1,0 +1,16 @@
+{
+  "id": "search-and-filter",
+  "name": "Search and filter",
+  "purpose": "Find relevant records while understanding the active query and filters.",
+  "source": "packages/patterns/src/search-filter/SearchFilter.tsx",
+  "components": ["SearchField", "Combobox", "Select", "Tag", "List", "Table"],
+  "states": ["idle", "loading", "results", "empty", "error"],
+  "recovery": ["retry", "clear filter", "preserve query"],
+  "responsive": "Wrap the filter bar and move secondary filters into a drawer on narrow containers.",
+  "accessibility": [
+    "result count live region",
+    "keyboard filter removal",
+    "empty/error distinction"
+  ],
+  "lifecycle": "trial"
+}

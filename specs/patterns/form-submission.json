@@ -1,0 +1,12 @@
+{
+  "id": "form-submission",
+  "name": "Form submission",
+  "purpose": "Submit valid information and recover without losing entered values.",
+  "source": "packages/patterns/src/form-submission/FormSubmission.tsx",
+  "components": ["Field", "Button", "InlineMessage"],
+  "states": ["idle", "editing", "submitting", "success", "error"],
+  "recovery": ["field correction", "server retry", "preserve input"],
+  "responsive": "Use a single column on narrow containers and keep submit actions visible.",
+  "accessibility": ["label/error association", "submit keyboard", "busy announcement"],
+  "lifecycle": "trial"
+}

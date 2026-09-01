@@ -1,0 +1,11 @@
+{
+  "id": "unavailable-state",
+  "name": "Unavailable state",
+  "purpose": "Distinguish deleted, offline, unsupported, and temporarily unavailable resources.",
+  "components": ["ErrorState", "InlineMessage", "Button", "Link"],
+  "states": ["available", "unavailable", "retry", "alternate"],
+  "recovery": ["retry", "alternate route", "offline action"],
+  "responsive": "Keep status heading and recovery action readable in constrained containers.",
+  "accessibility": ["status heading", "named action", "offline fallback"],
+  "lifecycle": "trial"
+}

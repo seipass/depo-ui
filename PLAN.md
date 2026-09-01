@@ -1,6 +1,6 @@
 # Depo UI Design System Plan
 
-> Status: Phase 0 — Repository Foundation、Phase 1 — Tokens、Phase 2 — Foundations、Phase 3 — Primitives、Phase 4A — Basic Controls、Phase 4B — Overlay Infrastructure、Phase 4C — Composite Components、Phase 5 — Advanced Components implemented; Phase 6 — Patterns has not started. このファイルは白紙のリポジトリから Depo UI Design System を実装するための設計書であり、実装時の Source of Truth である。
+> Status: Phase 0 — Repository Foundation、Phase 1 — Tokens、Phase 2 — Foundations、Phase 3 — Primitives、Phase 4A — Basic Controls、Phase 4B — Overlay Infrastructure、Phase 4C — Composite Components、Phase 5 — Advanced Components、Phase 6 — Patterns implemented; Phase 7 — Accessibility Infrastructure has not started. このファイルは白紙のリポジトリから Depo UI Design System を実装するための設計書であり、実装時の Source of Truth である。
 >
 > Research baseline: 2026-09-01（技術のバージョンは実装開始時に公式ドキュメントで再確認し、採用したバージョンを ADR に記録する）。
 
@@ -822,6 +822,17 @@ Lifecycle
 | Command palette | command を検索し keyboard で実行する。CommandPalette、Combobox、Kbd | closed → open → query → result/empty → executing → closed/error | command unavailable、permission、execution error を保持して retry | Ctrl/Cmd+K は補助。focus trap、roving/active descendant、Escape、announced result |
 
 Pattern の React 実装は必要な場合だけ packages/patterns に置き、仕様のみで価値があるものは先に specs/ と Docs で提供する。Pattern が Product domain の data type を要求し始めたら、Pattern ではなく Consumer adapter に分離する。
+
+**Phase status**
+
+- Status: Completed。19個の Pattern catalog を `specs/patterns/` の JSON/Markdown として定義し、Form submission、Search and filter、List detail、Data management、Error recovery、Responsive navigation の主要6 Patternを `packages/patterns/src/<pattern>/` に実装した。
+- Implemented source: `packages/patterns/src/form-submission/`、`search-filter/`、`list-detail/`、`data-management/`、`error-recovery/`、`responsive-navigation/`。公開 entrypoint は `packages/patterns/src/index.ts`、React consumer facade は `packages/react/src/index.ts` とする。
+- Boundary decision: Pattern は Component、state transition、error/recovery、responsive/a11y compositionだけを持ち、fetch、cache、route、permission、persistence、analytics は example/consumer adapterへ委譲する。Data management は Table と DataGrid の役割境界を維持し、Responsive navigation は既存の TopNav、SideNav、Drawer を再利用する。
+- Tests: `pnpm --filter @depo-ui/patterns typecheck`、`pnpm --filter @depo-ui/patterns build`、`pnpm --filter @depo-ui/patterns test`（60 files、84 tests）、`pnpm test:visual -- patterns.spec.ts`（3 browser tests）を通過した。Pattern 固有では recoverable form、search/filter result state、list/detail selection、data grid composition、error recovery、navigation reflow、axe、forced colors、reduced motion を確認した。
+- Lifecycle: 全 Pattern は `Trial`。Production usage、owner、manual screen-reader evidence、API/A11y/Figma parity を含む Stable gate は Governance の条件を満たすまで変更しない。catalog のうち未実装の13 Patternは仕様先行であり、実装済みとは表示しない。
+- Known limitations: Pattern source は主要6 Patternに限定し、残りの catalog は仕様と docs input を提供する。実際の server state、URL、authorization、analytics、data adapter は Consumer の責任である。Browser automation は Chromium、screen-reader evidence と multi-browser matrix は後続 Phase の対象とする。
+- Commit: `feat(phase-6): implement patterns`
+- Blocked items: なし。
 
 ## 13. Content Design
 

@@ -1,0 +1,11 @@
+{
+  "id": "create",
+  "name": "Create",
+  "purpose": "Create a new resource with clear validation and destination after success.",
+  "components": ["Field", "Dialog", "Drawer", "Button", "InlineMessage"],
+  "states": ["idle", "editing", "submitting", "created", "error", "cancel"],
+  "recovery": ["correct validation", "retry", "cancel without data loss"],
+  "responsive": "Prefer a full-screen form or route on narrow containers and a dialog on wide containers.",
+  "accessibility": ["focus trap", "unsaved changes", "error association"],
+  "lifecycle": "trial"
+}

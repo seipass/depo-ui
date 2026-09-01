@@ -1,0 +1,11 @@
+{
+  "id": "edit",
+  "name": "Edit",
+  "purpose": "Change an existing resource and understand whether changes are saved.",
+  "components": ["Field", "Button", "Banner"],
+  "states": ["view", "editing", "dirty", "saving", "saved", "error"],
+  "recovery": ["resolve conflict", "reload or merge", "preserve draft"],
+  "responsive": "Reflow the action bar while retaining the primary save action.",
+  "accessibility": ["dirty state announcement", "keyboard save", "long text preservation"],
+  "lifecycle": "trial"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "list-detail",
+  "name": "List detail",
+  "purpose": "Select a record and move between its summary and detail without losing context.",
+  "source": "packages/patterns/src/list-detail/ListDetail.tsx",
+  "components": ["List", "Card", "Drawer", "Dialog", "Pagination"],
+  "states": ["idle", "loading", "selected", "error"],
+  "recovery": ["retry detail", "back to list", "preserve selection"],
+  "responsive": "Use list-to-detail navigation on narrow containers and split panes on wide containers.",
+  "accessibility": ["selected item state", "heading hierarchy", "focus return"],
+  "lifecycle": "trial"
+}

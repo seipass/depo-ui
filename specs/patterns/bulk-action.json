@@ -1,0 +1,19 @@
+{
+  "id": "bulk-action",
+  "name": "Bulk action",
+  "purpose": "Apply an action to selected records and understand partial outcomes.",
+  "components": ["Checkbox", "DataGrid", "Button", "Dialog", "Toast"],
+  "states": [
+    "none-selected",
+    "some-selected",
+    "all-selected",
+    "processing",
+    "partial",
+    "success",
+    "error"
+  ],
+  "recovery": ["retry failed items", "undo", "preserve selection"],
+  "responsive": "Announce scope and keep the selection action bar usable on narrow screens.",
+  "accessibility": ["selection summary", "scope label", "progress/result announcement"],
+  "lifecycle": "trial"
+}

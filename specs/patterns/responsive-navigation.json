@@ -1,0 +1,12 @@
+{
+  "id": "responsive-navigation",
+  "name": "Responsive navigation",
+  "purpose": "Reach application destinations as navigation changes with available space.",
+  "source": "packages/patterns/src/responsive-navigation/ResponsiveNavigation.tsx",
+  "components": ["TopNav", "SideNav", "Drawer", "Menu", "SkipLink"],
+  "states": ["permanent", "persistent", "temporary"],
+  "recovery": ["keep main content", "focus return", "escape close"],
+  "responsive": "Use container width and input method to transform navigation between modes.",
+  "accessibility": ["landmarks", "toggle name", "focus return", "skip link"],
+  "lifecycle": "trial"
+}

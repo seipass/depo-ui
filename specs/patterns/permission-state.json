@@ -1,0 +1,11 @@
+{
+  "id": "permission-state",
+  "name": "Permission state",
+  "purpose": "Understand whether access is checking, limited, denied, or available and what to do next.",
+  "components": ["Banner", "InlineMessage", "Button", "Link"],
+  "states": ["checking", "allowed", "limited", "denied"],
+  "recovery": ["request access", "switch account", "learn more"],
+  "responsive": "Keep the reason and next action visible at every width.",
+  "accessibility": ["explain disabled actions", "status", "privacy-safe text"],
+  "lifecycle": "trial"
+}

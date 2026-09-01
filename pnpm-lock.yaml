@@ -225,6 +225,16 @@ importers:
       '@depo-ui/components':
         specifier: workspace:*
         version: link:../components
+    devDependencies:
+      '@types/react':
+        specifier: 'catalog:'
+        version: 19.2.18
+      react:
+        specifier: 'catalog:'
+        version: 19.2.8
+      typescript:
+        specifier: 'catalog:'
+        version: 5.9.3
 
   packages/primitives:
     dependencies:

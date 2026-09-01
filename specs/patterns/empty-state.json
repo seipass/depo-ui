@@ -1,0 +1,11 @@
+{
+  "id": "empty-state",
+  "name": "Empty state",
+  "purpose": "Distinguish new, filtered, unavailable, and failed data and offer a next action.",
+  "components": ["EmptyState", "Button", "Link"],
+  "states": ["loading", "empty", "filtered-empty", "error"],
+  "recovery": ["create", "clear filters", "learn more"],
+  "responsive": "Wrap actions and preserve readable explanation on narrow screens.",
+  "accessibility": ["heading", "action label", "decorative media policy"],
+  "lifecycle": "trial"
+}

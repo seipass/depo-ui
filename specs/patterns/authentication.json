@@ -1,0 +1,11 @@
+{
+  "id": "authentication",
+  "name": "Authentication",
+  "purpose": "Sign in, verify, recover, and re-authenticate without ambiguous errors.",
+  "components": ["Field", "Button", "InlineMessage", "Link"],
+  "states": ["signed-out", "authenticating", "authenticated", "error", "expired"],
+  "recovery": ["field correction", "password manager", "recovery flow"],
+  "responsive": "Use a readable single-column form and preserve error context on narrow screens.",
+  "accessibility": ["accessible authentication", "autocomplete", "one fact per field"],
+  "lifecycle": "trial"
+}

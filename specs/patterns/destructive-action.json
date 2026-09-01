@@ -1,0 +1,11 @@
+{
+  "id": "destructive-action",
+  "name": "Destructive action",
+  "purpose": "Understand an irreversible action before confirming it.",
+  "components": ["Dialog", "Button", "InlineMessage"],
+  "states": ["idle", "confirm", "processing", "complete"],
+  "recovery": ["cancel", "alternative action", "support path"],
+  "responsive": "Maintain readable impact text and action order on narrow screens.",
+  "accessibility": ["dialog semantics", "safe focus", "text independent of color"],
+  "lifecycle": "trial"
+}

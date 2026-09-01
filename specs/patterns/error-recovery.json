@@ -1,0 +1,12 @@
+{
+  "id": "error-recovery",
+  "name": "Error recovery",
+  "purpose": "Understand a problem and resume work with the smallest safe next action.",
+  "source": "packages/patterns/src/error-recovery/ErrorRecovery.tsx",
+  "components": ["ErrorState", "InlineMessage", "Button", "Link"],
+  "states": ["error", "retry", "loading", "recovered"],
+  "recovery": ["explain problem", "give correction", "retry without reset"],
+  "responsive": "Separate page, section, and field errors without hiding the affected context.",
+  "accessibility": ["heading", "focus policy", "alert/status distinction"],
+  "lifecycle": "trial"
+}

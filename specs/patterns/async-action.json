@@ -1,0 +1,11 @@
+{
+  "id": "async-action",
+  "name": "Async action",
+  "purpose": "Understand progress and outcome for a background or remote action.",
+  "components": ["Button", "ProgressBar", "InlineMessage"],
+  "states": ["idle", "pending", "success", "warning", "error"],
+  "recovery": ["cancel", "retry", "partial success"],
+  "responsive": "Keep progress and status discoverable without relying on animation.",
+  "accessibility": ["aria-busy", "live result", "reduced motion"],
+  "lifecycle": "trial"
+}
