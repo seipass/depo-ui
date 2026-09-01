@@ -29,9 +29,9 @@
       "$value": {
         "color": "#00000055",
         "offsetX": { "value": 0, "unit": "px" },
-        "offsetY": { "value": 8, "unit": "px" },
-        "blur": { "value": 20, "unit": "px" },
-        "spread": { "value": -4, "unit": "px" }
+        "offsetY": { "value": 4, "unit": "px" },
+        "blur": { "value": 12, "unit": "px" },
+        "spread": { "value": -2, "unit": "px" }
       },
       "$description": "Floating surface elevation",
       "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }
@@ -41,9 +41,9 @@
       "$value": {
         "color": "#00000066",
         "offsetX": { "value": 0, "unit": "px" },
-        "offsetY": { "value": 12, "unit": "px" },
-        "blur": { "value": 28, "unit": "px" },
-        "spread": { "value": -6, "unit": "px" }
+        "offsetY": { "value": 6, "unit": "px" },
+        "blur": { "value": 14, "unit": "px" },
+        "spread": { "value": -3, "unit": "px" }
       },
       "$description": "Popover elevation",
       "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }
@@ -53,9 +53,9 @@
       "$value": {
         "color": "#00000088",
         "offsetX": { "value": 0, "unit": "px" },
-        "offsetY": { "value": 20, "unit": "px" },
-        "blur": { "value": 48, "unit": "px" },
-        "spread": { "value": -8, "unit": "px" }
+        "offsetY": { "value": 8, "unit": "px" },
+        "blur": { "value": 14, "unit": "px" },
+        "spread": { "value": -4, "unit": "px" }
       },
       "$description": "Modal elevation",
       "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }

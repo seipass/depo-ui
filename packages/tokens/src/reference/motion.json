@@ -35,8 +35,8 @@
       },
       "reference-emphasized": {
         "$type": "cubicBezier",
-        "$value": [0.2, 0, 0, 1.2],
-        "$description": "Emphasized entrance motion",
+        "$value": [0.16, 1, 0.3, 1],
+        "$description": "Smooth emphasized entrance motion without overshoot",
         "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }
       },
       "reference-linear": {

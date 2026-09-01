@@ -217,7 +217,7 @@ export const themes = {
     "--dui-motion-duration-standard": "180ms",
     "--dui-motion-duration-overlay": "260ms",
     "--dui-motion-easing-standard": "cubic-bezier(0.2, 0, 0, 1)",
-    "--dui-motion-easing-emphasized": "cubic-bezier(0.2, 0, 0, 1.2)",
+    "--dui-motion-easing-emphasized": "cubic-bezier(0.16, 1, 0.3, 1)",
     "--dui-layout-grid-narrow": "4",
     "--dui-layout-grid-medium": "8",
     "--dui-layout-grid-expanded": "12",
@@ -251,9 +251,9 @@ export const themes = {
     "--dui-border-width-strong": "2px",
     "--dui-elevation-surface-base": "#00000066 0px 0px 0px 0px",
     "--dui-elevation-surface-raised": "#00000040 0px 2px 8px 0px",
-    "--dui-elevation-surface-floating": "#00000055 0px 8px 20px -4px",
-    "--dui-elevation-surface-popover": "#00000066 0px 12px 28px -6px",
-    "--dui-elevation-surface-modal": "#00000088 0px 20px 48px -8px"
+    "--dui-elevation-surface-floating": "#00000055 0px 4px 12px -2px",
+    "--dui-elevation-surface-popover": "#00000066 0px 6px 14px -3px",
+    "--dui-elevation-surface-modal": "#00000088 0px 8px 14px -4px"
   },
   "light": {
     "--dui-color-bg-canvas": "#FDFEFF",
@@ -344,7 +344,7 @@ export const themes = {
     "--dui-motion-duration-standard": "180ms",
     "--dui-motion-duration-overlay": "260ms",
     "--dui-motion-easing-standard": "cubic-bezier(0.2, 0, 0, 1)",
-    "--dui-motion-easing-emphasized": "cubic-bezier(0.2, 0, 0, 1.2)",
+    "--dui-motion-easing-emphasized": "cubic-bezier(0.16, 1, 0.3, 1)",
     "--dui-layout-grid-narrow": "4",
     "--dui-layout-grid-medium": "8",
     "--dui-layout-grid-expanded": "12",
@@ -378,9 +378,9 @@ export const themes = {
     "--dui-border-width-strong": "2px",
     "--dui-elevation-surface-base": "#00000066 0px 0px 0px 0px",
     "--dui-elevation-surface-raised": "#00000040 0px 2px 8px 0px",
-    "--dui-elevation-surface-floating": "#00000055 0px 8px 20px -4px",
-    "--dui-elevation-surface-popover": "#00000066 0px 12px 28px -6px",
-    "--dui-elevation-surface-modal": "#00000088 0px 20px 48px -8px"
+    "--dui-elevation-surface-floating": "#00000055 0px 4px 12px -2px",
+    "--dui-elevation-surface-popover": "#00000066 0px 6px 14px -3px",
+    "--dui-elevation-surface-modal": "#00000088 0px 8px 14px -4px"
   },
   "high-contrast": {
     "--dui-color-bg-canvas": "Canvas",
@@ -471,7 +471,7 @@ export const themes = {
     "--dui-motion-duration-standard": "180ms",
     "--dui-motion-duration-overlay": "260ms",
     "--dui-motion-easing-standard": "cubic-bezier(0.2, 0, 0, 1)",
-    "--dui-motion-easing-emphasized": "cubic-bezier(0.2, 0, 0, 1.2)",
+    "--dui-motion-easing-emphasized": "cubic-bezier(0.16, 1, 0.3, 1)",
     "--dui-layout-grid-narrow": "4",
     "--dui-layout-grid-medium": "8",
     "--dui-layout-grid-expanded": "12",
@@ -505,9 +505,9 @@ export const themes = {
     "--dui-border-width-strong": "2px",
     "--dui-elevation-surface-base": "#00000066 0px 0px 0px 0px",
     "--dui-elevation-surface-raised": "#00000040 0px 2px 8px 0px",
-    "--dui-elevation-surface-floating": "#00000055 0px 8px 20px -4px",
-    "--dui-elevation-surface-popover": "#00000066 0px 12px 28px -6px",
-    "--dui-elevation-surface-modal": "#00000088 0px 20px 48px -8px"
+    "--dui-elevation-surface-floating": "#00000055 0px 4px 12px -2px",
+    "--dui-elevation-surface-popover": "#00000066 0px 6px 14px -3px",
+    "--dui-elevation-surface-modal": "#00000088 0px 8px 14px -4px"
   }
 } as const;
 
