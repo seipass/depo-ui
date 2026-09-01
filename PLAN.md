@@ -1,6 +1,6 @@
 # Depo UI Design System Plan
 
-> Status: Phase 0 — Repository Foundation、Phase 1 — Tokens、Phase 2 — Foundations、Phase 3 — Primitives、Phase 4A — Basic Controls implemented; Phase 4B — Overlay Infrastructure has not started. このファイルは白紙のリポジトリから Depo UI Design System を実装するための設計書であり、実装時の Source of Truth である。
+> Status: Phase 0 — Repository Foundation、Phase 1 — Tokens、Phase 2 — Foundations、Phase 3 — Primitives、Phase 4A — Basic Controls、Phase 4B — Overlay Infrastructure implemented; Phase 4C — Composite Components has not started. このファイルは白紙のリポジトリから Depo UI Design System を実装するための設計書であり、実装時の Source of Truth である。
 >
 > Research baseline: 2026-09-01（技術のバージョンは実装開始時に公式ドキュメントで再確認し、採用したバージョンを ADR に記録する）。
 
@@ -1456,6 +1456,16 @@ packages/accessibility/src/focus/、packages/accessibility/src/keyboard/、packa
 **Exit criteria**
 
 Popover、Tooltip、Dialog が shared infrastructure の各 helper を必要な範囲だけ利用し、nested overlay、focus、dismiss、portal、scroll、layer、forced colors、reduced motion、screen reader、narrow viewport の検証を通過する。Overlay 同士の責任が重複せず、後続の Select、Menu、Toast、Drawer が再利用できる public/internal boundary が決まる。
+
+**Phase status**
+
+- Status: Completed。Phase 4B の実装は `packages/accessibility/src/focus/`、`packages/utilities/src/dom/`、`packages/components/src/overlays/` に配置し、FocusScope、DismissableLayer、inert sibling、Portal、scroll lock、positioning/collision の責任を分離した。Popover、Tooltip、Dialog はそれぞれ non-modal contextual content、補助情報、modal task/confirmation の Contract を持ち、必要な helper だけを組み合わせる。
+- Placement decision: FocusScope、focus restoration、DismissableLayer、Escape/outside interaction、inert background は assistive technology と keyboard/focus semantics を担うため `packages/accessibility/src/focus/` に置いた。Portal、scroll lock、geometry positioning は DOM/rendering の責任だけを担うため `packages/utilities/src/dom/` に置いた。Overlay の semantic component と surface/motion/z-index の tokenized CSS はそれぞれ `packages/components/src/overlays/` と `packages/components/src/css/index.css` に置き、arbitrary z-index や万能 `OverlayManager` は導入しない。
+- Tests: `pnpm install --frozen-lockfile`、`pnpm tokens:build`、`pnpm tokens:check`、`pnpm lint:tokens`、`pnpm lint:raw-values`、`pnpm lint:deps`、`pnpm typecheck`、`pnpm build`、`pnpm test`（root 28 tests、workspace 24 tasks）、`pnpm test:visual`（13 browser tests）、`pnpm format:check`、`pnpm lint` が通過した。Overlay 固有では Vitest 4 tests、Playwright 3 tests、axe smoke、narrow viewport、forced colors、reduced motion、Escape/focus return、layering を確認した。
+- Lifecycle: Popover、Tooltip、Dialog と shared overlay helpers は `Trial`。Production usage、owner、manual screen-reader evidence、API/A11y/Figma parity を含む Stable gate は Governance の条件を満たすまで変更しない。
+- Known limitations: browser automation は Chromium、screen-reader evidence は manual checklist 前提、positioning は fixed geometry と基本 collision clamp、scroll lock/inert/focus scope は単一 document 境界を対象とする。Nested overlay の基盤は検証済みだが、Select、Menu、Toast、Drawer との実利用は後続 Phase 4C/5 で行う。
+- Commit: `feat(phase-4b): implement overlay infrastructure`
+- Blocked items: なし。
 
 ### Phase 4C — Composite Components
 

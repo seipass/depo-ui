@@ -272,7 +272,14 @@ importers:
 
   packages/tokens: {}
 
-  packages/utilities: {}
+  packages/utilities:
+    devDependencies:
+      '@types/react':
+        specifier: 'catalog:'
+        version: 19.2.18
+      react:
+        specifier: 'catalog:'
+        version: 19.2.8
 
 packages:
 
