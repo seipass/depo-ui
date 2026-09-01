@@ -3,12 +3,14 @@
   "version": "0.0.0",
   "private": true,
   "description": "Depo UI documentation site boundary",
-  "type": "module",
   "scripts": {
-    "build": "node ../../tooling/phase0-check.mjs build",
-    "typecheck": "node ../../tooling/phase0-check.mjs typecheck",
-    "lint": "node ../../tooling/phase0-check.mjs lint",
-    "test": "node ../../tooling/phase0-check.mjs test"
+    "start": "node ../../tooling/docs-generator/generate.mjs && docusaurus start",
+    "build": "node ../../tooling/docs-generator/generate.mjs && docusaurus build",
+    "serve": "docusaurus serve",
+    "clear": "docusaurus clear",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "lint": "eslint src docusaurus.config.mjs sidebars.mjs",
+    "test": "node ../../tooling/docs-generator/check.mjs"
   },
   "exports": {
     ".": {
@@ -19,6 +21,17 @@
     "./package.json": "./package.json"
   },
   "dependencies": {
-    "@depo-ui/react": "workspace:*"
+    "@depo-ui/foundations": "workspace:*",
+    "@depo-ui/react": "workspace:*",
+    "@docusaurus/core": "3.10.2",
+    "@docusaurus/preset-classic": "3.10.2",
+    "react": "catalog:",
+    "react-dom": "catalog:"
+  },
+  "devDependencies": {
+    "@docusaurus/module-type-aliases": "3.10.2",
+    "@docusaurus/tsconfig": "3.10.2",
+    "@docusaurus/types": "3.10.2",
+    "typescript": "catalog:"
   }
 }

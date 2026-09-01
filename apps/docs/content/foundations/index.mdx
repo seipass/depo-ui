@@ -1,0 +1,31 @@
+---
+id: foundations
+title: Foundations
+sidebar_position: 2
+description: The visual and interaction foundations shared by Depo UI.
+---
+
+# Foundations
+
+Foundations are the stable vocabulary behind every Depo UI Component. The implementation consumes Semantic tokens, while Reference and Component tokens remain inside their defined boundaries.
+
+## Token layers
+
+```text
+Reference → Semantic → Component
+```
+
+Reference values describe a palette or scale. Semantic values describe a role such as `color.bg.canvas`, `color.fg.primary`, or `color.action.primary`. Component aliases are private to the Component that owns them.
+
+The generated token manifest currently provides dark, light, and high-contrast themes. Use [Examples](/docs/examples) to inspect the same content under different modes.
+
+## Foundation topics
+
+- `specs/foundations/color.md`: Depo UI palette anchors, roles, contrast, and themes.
+- `specs/foundations/typography.md`: readable hierarchy, CJK, fallback, and resize behavior.
+- `specs/foundations/spacing.md`: four-unit rhythm, hairlines, density, and layout gaps.
+- `specs/foundations/responsive.md`: container queries, content width, input method, and adaptive structure.
+- `specs/foundations/iconography.md`: naming, size, stroke, and accessible usage.
+- `specs/foundations/accessibility.md`: baseline contract and manual review boundaries.
+
+Formal specifications remain the source of truth; this page is an index for human readers.

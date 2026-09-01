@@ -12,6 +12,8 @@ export default tseslint.config(
     ignores: [
       'node_modules/**',
       '**/dist/**',
+      '**/build/**',
+      '**/.docusaurus/**',
       'coverage/**',
       'test-results/**',
       'playwright-report/**',

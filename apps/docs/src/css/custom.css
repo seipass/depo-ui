@@ -1,0 +1,173 @@
+@import '@depo-ui/foundations/css';
+
+:root {
+  --ifm-color-primary: var(--dui-color-action-primary);
+  --ifm-color-primary-dark: var(--dui-color-action-primary-hover);
+  --ifm-background-color: var(--dui-color-bg-canvas);
+  --ifm-background-surface-color: var(--dui-color-bg-surface);
+  --ifm-font-family-base: var(--dui-typography-body-family);
+  --ifm-font-family-monospace: var(--dui-typography-code-family);
+  --ifm-code-font-size: 0.9em;
+  --ifm-navbar-background-color: var(--dui-color-bg-surface);
+  --ifm-footer-background-color: var(--dui-color-bg-surface-sunken);
+}
+
+html[data-theme='light'] {
+  --ifm-background-color: var(--dui-color-bg-canvas);
+  --ifm-background-surface-color: var(--dui-color-bg-surface);
+}
+
+.dui-doc-hero {
+  background: linear-gradient(
+    135deg,
+    var(--dui-color-bg-surface-panel),
+    var(--dui-color-bg-canvas)
+  );
+  border-block-end: var(--dui-border-width-default) solid var(--dui-color-border-subtle);
+  padding-block: clamp(2rem, 7vw, 6rem);
+}
+
+.dui-doc-hero__inner {
+  margin-inline: auto;
+  max-inline-size: var(--dui-size-content-panel);
+  padding-inline: var(--dui-space-layout-page);
+}
+
+.dui-doc-hero h1 {
+  color: var(--dui-color-fg-primary);
+  font-size: clamp(2rem, 6vw, 4rem);
+  margin-block-end: var(--dui-space-stack-sm);
+}
+
+.dui-doc-hero p {
+  color: var(--dui-color-fg-secondary);
+  max-inline-size: var(--dui-size-content-measure);
+}
+
+.dui-doc-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--dui-space-control-group);
+  margin-block-start: var(--dui-space-layout-section);
+}
+
+.dui-doc-button {
+  border: var(--dui-border-width-default) solid var(--dui-color-border-default);
+  border-radius: var(--dui-radius-control-md);
+  display: inline-flex;
+  font: inherit;
+  font-weight: var(--dui-typography-label-weight);
+  padding-block: var(--dui-space-control-inline);
+  padding-inline: var(--dui-space-control-group);
+  text-decoration: none;
+}
+
+.dui-doc-button--primary {
+  background: var(--dui-color-action-primary);
+  border-color: var(--dui-color-action-primary);
+  color: var(--dui-color-action-on-primary);
+}
+
+.dui-doc-button--secondary {
+  background: var(--dui-color-bg-surface-raised);
+  color: var(--dui-color-fg-primary);
+}
+
+.dui-doc-grid {
+  display: grid;
+  gap: var(--dui-space-layout-section);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  margin-block: var(--dui-space-layout-section);
+}
+
+.dui-doc-card {
+  background: var(--dui-color-bg-surface);
+  border: var(--dui-border-width-default) solid var(--dui-color-border-subtle);
+  border-radius: var(--dui-radius-panel);
+  padding: var(--dui-space-layout-panel);
+}
+
+.dui-doc-card h2,
+.dui-doc-card h3 {
+  margin-block-start: 0;
+}
+
+.dui-doc-example {
+  background: var(--dui-color-bg-surface-panel);
+  border: var(--dui-border-width-default) solid var(--dui-color-border-default);
+  border-radius: var(--dui-radius-panel);
+  margin-block: var(--dui-space-layout-section);
+  padding: var(--dui-space-layout-panel);
+}
+
+.dui-doc-example__controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--dui-space-control-group);
+  margin-block-end: var(--dui-space-control-group);
+}
+
+.dui-doc-example__surface {
+  background: var(--dui-color-bg-surface);
+  border: var(--dui-border-width-default) solid var(--dui-color-border-subtle);
+  border-radius: var(--dui-radius-control-md);
+  color: var(--dui-color-fg-primary);
+  min-block-size: 7rem;
+  padding: var(--dui-space-layout-panel);
+}
+
+.dui-doc-example__surface[data-direction='rtl'] {
+  text-align: start;
+}
+
+.dui-doc-status {
+  border-radius: var(--dui-radius-pill);
+  display: inline-flex;
+  font-size: var(--dui-typography-supporting-size);
+  padding-block: var(--dui-space-detail-hairline);
+  padding-inline: var(--dui-space-control-inline);
+}
+
+.dui-doc-status--trial {
+  background: var(--dui-color-status-warning-container);
+  color: var(--dui-color-fg-primary);
+}
+
+.dui-doc-status--stable {
+  background: var(--dui-color-status-success-container);
+  color: var(--dui-color-fg-primary);
+}
+
+.dui-doc-search {
+  border: var(--dui-border-width-default) solid var(--dui-color-border-default);
+  border-radius: var(--dui-radius-control-md);
+  color: var(--dui-color-fg-primary);
+  inline-size: min(100%, 30rem);
+  padding: var(--dui-space-control-inline);
+}
+
+@media (max-width: 50rem) {
+  .dui-doc-hero__inner,
+  .dui-doc-example,
+  .dui-doc-card {
+    padding-inline: var(--dui-space-control-group);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: var(--dui-motion-duration-reduced) !important;
+  }
+}
+
+@media (forced-colors: active) {
+  .dui-doc-button,
+  .dui-doc-card,
+  .dui-doc-example,
+  .dui-doc-search {
+    border-color: CanvasText;
+  }
+}

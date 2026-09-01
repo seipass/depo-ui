@@ -1,0 +1,24 @@
+---
+id: examples
+title: Examples
+sidebar_position: 8
+description: Explore adaptive themes, density, direction, and resilient content.
+---
+
+import LiveExamples from '@site/src/components/LiveExamples';
+
+# Examples
+
+The examples use deterministic content so that a change is easy to review in a Story, visual fixture, or documentation build. They exercise the same semantic roles across dark, light, and high-contrast themes.
+
+<LiveExamples />
+
+## What to inspect
+
+- Change theme and confirm that meaning does not depend on color alone.
+- Change density and confirm that compact layouts do not remove keyboard or touch affordances.
+- Change direction and confirm that logical spacing, navigation, and focus order remain correct.
+- Resize the containing area and try long labels, CJK text, and multi-line error messages.
+- Enable reduced motion in the browser and confirm that state and recovery remain understandable without animation.
+
+Product examples belong in `examples/` and must not introduce product-specific logic into Core Components.

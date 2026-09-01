@@ -1,0 +1,21 @@
+---
+id: migration
+title: Migration Guide
+sidebar_position: 10
+description: Move between API versions with deprecation and recovery guidance.
+---
+
+# Migration Guide
+
+Migration guidance is published with the release that changes the contract. It describes the old behavior, the replacement, the reason for the change, automated codemod coverage, manual follow-up, and the support window.
+
+## Migration checklist
+
+1. Read the release note and identify affected Components, Patterns, and tokens.
+2. Run the matching codemod in a branch and review its diff.
+3. Replace deprecated props or token names with the Semantic API.
+4. Re-run keyboard, accessibility, visual, responsive, localization, and consumer tests.
+5. Verify Figma/Code parity and update any Component mapping or Story fixture.
+6. Keep the rollback or recovery step available until the support window closes.
+
+Codemods must be AST-aware and must not guess at product-specific domain code. If no safe codemod exists, the release page must say so and provide a precise manual recipe.

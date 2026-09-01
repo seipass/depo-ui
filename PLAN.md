@@ -1,6 +1,6 @@
 # Depo UI Design System Plan
 
-> Status: Phase 0 — Repository Foundation、Phase 1 — Tokens、Phase 2 — Foundations、Phase 3 — Primitives、Phase 4A — Basic Controls、Phase 4B — Overlay Infrastructure、Phase 4C — Composite Components、Phase 5 — Advanced Components、Phase 6 — Patterns、Phase 7 — Accessibility Infrastructure、Phase 8 — Figma Integration implemented; Phase 9 — Documentation has not started. このファイルは白紙のリポジトリから Depo UI Design System を実装するための設計書であり、実装時の Source of Truth である。
+> Status: Phase 0 — Repository Foundation、Phase 1 — Tokens、Phase 2 — Foundations、Phase 3 — Primitives、Phase 4A — Basic Controls、Phase 4B — Overlay Infrastructure、Phase 4C — Composite Components、Phase 5 — Advanced Components、Phase 6 — Patterns、Phase 7 — Accessibility Infrastructure、Phase 8 — Figma Integration、Phase 9 — Documentation implemented; Phase 10 — Governance / Release has not started. このファイルは白紙のリポジトリから Depo UI Design System を実装するための設計書であり、実装時の Source of Truth である。
 >
 > Research baseline: 2026-09-01（技術のバージョンは実装開始時に公式ドキュメントで再確認し、採用したバージョンを ADR に記録する）。
 
@@ -1718,6 +1718,15 @@ apps/docs/、tooling/docs-generator/、docs/、specs/、README.md。
 **Exit criteria**
 
 仕様と Docs の重複がなく、Component を一つ追加したとき Metadata/Story を通じて Docs reference の大部分が自動更新される。
+
+**Phase status**
+
+- Status: Completed。Docusaurus 3.10.2 の Docs Site、10 セクションの navigation、spec/source boundary、Component/Pattern metadata generator、search/index、preview fixture、theme/density/RTL/long-text の live example を追加した。Component reference は `specs/components/`、Pattern reference は `specs/patterns/`、Token manifest は `packages/tokens/generated/manifest.json`、Figma parity は `figma/mapping/components.json` を入力として生成する。生成物は `apps/docs/content/generated/` と `apps/docs/static/generated/` に置き、手編集しない。
+- Tests: `pnpm --filter @depo-ui/docs typecheck`、`pnpm --filter @depo-ui/docs lint`、`pnpm --filter @depo-ui/docs build`、`pnpm docs:check`、`pnpm --filter @depo-ui/docs test`、`pnpm exec playwright test apps/visual-tests/tests/docs.spec.ts --pass-with-no-tests`、`pnpm test`、`pnpm test:visual`、`pnpm typecheck`、`pnpm lint`、`pnpm lint:deps`、`pnpm lint:raw-values`、`pnpm format:check` が通過した。Docs browser test は navigation、landmark/heading、keyboard skip、320px reflow、forced colors、reduced motion、axe を確認する。
+- Documentation policy: Formal specs と Docs Site の本文を二重管理せず、Docs の reference 部分は metadata/generator から更新する。Docusaurus の broken-link policy により repository 内の formal spec は直接 import せず、source path と generator input を明示する。Story が存在する Component には Story への参照を付け、live Figma publish と外部 hosting は Phase 10 以降の運用対象とする。
+- Known limitations: Search は静的生成 index、Docs の live example は deterministic fixture、browser verification は Chromium 前提である。Safari/Firefox、実 Figma file/credential、production hosting、manual screen-reader evidence は後続の運用で補完する。
+- Commit: `feat(phase-9): implement documentation`
+- Blocked items: なし。
 
 ### Phase 10 — Governance / Release
 

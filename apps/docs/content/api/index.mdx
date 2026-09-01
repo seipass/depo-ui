@@ -1,0 +1,24 @@
+---
+id: api
+title: API
+sidebar_position: 7
+description: Shared React API vocabulary, refs, tokens, and public exports.
+---
+
+# API
+
+## Common props
+
+`variant`, `size`, and `tone` express shared visual dimensions. `disabled`, `readOnly`, `loading`, `selected`, `checked`, `expanded`, `invalid`, and `required` are used only when they have the corresponding semantic meaning. Native HTML props and events retain their native behavior unless a Contract says otherwise.
+
+## Ref compatibility
+
+For React 19 and later, a Function Component receives `ref` as a regular prop when the Contract exposes a DOM node. New Components do not treat `forwardRef` as a standard implementation pattern. If React 18 remains in the support range, Phase 0 owns the compatibility strategy and its adapter or entrypoint boundary. Public consumers still get the documented ref behavior across the support range.
+
+Imperative handles are limited to operations that props cannot express, such as focus, scroll, or selection. A Component without a useful DOM target does not expose a ref solely for API symmetry.
+
+## Tokens and imports
+
+Product code consumes Semantic token names and the public package entrypoints. Generated CSS, TypeScript, declarations, docs, and Figma mappings are build outputs; source JSON and metadata are edited instead.
+
+Generated Component API tables are available from the [Components](/docs/components) sidebar. Package and dependency boundaries are documented in the repository `README.md` and `AGENTS.md`.

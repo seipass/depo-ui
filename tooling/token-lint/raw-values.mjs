@@ -12,7 +12,15 @@ const roots = [
   'examples',
 ];
 const sourceExtensions = new Set(['.css', '.scss', '.ts', '.tsx', '.js', '.jsx', '.mjs', '.cjs']);
-const ignoredSegments = new Set(['node_modules', 'dist', 'generated', '.turbo', 'snapshots']);
+const ignoredSegments = new Set([
+  'node_modules',
+  'dist',
+  'generated',
+  '.turbo',
+  '.docusaurus',
+  'build',
+  'snapshots',
+]);
 const violations = [];
 
 const walk = async (directory) => {

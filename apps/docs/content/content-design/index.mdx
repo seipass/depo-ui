@@ -1,0 +1,29 @@
+---
+id: content-design
+title: Content Design
+sidebar_position: 6
+description: Clear interface language, messages, and recovery guidance.
+---
+
+# Content Design
+
+Words are part of the interface contract. Labels and messages should make the next useful action obvious without hiding important state.
+
+## Error and recovery
+
+An error message states:
+
+1. What went wrong.
+2. What the user can do to fix it.
+
+Keep user input when recovery allows it. Put the correction near the affected field, preserve a summary for long forms, and provide retry or alternate action for recoverable asynchronous failures.
+
+## Writing rules
+
+- Use concise, action-oriented Button labels such as “Save changes” or “Try again”.
+- Give every control a visible label or an accessible name; placeholder text is not a label.
+- Use sentence case, consistent terminology, and stable status words.
+- Let long labels wrap before truncating meaningful information.
+- Localize dates, times, numbers, plural forms, and error text; test CJK, RTL, and pseudo-localized strings.
+
+Formal content guidance and message patterns belong in `specs/content/` and the Pattern metadata. Component references link to their content contract rather than copying it.

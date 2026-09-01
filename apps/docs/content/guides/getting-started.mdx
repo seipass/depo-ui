@@ -1,0 +1,42 @@
+---
+id: getting-started
+title: Getting Started
+sidebar_position: 1
+description: Install Depo UI and learn the public package boundaries.
+---
+
+# Getting Started
+
+Depo UI is a reusable design system for SaaS, dashboards, administration tools, internal tools, and data-heavy Web applications.
+
+## Choose the public entrypoint
+
+Application code should use `@depo-ui/react` and semantic tokens. The lower-level packages remain available for design-system contributors and narrowly scoped integrations:
+
+- `@depo-ui/react` is the product-facing React entrypoint.
+- `@depo-ui/tokens` exposes generated token artifacts; product code consumes Semantic tokens.
+- `@depo-ui/foundations` owns CSS and layout foundations.
+- `@depo-ui/components` owns reusable Components.
+- `@depo-ui/patterns` owns task-oriented compositions.
+
+Do not import internal files or copy raw color, spacing, or type values into product code. Read the formal package and dependency rules in `specs/` before adding an integration.
+
+## First verification
+
+After installing the workspace dependencies, run the repository checks appropriate to the change:
+
+```text
+pnpm typecheck
+pnpm lint
+pnpm test
+pnpm build
+```
+
+Component work also requires the accessibility, visual, responsive, and localization matrix described in the Component Contract.
+
+## Read next
+
+- [Foundations](/docs/foundations) for tokens, layout, typography, density, and motion.
+- [Components](/docs/components) for generated API references.
+- [Patterns](/docs/patterns) for user goals and recovery flows.
+- [Accessibility](/docs/accessibility) for the WCAG 2.2 AA baseline.

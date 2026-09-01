@@ -1,0 +1,5 @@
+# The docs generator owns these artifacts.
+content/generated/
+static/generated/
+build/
+.docusaurus/

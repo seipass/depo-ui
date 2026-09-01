@@ -1,0 +1,24 @@
+---
+id: components
+title: Components
+sidebar_position: 3
+description: Component contracts and generated API references.
+---
+
+# Components
+
+Depo UI Components are reusable UI contracts, not product-specific workflows. Each Component owns a clear purpose, anatomy, API vocabulary, state model, semantic markup, content guidance, responsive behavior, and test evidence.
+
+The references in the category sections are generated from `specs/components/**/*.json`, source paths, Stories, and the Figma mapping. Update those sources and run `pnpm docs:generate` when a Component changes; do not edit generated API pages directly.
+
+## Shared API vocabulary
+
+Use `variant`, `size`, and `tone` for visual choices. Use `disabled`, `readOnly`, `loading`, `selected`, `checked`, `expanded`, `invalid`, and `required` only when the Component semantics support them. A Component must not invent `kind`, `mode`, or `appearance` for an existing concept.
+
+React 19+ Components accept a public `ref` as a normal prop when exposing a documented DOM target. The support range and React 18 compatibility strategy are decided together in Phase 0; Components do not unconditionally use `forwardRef`. Components that do not expose a useful DOM target do not create a ref API.
+
+## Lifecycle
+
+The generated badge shows the current lifecycle status: Proposal, Trial, Stable, Deprecated, or Removed. Trial Components are useful for exploration but do not imply that the API has passed the Stable gate.
+
+Use the sidebar to browse Actions, Forms, Selection, Navigation, Data Display, Feedback, Overlays, and Disclosure.

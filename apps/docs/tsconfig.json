@@ -1,0 +1,10 @@
+{
+  "extends": "@docusaurus/tsconfig",
+  "compilerOptions": {
+    "noEmit": true,
+    "allowJs": false,
+    "types": ["node", "@docusaurus/module-type-aliases"]
+  },
+  "include": ["src/**/*.ts", "src/**/*.tsx"],
+  "exclude": ["node_modules", "build", "content/generated"]
+}

@@ -1,0 +1,62 @@
+[
+  {
+    "id": "getting-started",
+    "label": "Getting Started",
+    "description": "Install Depo UI and understand the public package boundaries.",
+    "path": "/docs/guides/getting-started"
+  },
+  {
+    "id": "foundations",
+    "label": "Foundations",
+    "description": "Tokens, typography, layout, density, motion, and iconography.",
+    "path": "/docs/foundations"
+  },
+  {
+    "id": "components",
+    "label": "Components",
+    "description": "Component contracts, API vocabulary, states, and usage guidance.",
+    "path": "/docs/components"
+  },
+  {
+    "id": "patterns",
+    "label": "Patterns",
+    "description": "Task-oriented compositions for application workflows.",
+    "path": "/docs/patterns"
+  },
+  {
+    "id": "accessibility",
+    "label": "Accessibility",
+    "description": "WCAG 2.2 AA, keyboard, focus, screen reader, and reflow guidance.",
+    "path": "/docs/accessibility"
+  },
+  {
+    "id": "content-design",
+    "label": "Content Design",
+    "description": "Labels, messages, recovery language, localization, and truncation.",
+    "path": "/docs/content-design"
+  },
+  {
+    "id": "api",
+    "label": "API",
+    "description": "Shared props, ref contract, tokens, exports, and compatibility policy.",
+    "path": "/docs/api"
+  },
+  {
+    "id": "examples",
+    "label": "Examples",
+    "description": "Theme, density, RTL, responsive, and data-heavy UI examples.",
+    "path": "/docs/examples"
+  },
+  {
+    "id": "releases",
+    "label": "Releases",
+    "description": "Release notes, lifecycle changes, and upgrade guidance.",
+    "path": "/docs/releases"
+  },
+  {
+    "id": "migration-guide",
+    "label": "Migration Guide",
+    "description": "Deprecations, codemods, support windows, and recovery steps.",
+    "path": "/docs/migration"
+  }
+]

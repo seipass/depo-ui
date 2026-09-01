@@ -21,7 +21,7 @@
     ],
     "@depo-ui/patterns": ["@depo-ui/components"],
     "@depo-ui/react": ["@depo-ui/components", "@depo-ui/patterns", "@depo-ui/foundations"],
-    "@depo-ui/docs": ["@depo-ui/react"],
+    "@depo-ui/docs": ["@depo-ui/react", "@depo-ui/foundations"],
     "@depo-ui/playground": ["@depo-ui/react"],
     "@depo-ui/visual-tests": ["@depo-ui/react"],
     "@depo-ui/example-consumer-fixture": ["@depo-ui/react"],
