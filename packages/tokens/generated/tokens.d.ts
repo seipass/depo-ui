@@ -54,6 +54,7 @@ export declare const semanticTokens: {
   readonly "space.stack.md": "--dui-space-stack-md";
   readonly "space.stack.lg": "--dui-space-stack-lg";
   readonly "typography.display-large.size": "--dui-typography-display-large-size";
+  readonly "typography.display-large.weight": "--dui-typography-display-large-weight";
   readonly "typography.display-small.size": "--dui-typography-display-small-size";
   readonly "typography.body.family": "--dui-typography-body-family";
   readonly "typography.body.size": "--dui-typography-body-size";

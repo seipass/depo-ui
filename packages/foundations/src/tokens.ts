@@ -33,6 +33,7 @@ export const foundationTokens = {
     headingSize: semanticToken('typography.heading.size'),
     headingLineHeight: semanticToken('typography.heading.lineHeight'),
     headingWeight: semanticToken('typography.heading.weight'),
+    displayWeight: semanticToken('typography.display-large.weight'),
   },
   spacing: {
     page: semanticToken('space.layout.page'),

@@ -1,7 +1,7 @@
 {
   "format": "DTCG Format Module 2025.10",
   "schemaVersion": 1,
-  "sourceHash": "2d6589ba1e47de92cce7a7a30b1f6f5a90ce2bab6ed21249e782b85f60b49613",
+  "sourceHash": "15b5c2f3e987390d7c0ed37cb76593c5c137ff6fcc06965e4490977d1c5c9a75",
   "sourceFiles": [
     "packages/tokens/src/reference/color.json",
     "packages/tokens/src/reference/spacing.json",
@@ -334,6 +334,11 @@
         },
         "type": "dimension",
         "cssVariable": "--dui-typography-display-large-size"
+      },
+      "typography.display-large.weight": {
+        "value": 700,
+        "type": "fontWeight",
+        "cssVariable": "--dui-typography-display-large-weight"
       },
       "typography.display-small.size": {
         "value": {
@@ -1250,6 +1255,11 @@
         "type": "dimension",
         "cssVariable": "--dui-typography-display-large-size"
       },
+      "typography.display-large.weight": {
+        "value": 700,
+        "type": "fontWeight",
+        "cssVariable": "--dui-typography-display-large-weight"
+      },
       "typography.display-small.size": {
         "value": {
           "value": 28,
@@ -2164,6 +2174,11 @@
         },
         "type": "dimension",
         "cssVariable": "--dui-typography-display-large-size"
+      },
+      "typography.display-large.weight": {
+        "value": 700,
+        "type": "fontWeight",
+        "cssVariable": "--dui-typography-display-large-weight"
       },
       "typography.display-small.size": {
         "value": {
@@ -4197,6 +4212,13 @@
       "value": "{font.size.800}",
       "description": "Large display size",
       "cssVariable": "--dui-typography-display-large-size"
+    },
+    {
+      "path": "typography.display-large.weight",
+      "type": "fontWeight",
+      "value": "{font.weight.bold}",
+      "description": "Display emphasis weight",
+      "cssVariable": "--dui-typography-display-large-weight"
     },
     {
       "path": "typography.display-small.size",

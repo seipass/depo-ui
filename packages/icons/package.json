@@ -5,10 +5,10 @@
   "description": "Canonical Depo UI icon catalog",
   "type": "module",
   "scripts": {
-    "build": "node ../../tooling/phase0-check.mjs build",
-    "typecheck": "node ../../tooling/phase0-check.mjs typecheck",
-    "lint": "node ../../tooling/phase0-check.mjs lint",
-    "test": "node ../../tooling/phase0-check.mjs test"
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "lint": "eslint src",
+    "test": "cd ../.. && vitest run --config vitest.workspace.ts --passWithNoTests"
   },
   "exports": {
     ".": {
@@ -20,5 +20,12 @@
   },
   "dependencies": {
     "@depo-ui/tokens": "workspace:*"
+  },
+  "peerDependencies": {
+    "react": ">=19.0.0 <20.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "catalog:",
+    "react": "catalog:"
   }
 }

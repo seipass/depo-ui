@@ -6,6 +6,12 @@
         "$value": "{font.size.800}",
         "$description": "Large display size",
         "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      },
+      "weight": {
+        "$type": "fontWeight",
+        "$value": "{font.weight.bold}",
+        "$description": "Display emphasis weight",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
       }
     },
     "display-small": {

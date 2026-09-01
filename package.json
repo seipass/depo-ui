@@ -33,12 +33,18 @@
     "format:check": "prettier --check \"*.{json,yaml,yml,mjs,ts}\" \"{apps,packages,specs,testing,tooling,governance,examples,docs}/**/*.{json,yaml,yml,mjs,ts,tsx,md}\""
   },
   "devDependencies": {
+    "@axe-core/playwright": "catalog:",
     "@eslint/js": "catalog:",
     "@playwright/test": "catalog:",
     "@types/node": "catalog:",
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
     "eslint": "catalog:",
+    "happy-dom": "catalog:",
     "markdownlint-cli2": "catalog:",
     "prettier": "catalog:",
+    "react": "catalog:",
+    "react-dom": "catalog:",
     "stylelint": "catalog:",
     "turbo": "catalog:",
     "typescript": "catalog:",

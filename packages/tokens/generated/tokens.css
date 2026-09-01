@@ -57,6 +57,7 @@
   --dui-space-stack-md: 12px;
   --dui-space-stack-lg: 16px;
   --dui-typography-display-large-size: 32px;
+  --dui-typography-display-large-weight: 700;
   --dui-typography-display-small-size: 28px;
   --dui-typography-body-family: Inter, "Noto Sans JP", "Noto Sans", "Segoe UI", system-ui, sans-serif;
   --dui-typography-body-size: 16px;
@@ -184,6 +185,7 @@
   --dui-space-stack-md: 12px;
   --dui-space-stack-lg: 16px;
   --dui-typography-display-large-size: 32px;
+  --dui-typography-display-large-weight: 700;
   --dui-typography-display-small-size: 28px;
   --dui-typography-body-family: Inter, "Noto Sans JP", "Noto Sans", "Segoe UI", system-ui, sans-serif;
   --dui-typography-body-size: 16px;
@@ -311,6 +313,7 @@
   --dui-space-stack-md: 12px;
   --dui-space-stack-lg: 16px;
   --dui-typography-display-large-size: 32px;
+  --dui-typography-display-large-weight: 700;
   --dui-typography-display-small-size: 28px;
   --dui-typography-body-family: Inter, "Noto Sans JP", "Noto Sans", "Segoe UI", system-ui, sans-serif;
   --dui-typography-body-size: 16px;

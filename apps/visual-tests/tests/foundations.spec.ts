@@ -1,27 +1,5 @@
-import { readFile } from 'node:fs/promises';
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { expect, test, type Page } from '@playwright/test';
-
-const repositoryRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../../..');
-const foundationCssFiles = [
-  'packages/tokens/generated/tokens.css',
-  'packages/foundations/src/css/reset.css',
-  'packages/foundations/src/css/theme.css',
-  'packages/foundations/src/css/typography.css',
-  'packages/foundations/src/css/density.css',
-  'packages/foundations/src/css/layout.css',
-  'packages/foundations/src/css/motion.css',
-];
-
-const foundationStyles = Promise.all(
-  foundationCssFiles.map(async (relativePath) => {
-    const content = await readFile(path.join(repositoryRoot, relativePath), 'utf8');
-    return relativePath.endsWith('reset.css')
-      ? content.replace("@import '@depo-ui/tokens/css';", '')
-      : content;
-  }),
-).then((files) => files.join('\n'));
+import { readFoundationStyles } from '../../../testing/fixtures/foundation-styles.mjs';
 
 const fixtureStyle = `
   [data-fixture] {
@@ -52,7 +30,7 @@ type FixtureOptions = {
 
 async function loadFixture(page: Page, options: FixtureOptions = {}) {
   const { density = 'comfortable', direction = 'ltr', theme = 'dark' } = options;
-  const styles = await foundationStyles;
+  const styles = await readFoundationStyles();
 
   await page.setContent(`
     <!doctype html>

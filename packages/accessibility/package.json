@@ -2,13 +2,13 @@
   "name": "@depo-ui/accessibility",
   "version": "0.0.0",
   "private": true,
-  "description": "Framework-neutral accessibility helpers",
+  "description": "React accessibility helpers for Depo UI primitives and components",
   "type": "module",
   "scripts": {
-    "build": "node ../../tooling/phase0-check.mjs build",
-    "typecheck": "node ../../tooling/phase0-check.mjs typecheck",
-    "lint": "node ../../tooling/phase0-check.mjs lint",
-    "test": "node ../../tooling/phase0-check.mjs test"
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "lint": "eslint src",
+    "test": "cd ../.. && vitest run --config vitest.workspace.ts --passWithNoTests"
   },
   "exports": {
     ".": {
@@ -20,5 +20,12 @@
   },
   "dependencies": {
     "@depo-ui/utilities": "workspace:*"
+  },
+  "peerDependencies": {
+    "react": ">=19.0.0 <20.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "catalog:",
+    "react": "catalog:"
   }
 }

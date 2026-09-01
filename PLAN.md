@@ -1,6 +1,6 @@
 # Depo UI Design System Plan
 
-> Status: Phase 0 — Repository Foundation、Phase 1 — Tokens、Phase 2 — Foundations implemented; Phase 3 — Primitives has not started. このファイルは白紙のリポジトリから Depo UI Design System を実装するための設計書であり、実装時の Source of Truth である。
+> Status: Phase 0 — Repository Foundation、Phase 1 — Tokens、Phase 2 — Foundations、Phase 3 — Primitives implemented; Phase 4A — Basic Controls has not started. このファイルは白紙のリポジトリから Depo UI Design System を実装するための設計書であり、実装時の Source of Truth である。
 >
 > Research baseline: 2026-09-01（技術のバージョンは実装開始時に公式ドキュメントで再確認し、採用したバージョンを ADR に記録する）。
 
@@ -1337,7 +1337,7 @@ tsconfig.base.json、packages/foundations/src/、packages/foundations/tsconfig.j
 - Status: Completed
 - Tests: pnpm tokens:build、pnpm tokens:check、pnpm --filter @depo-ui/foundations typecheck、pnpm --filter @depo-ui/foundations test、pnpm --filter @depo-ui/foundations build、pnpm lint:tokens、pnpm lint:raw-values、pnpm lint:deps、pnpm format:check、pnpm lint、pnpm typecheck、pnpm test、pnpm build、pnpm test:visual
 - Commit: feat(phase-2): implement foundations
-- Known limitations: React/Component/Primitive source、real component visual fixtures、Figma Variables、manual screen-reader evidenceは後続Phaseで追加する。Foundation browser fixtureはChromiumで検証済みで、他browserのmatrixとmanual evidenceは後続Phaseで拡張する。turboのplaceholder packageはdistをまだ出力しないため、root buildでは後続Phaseまでoutput warningが残る。
+- Known limitations: React/Component source、real component visual fixtures、Figma Variables、manual screen-reader evidenceは後続Phaseで追加する。Foundation browser fixtureはChromiumで検証済みで、他browserのmatrixとmanual evidenceは後続Phaseで拡張する。turboのplaceholder packageはdistをまだ出力しないため、root buildでは後続Phaseまでoutput warningが残る。
 - Blocked items: なし。
 
 ### Phase 3 — Primitives
@@ -1352,13 +1352,14 @@ Phase 1、Phase 2。A11y minimum helper はこの Phase で先に実装する。
 
 **Files / directories**
 
-packages/primitives/src/、packages/accessibility/src/ids/・focus/、packages/icons/src/、co-located stories/tests、specs/components/primitives/。
+packages/primitives/src/、packages/primitives/tsconfig.json、packages/primitives/tsconfig.build.json、packages/accessibility/src/ids/・focus/、packages/accessibility/tsconfig.json、packages/icons/src/、packages/icons/tsconfig.json、tooling/primitives-build/、testing/primitives.test.tsx、testing/fixtures/foundation-styles.mjs、apps/visual-tests/tests/primitives.spec.ts、specs/components/primitives/。
 
 **Tasks**
 
 - Box、Stack、Inline、Cluster、Grid、Container、Center、Split、Sidebar、Text、Heading、Icon、Divider、VisuallyHidden を作る。
 - DOM semantics、logical props、slot、as の許可範囲、data attribute を定義する。
 - useId、focus-visible detection、description/error ID、initial focus の最小 utility を作る。
+- React 19 ref-as-prop の型契約を保ち、公開対象が明確なPrimitiveだけがDOM refを受け取る。Iconの命名、metadata、decorative/meaningful semanticsも同じ契約で公開する。
 
 **Tests**
 
@@ -1368,6 +1369,14 @@ packages/primitives/src/、packages/accessibility/src/ids/・focus/、packages/i
 **Exit criteria**
 
 Primitive が business state を持たず、Component の全カテゴリーが同じ layout/typography/focus contract を使える。Primitive の public API に Product 固有名がない。
+
+**Phase status**
+
+- Status: Completed
+- Tests: pnpm tokens:build、pnpm tokens:check、pnpm --filter @depo-ui/accessibility typecheck、pnpm --filter @depo-ui/accessibility build、pnpm --filter @depo-ui/icons typecheck、pnpm --filter @depo-ui/icons build、pnpm --filter @depo-ui/primitives typecheck、pnpm --filter @depo-ui/primitives build、pnpm lint:raw-values、pnpm lint:deps、pnpm format:check、pnpm lint、pnpm typecheck、pnpm test（12 tests）、pnpm test:a11y、pnpm test:visual（7 tests）
+- Commit: feat(phase-3): implement primitives
+- Known limitations: SSR/hydration smokeはhappy-dom、browser fixtureはChromiumのstatic markupとaxeで検証済み。Safari/Firefox、実ブラウザhydration、手動screen reader、全Icon catalog、Component固有のStory/Testは後続Phaseで拡張する。placeholder packageのroot build output warningは後続Phaseまで残る。
+- Blocked items: なし。
 
 ### Phase 4A — Basic Controls
 
