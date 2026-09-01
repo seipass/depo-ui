@@ -1114,7 +1114,7 @@
 :where([role='columnheader'].dui-data-grid-cell) {
   color: var(--dui-color-fg-secondary);
   background: var(--dui-color-bg-surface-sunken);
-  font-weight: var(--dui-typography-heading-weight);
+  font-weight: var(--dui-typography-label-weight);
 }
 
 :where(.dui-data-grid-cell[data-pinned='start']) {

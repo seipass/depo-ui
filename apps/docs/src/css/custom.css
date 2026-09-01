@@ -44,6 +44,14 @@ html[data-theme='light'] {
   max-inline-size: var(--dui-size-content-measure);
 }
 
+.theme-doc-markdown > p,
+.theme-doc-markdown > ul,
+.theme-doc-markdown > ol,
+.theme-doc-markdown > dl,
+.theme-doc-markdown > blockquote {
+  max-inline-size: var(--dui-size-content-measure);
+}
+
 .dui-doc-actions {
   display: flex;
   flex-wrap: wrap;
