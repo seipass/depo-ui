@@ -1,0 +1,24 @@
+{
+  "name": "@depo-ui/playground",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Depo UI component playground boundary",
+  "type": "module",
+  "scripts": {
+    "build": "node ../../tooling/phase0-check.mjs build",
+    "typecheck": "node ../../tooling/phase0-check.mjs typecheck",
+    "lint": "node ../../tooling/phase0-check.mjs lint",
+    "test": "node ../../tooling/phase0-check.mjs test"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "dependencies": {
+    "@depo-ui/react": "workspace:*"
+  }
+}

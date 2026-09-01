@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "allowedInternalDependencies": {
+    "@depo-ui/tokens": [],
+    "@depo-ui/foundations": ["@depo-ui/tokens"],
+    "@depo-ui/accessibility": ["@depo-ui/utilities"],
+    "@depo-ui/utilities": [],
+    "@depo-ui/icons": ["@depo-ui/tokens"],
+    "@depo-ui/primitives": [
+      "@depo-ui/foundations",
+      "@depo-ui/accessibility",
+      "@depo-ui/utilities",
+      "@depo-ui/icons"
+    ],
+    "@depo-ui/components": [
+      "@depo-ui/primitives",
+      "@depo-ui/foundations",
+      "@depo-ui/accessibility",
+      "@depo-ui/utilities",
+      "@depo-ui/icons"
+    ],
+    "@depo-ui/patterns": ["@depo-ui/components"],
+    "@depo-ui/react": ["@depo-ui/components", "@depo-ui/patterns", "@depo-ui/foundations"],
+    "@depo-ui/docs": ["@depo-ui/react"],
+    "@depo-ui/playground": ["@depo-ui/react"],
+    "@depo-ui/visual-tests": ["@depo-ui/react"],
+    "@depo-ui/example-consumer-fixture": ["@depo-ui/react"],
+    "@depo-ui/example-data-heavy-dashboard": ["@depo-ui/react"],
+    "@depo-ui/example-responsive-shell": ["@depo-ui/react"]
+  }
+}

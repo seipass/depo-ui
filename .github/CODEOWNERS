@@ -1,0 +1,7 @@
+# Replace these placeholder teams with the repository's real GitHub teams before enabling required reviews.
+* @depo-ui/design-system-maintainers
+/packages/tokens/ @depo-ui/token-maintainers
+/packages/accessibility/ @depo-ui/accessibility-maintainers
+/packages/components/ @depo-ui/component-maintainers
+/figma/ @depo-ui/figma-maintainers
+/governance/ @depo-ui/governance-maintainers

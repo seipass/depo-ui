@@ -1,0 +1,30 @@
+{
+  "name": "@depo-ui/react",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Stable React entrypoint for Depo UI",
+  "type": "module",
+  "scripts": {
+    "build": "node ../../tooling/phase0-check.mjs build",
+    "typecheck": "node ../../tooling/phase0-check.mjs typecheck",
+    "lint": "node ../../tooling/phase0-check.mjs lint",
+    "test": "node ../../tooling/phase0-check.mjs test"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "dependencies": {
+    "@depo-ui/components": "workspace:*",
+    "@depo-ui/patterns": "workspace:*",
+    "@depo-ui/foundations": "workspace:*"
+  },
+  "peerDependencies": {
+    "react": ">=19.0.0 <20.0.0",
+    "react-dom": ">=19.0.0 <20.0.0"
+  }
+}

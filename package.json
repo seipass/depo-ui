@@ -1,0 +1,49 @@
+{
+  "name": "depo-ui-design-system",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Depo UI Design System monorepo",
+  "license": "MIT",
+  "type": "module",
+  "packageManager": "pnpm@11.25.0",
+  "engines": {
+    "node": ">=24.19.0 <25",
+    "pnpm": ">=11.25.0 <12"
+  },
+  "scripts": {
+    "dev": "node tooling/phase0-check.mjs dev",
+    "build": "turbo run build",
+    "typecheck": "tsc --noEmit -p tsconfig.json && turbo run typecheck",
+    "lint": "eslint . && stylelint --allow-empty-input \"**/*.{css,scss}\" && markdownlint-cli2 \"README.md\" \"AGENTS.md\" \"specs/**/*.md\" \"governance/**/*.md\" \".github/**/*.md\" && turbo run lint",
+    "lint:tokens": "node tooling/phase0-check.mjs tokens",
+    "lint:raw-values": "node tooling/phase0-check.mjs raw-values",
+    "lint:deps": "node tooling/dependency-check/check.mjs",
+    "test": "vitest run --config vitest.workspace.ts --passWithNoTests && turbo run test",
+    "test:a11y": "vitest run --config vitest.workspace.ts --passWithNoTests",
+    "test:visual": "playwright test --pass-with-no-tests",
+    "test:e2e": "playwright test --pass-with-no-tests",
+    "tokens:build": "node tooling/phase0-check.mjs tokens:build",
+    "tokens:check": "node tooling/phase0-check.mjs tokens:check",
+    "generate": "node tooling/phase0-check.mjs generate",
+    "docs:generate": "node tooling/phase0-check.mjs docs:generate",
+    "figma:check": "node tooling/phase0-check.mjs figma:check",
+    "changeset": "node tooling/phase0-check.mjs changeset",
+    "release:check": "node tooling/phase0-check.mjs release:check",
+    "format": "prettier --write \"*.{json,yaml,yml,mjs,ts}\" \"{apps,packages,specs,testing,tooling,governance,examples,docs}/**/*.{json,yaml,yml,mjs,ts,tsx,md}\"",
+    "format:check": "prettier --check \"*.{json,yaml,yml,mjs,ts}\" \"{apps,packages,specs,testing,tooling,governance,examples,docs}/**/*.{json,yaml,yml,mjs,ts,tsx,md}\""
+  },
+  "devDependencies": {
+    "@eslint/js": "catalog:",
+    "@playwright/test": "catalog:",
+    "@types/node": "catalog:",
+    "eslint": "catalog:",
+    "markdownlint-cli2": "catalog:",
+    "prettier": "catalog:",
+    "stylelint": "catalog:",
+    "turbo": "catalog:",
+    "typescript": "catalog:",
+    "typescript-eslint": "catalog:",
+    "vite": "catalog:",
+    "vitest": "catalog:"
+  }
+}
