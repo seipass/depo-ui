@@ -1,4 +1,4 @@
-import { useStableId } from '@depo-ui/accessibility';
+import { getNextRovingId, useStableId, type RovingNavigationKey } from '@depo-ui/accessibility';
 import { useControllableState, componentClassNames } from '../../shared/index.js';
 import type { TabItem, TabsProps } from './Tabs.types.js';
 import { tabsClassName } from './Tabs.styles.js';
@@ -24,16 +24,16 @@ export function Tabs({
   const tabsId = useStableId('dui-tabs');
   const tabId = (id: string) => `${tabsId}-tab-${id}`;
   const panelId = (id: string) => `${tabsId}-panel-${id}`;
-  const moveFocus = (currentId: string, direction: 1 | -1) => {
-    const enabled = items.filter((item) => !item.disabled);
-    const index = Math.max(
-      0,
-      enabled.findIndex((item) => item.id === currentId),
+  const moveFocus = (currentId: string, key: RovingNavigationKey) => {
+    const nextId = getNextRovingId(
+      items,
+      currentId,
+      key,
+      orientation === 'vertical' ? 'vertical' : 'horizontal',
     );
-    const next = enabled[(index + direction + enabled.length) % enabled.length];
-    if (next) {
-      document.getElementById(tabId(next.id))?.focus();
-      if (activationMode === 'automatic') setValue(next.id);
+    if (nextId) {
+      document.getElementById(tabId(nextId))?.focus();
+      if (activationMode === 'automatic') setValue(nextId);
     }
   };
 
@@ -66,22 +66,19 @@ export function Tabs({
               if (activationMode === 'automatic' && !item.disabled) setValue(item.id);
             }}
             onKeyDown={(event) => {
-              const previousKey = orientation === 'vertical' ? 'ArrowUp' : 'ArrowLeft';
-              const nextKey = orientation === 'vertical' ? 'ArrowDown' : 'ArrowRight';
+              const previousKey: RovingNavigationKey =
+                orientation === 'vertical' ? 'ArrowUp' : 'ArrowLeft';
+              const nextKey: RovingNavigationKey =
+                orientation === 'vertical' ? 'ArrowDown' : 'ArrowRight';
               if (event.key === previousKey) {
                 event.preventDefault();
-                moveFocus(item.id, -1);
+                moveFocus(item.id, previousKey);
               } else if (event.key === nextKey) {
                 event.preventDefault();
-                moveFocus(item.id, 1);
+                moveFocus(item.id, nextKey);
               } else if (event.key === 'Home' || event.key === 'End') {
                 event.preventDefault();
-                const enabled = items.filter((entry) => !entry.disabled);
-                const target = event.key === 'Home' ? enabled[0] : enabled.at(-1);
-                if (target) {
-                  document.getElementById(tabId(target.id))?.focus();
-                  if (activationMode === 'automatic') setValue(target.id);
-                }
+                moveFocus(item.id, event.key === 'Home' ? 'Home' : 'End');
               } else if (
                 activationMode === 'manual' &&
                 (event.key === 'Enter' || event.key === ' ')

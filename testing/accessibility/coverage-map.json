@@ -1,0 +1,97 @@
+{
+  "$schema": "https://depo-ui.invalid/schemas/accessibility-coverage-map.schema.json",
+  "version": 1,
+  "baseline": "WCAG 2.2 AA",
+  "scope": ["components", "patterns", "full-page"],
+  "evidencePolicy": {
+    "automated": "Axe, unit, interaction, and browser checks find regressions but do not prove conformance.",
+    "manual": "NVDA/Chromium and VoiceOver/Safari evidence is required for Stable candidates.",
+    "statusValues": ["planned", "partial", "verified", "blocked"]
+  },
+  "areas": [
+    {
+      "id": "keyboard",
+      "successCriteria": ["2.1.1", "2.1.2", "2.4.3", "2.4.7", "2.4.11"],
+      "evidence": [
+        "packages/accessibility/src/keyboard",
+        "testing/accessibility/screen-reader-checklist.md"
+      ],
+      "status": "partial"
+    },
+    {
+      "id": "focus-and-dialogue",
+      "successCriteria": ["2.4.3", "2.4.7", "2.4.11"],
+      "evidence": [
+        "packages/accessibility/src/focus",
+        "testing/overlays.test.tsx",
+        "testing/accessibility/screen-reader-checklist.md"
+      ],
+      "status": "partial"
+    },
+    {
+      "id": "semantics-and-relationships",
+      "successCriteria": ["1.3.1", "4.1.2"],
+      "evidence": [
+        "packages/accessibility/src/ids",
+        "packages/accessibility/src/live-region",
+        "testing/accessibility.test.mjs"
+      ],
+      "status": "partial"
+    },
+    {
+      "id": "status-and-error-announcement",
+      "successCriteria": ["3.3.1", "3.3.3", "4.1.3"],
+      "evidence": [
+        "packages/accessibility/src/live-region",
+        "testing/accessibility/screen-reader-checklist.md"
+      ],
+      "status": "partial"
+    },
+    {
+      "id": "contrast-and-forced-colors",
+      "successCriteria": ["1.4.3", "1.4.11"],
+      "evidence": [
+        "packages/foundations/src/css/theme.css",
+        "apps/visual-tests/tests/accessibility.spec.ts"
+      ],
+      "status": "partial"
+    },
+    {
+      "id": "target-size",
+      "successCriteria": ["2.5.8"],
+      "evidence": [
+        "packages/foundations/src/css/density.css",
+        "apps/visual-tests/tests/accessibility.spec.ts"
+      ],
+      "status": "partial"
+    },
+    {
+      "id": "motion",
+      "successCriteria": ["2.3.3"],
+      "evidence": [
+        "packages/accessibility/src/media",
+        "packages/foundations/src/css/motion.css",
+        "apps/visual-tests/tests/accessibility.spec.ts"
+      ],
+      "status": "partial"
+    },
+    {
+      "id": "resize-reflow",
+      "successCriteria": ["1.4.4", "1.4.10"],
+      "evidence": [
+        "specs/foundations/responsive.md",
+        "apps/visual-tests/tests/accessibility.spec.ts"
+      ],
+      "status": "partial"
+    },
+    {
+      "id": "language-and-localization",
+      "successCriteria": ["3.1.1", "3.1.2", "3.2.3"],
+      "evidence": [
+        "specs/foundations/accessibility.md",
+        "testing/accessibility/screen-reader-checklist.md"
+      ],
+      "status": "planned"
+    }
+  ]
+}

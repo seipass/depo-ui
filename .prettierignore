@@ -1,5 +1,6 @@
 # Generated artifacts are checked by their own reproducibility commands.
 packages/tokens/generated/
+testing/accessibility/known-limitations.generated.md
 
 # The package manager owns lockfile formatting.
 pnpm-lock.yaml
