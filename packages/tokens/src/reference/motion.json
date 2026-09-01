@@ -1,0 +1,50 @@
+{
+  "motion": {
+    "duration": {
+      "instant": {
+        "$type": "duration",
+        "$value": { "value": 0, "unit": "ms" },
+        "$description": "No transition",
+        "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }
+      },
+      "fast": {
+        "$type": "duration",
+        "$value": { "value": 120, "unit": "ms" },
+        "$description": "Hover and press feedback",
+        "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }
+      },
+      "normal": {
+        "$type": "duration",
+        "$value": { "value": 180, "unit": "ms" },
+        "$description": "Standard state transition",
+        "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }
+      },
+      "slow": {
+        "$type": "duration",
+        "$value": { "value": 260, "unit": "ms" },
+        "$description": "Overlay enter and exit",
+        "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }
+      }
+    },
+    "easing": {
+      "reference-standard": {
+        "$type": "cubicBezier",
+        "$value": [0.2, 0, 0, 1],
+        "$description": "Default decelerating motion",
+        "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }
+      },
+      "reference-emphasized": {
+        "$type": "cubicBezier",
+        "$value": [0.2, 0, 0, 1.2],
+        "$description": "Emphasized entrance motion",
+        "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }
+      },
+      "reference-linear": {
+        "$type": "cubicBezier",
+        "$value": [0, 0, 1, 1],
+        "$description": "Progress and continuous motion",
+        "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }
+      }
+    }
+  }
+}

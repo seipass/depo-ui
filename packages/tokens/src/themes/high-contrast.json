@@ -1,0 +1,357 @@
+{
+  "$description": "High contrast theme uses system colors so the operating system controls contrast and forced-color behavior.",
+  "color": {
+    "bg": {
+      "canvas": {
+        "$type": "color",
+        "$value": "Canvas",
+        "$description": "System canvas",
+        "$extensions": {
+          "depo-ui": { "tier": "theme", "status": "stable", "theme": "high-contrast" }
+        }
+      },
+      "surface": {
+        "$type": "color",
+        "$value": "Canvas",
+        "$description": "System surface",
+        "$extensions": {
+          "depo-ui": { "tier": "theme", "status": "stable", "theme": "high-contrast" }
+        }
+      },
+      "surface-sunken": {
+        "$type": "color",
+        "$value": "Canvas",
+        "$description": "System sunken surface",
+        "$extensions": {
+          "depo-ui": { "tier": "theme", "status": "stable", "theme": "high-contrast" }
+        }
+      },
+      "surface-panel": {
+        "$type": "color",
+        "$value": "Canvas",
+        "$description": "System panel surface",
+        "$extensions": {
+          "depo-ui": { "tier": "theme", "status": "stable", "theme": "high-contrast" }
+        }
+      },
+      "surface-raised": {
+        "$type": "color",
+        "$value": "Canvas",
+        "$description": "System raised surface",
+        "$extensions": {
+          "depo-ui": { "tier": "theme", "status": "stable", "theme": "high-contrast" }
+        }
+      },
+      "surface-hover": {
+        "$type": "color",
+        "$value": "Highlight",
+        "$description": "System hover surface",
+        "$extensions": {
+          "depo-ui": { "tier": "theme", "status": "stable", "theme": "high-contrast" }
+        }
+      },
+      "inverse": {
+        "$type": "color",
+        "$value": "CanvasText",
+        "$description": "System inverse surface",
+        "$extensions": {
+          "depo-ui": { "tier": "theme", "status": "stable", "theme": "high-contrast" }
+        }
+      }
+    },
+    "fg": {
+      "primary": {
+        "$type": "color",
+        "$value": "CanvasText",
+        "$description": "System primary foreground",
+        "$extensions": {
+          "depo-ui": { "tier": "theme", "status": "stable", "theme": "high-contrast" }
+        }
+      },
+      "secondary": {
+        "$type": "color",
+        "$value": "CanvasText",
+        "$description": "System secondary foreground",
+        "$extensions": {
+          "depo-ui": { "tier": "theme", "status": "stable", "theme": "high-contrast" }
+        }
+      },
+      "muted": {
+        "$type": "color",
+        "$value": "GrayText",
+        "$description": "System muted foreground",
+        "$extensions": {
+          "depo-ui": { "tier": "theme", "status": "stable", "theme": "high-contrast" }
+        }
+      },
+      "inverse": {
+        "$type": "color",
+        "$value": "Canvas",
+        "$description": "System inverse foreground",
+        "$extensions": {
+          "depo-ui": { "tier": "theme", "status": "stable", "theme": "high-contrast" }
+        }
+      },
+      "link": {
+        "$type": "color",
+        "$value": "LinkText",
+        "$description": "System link foreground",
+        "$extensions": {
+          "depo-ui": { "tier": "theme", "status": "stable", "theme": "high-contrast" }
+        }
+      },
+      "success": {
+        "$type": "color",
+        "$value": "CanvasText",
+        "$description": "System success foreground",
+        "$extensions": {
+          "depo-ui": { "tier": "theme", "status": "stable", "theme": "high-contrast" }
+        }
+      },
+      "warning": {
+        "$type": "color",
+        "$value": "CanvasText",
+        "$description": "System warning foreground",
+        "$extensions": {
+          "depo-ui": { "tier": "theme", "status": "stable", "theme": "high-contrast" }
+        }
+      },
+      "danger": {
+        "$type": "color",
+        "$value": "CanvasText",
+        "$description": "System danger foreground",
+        "$extensions": {
+          "depo-ui": { "tier": "theme", "status": "stable", "theme": "high-contrast" }
+        }
+      }
+    },
+    "border": {
+      "subtle": {
+        "$type": "color",
+        "$value": "GrayText",
+        "$description": "System subtle border",
+        "$extensions": {
+          "depo-ui": { "tier": "theme", "status": "stable", "theme": "high-contrast" }
+        }
+      },
+      "default": {
+        "$type": "color",
+        "$value": "ButtonText",
+        "$description": "System default border",
+        "$extensions": {
+          "depo-ui": { "tier": "theme", "status": "stable", "theme": "high-contrast" }
+        }
+      },
+      "strong": {
+        "$type": "color",
+        "$value": "CanvasText",
+        "$description": "System strong border",
+        "$extensions": {
+          "depo-ui": { "tier": "theme", "status": "stable", "theme": "high-contrast" }
+        }
+      },
+      "focus": {
+        "$type": "color",
+        "$value": "Highlight",
+        "$description": "System focus border",
+        "$extensions": {
+          "depo-ui": { "tier": "theme", "status": "stable", "theme": "high-contrast" }
+        }
+      },
+      "invalid": {
+        "$type": "color",
+        "$value": "Mark",
+        "$description": "System invalid border",
+        "$extensions": {
+          "depo-ui": { "tier": "theme", "status": "stable", "theme": "high-contrast" }
+        }
+      }
+    },
+    "action": {
+      "primary": {
+        "$type": "color",
+        "$value": "ButtonText",
+        "$description": "System primary action",
+        "$extensions": {
+          "depo-ui": { "tier": "theme", "status": "stable", "theme": "high-contrast" }
+        }
+      },
+      "primary-hover": {
+        "$type": "color",
+        "$value": "Highlight",
+        "$description": "System primary hover",
+        "$extensions": {
+          "depo-ui": { "tier": "theme", "status": "stable", "theme": "high-contrast" }
+        }
+      },
+      "primary-container": {
+        "$type": "color",
+        "$value": "ButtonFace",
+        "$description": "System primary container",
+        "$extensions": {
+          "depo-ui": { "tier": "theme", "status": "stable", "theme": "high-contrast" }
+        }
+      },
+      "on-primary": {
+        "$type": "color",
+        "$value": "ButtonFace",
+        "$description": "System foreground on primary",
+        "$extensions": {
+          "depo-ui": { "tier": "theme", "status": "stable", "theme": "high-contrast" }
+        }
+      },
+      "on-primary-container": {
+        "$type": "color",
+        "$value": "ButtonText",
+        "$description": "System foreground on primary container",
+        "$extensions": {
+          "depo-ui": { "tier": "theme", "status": "stable", "theme": "high-contrast" }
+        }
+      },
+      "secondary": {
+        "$type": "color",
+        "$value": "ButtonText",
+        "$description": "System secondary action",
+        "$extensions": {
+          "depo-ui": { "tier": "theme", "status": "stable", "theme": "high-contrast" }
+        }
+      },
+      "secondary-hover": {
+        "$type": "color",
+        "$value": "Highlight",
+        "$description": "System secondary hover",
+        "$extensions": {
+          "depo-ui": { "tier": "theme", "status": "stable", "theme": "high-contrast" }
+        }
+      },
+      "secondary-container": {
+        "$type": "color",
+        "$value": "ButtonFace",
+        "$description": "System secondary container",
+        "$extensions": {
+          "depo-ui": { "tier": "theme", "status": "stable", "theme": "high-contrast" }
+        }
+      },
+      "on-secondary-container": {
+        "$type": "color",
+        "$value": "ButtonText",
+        "$description": "System foreground on secondary container",
+        "$extensions": {
+          "depo-ui": { "tier": "theme", "status": "stable", "theme": "high-contrast" }
+        }
+      },
+      "danger": {
+        "$type": "color",
+        "$value": "ButtonText",
+        "$description": "System destructive action",
+        "$extensions": {
+          "depo-ui": { "tier": "theme", "status": "stable", "theme": "high-contrast" }
+        }
+      }
+    },
+    "status": {
+      "success": {
+        "$type": "color",
+        "$value": "CanvasText",
+        "$description": "System success status",
+        "$extensions": {
+          "depo-ui": { "tier": "theme", "status": "stable", "theme": "high-contrast" }
+        }
+      },
+      "success-container": {
+        "$type": "color",
+        "$value": "Canvas",
+        "$description": "System success container",
+        "$extensions": {
+          "depo-ui": { "tier": "theme", "status": "stable", "theme": "high-contrast" }
+        }
+      },
+      "warning": {
+        "$type": "color",
+        "$value": "CanvasText",
+        "$description": "System warning status",
+        "$extensions": {
+          "depo-ui": { "tier": "theme", "status": "stable", "theme": "high-contrast" }
+        }
+      },
+      "warning-container": {
+        "$type": "color",
+        "$value": "Canvas",
+        "$description": "System warning container",
+        "$extensions": {
+          "depo-ui": { "tier": "theme", "status": "stable", "theme": "high-contrast" }
+        }
+      },
+      "danger": {
+        "$type": "color",
+        "$value": "CanvasText",
+        "$description": "System danger status",
+        "$extensions": {
+          "depo-ui": { "tier": "theme", "status": "stable", "theme": "high-contrast" }
+        }
+      },
+      "danger-container": {
+        "$type": "color",
+        "$value": "Canvas",
+        "$description": "System danger container",
+        "$extensions": {
+          "depo-ui": { "tier": "theme", "status": "stable", "theme": "high-contrast" }
+        }
+      }
+    },
+    "focus": {
+      "ring": {
+        "$type": "color",
+        "$value": "Highlight",
+        "$description": "System focus ring",
+        "$extensions": {
+          "depo-ui": { "tier": "theme", "status": "stable", "theme": "high-contrast" }
+        }
+      },
+      "inner": {
+        "$type": "color",
+        "$value": "Canvas",
+        "$description": "System focus separation",
+        "$extensions": {
+          "depo-ui": { "tier": "theme", "status": "stable", "theme": "high-contrast" }
+        }
+      }
+    },
+    "overlay": {
+      "scrim": {
+        "$type": "color",
+        "$value": "CanvasText",
+        "$description": "System modal scrim",
+        "$extensions": {
+          "depo-ui": { "tier": "theme", "status": "stable", "theme": "high-contrast" }
+        }
+      }
+    },
+    "disabled": {
+      "fg": {
+        "$type": "color",
+        "$value": "GrayText",
+        "$description": "System disabled foreground",
+        "$extensions": {
+          "depo-ui": { "tier": "theme", "status": "stable", "theme": "high-contrast" }
+        }
+      },
+      "bg": {
+        "$type": "color",
+        "$value": "Canvas",
+        "$description": "System disabled background",
+        "$extensions": {
+          "depo-ui": { "tier": "theme", "status": "stable", "theme": "high-contrast" }
+        }
+      },
+      "border": {
+        "$type": "color",
+        "$value": "GrayText",
+        "$description": "System disabled border",
+        "$extensions": {
+          "depo-ui": { "tier": "theme", "status": "stable", "theme": "high-contrast" }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,238 @@
+{
+  "color": {
+    "brand": {
+      "100": {
+        "$type": "color",
+        "$value": "#C8CBFF",
+        "$description": "Depo UI primary on-container anchor",
+        "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }
+      },
+      "500": {
+        "$type": "color",
+        "$value": "#8588FF",
+        "$description": "Depo UI primary hover anchor",
+        "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }
+      },
+      "600": {
+        "$type": "color",
+        "$value": "#6C6FF6",
+        "$description": "Depo UI primary brand anchor",
+        "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }
+      },
+      "700": {
+        "$type": "color",
+        "$value": "#5256D8",
+        "$description": "Primary accessible intermediate ramp value",
+        "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }
+      },
+      "800": {
+        "$type": "color",
+        "$value": "#363AA0",
+        "$description": "Primary intermediate ramp value",
+        "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }
+      },
+      "900": {
+        "$type": "color",
+        "$value": "#262A5F",
+        "$description": "Depo UI primary container anchor",
+        "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }
+      }
+    },
+    "accent": {
+      "100": {
+        "$type": "color",
+        "$value": "#C7DCFF",
+        "$description": "Depo UI secondary on-container anchor",
+        "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }
+      },
+      "500": {
+        "$type": "color",
+        "$value": "#72A6FF",
+        "$description": "Depo UI secondary hover anchor",
+        "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }
+      },
+      "600": {
+        "$type": "color",
+        "$value": "#4B8DFF",
+        "$description": "Depo UI secondary/info anchor",
+        "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }
+      },
+      "700": {
+        "$type": "color",
+        "$value": "#2A64C2",
+        "$description": "Secondary accessible intermediate ramp value",
+        "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }
+      },
+      "800": {
+        "$type": "color",
+        "$value": "#1D4B90",
+        "$description": "Secondary intermediate ramp value",
+        "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }
+      },
+      "900": {
+        "$type": "color",
+        "$value": "#14345F",
+        "$description": "Depo UI secondary container anchor",
+        "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }
+      }
+    },
+    "success": {
+      "100": {
+        "$type": "color",
+        "$value": "#BEF4D8",
+        "$description": "Success on-container anchor",
+        "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }
+      },
+      "600": {
+        "$type": "color",
+        "$value": "#35B779",
+        "$description": "Depo UI success anchor",
+        "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }
+      },
+      "900": {
+        "$type": "color",
+        "$value": "#153B2A",
+        "$description": "Success container anchor",
+        "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }
+      }
+    },
+    "warning": {
+      "100": {
+        "$type": "color",
+        "$value": "#F5D7A3",
+        "$description": "Warning on-container anchor",
+        "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }
+      },
+      "600": {
+        "$type": "color",
+        "$value": "#C79240",
+        "$description": "Depo UI warning anchor",
+        "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }
+      },
+      "900": {
+        "$type": "color",
+        "$value": "#3C2F18",
+        "$description": "Warning container anchor",
+        "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }
+      }
+    },
+    "danger": {
+      "100": {
+        "$type": "color",
+        "$value": "#FFC4C4",
+        "$description": "Danger on-container anchor",
+        "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }
+      },
+      "600": {
+        "$type": "color",
+        "$value": "#E06A6A",
+        "$description": "Depo UI danger anchor",
+        "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }
+      },
+      "900": {
+        "$type": "color",
+        "$value": "#461F25",
+        "$description": "Danger container anchor",
+        "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }
+      }
+    },
+    "neutral": {
+      "0": {
+        "$type": "color",
+        "$value": "#000000",
+        "$description": "Neutral boundary",
+        "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }
+      },
+      "25": {
+        "$type": "color",
+        "$value": "#FDFEFF",
+        "$description": "Lightest neutral surface ramp",
+        "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }
+      },
+      "50": {
+        "$type": "color",
+        "$value": "#F8FAFC",
+        "$description": "Surface inverse and primary foreground anchor",
+        "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }
+      },
+      "100": {
+        "$type": "color",
+        "$value": "#EEF2F7",
+        "$description": "Light neutral surface ramp",
+        "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }
+      },
+      "200": {
+        "$type": "color",
+        "$value": "#D8DDE6",
+        "$description": "Secondary foreground anchor",
+        "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }
+      },
+      "300": {
+        "$type": "color",
+        "$value": "#AEB5C2",
+        "$description": "Accessible light neutral intermediate",
+        "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }
+      },
+      "400": {
+        "$type": "color",
+        "$value": "#858C9B",
+        "$description": "Muted foreground anchor",
+        "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }
+      },
+      "500": {
+        "$type": "color",
+        "$value": "#656D7B",
+        "$description": "Neutral mid ramp",
+        "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }
+      },
+      "600": {
+        "$type": "color",
+        "$value": "#414753",
+        "$description": "Strong border anchor",
+        "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }
+      },
+      "700": {
+        "$type": "color",
+        "$value": "#2C303B",
+        "$description": "Default border anchor",
+        "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }
+      },
+      "750": {
+        "$type": "color",
+        "$value": "#20232D",
+        "$description": "Subtle border anchor",
+        "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }
+      },
+      "800": {
+        "$type": "color",
+        "$value": "#1D2029",
+        "$description": "Surface hover anchor",
+        "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }
+      },
+      "850": {
+        "$type": "color",
+        "$value": "#14161D",
+        "$description": "Raised surface anchor",
+        "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }
+      },
+      "900": {
+        "$type": "color",
+        "$value": "#0D0F14",
+        "$description": "Panel surface anchor",
+        "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }
+      },
+      "925": {
+        "$type": "color",
+        "$value": "#08090D",
+        "$description": "Sunken surface and inverse foreground anchor",
+        "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }
+      },
+      "950": {
+        "$type": "color",
+        "$value": "#05060A",
+        "$description": "Canvas surface anchor",
+        "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }
+      }
+    }
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "space": {
+    "control": {
+      "inline": {
+        "$type": "dimension",
+        "$value": "{space.2}",
+        "$description": "Inline control padding",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      },
+      "block": {
+        "$type": "dimension",
+        "$value": "{space.3}",
+        "$description": "Control block gap",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      },
+      "group": {
+        "$type": "dimension",
+        "$value": "{space.4}",
+        "$description": "Control group gap",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      }
+    },
+    "layout": {
+      "page": {
+        "$type": "dimension",
+        "$value": "{space.6}",
+        "$description": "Page inset",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      },
+      "section": {
+        "$type": "dimension",
+        "$value": "{space.8}",
+        "$description": "Section separation",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      },
+      "panel": {
+        "$type": "dimension",
+        "$value": "{space.4}",
+        "$description": "Panel padding",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      }
+    },
+    "stack": {
+      "xs": {
+        "$type": "dimension",
+        "$value": "{space.1}",
+        "$description": "Extra-small stack gap",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      },
+      "sm": {
+        "$type": "dimension",
+        "$value": "{space.2}",
+        "$description": "Small stack gap",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      },
+      "md": {
+        "$type": "dimension",
+        "$value": "{space.3}",
+        "$description": "Default stack gap",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      },
+      "lg": {
+        "$type": "dimension",
+        "$value": "{space.4}",
+        "$description": "Large stack gap",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      }
+    }
+  }
+}

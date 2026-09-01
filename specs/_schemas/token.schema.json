@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://depo-ui.dev/schemas/token.schema.json",
+  "title": "Depo UI DTCG token document",
+  "description": "Structural schema for DTCG token documents. Depo UI tier and theme rules are enforced by tooling/token-build/model.mjs.",
+  "$defs": {
+    "depoExtension": {
+      "type": "object",
+      "required": ["tier", "status"],
+      "properties": {
+        "tier": {
+          "type": "string",
+          "enum": ["reference", "semantic", "component", "theme"]
+        },
+        "status": {
+          "type": "string",
+          "enum": ["proposal", "trial", "stable", "deprecated", "removed"]
+        },
+        "theme": {
+          "type": "string"
+        },
+        "figma": {
+          "type": "object"
+        }
+      },
+      "additionalProperties": true
+    },
+    "token": {
+      "type": "object",
+      "required": ["$type", "$value", "$description", "$extensions"],
+      "properties": {
+        "$type": {
+          "type": "string",
+          "minLength": 1
+        },
+        "$value": {},
+        "$description": {
+          "type": "string",
+          "minLength": 1
+        },
+        "$extensions": {
+          "type": "object",
+          "required": ["depo-ui"],
+          "properties": {
+            "depo-ui": {
+              "$ref": "#/$defs/depoExtension"
+            }
+          },
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": true
+    },
+    "group": {
+      "type": "object",
+      "properties": {
+        "$type": {
+          "type": "string"
+        },
+        "$description": {
+          "type": "string"
+        },
+        "$extensions": {
+          "type": "object"
+        }
+      },
+      "additionalProperties": {
+        "anyOf": [
+          {
+            "$ref": "#/$defs/token"
+          },
+          {
+            "$ref": "#/$defs/group"
+          }
+        ]
+      }
+    }
+  },
+  "$ref": "#/$defs/group"
+}

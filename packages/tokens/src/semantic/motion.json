@@ -1,0 +1,38 @@
+{
+  "motion": {
+    "duration": {
+      "feedback": {
+        "$type": "duration",
+        "$value": "{motion.duration.fast}",
+        "$description": "Interactive feedback duration",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      },
+      "standard": {
+        "$type": "duration",
+        "$value": "{motion.duration.normal}",
+        "$description": "Standard transition duration",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      },
+      "overlay": {
+        "$type": "duration",
+        "$value": "{motion.duration.slow}",
+        "$description": "Overlay transition duration",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      }
+    },
+    "easing": {
+      "standard": {
+        "$type": "cubicBezier",
+        "$value": "{motion.easing.reference-standard}",
+        "$description": "Standard easing",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      },
+      "emphasized": {
+        "$type": "cubicBezier",
+        "$value": "{motion.easing.reference-emphasized}",
+        "$description": "Emphasized easing",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      }
+    }
+  }
+}

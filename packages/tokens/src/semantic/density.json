@@ -1,0 +1,64 @@
+{
+  "density": {
+    "compact": {
+      "controlHeight": {
+        "$type": "dimension",
+        "$value": "{density.reference-compact.controlHeight}",
+        "$description": "Compact control height",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      },
+      "rowHeight": {
+        "$type": "dimension",
+        "$value": "{density.reference-compact.rowHeight}",
+        "$description": "Compact row height",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      },
+      "gap": {
+        "$type": "dimension",
+        "$value": "{density.reference-compact.gap}",
+        "$description": "Compact gap",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      }
+    },
+    "comfortable": {
+      "controlHeight": {
+        "$type": "dimension",
+        "$value": "{density.reference-comfortable.controlHeight}",
+        "$description": "Comfortable control height",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      },
+      "rowHeight": {
+        "$type": "dimension",
+        "$value": "{density.reference-comfortable.rowHeight}",
+        "$description": "Comfortable row height",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      },
+      "gap": {
+        "$type": "dimension",
+        "$value": "{density.reference-comfortable.gap}",
+        "$description": "Comfortable gap",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      }
+    },
+    "touch": {
+      "controlHeight": {
+        "$type": "dimension",
+        "$value": "{density.reference-touch.controlHeight}",
+        "$description": "Touch control height",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      },
+      "rowHeight": {
+        "$type": "dimension",
+        "$value": "{density.reference-touch.rowHeight}",
+        "$description": "Touch row height",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      },
+      "gap": {
+        "$type": "dimension",
+        "$value": "{density.reference-touch.gap}",
+        "$description": "Touch gap",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      }
+    }
+  }
+}

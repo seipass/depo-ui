@@ -5,17 +5,19 @@
   "description": "Token source and generated token boundary",
   "type": "module",
   "scripts": {
-    "build": "node ../../tooling/phase0-check.mjs build",
-    "typecheck": "node ../../tooling/phase0-check.mjs typecheck",
-    "lint": "node ../../tooling/phase0-check.mjs lint",
-    "test": "node ../../tooling/phase0-check.mjs test"
+    "build": "node ../../tooling/token-build/build.mjs",
+    "typecheck": "node ../../tooling/token-lint/check.mjs",
+    "lint": "node ../../tooling/token-lint/check.mjs",
+    "test": "node ../../tooling/token-lint/check.mjs"
   },
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js",
-      "default": "./dist/index.js"
+      "types": "./generated/tokens.d.ts",
+      "import": "./generated/tokens.js",
+      "default": "./generated/tokens.js"
     },
+    "./css": "./generated/tokens.css",
+    "./manifest.json": "./generated/manifest.json",
     "./package.json": "./package.json"
   }
 }

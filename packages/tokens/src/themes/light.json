@@ -1,0 +1,249 @@
+{
+  "$description": "Light theme overrides for the shared semantic contract.",
+  "color": {
+    "bg": {
+      "canvas": {
+        "$type": "color",
+        "$value": "{color.neutral.25}",
+        "$description": "Light application canvas",
+        "$extensions": { "depo-ui": { "tier": "theme", "status": "stable", "theme": "light" } }
+      },
+      "surface": {
+        "$type": "color",
+        "$value": "{color.neutral.50}",
+        "$description": "Light default surface",
+        "$extensions": { "depo-ui": { "tier": "theme", "status": "stable", "theme": "light" } }
+      },
+      "surface-sunken": {
+        "$type": "color",
+        "$value": "{color.neutral.100}",
+        "$description": "Light recessed surface",
+        "$extensions": { "depo-ui": { "tier": "theme", "status": "stable", "theme": "light" } }
+      },
+      "surface-panel": {
+        "$type": "color",
+        "$value": "{color.neutral.50}",
+        "$description": "Light panel surface",
+        "$extensions": { "depo-ui": { "tier": "theme", "status": "stable", "theme": "light" } }
+      },
+      "surface-raised": {
+        "$type": "color",
+        "$value": "{color.neutral.25}",
+        "$description": "Light raised surface",
+        "$extensions": { "depo-ui": { "tier": "theme", "status": "stable", "theme": "light" } }
+      },
+      "surface-hover": {
+        "$type": "color",
+        "$value": "{color.neutral.100}",
+        "$description": "Light hover surface",
+        "$extensions": { "depo-ui": { "tier": "theme", "status": "stable", "theme": "light" } }
+      },
+      "inverse": {
+        "$type": "color",
+        "$value": "{color.neutral.925}",
+        "$description": "Light inverse surface",
+        "$extensions": { "depo-ui": { "tier": "theme", "status": "stable", "theme": "light" } }
+      }
+    },
+    "fg": {
+      "primary": {
+        "$type": "color",
+        "$value": "{color.neutral.950}",
+        "$description": "Light primary foreground",
+        "$extensions": { "depo-ui": { "tier": "theme", "status": "stable", "theme": "light" } }
+      },
+      "secondary": {
+        "$type": "color",
+        "$value": "{color.neutral.700}",
+        "$description": "Light secondary foreground",
+        "$extensions": { "depo-ui": { "tier": "theme", "status": "stable", "theme": "light" } }
+      },
+      "muted": {
+        "$type": "color",
+        "$value": "{color.neutral.600}",
+        "$description": "Light muted foreground",
+        "$extensions": { "depo-ui": { "tier": "theme", "status": "stable", "theme": "light" } }
+      },
+      "inverse": {
+        "$type": "color",
+        "$value": "{color.neutral.50}",
+        "$description": "Light inverse foreground",
+        "$extensions": { "depo-ui": { "tier": "theme", "status": "stable", "theme": "light" } }
+      },
+      "link": {
+        "$type": "color",
+        "$value": "{color.accent.700}",
+        "$description": "Light accessible link foreground",
+        "$extensions": { "depo-ui": { "tier": "theme", "status": "stable", "theme": "light" } }
+      },
+      "success": {
+        "$type": "color",
+        "$value": "{color.success.900}",
+        "$description": "Light success text",
+        "$extensions": { "depo-ui": { "tier": "theme", "status": "stable", "theme": "light" } }
+      },
+      "warning": {
+        "$type": "color",
+        "$value": "{color.warning.900}",
+        "$description": "Light warning text",
+        "$extensions": { "depo-ui": { "tier": "theme", "status": "stable", "theme": "light" } }
+      },
+      "danger": {
+        "$type": "color",
+        "$value": "{color.danger.900}",
+        "$description": "Light danger text",
+        "$extensions": { "depo-ui": { "tier": "theme", "status": "stable", "theme": "light" } }
+      }
+    },
+    "border": {
+      "subtle": {
+        "$type": "color",
+        "$value": "{color.neutral.300}",
+        "$description": "Light subtle border",
+        "$extensions": { "depo-ui": { "tier": "theme", "status": "stable", "theme": "light" } }
+      },
+      "default": {
+        "$type": "color",
+        "$value": "{color.neutral.500}",
+        "$description": "Light default border",
+        "$extensions": { "depo-ui": { "tier": "theme", "status": "stable", "theme": "light" } }
+      },
+      "strong": {
+        "$type": "color",
+        "$value": "{color.neutral.600}",
+        "$description": "Light strong border",
+        "$extensions": { "depo-ui": { "tier": "theme", "status": "stable", "theme": "light" } }
+      },
+      "focus": {
+        "$type": "color",
+        "$value": "{color.brand.700}",
+        "$description": "Light focus border",
+        "$extensions": { "depo-ui": { "tier": "theme", "status": "stable", "theme": "light" } }
+      },
+      "invalid": {
+        "$type": "color",
+        "$value": "{color.danger.900}",
+        "$description": "Light invalid border",
+        "$extensions": { "depo-ui": { "tier": "theme", "status": "stable", "theme": "light" } }
+      }
+    },
+    "action": {
+      "primary": {
+        "$type": "color",
+        "$value": "{color.brand.700}",
+        "$description": "Light primary action with AA text contrast",
+        "$extensions": { "depo-ui": { "tier": "theme", "status": "stable", "theme": "light" } }
+      },
+      "primary-hover": {
+        "$type": "color",
+        "$value": "{color.brand.800}",
+        "$description": "Light primary action hover",
+        "$extensions": { "depo-ui": { "tier": "theme", "status": "stable", "theme": "light" } }
+      },
+      "on-primary": {
+        "$type": "color",
+        "$value": "{color.neutral.50}",
+        "$description": "Light foreground on primary action",
+        "$extensions": { "depo-ui": { "tier": "theme", "status": "stable", "theme": "light" } }
+      },
+      "secondary": {
+        "$type": "color",
+        "$value": "{color.accent.700}",
+        "$description": "Light secondary action",
+        "$extensions": { "depo-ui": { "tier": "theme", "status": "stable", "theme": "light" } }
+      },
+      "secondary-hover": {
+        "$type": "color",
+        "$value": "{color.accent.800}",
+        "$description": "Light secondary action hover",
+        "$extensions": { "depo-ui": { "tier": "theme", "status": "stable", "theme": "light" } }
+      },
+      "danger": {
+        "$type": "color",
+        "$value": "{color.danger.900}",
+        "$description": "Light destructive action",
+        "$extensions": { "depo-ui": { "tier": "theme", "status": "stable", "theme": "light" } }
+      }
+    },
+    "status": {
+      "success": {
+        "$type": "color",
+        "$value": "{color.success.900}",
+        "$description": "Light success status",
+        "$extensions": { "depo-ui": { "tier": "theme", "status": "stable", "theme": "light" } }
+      },
+      "success-container": {
+        "$type": "color",
+        "$value": "{color.success.100}",
+        "$description": "Light success status container",
+        "$extensions": { "depo-ui": { "tier": "theme", "status": "stable", "theme": "light" } }
+      },
+      "warning": {
+        "$type": "color",
+        "$value": "{color.warning.900}",
+        "$description": "Light warning status",
+        "$extensions": { "depo-ui": { "tier": "theme", "status": "stable", "theme": "light" } }
+      },
+      "warning-container": {
+        "$type": "color",
+        "$value": "{color.warning.100}",
+        "$description": "Light warning status container",
+        "$extensions": { "depo-ui": { "tier": "theme", "status": "stable", "theme": "light" } }
+      },
+      "danger": {
+        "$type": "color",
+        "$value": "{color.danger.900}",
+        "$description": "Light danger status",
+        "$extensions": { "depo-ui": { "tier": "theme", "status": "stable", "theme": "light" } }
+      },
+      "danger-container": {
+        "$type": "color",
+        "$value": "{color.danger.100}",
+        "$description": "Light danger status container",
+        "$extensions": { "depo-ui": { "tier": "theme", "status": "stable", "theme": "light" } }
+      }
+    },
+    "focus": {
+      "ring": {
+        "$type": "color",
+        "$value": "{color.brand.700}",
+        "$description": "Light focus ring",
+        "$extensions": { "depo-ui": { "tier": "theme", "status": "stable", "theme": "light" } }
+      },
+      "inner": {
+        "$type": "color",
+        "$value": "{color.neutral.50}",
+        "$description": "Light focus separation",
+        "$extensions": { "depo-ui": { "tier": "theme", "status": "stable", "theme": "light" } }
+      }
+    },
+    "overlay": {
+      "scrim": {
+        "$type": "color",
+        "$value": "{color.neutral.950}",
+        "$description": "Light modal scrim",
+        "$extensions": { "depo-ui": { "tier": "theme", "status": "stable", "theme": "light" } }
+      }
+    },
+    "disabled": {
+      "fg": {
+        "$type": "color",
+        "$value": "{color.neutral.400}",
+        "$description": "Light disabled foreground",
+        "$extensions": { "depo-ui": { "tier": "theme", "status": "stable", "theme": "light" } }
+      },
+      "bg": {
+        "$type": "color",
+        "$value": "{color.neutral.100}",
+        "$description": "Light disabled background",
+        "$extensions": { "depo-ui": { "tier": "theme", "status": "stable", "theme": "light" } }
+      },
+      "border": {
+        "$type": "color",
+        "$value": "{color.neutral.300}",
+        "$description": "Light disabled border",
+        "$extensions": { "depo-ui": { "tier": "theme", "status": "stable", "theme": "light" } }
+      }
+    }
+  }
+}

@@ -1,0 +1,272 @@
+{
+  "color": {
+    "bg": {
+      "canvas": {
+        "$type": "color",
+        "$value": "{color.neutral.950}",
+        "$description": "Application canvas",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      },
+      "surface": {
+        "$type": "color",
+        "$value": "{color.neutral.900}",
+        "$description": "Default surface",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      },
+      "surface-sunken": {
+        "$type": "color",
+        "$value": "{color.neutral.925}",
+        "$description": "Recessed surface",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      },
+      "surface-panel": {
+        "$type": "color",
+        "$value": "{color.neutral.900}",
+        "$description": "Panel surface",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      },
+      "surface-raised": {
+        "$type": "color",
+        "$value": "{color.neutral.850}",
+        "$description": "Raised surface",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      },
+      "surface-hover": {
+        "$type": "color",
+        "$value": "{color.neutral.800}",
+        "$description": "Hover surface",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      },
+      "inverse": {
+        "$type": "color",
+        "$value": "{color.neutral.50}",
+        "$description": "Inverse surface",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      }
+    },
+    "fg": {
+      "primary": {
+        "$type": "color",
+        "$value": "{color.neutral.50}",
+        "$description": "Primary readable foreground",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      },
+      "secondary": {
+        "$type": "color",
+        "$value": "{color.neutral.200}",
+        "$description": "Secondary readable foreground",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      },
+      "muted": {
+        "$type": "color",
+        "$value": "{color.neutral.400}",
+        "$description": "Muted but readable foreground",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      },
+      "inverse": {
+        "$type": "color",
+        "$value": "{color.neutral.925}",
+        "$description": "Foreground on inverse surface",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      },
+      "link": {
+        "$type": "color",
+        "$value": "{color.accent.500}",
+        "$description": "Interactive link foreground",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      },
+      "success": {
+        "$type": "color",
+        "$value": "{color.success.100}",
+        "$description": "Readable success foreground",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      },
+      "warning": {
+        "$type": "color",
+        "$value": "{color.warning.100}",
+        "$description": "Readable warning foreground",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      },
+      "danger": {
+        "$type": "color",
+        "$value": "{color.danger.100}",
+        "$description": "Readable danger foreground",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      }
+    },
+    "border": {
+      "subtle": {
+        "$type": "color",
+        "$value": "{color.neutral.750}",
+        "$description": "Subtle separator border",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      },
+      "default": {
+        "$type": "color",
+        "$value": "{color.neutral.700}",
+        "$description": "Default component border",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      },
+      "strong": {
+        "$type": "color",
+        "$value": "{color.neutral.600}",
+        "$description": "Strong component border",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      },
+      "focus": {
+        "$type": "color",
+        "$value": "{color.brand.500}",
+        "$description": "Visible focus indicator",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      },
+      "invalid": {
+        "$type": "color",
+        "$value": "{color.danger.600}",
+        "$description": "Invalid field border",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      }
+    },
+    "action": {
+      "primary": {
+        "$type": "color",
+        "$value": "{color.brand.600}",
+        "$description": "Primary action fill",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      },
+      "primary-hover": {
+        "$type": "color",
+        "$value": "{color.brand.500}",
+        "$description": "Primary action hover fill",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      },
+      "primary-container": {
+        "$type": "color",
+        "$value": "{color.brand.900}",
+        "$description": "Primary action subtle container",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      },
+      "on-primary": {
+        "$type": "color",
+        "$value": "{color.neutral.950}",
+        "$description": "Foreground on primary action",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      },
+      "on-primary-container": {
+        "$type": "color",
+        "$value": "{color.brand.100}",
+        "$description": "Foreground on primary container",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      },
+      "secondary": {
+        "$type": "color",
+        "$value": "{color.accent.600}",
+        "$description": "Secondary/info action fill",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      },
+      "secondary-hover": {
+        "$type": "color",
+        "$value": "{color.accent.500}",
+        "$description": "Secondary action hover fill",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      },
+      "secondary-container": {
+        "$type": "color",
+        "$value": "{color.accent.900}",
+        "$description": "Secondary action subtle container",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      },
+      "on-secondary-container": {
+        "$type": "color",
+        "$value": "{color.accent.100}",
+        "$description": "Foreground on secondary container",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      },
+      "danger": {
+        "$type": "color",
+        "$value": "{color.danger.600}",
+        "$description": "Destructive action fill",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      }
+    },
+    "status": {
+      "success": {
+        "$type": "color",
+        "$value": "{color.success.600}",
+        "$description": "Success status fill",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      },
+      "success-container": {
+        "$type": "color",
+        "$value": "{color.success.900}",
+        "$description": "Success status container",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      },
+      "warning": {
+        "$type": "color",
+        "$value": "{color.warning.600}",
+        "$description": "Warning status fill",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      },
+      "warning-container": {
+        "$type": "color",
+        "$value": "{color.warning.900}",
+        "$description": "Warning status container",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      },
+      "danger": {
+        "$type": "color",
+        "$value": "{color.danger.600}",
+        "$description": "Danger status fill",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      },
+      "danger-container": {
+        "$type": "color",
+        "$value": "{color.danger.900}",
+        "$description": "Danger status container",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      }
+    },
+    "focus": {
+      "ring": {
+        "$type": "color",
+        "$value": "{color.brand.500}",
+        "$description": "Outer focus ring",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      },
+      "inner": {
+        "$type": "color",
+        "$value": "{color.neutral.950}",
+        "$description": "Inner focus ring separation",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      }
+    },
+    "overlay": {
+      "scrim": {
+        "$type": "color",
+        "$value": "{color.neutral.0}",
+        "$description": "Modal scrim color; opacity is component controlled",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      }
+    },
+    "disabled": {
+      "fg": {
+        "$type": "color",
+        "$value": "{color.neutral.500}",
+        "$description": "Disabled foreground",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      },
+      "bg": {
+        "$type": "color",
+        "$value": "{color.neutral.800}",
+        "$description": "Disabled background",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      },
+      "border": {
+        "$type": "color",
+        "$value": "{color.neutral.700}",
+        "$description": "Disabled border",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      }
+    }
+  }
+}

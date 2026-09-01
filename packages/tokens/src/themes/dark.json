@@ -1,0 +1,13 @@
+{
+  "$description": "Default dark theme. Semantic defaults are the dark contract; this file records the active theme and explicit overlay overrides.",
+  "color": {
+    "overlay": {
+      "scrim": {
+        "$type": "color",
+        "$value": "{color.neutral.0}",
+        "$description": "Dark modal scrim",
+        "$extensions": { "depo-ui": { "tier": "theme", "status": "stable", "theme": "dark" } }
+      }
+    }
+  }
+}

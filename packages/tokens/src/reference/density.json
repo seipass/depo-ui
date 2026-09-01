@@ -1,0 +1,64 @@
+{
+  "density": {
+    "reference-compact": {
+      "controlHeight": {
+        "$type": "dimension",
+        "$value": { "value": 32, "unit": "px" },
+        "$description": "Compact control height",
+        "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }
+      },
+      "rowHeight": {
+        "$type": "dimension",
+        "$value": { "value": 36, "unit": "px" },
+        "$description": "Compact data row height",
+        "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }
+      },
+      "gap": {
+        "$type": "dimension",
+        "$value": { "value": 8, "unit": "px" },
+        "$description": "Compact default gap",
+        "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }
+      }
+    },
+    "reference-comfortable": {
+      "controlHeight": {
+        "$type": "dimension",
+        "$value": { "value": 40, "unit": "px" },
+        "$description": "Comfortable control height",
+        "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }
+      },
+      "rowHeight": {
+        "$type": "dimension",
+        "$value": { "value": 48, "unit": "px" },
+        "$description": "Comfortable data row height",
+        "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }
+      },
+      "gap": {
+        "$type": "dimension",
+        "$value": { "value": 12, "unit": "px" },
+        "$description": "Comfortable default gap",
+        "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }
+      }
+    },
+    "reference-touch": {
+      "controlHeight": {
+        "$type": "dimension",
+        "$value": { "value": 48, "unit": "px" },
+        "$description": "Touch control visual height",
+        "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }
+      },
+      "rowHeight": {
+        "$type": "dimension",
+        "$value": { "value": 56, "unit": "px" },
+        "$description": "Touch data row height",
+        "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }
+      },
+      "gap": {
+        "$type": "dimension",
+        "$value": { "value": 16, "unit": "px" },
+        "$description": "Touch default gap",
+        "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }
+      }
+    }
+  }
+}

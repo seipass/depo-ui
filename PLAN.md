@@ -1,6 +1,6 @@
 # Depo UI Design System Plan
 
-> Status: Phase 0 — Repository Foundation implemented; Phase 1 — Tokens has not started. このファイルは白紙のリポジトリから Depo UI Design System を実装するための設計書であり、実装時の Source of Truth である。
+> Status: Phase 0 — Repository Foundation and Phase 1 — Tokens implemented; Phase 2 — Foundations has not started. このファイルは白紙のリポジトリから Depo UI Design System を実装するための設計書であり、実装時の Source of Truth である。
 >
 > Research baseline: 2026-09-01（技術のバージョンは実装開始時に公式ドキュメントで再確認し、採用したバージョンを ADR に記録する）。
 
@@ -120,6 +120,7 @@ Proposal、Trial、Stable、Deprecated、Removed を明示する。利用実績�
 │  │  ├─ generated/
 │  │  │  ├─ tokens.css
 │  │  │  ├─ tokens.ts
+│  │  │  ├─ tokens.js
 │  │  │  ├─ tokens.d.ts
 │  │  │  └─ manifest.json
 │  │  └─ package.json
@@ -448,7 +449,7 @@ Design Token の exchange format は DTCG Format Module 2025.10 を基準にす�
 
 packages/tokens/src/reference/ は color.json、spacing.json、typography.json、sizing.json、radius.json、border.json、elevation.json、motion.json、layout.json、density.json に分ける。src/semantic/ は color.json、spacing.json、typography.json、sizing.json、motion.json、layout.json、density.json とし、Theme 固有の値は src/themes/dark.json、light.json、high-contrast.json に置く。
 
-generated/ は commit して差分をレビュー可能にする。tokens.css、tokens.ts、tokens.d.ts、manifest.json は build で再生成し、pnpm tokens:build && git diff --exit-code -- packages/tokens/generated を CI に置く。生成物を直接編集した場合は CI が失敗する。
+generated/ は commit して差分をレビュー可能にする。tokens.css、tokens.ts、tokens.js、tokens.d.ts、manifest.json は build で再生成し、pnpm tokens:build && git diff --exit-code -- packages/tokens/generated を CI に置く。生成物を直接編集した場合は CI が失敗する。tokens.js は ESM consumer が実行時に利用する生成入口であり、他の生成物と同じく直接編集しない。
 
 生成 CSS は --dui-* prefix を使用する。Reference は developer-only の inspect 用に限定し、Product 向けの public export は Semantic Token と Theme を中心にする。
 
@@ -1279,7 +1280,7 @@ packages/tokens/src/reference/、semantic/、themes/、generated/、tooling/toke
 - DTCG 2025.10 の schema/normalizer を用意し、tier、type、description、extension、alias の validation を実装する。
 - Depo UI の supplied color anchor を入力し、light neutral、focus、status text、overlay、system color の追加理由と mapping を記録する。
 - dark/light/high-contrast の semantic matrix を作り、missing role、contrast、forced-color の検証を追加する。
-- CSS/TS/d.ts/manifest を生成し、generated freshness check と raw value lint を有効にする。
+- CSS/TS/ES module runtime/d.ts/manifest を生成し、generated freshness check と raw value lint を有効にする。
 
 **Tests**
 
@@ -1290,6 +1291,14 @@ packages/tokens/src/reference/、semantic/、themes/、generated/、tooling/toke
 **Exit criteria**
 
 Product から Reference を直接 import できず、Semantic Token が全 Theme で解決する。指定色が変更されず、追加色は理由と test を持ち、generated file を再生成しても diff がない。
+
+**Phase status**
+
+- Status: Completed
+- Tests: pnpm tokens:build、pnpm tokens:check、pnpm lint:tokens、pnpm lint:raw-values、pnpm lint:deps、pnpm format:check、pnpm lint、pnpm typecheck、pnpm test、pnpm build
+- Commit: feat(phase-1): implement token architecture
+- Known limitations: Component Token、Foundation、React/Component source、Figma Variables、visual/manual forced-colors evidenceは後続Phaseで追加する。High Contrast の system color は browser test で検証する。
+- Blocked items: なし。
 
 ### Phase 2 — Foundations
 

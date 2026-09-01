@@ -1,0 +1,64 @@
+{
+  "size": {
+    "control": {
+      "visual-sm": {
+        "$type": "dimension",
+        "$value": { "value": 32, "unit": "px" },
+        "$description": "Compact visual control height",
+        "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }
+      },
+      "visual-md": {
+        "$type": "dimension",
+        "$value": { "value": 40, "unit": "px" },
+        "$description": "Default visual control height",
+        "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }
+      },
+      "visual-lg": {
+        "$type": "dimension",
+        "$value": { "value": 48, "unit": "px" },
+        "$description": "Large visual control height",
+        "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }
+      },
+      "touch-target": {
+        "$type": "dimension",
+        "$value": { "value": 44, "unit": "px" },
+        "$description": "Minimum coarse-pointer hit target",
+        "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }
+      }
+    },
+    "icon": {
+      "glyph-sm": {
+        "$type": "dimension",
+        "$value": { "value": 16, "unit": "px" },
+        "$description": "Small icon glyph",
+        "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }
+      },
+      "glyph-md": {
+        "$type": "dimension",
+        "$value": { "value": 20, "unit": "px" },
+        "$description": "Default icon glyph",
+        "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }
+      },
+      "glyph-lg": {
+        "$type": "dimension",
+        "$value": { "value": 24, "unit": "px" },
+        "$description": "Large icon glyph",
+        "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }
+      }
+    },
+    "content": {
+      "max-measure": {
+        "$type": "dimension",
+        "$value": { "value": 70, "unit": "ch" },
+        "$description": "Readable long-form measure",
+        "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }
+      },
+      "max-panel": {
+        "$type": "dimension",
+        "$value": { "value": 640, "unit": "px" },
+        "$description": "Default readable panel maximum",
+        "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }
+      }
+    }
+  }
+}

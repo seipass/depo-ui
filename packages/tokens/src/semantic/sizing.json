@@ -1,0 +1,64 @@
+{
+  "size": {
+    "control": {
+      "sm": {
+        "$type": "dimension",
+        "$value": "{size.control.visual-sm}",
+        "$description": "Small control size",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      },
+      "md": {
+        "$type": "dimension",
+        "$value": "{size.control.visual-md}",
+        "$description": "Default control size",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      },
+      "lg": {
+        "$type": "dimension",
+        "$value": "{size.control.visual-lg}",
+        "$description": "Large control size",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      },
+      "touch": {
+        "$type": "dimension",
+        "$value": "{size.control.touch-target}",
+        "$description": "Minimum touch target size",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      }
+    },
+    "icon": {
+      "sm": {
+        "$type": "dimension",
+        "$value": "{size.icon.glyph-sm}",
+        "$description": "Small icon size",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      },
+      "md": {
+        "$type": "dimension",
+        "$value": "{size.icon.glyph-md}",
+        "$description": "Default icon size",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      },
+      "lg": {
+        "$type": "dimension",
+        "$value": "{size.icon.glyph-lg}",
+        "$description": "Large icon size",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      }
+    },
+    "content": {
+      "measure": {
+        "$type": "dimension",
+        "$value": "{size.content.max-measure}",
+        "$description": "Readable text measure",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      },
+      "panel": {
+        "$type": "dimension",
+        "$value": "{size.content.max-panel}",
+        "$description": "Readable panel width",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      }
+    }
+  }
+}

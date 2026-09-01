@@ -2,11 +2,12 @@ import { defineProject } from 'vitest/config';
 
 export default defineProject({
   test: {
-    name: 'phase0',
+    name: 'workspace',
     include: [
-      'testing/**/*.test.{ts,tsx}',
-      'packages/**/src/**/*.test.{ts,tsx}',
-      'apps/**/src/**/*.test.{ts,tsx}',
+      'testing/**/*.test.{ts,tsx,mts,mjs,js,cjs}',
+      'packages/**/src/**/*.test.{ts,tsx,mts,mjs,js,cjs}',
+      'apps/**/src/**/*.test.{ts,tsx,mts,mjs,js,cjs}',
+      'tooling/**/*.test.{ts,tsx,mts,mjs,js,cjs}',
     ],
   },
 });

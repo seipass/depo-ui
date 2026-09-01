@@ -1,0 +1,88 @@
+{
+  "layout": {
+    "grid": {
+      "narrow": {
+        "$type": "number",
+        "$value": "{layout.reference-grid.narrow}",
+        "$description": "Narrow grid columns",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      },
+      "medium": {
+        "$type": "number",
+        "$value": "{layout.reference-grid.medium}",
+        "$description": "Medium grid columns",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      },
+      "expanded": {
+        "$type": "number",
+        "$value": "{layout.reference-grid.expanded}",
+        "$description": "Expanded grid columns",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      }
+    },
+    "container": {
+      "sm": {
+        "$type": "dimension",
+        "$value": "{layout.reference-container.sm}",
+        "$description": "Small container limit",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      },
+      "md": {
+        "$type": "dimension",
+        "$value": "{layout.reference-container.md}",
+        "$description": "Medium container limit",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      },
+      "lg": {
+        "$type": "dimension",
+        "$value": "{layout.reference-container.lg}",
+        "$description": "Large container limit",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      },
+      "xl": {
+        "$type": "dimension",
+        "$value": "{layout.reference-container.xl}",
+        "$description": "Extra-large container limit",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      }
+    },
+    "layer": {
+      "base": {
+        "$type": "number",
+        "$value": "{layout.reference-layer.base}",
+        "$description": "Base layer",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      },
+      "sticky": {
+        "$type": "number",
+        "$value": "{layout.reference-layer.sticky}",
+        "$description": "Sticky layer",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      },
+      "navigation": {
+        "$type": "number",
+        "$value": "{layout.reference-layer.navigation}",
+        "$description": "Navigation layer",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      },
+      "popover": {
+        "$type": "number",
+        "$value": "{layout.reference-layer.popover}",
+        "$description": "Popover layer",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      },
+      "modal": {
+        "$type": "number",
+        "$value": "{layout.reference-layer.modal}",
+        "$description": "Modal layer",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      },
+      "toast": {
+        "$type": "number",
+        "$value": "{layout.reference-layer.toast}",
+        "$description": "Toast layer",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      }
+    }
+  }
+}

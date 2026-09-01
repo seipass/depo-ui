@@ -1,0 +1,94 @@
+{
+  "layout": {
+    "reference-grid": {
+      "narrow": {
+        "$type": "number",
+        "$value": 4,
+        "$description": "Candidate narrow grid columns",
+        "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }
+      },
+      "medium": {
+        "$type": "number",
+        "$value": 8,
+        "$description": "Candidate medium grid columns",
+        "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }
+      },
+      "expanded": {
+        "$type": "number",
+        "$value": 12,
+        "$description": "Expanded grid columns",
+        "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }
+      }
+    },
+    "reference-container": {
+      "sm": {
+        "$type": "dimension",
+        "$value": { "value": 480, "unit": "px" },
+        "$description": "Small content container",
+        "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }
+      },
+      "md": {
+        "$type": "dimension",
+        "$value": { "value": 768, "unit": "px" },
+        "$description": "Medium content container",
+        "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }
+      },
+      "lg": {
+        "$type": "dimension",
+        "$value": { "value": 1200, "unit": "px" },
+        "$description": "Large content container",
+        "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }
+      },
+      "xl": {
+        "$type": "dimension",
+        "$value": { "value": 1440, "unit": "px" },
+        "$description": "Extra-large shell container",
+        "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }
+      }
+    },
+    "reference-layer": {
+      "base": {
+        "$type": "number",
+        "$value": 0,
+        "$description": "Base content layer",
+        "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }
+      },
+      "sticky": {
+        "$type": "number",
+        "$value": 10,
+        "$description": "Sticky content layer",
+        "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }
+      },
+      "navigation": {
+        "$type": "number",
+        "$value": 20,
+        "$description": "Navigation layer",
+        "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }
+      },
+      "popover": {
+        "$type": "number",
+        "$value": 100,
+        "$description": "Popover layer",
+        "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }
+      },
+      "modal": {
+        "$type": "number",
+        "$value": 200,
+        "$description": "Modal layer",
+        "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }
+      },
+      "toast": {
+        "$type": "number",
+        "$value": 300,
+        "$description": "Toast layer",
+        "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }
+      },
+      "debug": {
+        "$type": "number",
+        "$value": 1000,
+        "$description": "Debug-only layer",
+        "$extensions": { "depo-ui": { "tier": "reference", "status": "stable" } }
+      }
+    }
+  }
+}

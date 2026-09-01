@@ -1,0 +1,102 @@
+{
+  "typography": {
+    "body": {
+      "family": {
+        "$type": "fontFamily",
+        "$value": "{font.family.ui}",
+        "$description": "Body font family",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      },
+      "size": {
+        "$type": "dimension",
+        "$value": "{font.size.300}",
+        "$description": "Body font size",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      },
+      "lineHeight": {
+        "$type": "number",
+        "$value": "{font.lineHeight.normal}",
+        "$description": "Body line height",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      },
+      "weight": {
+        "$type": "fontWeight",
+        "$value": "{font.weight.regular}",
+        "$description": "Body font weight",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      }
+    },
+    "label": {
+      "family": {
+        "$type": "fontFamily",
+        "$value": "{font.family.ui}",
+        "$description": "Control label family",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      },
+      "size": {
+        "$type": "dimension",
+        "$value": "{font.size.200}",
+        "$description": "Control label size",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      },
+      "lineHeight": {
+        "$type": "number",
+        "$value": "{font.lineHeight.normal}",
+        "$description": "Control label line height",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      },
+      "weight": {
+        "$type": "fontWeight",
+        "$value": "{font.weight.medium}",
+        "$description": "Control label weight",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      }
+    },
+    "heading": {
+      "family": {
+        "$type": "fontFamily",
+        "$value": "{font.family.ui}",
+        "$description": "Heading family",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      },
+      "size": {
+        "$type": "dimension",
+        "$value": "{font.size.600}",
+        "$description": "Default heading size",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      },
+      "lineHeight": {
+        "$type": "number",
+        "$value": "{font.lineHeight.tight}",
+        "$description": "Heading line height",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      },
+      "weight": {
+        "$type": "fontWeight",
+        "$value": "{font.weight.semibold}",
+        "$description": "Heading weight",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      }
+    },
+    "code": {
+      "family": {
+        "$type": "fontFamily",
+        "$value": "{font.family.mono}",
+        "$description": "Code family",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      },
+      "size": {
+        "$type": "dimension",
+        "$value": "{font.size.200}",
+        "$description": "Code size",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      },
+      "lineHeight": {
+        "$type": "number",
+        "$value": "{font.lineHeight.normal}",
+        "$description": "Code line height",
+        "$extensions": { "depo-ui": { "tier": "semantic", "status": "stable" } }
+      }
+    }
+  }
+}
