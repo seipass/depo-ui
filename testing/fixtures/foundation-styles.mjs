@@ -13,7 +13,10 @@ const foundationCssFiles = [
   'packages/foundations/src/css/motion.css',
 ];
 
-export async function readFoundationStyles({ includePrimitives = false } = {}) {
+export async function readFoundationStyles({
+  includePrimitives = false,
+  includeComponents = false,
+} = {}) {
   const files = await Promise.all(
     foundationCssFiles.map(async (relativePath) => {
       const content = await readFile(path.join(repositoryRoot, relativePath), 'utf8');
@@ -29,6 +32,18 @@ export async function readFoundationStyles({ includePrimitives = false } = {}) {
       'utf8',
     );
     files.push(primitives.replace("@import '@depo-ui/foundations/css';", ''));
+  }
+
+  if (includeComponents) {
+    const components = await readFile(
+      path.join(repositoryRoot, 'packages/components/src/css/index.css'),
+      'utf8',
+    );
+    files.push(
+      components
+        .replace("@import '@depo-ui/primitives/css';", '')
+        .replace("@import '@depo-ui/foundations/css';", ''),
+    );
   }
 
   return files.join('\n');

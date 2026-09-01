@@ -1,0 +1,19 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "types": ["node"],
+    "baseUrl": ".",
+    "paths": {
+      "@depo-ui/react": ["../../packages/react/src/index.ts"],
+      "@depo-ui/components": ["../../packages/components/src/index.ts"],
+      "@depo-ui/foundations": ["../../packages/foundations/src/index.ts"],
+      "@depo-ui/primitives": ["../../packages/primitives/src/index.ts"],
+      "@depo-ui/accessibility": ["../../packages/accessibility/src/index.ts"],
+      "@depo-ui/utilities": ["../../packages/utilities/src/index.ts"],
+      "@depo-ui/icons": ["../../packages/icons/src/index.ts"],
+      "@depo-ui/tokens": ["../../packages/tokens/generated/tokens.ts"]
+    }
+  },
+  "include": ["src/**/*.ts", "src/**/*.tsx"]
+}

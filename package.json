@@ -24,7 +24,7 @@
     "test:e2e": "playwright test --pass-with-no-tests",
     "tokens:build": "node tooling/token-build/build.mjs",
     "tokens:check": "node tooling/token-build/check.mjs",
-    "generate": "node tooling/phase0-check.mjs generate",
+    "generate": "node tooling/component-generator/generate.mjs",
     "docs:generate": "node tooling/phase0-check.mjs docs:generate",
     "figma:check": "node tooling/phase0-check.mjs figma:check",
     "changeset": "node tooling/phase0-check.mjs changeset",

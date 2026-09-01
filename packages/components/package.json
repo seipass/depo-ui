@@ -5,10 +5,10 @@
   "description": "Reusable Depo UI components",
   "type": "module",
   "scripts": {
-    "build": "node ../../tooling/phase0-check.mjs build",
-    "typecheck": "node ../../tooling/phase0-check.mjs typecheck",
-    "lint": "node ../../tooling/phase0-check.mjs lint",
-    "test": "node ../../tooling/phase0-check.mjs test"
+    "build": "tsc -p tsconfig.build.json && node ../../tooling/components-build/copy-assets.mjs",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "lint": "eslint src",
+    "test": "cd ../.. && vitest run --config vitest.workspace.ts --passWithNoTests"
   },
   "exports": {
     ".": {
@@ -16,6 +16,7 @@
       "import": "./dist/index.js",
       "default": "./dist/index.js"
     },
+    "./css": "./dist/css/index.css",
     "./package.json": "./package.json"
   },
   "dependencies": {
@@ -24,5 +25,12 @@
     "@depo-ui/accessibility": "workspace:*",
     "@depo-ui/utilities": "workspace:*",
     "@depo-ui/icons": "workspace:*"
+  },
+  "peerDependencies": {
+    "react": ">=19.0.0 <20.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "catalog:",
+    "react": "catalog:"
   }
 }

@@ -143,6 +143,13 @@ importers:
       '@depo-ui/react':
         specifier: workspace:*
         version: link:../../packages/react
+    devDependencies:
+      '@types/react':
+        specifier: 'catalog:'
+        version: 19.2.18
+      react:
+        specifier: 'catalog:'
+        version: 19.2.8
 
   examples/data-heavy-dashboard:
     dependencies:
@@ -186,6 +193,13 @@ importers:
       '@depo-ui/utilities':
         specifier: workspace:*
         version: link:../utilities
+    devDependencies:
+      '@types/react':
+        specifier: 'catalog:'
+        version: 19.2.18
+      react:
+        specifier: 'catalog:'
+        version: 19.2.8
 
   packages/foundations:
     dependencies:
@@ -245,12 +259,16 @@ importers:
       '@depo-ui/patterns':
         specifier: workspace:*
         version: link:../patterns
-      react:
-        specifier: '>=19.0.0 <20.0.0'
-        version: 19.2.8
       react-dom:
         specifier: '>=19.0.0 <20.0.0'
         version: 19.2.8(react@19.2.8)
+    devDependencies:
+      '@types/react':
+        specifier: 'catalog:'
+        version: 19.2.18
+      react:
+        specifier: 'catalog:'
+        version: 19.2.8
 
   packages/tokens: {}
 

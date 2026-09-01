@@ -1,6 +1,6 @@
 # Depo UI Design System Plan
 
-> Status: Phase 0 — Repository Foundation、Phase 1 — Tokens、Phase 2 — Foundations、Phase 3 — Primitives implemented; Phase 4A — Basic Controls has not started. このファイルは白紙のリポジトリから Depo UI Design System を実装するための設計書であり、実装時の Source of Truth である。
+> Status: Phase 0 — Repository Foundation、Phase 1 — Tokens、Phase 2 — Foundations、Phase 3 — Primitives、Phase 4A — Basic Controls implemented; Phase 4B — Overlay Infrastructure has not started. このファイルは白紙のリポジトリから Depo UI Design System を実装するための設計書であり、実装時の Source of Truth である。
 >
 > Research baseline: 2026-09-01（技術のバージョンは実装開始時に公式ドキュメントで再確認し、採用したバージョンを ADR に記録する）。
 
@@ -1412,6 +1412,18 @@ Table は semantic table/thead/tbody/th/td/caption を中心とする static dat
 **Exit criteria**
 
 上記 Basic Component が Product-like fixture で組め、API review、A11y review、ref contract review を通過する。未成熟な Component は Trial のまま明示され、Stable と誤表示されない。
+
+**Phase status**
+
+- Status: Completed
+- Implemented source: `packages/components/src/actions/`、`packages/components/src/forms/`、`packages/components/src/data-display/`、`packages/components/src/feedback/`。公開 entrypoint は `packages/components/src/index.ts`、React facade は `packages/react/src/index.ts` とする。
+- Metadata: `specs/components/{actions,forms,data-display,feedback}/*.json`。Component generator は `tooling/component-generator/generate.mjs` から同一の source、styles、tokens、stories、visual、unit/a11y test skeleton を生成できる。
+- Tests: `pnpm install --frozen-lockfile`、`pnpm tokens:build`、`pnpm tokens:check`、`pnpm lint:tokens`、`pnpm lint:raw-values`、`pnpm lint:deps`、`pnpm --filter @depo-ui/components typecheck`、`pnpm --filter @depo-ui/components test`（24 tests）、`pnpm test:a11y`（16 tests）、`pnpm test:visual -- components-basic.spec.ts`（3 tests）、`pnpm format:check`、`pnpm lint`、consumer fixture typecheck/build。
+- Review evidence: native HTML semantics、React 19 ref-as-prop の型利用、Dark/Light/High Contrast の theme root、Reduced Motion、touch density、narrow viewport、long/CJK text、axe smoke、Table と DataGrid の役割境界を fixture で確認した。React 18 を support range に含める場合の compatibility test は Phase 0 の決定に従い、必要な場合だけ追加する。
+- Lifecycle: 全 Phase 4A Component は `Trial`。Production usage、owner、API/A11y/Figma parity の Stable gate は Governance の条件を別途満たすまで変更しない。
+- Commit: `feat(phase-4a): implement basic controls`
+- Known limitations: browser test は Chromium、screen-reader evidence は manual checklist 前提、DateInput/SearchField は overlay を持たない基本入力、Table は static semantic table であり、advanced interaction は Phase 5 の DataGrid 等で扱う。
+- Blocked items: なし。
 
 ### Phase 4B — Overlay Infrastructure
 
