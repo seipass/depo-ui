@@ -12,3 +12,5 @@ export { Skeleton } from './Skeleton/index.js';
 export type { SkeletonProps } from './Skeleton/index.js';
 export { Spinner } from './Spinner/index.js';
 export type { SpinnerProps } from './Spinner/index.js';
+export { Toast, ToastProvider, useToast } from './Toast/index.js';
+export type { ToastAction, ToastOptions, ToastProps } from './Toast/index.js';

@@ -1,5 +1,6 @@
 export { FieldControl, fieldMessageClassName, useFieldDescription } from './field.js';
 export { useControllableState } from './useControllableState.js';
+export { mergeRefs } from './refs.js';
 export { componentClassNames, componentData } from './types.js';
 export type {
   ButtonElementProps,

@@ -20,3 +20,5 @@ export { DateInput } from './DateInput/index.js';
 export type { DateInputProps } from './DateInput/index.js';
 export { SearchField } from './SearchField/index.js';
 export type { SearchFieldProps } from './SearchField/index.js';
+export { Select } from './Select/index.js';
+export type { SelectOption, SelectProps } from './Select/index.js';

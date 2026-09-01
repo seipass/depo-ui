@@ -1498,6 +1498,16 @@ packages/components/src/actions/SplitButton/、packages/components/src/forms/Sel
 
 Composite Component が必要な依存だけを持ち、4A/4B の API vocabulary、state model、keyboard、focus、accessibility、theme、density、responsive behavior を崩さない。Menu 等が Overlay Infrastructure より前に実装されておらず、各 Component の first implementation phase が matrix で一意に確認できる。
 
+**Phase status**
+
+- Status: Completed。Phase 4C の全14 Component（SplitButton、Select、Tabs、SegmentedControl、ToggleButton、Breadcrumbs、Pagination、SideNav、TopNav、Menu、MenuButton、Toast、Disclosure、Accordion）を `packages/components/src/` の catalog 分類に追加し、各 Component の metadata、source、styles、tokens、story、visual fixture、unit/a11y test を揃えた。
+- Dependency decision: Menu、Select、Toast、SplitButton は Phase 4B の Portal、dismiss、focus、positioning を必要な範囲だけ利用する。Tabs、SegmentedControl、ToggleButton、Breadcrumbs、Pagination、SideNav、TopNav、Disclosure、Accordion は Overlay に依存せず、native tab/navigation/button/region semantics を使う。Table は Phase 4A の semantic static table のまま、DataGrid は Phase 5 で初めて実装する。
+- Tests: `pnpm --filter @depo-ui/components typecheck`、`pnpm test:a11y`（42 files、61 tests）、`pnpm test:visual`（16 browser tests）、`pnpm lint:raw-values` が通過した。Composite 固有では contract Vitest 5 tests、Chromium 3 tests、axe、narrow navigation、focusable tab semantics、forced colors、reduced motion、CJK/long-label fixture を確認した。
+- Lifecycle: Phase 4C Component はすべて `Trial`。Production usage、owner、manual screen-reader evidence、API/A11y/Figma parity を含む Stable gate は Governance の条件を満たすまで変更しない。
+- Known limitations: Select/Menu は data-driven option/action list API、Toast は provider queue と standalone surface を提供するが、advanced async option、command search、virtualization、calendar、file picker は Phase 5 の責任とする。Browser automation は Chromium、screen-reader evidence は manual checklist 前提。
+- Commit: `feat(phase-4c): implement composite components`
+- Blocked items: なし。
+
 ### Phase 5 — Advanced Components
 
 **Goal**
