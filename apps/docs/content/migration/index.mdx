@@ -19,3 +19,5 @@ Migration guidance is published with the release that changes the contract. It d
 6. Keep the rollback or recovery step available until the support window closes.
 
 Codemods must be AST-aware and must not guess at product-specific domain code. If no safe codemod exists, the release page must say so and provide a precise manual recipe.
+
+The repository fixture `button-kind-to-variant` demonstrates the migration runner. Run `node tooling/codemods/run.mjs --migration button-kind-to-variant --input <file> --output <file>` in a branch, inspect the diff, and rerun the complete consumer and accessibility matrix before release.

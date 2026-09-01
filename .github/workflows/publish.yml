@@ -1,0 +1,55 @@
+name: Publish release
+
+on:
+  workflow_dispatch:
+    inputs:
+      confirmation:
+        description: Type publish to confirm the protected release operation
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    name: Publish approved packages
+    runs-on: ubuntu-latest
+    environment: release
+    steps:
+      - name: Require explicit confirmation
+        if: ${{ inputs.confirmation != 'publish' }}
+        run: |
+          echo 'The confirmation input must be exactly publish.'
+          exit 1
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24.19.0'
+          registry-url: https://registry.npmjs.org
+
+      - name: Activate pnpm
+        run: |
+          corepack enable
+          corepack install --global pnpm@11.25.0
+          pnpm --version
+
+      - name: Install
+        run: pnpm install --frozen-lockfile
+
+      - name: Release gate
+        env:
+          RELEASE_PUBLISH_APPROVED: 'true'
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: pnpm release:check -- --publish
+
+      - name: Publish
+        env:
+          RELEASE_PUBLISH_APPROVED: 'true'
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_CONFIG_PROVENANCE: 'true'
+        run: pnpm release:publish

@@ -1,6 +1,6 @@
 # Repository Foundation
 
-Phase 0 establishes the workspace and its boundaries. Feature source is intentionally absent until the phase assigned by PLAN.md.
+Phase 0 established the workspace and its boundaries. Subsequent phases now populate the planned source, generated artifact, testing, documentation, Figma, and governance boundaries described by PLAN.md.
 
 ## Source of truth
 
@@ -11,6 +11,6 @@ Phase 0 establishes the workspace and its boundaries. Feature source is intentio
 
 ## Current status
 
-The repository contains package manifests, public export placeholders, tool configuration, CI entrypoints, documentation entrypoint, and empty planned directories. It does not contain tokens, foundations implementation, primitives, components, patterns, or an application.
+The repository contains the implemented Token, Foundation, Primitive, Component, Pattern, React facade, Docs, Figma mapping, accessibility, testing, and governance boundaries. Package manifests and public exports remain at package roots; Component source remains below `packages/components/src/`. Generated artifacts are rebuilt by their owning tooling and are not edited directly.
 
-The next feature phase is Phase 1 — Tokens. Do not add token values or component code during Phase 0 maintenance.
+Phase 10 — Governance / Release is complete. Release maintenance must use the lifecycle policy, Changesets, evidence registry, migration registry, and protected publish workflow; do not bypass those gates by editing generated versions or changelogs manually.

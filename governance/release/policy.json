@@ -1,0 +1,30 @@
+{
+  "$schema": "../../specs/_schemas/release-policy.schema.json",
+  "schemaVersion": 1,
+  "versioning": "semver",
+  "baseBranch": "master",
+  "registry": "https://registry.npmjs.org",
+  "changesets": {
+    "config": ".changeset/config.json",
+    "requiredFor": ["package-source", "public-api", "breaking-change", "deprecation"],
+    "optionalFor": ["documentation-only", "governance-only", "test-only"]
+  },
+  "publish": {
+    "requiresApprovedEnvironment": true,
+    "approvalEnvironment": "release",
+    "requiresToken": true,
+    "tokenVariables": ["NODE_AUTH_TOKEN", "NPM_TOKEN"],
+    "rejectPrivatePackages": true,
+    "command": "pnpm release:publish"
+  },
+  "rollback": {
+    "preferredAction": "forward-fix",
+    "packageUnpublish": "forbidden",
+    "steps": [
+      "stop the release workflow and record the incident",
+      "restore the previous known-good application lockfile or package version",
+      "publish a patch or revert release when registry policy allows",
+      "keep the migration and deprecation evidence linked to the incident"
+    ]
+  }
+}

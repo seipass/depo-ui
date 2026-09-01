@@ -20,3 +20,9 @@ Depo UI uses Changesets and lifecycle metadata to make package changes reviewabl
 Versioned Docs must keep the API reference tied to the package version that produced it. Generated metadata identifies its source files and hash so a release can detect stale documentation before publish.
 
 The release automation and approval route are defined in `governance/` and `.github/`.
+
+## Release checks
+
+Maintainers run `pnpm governance:check`, `pnpm release:status`, `pnpm docs:check`, `pnpm figma:check`, `pnpm test`, and `pnpm build` before a version PR. The governance check also installs a packed token package in an isolated Consumer fixture. It is a dry run: registry publication requires the protected `release` environment and the manual workflow.
+
+Rollback uses a forward fix or an explicit patch/revert release. Packages are never unpublished as a recovery shortcut.

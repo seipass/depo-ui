@@ -1,0 +1,44 @@
+{
+  "$schema": "../../specs/_schemas/lifecycle-policy.schema.json",
+  "schemaVersion": 1,
+  "statuses": ["proposal", "trial", "stable", "deprecated", "removed"],
+  "transitions": [
+    { "from": "proposal", "to": "trial" },
+    { "from": "trial", "to": "stable" },
+    { "from": "stable", "to": "deprecated" },
+    { "from": "deprecated", "to": "removed" },
+    { "from": "trial", "to": "deprecated" }
+  ],
+  "stableGate": [
+    "designReview",
+    "apiReview",
+    "accessibilityReview",
+    "keyboardTest",
+    "screenReaderTest",
+    "responsiveReview",
+    "themeReview",
+    "reducedMotionReview",
+    "localizationReview",
+    "visualRegression",
+    "figmaCodeParity",
+    "productionUsage",
+    "owner"
+  ],
+  "deprecatedGate": [
+    "replacement",
+    "reason",
+    "warning",
+    "codemodOrManualMigration",
+    "removalWindow",
+    "releaseNote"
+  ],
+  "removedGate": ["deprecationWindow", "usageAudit", "migration", "releaseNote", "majorRelease"],
+  "minimumDeprecatedReleaseWindows": 2,
+  "approvalRoute": [
+    "design-owner",
+    "api-owner",
+    "accessibility-owner",
+    "component-owner",
+    "release-approver"
+  ]
+}

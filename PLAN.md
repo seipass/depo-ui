@@ -1,6 +1,6 @@
 # Depo UI Design System Plan
 
-> Status: Phase 0 — Repository Foundation、Phase 1 — Tokens、Phase 2 — Foundations、Phase 3 — Primitives、Phase 4A — Basic Controls、Phase 4B — Overlay Infrastructure、Phase 4C — Composite Components、Phase 5 — Advanced Components、Phase 6 — Patterns、Phase 7 — Accessibility Infrastructure、Phase 8 — Figma Integration、Phase 9 — Documentation implemented; Phase 10 — Governance / Release has not started. このファイルは白紙のリポジトリから Depo UI Design System を実装するための設計書であり、実装時の Source of Truth である。
+> Status: Phase 0 — Repository Foundation、Phase 1 — Tokens、Phase 2 — Foundations、Phase 3 — Primitives、Phase 4A — Basic Controls、Phase 4B — Overlay Infrastructure、Phase 4C — Composite Components、Phase 5 — Advanced Components、Phase 6 — Patterns、Phase 7 — Accessibility Infrastructure、Phase 8 — Figma Integration、Phase 9 — Documentation、Phase 10 — Governance / Release implemented. このファイルは白紙のリポジトリから Depo UI Design System を実装するための設計書であり、実装時の Source of Truth である。
 >
 > Research baseline: 2026-09-01（技術のバージョンは実装開始時に公式ドキュメントで再確認し、採用したバージョンを ADR に記録する）。
 
@@ -232,12 +232,16 @@ Proposal、Trial、Stable、Deprecated、Removed を明示する。利用実績�
 │  ├─ dependency-check/
 │  ├─ docs-generator/
 │  ├─ figma-sync/
+│  ├─ governance/
+│  ├─ release/
 │  └─ codemods/
 │
 ├─ governance/
 │  ├─ lifecycle/
 │  ├─ release/
 │  ├─ ownership/
+│  ├─ evidence/
+│  ├─ migrations/
 │  └─ templates/
 │
 ├─ examples/
@@ -249,6 +253,8 @@ Proposal、Trial、Stable、Deprecated、Removed を明示する。利用実績�
 │  ├─ architecture/
 │  ├─ contributing/
 │  ├─ operations/
+│  ├─ releases/
+│  ├─ migration/
 │  └─ generated/
 │
 ├─ .github/
@@ -315,6 +321,7 @@ specs/ を正式仕様、apps/docs/ を人間向けサイト、docs/ をリポ�
 - `ADR-004-component-api.md`: common prop vocabulary、controlled state、slot、escape hatch。
 - `ADR-005-color-palette.md`: Depo UI anchor、追加色、Contrast の結果。
 - `ADR-006-figma-source-boundary.md`: Repo/Figma の Source of Truth、sync、権限境界。
+- `ADR-007-governance-release.md`: Lifecycle evidence、Changesets、publish gate、migration、clean-install policy。
 
 ## 5. Package Responsibilities
 
@@ -1130,9 +1137,15 @@ pnpm tokens:build
 pnpm tokens:check
 pnpm generate component --name Button --category actions
 pnpm docs:generate
+pnpm docs:check
+pnpm governance:check
 pnpm figma:check
 pnpm changeset
+pnpm release:status
 pnpm release:check
+pnpm release:version
+pnpm release:publish
+pnpm codemod -- --migration <id> --input <file> --output <file>
 ~~~
 
 Component generator の category 解決先は packages/components/src/<category>/<Component>/ とする。たとえば Button の出力は packages/components/src/actions/Button/、spec は specs/components/actions/button.json と button.md、Figma mapping は figma/mapping/components.json になる。packages/components/package.json など Package root の管理ファイルは generator の Component output に含めない。
@@ -1756,6 +1769,15 @@ governance/、.changeset/、.github/workflows/、tooling/codemods/、docs/releas
 **Exit criteria**
 
 Stable package を安全に publish、upgrade、deprecate、remove でき、reproducible な release と rollback/migration の手順が Docs/CI で確認できる。
+
+**Phase status**
+
+- Status: Completed。`@changesets/cli` 3.0.1、`.changeset/config.json`、version PR workflow、protected manual publish workflow、lifecycle policy、owner registry、Component evidence registry、migration registry、AST-aware codemod、deprecation warning utility、release/rollback runbook を追加した。`Stable`、`Deprecated`、`Removed` の昇格・移行は、metadata、evidence、owner、Changeset、Docs、Figma parity の組み合わせで判定し、publish は明示的な承認環境と token がない限り実行しない。
+- Tests: `pnpm install --frozen-lockfile`、`pnpm governance:check`、`pnpm release:check`、`pnpm release:status`、`pnpm exec vitest run --config vitest.workspace.ts testing/release.test.mjs packages/utilities/src/deprecation.test.ts`（6 tests）、`pnpm test`、`pnpm test:a11y`、`pnpm test:visual`、`pnpm test:e2e`、`pnpm build`、`pnpm typecheck`、`pnpm lint`、`pnpm lint:deps`、`pnpm lint:raw-values`、`pnpm format:check`、`pnpm docs:check`、`pnpm figma:check` が通過した。Release 固有では Changeset missing、version graph/cycle、packed package install、codemod fixture、deprecation warning、publish dry-run guard を確認した。
+- Release policy: `master` を base branch とし、SemVer、internal `workspace:` dependency、Changeset version PR、protected `release` environment での manual publish、unpublish 禁止の forward-fix/patch rollback を固定した。CI は `governance:check` を実行し、PR template は lifecycle/evidence/Changeset/migration review を要求する。
+- Known limitations: 現在の workspace package は全て private のため、実 registry への公開は package visibility、registry、license、owner の ADR 決定後に限る。実 Product の production usage、NVDA/VoiceOver の manual evidence、実 Figma publish、release environment secret は外部運用で補完する。codemod は登録した Component JSX prop だけを変換し、Product 固有の data/API migration は手動対応とする。placeholder app の build output warning は既存の Phase 0 境界として残る。
+- Commit: `feat(phase-10): complete governance and release system`
+- Blocked items: なし。実 registry publish は安全のため実行していない。
 
 ## 25. File-by-file Examples
 

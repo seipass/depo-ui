@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://depo-ui.invalid/schemas/release-policy.schema.json",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "versioning",
+    "baseBranch",
+    "registry",
+    "changesets",
+    "publish",
+    "rollback"
+  ],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "versioning": { "const": "semver" },
+    "baseBranch": { "type": "string", "minLength": 1 },
+    "registry": { "format": "uri" },
+    "changesets": {
+      "type": "object",
+      "required": ["config", "requiredFor", "optionalFor"],
+      "properties": {
+        "config": { "type": "string" },
+        "requiredFor": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+        "optionalFor": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": false
+    },
+    "publish": {
+      "type": "object",
+      "required": [
+        "requiresApprovedEnvironment",
+        "approvalEnvironment",
+        "requiresToken",
+        "tokenVariables",
+        "rejectPrivatePackages",
+        "command"
+      ],
+      "properties": {
+        "requiresApprovedEnvironment": { "type": "boolean" },
+        "approvalEnvironment": { "type": "string", "minLength": 1 },
+        "requiresToken": { "type": "boolean" },
+        "tokenVariables": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+        "rejectPrivatePackages": { "type": "boolean" },
+        "command": { "type": "string", "minLength": 1 }
+      },
+      "additionalProperties": false
+    },
+    "rollback": {
+      "type": "object",
+      "required": ["preferredAction", "packageUnpublish", "steps"],
+      "properties": {
+        "preferredAction": { "type": "string" },
+        "packageUnpublish": { "const": "forbidden" },
+        "steps": { "type": "array", "items": { "type": "string" }, "minItems": 1 }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

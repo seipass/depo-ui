@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://depo-ui.invalid/schemas/ownership.schema.json",
+  "type": "object",
+  "required": ["schemaVersion", "aliases", "domains", "stableOwnerPolicy"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "aliases": { "type": "object", "additionalProperties": { "$ref": "#/$defs/owner" } },
+    "domains": { "type": "object", "additionalProperties": { "$ref": "#/$defs/owner" } },
+    "stableOwnerPolicy": {
+      "type": "object",
+      "required": ["requiresPrimary", "requiresBackup", "rejectPlaceholder"],
+      "properties": {
+        "requiresPrimary": { "type": "boolean" },
+        "requiresBackup": { "type": "boolean" },
+        "rejectPlaceholder": { "type": "boolean" }
+      },
+      "additionalProperties": false
+    }
+  },
+  "$defs": {
+    "owner": {
+      "type": "object",
+      "required": ["primary", "backup"],
+      "properties": {
+        "primary": { "type": "string", "minLength": 1 },
+        "backup": { "type": "string", "minLength": 1 },
+        "placeholder": { "type": "boolean" }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

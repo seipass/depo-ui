@@ -1,0 +1,50 @@
+name: Release version PR
+
+on:
+  push:
+    branches: [master]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: depo-ui-release-version
+  cancel-in-progress: false
+
+jobs:
+  version:
+    name: Create Changesets version PR
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24.19.0'
+
+      - name: Activate pnpm
+        run: |
+          corepack enable
+          corepack install --global pnpm@11.25.0
+          pnpm --version
+
+      - name: Install
+        run: pnpm install --frozen-lockfile
+
+      - name: Governance and release dry run
+        run: pnpm governance:check
+
+      - name: Changeset status
+        run: pnpm release:status
+
+      - name: Version packages
+        uses: changesets/action@v1
+        with:
+          version: pnpm release:version
+          title: 'chore: version packages'
+          commit: 'chore: version packages'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

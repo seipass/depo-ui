@@ -4,7 +4,7 @@ Depo UI is a reusable Web and React design system for SaaS, dashboards, administ
 
 ## Status
 
-Phases 0–9 are implemented: Repository Foundation, Tokens, Foundations, Primitives, Basic Controls, Overlay Infrastructure, Composite Components, Advanced Components, Patterns, Accessibility Infrastructure, Figma Integration, and Documentation. Phase 10 — Governance / Release has not started yet.
+Phases 0–10 are implemented: Repository Foundation, Tokens, Foundations, Primitives, Basic Controls, Overlay Infrastructure, Composite Components, Advanced Components, Patterns, Accessibility Infrastructure, Figma Integration, Documentation, and Governance / Release.
 
 Read PLAN.md before making architectural changes. Read AGENTS.md for the short repository map and working commands.
 
@@ -23,10 +23,13 @@ corepack pnpm build
 corepack pnpm docs:generate
 corepack pnpm docs:check
 corepack pnpm --filter @depo-ui/docs start
+corepack pnpm governance:check
+corepack pnpm release:check
+corepack pnpm release:status
 ```
 
 ## Package boundaries
 
 Component implementation lives under `packages/components/src/<category>/<Component>/`. Package manifests and public exports remain at package roots; internal dependency rules are checked by `corepack pnpm lint:deps`. Documentation source is split between formal specifications in `specs/`, human-oriented pages in `apps/docs/content/`, and generated reference artifacts owned by `tooling/docs-generator/`.
 
-The next implementation entry point is Phase 10 — Governance / Release. Before changing architecture, read PLAN.md and the relevant specification. Read AGENTS.md for the short repository map and working commands.
+Before changing architecture or release policy, read PLAN.md and the relevant specification. Read AGENTS.md for the short repository map and working commands. Package publication is only available through the protected release workflow described in `governance/release/README.md`.

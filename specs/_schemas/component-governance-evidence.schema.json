@@ -1,0 +1,102 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://depo-ui.invalid/schemas/component-governance-evidence.schema.json",
+  "type": "object",
+  "required": ["schemaVersion", "componentMetadataGlob", "defaults", "overrides"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "componentMetadataGlob": { "const": "specs/components/**/*.json" },
+    "defaults": { "$ref": "#/$defs/evidence" },
+    "overrides": {
+      "type": "object",
+      "additionalProperties": { "$ref": "#/$defs/evidence" }
+    }
+  },
+  "$defs": {
+    "evidence": {
+      "type": "object",
+      "required": [
+        "reviews",
+        "keyboardTest",
+        "screenReaderTest",
+        "responsiveReview",
+        "themeReview",
+        "reducedMotionReview",
+        "localizationReview",
+        "visualRegression",
+        "figmaCodeParity",
+        "productionUsage",
+        "issueSeverity",
+        "adoption",
+        "a11yAudit",
+        "stableEligible"
+      ],
+      "properties": {
+        "reviews": {
+          "type": "object",
+          "required": ["design", "api", "accessibility", "content"],
+          "properties": {
+            "design": { "type": "string" },
+            "api": { "type": "string" },
+            "accessibility": { "type": "string" },
+            "content": { "type": "string" }
+          },
+          "additionalProperties": false
+        },
+        "keyboardTest": { "type": "string" },
+        "screenReaderTest": { "type": "string" },
+        "responsiveReview": { "type": "string" },
+        "themeReview": { "type": "string" },
+        "reducedMotionReview": { "type": "string" },
+        "localizationReview": { "type": "string" },
+        "visualRegression": { "type": "string" },
+        "figmaCodeParity": { "type": "string" },
+        "productionUsage": { "$ref": "#/$defs/productionUsage" },
+        "issueSeverity": { "$ref": "#/$defs/issueSeverity" },
+        "adoption": { "$ref": "#/$defs/adoption" },
+        "a11yAudit": { "$ref": "#/$defs/a11yAudit" },
+        "stableEligible": { "type": "boolean" }
+      },
+      "additionalProperties": false
+    },
+    "productionUsage": {
+      "type": "object",
+      "required": ["status", "evidence"],
+      "properties": {
+        "status": { "enum": ["not-established", "pilot", "established", "retired"] },
+        "evidence": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": false
+    },
+    "issueSeverity": {
+      "type": "object",
+      "required": ["p0", "p1", "evidence"],
+      "properties": {
+        "p0": { "type": "integer", "minimum": 0 },
+        "p1": { "type": "integer", "minimum": 0 },
+        "evidence": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": false
+    },
+    "adoption": {
+      "type": "object",
+      "required": ["status", "consumers", "evidence"],
+      "properties": {
+        "status": { "enum": ["not-established", "pilot", "established", "retired"] },
+        "consumers": { "type": "array", "items": { "type": "string" } },
+        "evidence": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": false
+    },
+    "a11yAudit": {
+      "type": "object",
+      "required": ["status", "evidence"],
+      "properties": {
+        "status": { "type": "string" },
+        "evidence": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

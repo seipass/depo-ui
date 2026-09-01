@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://depo-ui.invalid/schemas/migration-registry.schema.json",
+  "type": "object",
+  "required": ["schemaVersion", "migrations"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "migrations": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/migration" },
+      "uniqueItems": true
+    }
+  },
+  "$defs": {
+    "migration": {
+      "type": "object",
+      "required": [
+        "id",
+        "status",
+        "component",
+        "fromProp",
+        "toProp",
+        "introducedIn",
+        "deprecatedIn",
+        "removeAfter",
+        "replacement",
+        "warning",
+        "codemod",
+        "manualFollowUp"
+      ],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+        "status": { "enum": ["fixture", "planned", "active", "complete"] },
+        "component": { "type": "string", "minLength": 1 },
+        "fromProp": { "type": "string", "minLength": 1 },
+        "toProp": { "type": "string", "minLength": 1 },
+        "introducedIn": { "type": "string", "minLength": 1 },
+        "deprecatedIn": { "type": "string", "minLength": 1 },
+        "removeAfter": { "type": "string", "minLength": 1 },
+        "replacement": { "type": "string", "minLength": 1 },
+        "warning": { "type": "string", "minLength": 1 },
+        "codemod": { "type": "string", "minLength": 1 },
+        "manualFollowUp": { "type": "string", "minLength": 1 }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

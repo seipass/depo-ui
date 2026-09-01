@@ -1,0 +1,20 @@
+{
+  "$schema": "../../specs/_schemas/migration-registry.schema.json",
+  "schemaVersion": 1,
+  "migrations": [
+    {
+      "id": "button-kind-to-variant",
+      "status": "fixture",
+      "component": "Button",
+      "fromProp": "kind",
+      "toProp": "variant",
+      "introducedIn": "0.1.0",
+      "deprecatedIn": "0.2.0",
+      "removeAfter": "1.0.0",
+      "replacement": "variant",
+      "warning": "Button kind is deprecated; use variant.",
+      "codemod": "node tooling/codemods/run.mjs --migration button-kind-to-variant",
+      "manualFollowUp": "Review the chosen visual tone and rerun keyboard, accessibility, and visual tests."
+    }
+  ]
+}

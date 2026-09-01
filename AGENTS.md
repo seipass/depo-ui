@@ -35,8 +35,12 @@ Use the pinned toolchain through Corepack:
 - corepack pnpm lint
 - corepack pnpm test
 - corepack pnpm build
+- corepack pnpm governance:check
+- corepack pnpm release:check
+- corepack pnpm docs:check
+- corepack pnpm figma:check
 
-The token, generator, Docs, Figma, Changeset, and release commands are Phase 1+ placeholders until their planned phase starts.
+Token, generator, Docs, Figma, Changeset, governance, and release commands are implemented at their planned boundaries. `pnpm release:version` is for the Changesets version PR; `pnpm release:publish` is protected and must not be run without the release environment and approval variables.
 
 ## Testing rules
 
@@ -44,8 +48,8 @@ Run the smallest relevant check, then the Phase exit checks. Accessibility, keyb
 
 ## Generated files and documentation
 
-Do not edit generated artifacts directly. Formal decisions belong in specs/; operational notes belong in docs/; user-facing material belongs in apps/docs/. Keep AGENTS.md as a short map and place detailed rules in the linked source.
+Do not edit generated artifacts directly. Formal decisions belong in specs/; operational notes belong in docs/ and governance/; user-facing material belongs in apps/docs/. Changeset intent lives in .changeset/, while lifecycle evidence lives in governance/evidence/. Keep AGENTS.md as a short map and place detailed rules in the linked source.
 
 ## Important constraints
 
-Do not add Product-specific behavior to Core packages, introduce raw token values, create broad escape hatches, bypass package exports, or start a later phase without updating the active phase's exit criteria.
+Do not add Product-specific behavior to Core packages, introduce raw token values, create broad escape hatches, bypass package exports, publish without the protected release gate, or start a later phase without updating the active phase's exit criteria.

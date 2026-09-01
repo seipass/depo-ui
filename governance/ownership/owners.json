@@ -1,0 +1,38 @@
+{
+  "$schema": "../../specs/_schemas/ownership.schema.json",
+  "schemaVersion": 1,
+  "aliases": {
+    "depo-ui-maintainers": {
+      "primary": "@depo-ui/design-system-maintainers",
+      "backup": "@depo-ui/governance-maintainers",
+      "placeholder": true
+    }
+  },
+  "domains": {
+    "design": {
+      "primary": "@depo-ui/design-system-maintainers",
+      "backup": "@depo-ui/governance-maintainers"
+    },
+    "api": {
+      "primary": "@depo-ui/component-maintainers",
+      "backup": "@depo-ui/design-system-maintainers"
+    },
+    "accessibility": {
+      "primary": "@depo-ui/accessibility-maintainers",
+      "backup": "@depo-ui/design-system-maintainers"
+    },
+    "figma": {
+      "primary": "@depo-ui/figma-maintainers",
+      "backup": "@depo-ui/design-system-maintainers"
+    },
+    "release": {
+      "primary": "@depo-ui/governance-maintainers",
+      "backup": "@depo-ui/design-system-maintainers"
+    }
+  },
+  "stableOwnerPolicy": {
+    "requiresPrimary": true,
+    "requiresBackup": true,
+    "rejectPlaceholder": true
+  }
+}

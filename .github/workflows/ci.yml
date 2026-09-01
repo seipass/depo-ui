@@ -41,6 +41,9 @@ jobs:
       - name: Dependency boundaries
         run: pnpm lint:deps
 
+      - name: Governance and release dry run
+        run: pnpm governance:check
+
       - name: Typecheck
         run: pnpm typecheck
 

@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://depo-ui.invalid/schemas/lifecycle-policy.schema.json",
+  "type": "object",
+  "required": ["schemaVersion", "statuses", "transitions", "stableGate"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "statuses": {
+      "type": "array",
+      "items": {
+        "enum": ["proposal", "trial", "stable", "deprecated", "removed"]
+      },
+      "minItems": 5,
+      "uniqueItems": true
+    },
+    "transitions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["from", "to"],
+        "properties": {
+          "from": { "type": "string" },
+          "to": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "stableGate": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 14,
+      "uniqueItems": true
+    },
+    "deprecatedGate": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "removedGate": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "minimumDeprecatedReleaseWindows": {
+      "type": "integer",
+      "minimum": 2
+    },
+    "approvalRoute": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    }
+  },
+  "additionalProperties": false
+}
