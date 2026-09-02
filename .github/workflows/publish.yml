@@ -10,6 +10,7 @@ on:
 
 permissions:
   contents: read
+  id-token: write
 
 jobs:
   publish:
@@ -32,6 +33,11 @@ jobs:
           node-version: '24.19.0'
           registry-url: https://registry.npmjs.org
 
+      - name: Setup npm for Trusted Publishing
+        run: |
+          npm install --global npm@11.15.0
+          npm --version
+
       - name: Activate pnpm
         run: |
           corepack enable
@@ -41,15 +47,20 @@ jobs:
       - name: Install
         run: pnpm install --frozen-lockfile
 
+      - name: Build packages
+        run: pnpm build
+
       - name: Release gate
         env:
           RELEASE_PUBLISH_APPROVED: 'true'
+          RELEASE_ENVIRONMENT: release
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: pnpm release:check -- --publish
 
       - name: Publish
         env:
           RELEASE_PUBLISH_APPROVED: 'true'
+          RELEASE_ENVIRONMENT: release
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           NPM_CONFIG_PROVENANCE: 'true'
         run: pnpm release:publish

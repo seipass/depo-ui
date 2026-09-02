@@ -21,6 +21,23 @@ Versioned Docs must keep the API reference tied to the package version that prod
 
 The release automation and approval route are defined in `governance/` and `.github/`.
 
+## Public npm distribution
+
+The product-facing install is:
+
+```bash
+pnpm add @depo-ui/react
+```
+
+```tsx
+import '@depo-ui/react/css';
+import { Button, Card } from '@depo-ui/react';
+```
+
+The first public release is versioned through Changesets and the reviewed version PR. Publishing is a separate, manually dispatched workflow protected by the `release` environment and the exact `publish` confirmation. The workflow uses npm Trusted Publishing with GitHub Actions OIDC and provenance; a narrowly scoped `NPM_TOKEN` is a bootstrap-only fallback for creating packages that do not yet exist. No token is committed to the repository.
+
+Before the first provenance-enabled public publish, maintainers must make `seipass/depo-ui` public, create or own the `depo-ui` npm organization/scope, configure the `release` environment reviewers, and configure one npm Trusted Publisher per public package. See the repository release runbook for the current `npm trust github` command.
+
 ## Release checks
 
 Maintainers run `pnpm governance:check`, `pnpm release:status`, `pnpm docs:check`, `pnpm figma:check`, `pnpm test`, and `pnpm build` before a version PR. The governance check also installs a packed token package in an isolated Consumer fixture. It is a dry run: registry publication requires the protected `release` environment and the manual workflow.

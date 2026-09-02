@@ -3,6 +3,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
+import { getPublishAuthentication } from '../release/auth.mjs';
 
 export const repoRoot = fileURLToPath(new URL('../..', import.meta.url));
 
@@ -436,8 +437,12 @@ const main = async () => {
         'publish requires RELEASE_PUBLISH_APPROVED=true in the protected release environment',
       );
     }
-    if (!process.env.NODE_AUTH_TOKEN && !process.env.NPM_TOKEN)
-      errors.push('publish requires NODE_AUTH_TOKEN or NPM_TOKEN');
+    const authentication = getPublishAuthentication(process.env, governance.releasePolicy);
+    if (!authentication.allowed) {
+      errors.push(
+        'publish requires the protected GitHub Actions release workflow with OIDC Trusted Publishing or a bootstrap npm token',
+      );
+    }
     for (const [name, entry] of packages) {
       if (
         !entry.manifest.private &&

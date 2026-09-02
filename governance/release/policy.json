@@ -12,8 +12,25 @@
   "publish": {
     "requiresApprovedEnvironment": true,
     "approvalEnvironment": "release",
-    "requiresToken": true,
+    "requiresToken": false,
     "tokenVariables": ["NODE_AUTH_TOKEN", "NPM_TOKEN"],
+    "publicPackages": [
+      "@depo-ui/accessibility",
+      "@depo-ui/components",
+      "@depo-ui/foundations",
+      "@depo-ui/icons",
+      "@depo-ui/patterns",
+      "@depo-ui/primitives",
+      "@depo-ui/react",
+      "@depo-ui/tokens",
+      "@depo-ui/utilities"
+    ],
+    "authentication": {
+      "trustedPublishing": "github-actions-oidc",
+      "bootstrapToken": "granular-access-token",
+      "requiresGitHubActionsRuntime": true
+    },
+    "provenance": "required",
     "rejectPrivatePackages": true,
     "command": "pnpm release:publish"
   },

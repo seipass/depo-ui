@@ -33,6 +33,9 @@
         "approvalEnvironment",
         "requiresToken",
         "tokenVariables",
+        "publicPackages",
+        "authentication",
+        "provenance",
         "rejectPrivatePackages",
         "command"
       ],
@@ -41,6 +44,23 @@
         "approvalEnvironment": { "type": "string", "minLength": 1 },
         "requiresToken": { "type": "boolean" },
         "tokenVariables": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+        "publicPackages": {
+          "type": "array",
+          "items": { "type": "string", "pattern": "^@[^/]+/[^/]+$" },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "authentication": {
+          "type": "object",
+          "required": ["trustedPublishing", "bootstrapToken", "requiresGitHubActionsRuntime"],
+          "properties": {
+            "trustedPublishing": { "const": "github-actions-oidc" },
+            "bootstrapToken": { "const": "granular-access-token" },
+            "requiresGitHubActionsRuntime": { "const": true }
+          },
+          "additionalProperties": false
+        },
+        "provenance": { "const": "required" },
         "rejectPrivatePackages": { "type": "boolean" },
         "command": { "type": "string", "minLength": 1 }
       },

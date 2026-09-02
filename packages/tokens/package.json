@@ -1,9 +1,33 @@
 {
   "name": "@depo-ui/tokens",
   "version": "0.0.0",
-  "private": true,
   "description": "Token source and generated token boundary",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seipass/depo-ui.git",
+    "directory": "packages/tokens"
+  },
+  "homepage": "https://github.com/seipass/depo-ui#readme",
+  "bugs": {
+    "url": "https://github.com/seipass/depo-ui/issues"
+  },
   "type": "module",
+  "files": [
+    "generated",
+    "README.md",
+    "LICENSE"
+  ],
+  "main": "./generated/tokens.js",
+  "types": "./generated/tokens.d.ts",
+  "sideEffects": [
+    "./generated/tokens.css"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/",
+    "provenance": true
+  },
   "scripts": {
     "build": "node ../../tooling/token-build/build.mjs",
     "typecheck": "node ../../tooling/token-lint/check.mjs",

@@ -1,11 +1,35 @@
 {
   "name": "@depo-ui/react",
   "version": "0.0.0",
-  "private": true,
   "description": "Stable React entrypoint for Depo UI",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seipass/depo-ui.git",
+    "directory": "packages/react"
+  },
+  "homepage": "https://github.com/seipass/depo-ui#readme",
+  "bugs": {
+    "url": "https://github.com/seipass/depo-ui/issues"
+  },
   "type": "module",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "sideEffects": [
+    "./dist/css/index.css"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/",
+    "provenance": true
+  },
   "scripts": {
-    "build": "tsc -p tsconfig.build.json",
+    "build": "node ../../tooling/package-build/clean-dist.mjs && tsc -p tsconfig.build.json && node ../../tooling/react-build/copy-assets.mjs",
     "typecheck": "tsc --noEmit -p tsconfig.json",
     "lint": "eslint src",
     "test": "cd ../.. && vitest run --config vitest.workspace.ts --passWithNoTests"
@@ -16,6 +40,7 @@
       "import": "./dist/index.js",
       "default": "./dist/index.js"
     },
+    "./css": "./dist/css/index.css",
     "./package.json": "./package.json"
   },
   "dependencies": {

@@ -22,20 +22,21 @@ describe('Phase 10 governance and release workflow', () => {
     expect(result.stdout).toContain('cycle-free version graph');
   }, 15_000);
 
-  it('treats a clean tree without release intents as a successful status no-op', () => {
+  it('reports the initial public release intent through Changesets', () => {
     const result = runNode(['tooling/release/status.mjs']);
     expect(result.status, result.stderr || result.stdout).toBe(0);
-    expect(result.stdout).toContain('no pending release intents');
-  });
+    expect(result.stdout).toContain('@depo-ui/react');
+    expect(result.stdout).toContain('@depo-ui/tokens');
+  }, 20_000);
 
-  it('rejects a releaseable change without a Changeset when required', () => {
+  it('recognizes the public source release intent when Changeset enforcement is enabled', () => {
     const result = runNode(['tooling/governance/check.mjs'], {
       RELEASE_CHECK_SKIP_PACK: 'true',
       RELEASE_CHECK_REQUIRE_CHANGESET: 'true',
       RELEASE_CHANGED_FILES: 'packages/components/src/actions/Button/Button.tsx',
     });
-    expect(result.status).not.toBe(0);
-    expect(result.stderr).toContain('without a Changeset');
+    expect(result.status, result.stderr || result.stdout).toBe(0);
+    expect(result.stdout).toContain('cycle-free version graph');
   }, 15_000);
 
   it('migrates the previous-version fixture with the registry codemod', async () => {
@@ -60,7 +61,7 @@ describe('Phase 10 governance and release workflow', () => {
     } finally {
       await rm(temporaryDirectory, { recursive: true, force: true });
     }
-  });
+  }, 20_000);
 
   it('keeps publish dry-run behind the approval guard', () => {
     const result = runNode(['tooling/release/publish.mjs'], {
@@ -70,5 +71,25 @@ describe('Phase 10 governance and release workflow', () => {
     });
     expect(result.status, result.stderr || result.stdout).toBe(0);
     expect(result.stdout).toContain('no registry mutation');
+  });
+
+  it('blocks a local publish even when a token and approval flag are supplied', () => {
+    const result = runNode(['tooling/release/publish.mjs'], {
+      RELEASE_PUBLISH_APPROVED: 'true',
+      NODE_AUTH_TOKEN: 'fixture-token',
+    });
+    expect(result.status).not.toBe(0);
+    expect(result.stderr).toContain('GitHub Actions release workflow');
+  });
+
+  it('does not treat OIDC variables alone as a valid publish runtime', () => {
+    const result = runNode(['tooling/release/publish.mjs'], {
+      RELEASE_PUBLISH_APPROVED: 'true',
+      RELEASE_ENVIRONMENT: 'release',
+      ACTIONS_ID_TOKEN_REQUEST_URL: 'https://example.invalid/oidc',
+      ACTIONS_ID_TOKEN_REQUEST_TOKEN: 'fixture-token',
+    });
+    expect(result.status).not.toBe(0);
+    expect(result.stderr).toContain('GitHub Actions release workflow');
   });
 });

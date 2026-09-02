@@ -9,6 +9,43 @@ description: Install Depo UI and learn the public package boundaries.
 
 Depo UI is a reusable design system for SaaS, dashboards, administration tools, internal tools, and data-heavy Web applications.
 
+## Install from npm
+
+Application consumers can install the stable React entrypoint without depending on the workspace:
+
+```bash
+pnpm add @depo-ui/react
+```
+
+```tsx
+import '@depo-ui/react/css';
+
+import { Button, Card, Field, TextInput } from '@depo-ui/react';
+
+export function App() {
+  return (
+    <Card>
+      <Field label="Project name" required>
+        <TextInput name="projectName" />
+      </Field>
+      <Button type="submit">Create project</Button>
+    </Card>
+  );
+}
+```
+
+Depo UI requires React 19. Apply the foundation attributes to the application root when selecting a theme, density, or direction:
+
+```tsx
+import { foundationAttributes } from '@depo-ui/react';
+
+<div {...foundationAttributes({ theme: 'light', density: 'comfortable', direction: 'ltr' })}>
+  <App />
+</div>;
+```
+
+Supported themes are `dark`, `light`, and `high-contrast`. Supported densities are `compact`, `comfortable`, and `touch`.
+
 ## Choose the public entrypoint
 
 Application code should use `@depo-ui/react` and semantic tokens. The lower-level packages remain available for design-system contributors and narrowly scoped integrations:
@@ -19,7 +56,13 @@ Application code should use `@depo-ui/react` and semantic tokens. The lower-leve
 - `@depo-ui/components` owns reusable Components.
 - `@depo-ui/patterns` owns task-oriented compositions.
 
+The lower-level packages `@depo-ui/primitives`, `@depo-ui/accessibility`, `@depo-ui/icons`, and `@depo-ui/utilities` are public runtime dependencies for contributors and narrowly scoped integrations. They are not required for the basic application install.
+
 Do not import internal files or copy raw color, spacing, or type values into product code. Read the formal package and dependency rules in `specs/` before adding an integration.
+
+## Contributor workspace
+
+Design-system contributors should use the repository workspace and its pinned toolchain. From the repository root, run `corepack pnpm install --frozen-lockfile`, then use the repository checks and package boundaries described in `AGENTS.md` and `PLAN.md`. Workspace package imports are for contribution and verification; they are not a substitute for the npm consumer flow above.
 
 ## First verification
 
