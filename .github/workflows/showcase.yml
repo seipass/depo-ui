@@ -66,3 +66,14 @@ jobs:
             find "examples/$site/dist/assets" -maxdepth 1 -type f -printf '%f %s bytes\n' | sort >> "$GITHUB_STEP_SUMMARY"
             echo '' >> "$GITHUB_STEP_SUMMARY"
           done
+
+      - name: Upload built showcase sites
+        uses: actions/upload-artifact@v4
+        with:
+          name: depo-ui-showcase-sites
+          path: |
+            examples/data-heavy-dashboard/dist
+            examples/responsive-shell/dist
+            examples/consumer-fixture/dist
+          retention-days: 7
+          if-no-files-found: error
