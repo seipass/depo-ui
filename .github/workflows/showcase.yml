@@ -1,0 +1,79 @@
+name: Showcase builds
+
+on:
+  pull_request:
+    paths:
+      - 'examples/**'
+      - 'packages/**'
+      - '.github/workflows/showcase.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  examples:
+    name: Build Depo UI example sites
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24.19.0'
+
+      - name: Activate pnpm
+        run: |
+          corepack enable
+          corepack install --global pnpm@11.25.0
+          pnpm --version
+
+      - name: Install
+        run: pnpm install --frozen-lockfile
+
+      - name: Build Depo UI packages
+        run: |
+          pnpm --filter @depo-ui/tokens build
+          pnpm --filter @depo-ui/foundations build
+          pnpm --filter @depo-ui/utilities build
+          pnpm --filter @depo-ui/icons build
+          pnpm --filter @depo-ui/accessibility build
+          pnpm --filter @depo-ui/primitives build
+          pnpm --filter @depo-ui/components build
+          pnpm --filter @depo-ui/patterns build
+          pnpm --filter @depo-ui/react build
+
+      - name: Typecheck example sites
+        run: |
+          pnpm --filter @depo-ui/example-data-heavy-dashboard typecheck
+          pnpm --filter @depo-ui/example-responsive-shell typecheck
+          pnpm --filter @depo-ui/example-consumer-fixture typecheck
+
+      - name: Build example sites
+        run: |
+          pnpm --filter @depo-ui/example-data-heavy-dashboard build
+          pnpm --filter @depo-ui/example-responsive-shell build
+          pnpm --filter @depo-ui/example-consumer-fixture build
+
+      - name: Report bundle sizes
+        run: |
+          echo '## Depo UI showcase bundle sizes' >> "$GITHUB_STEP_SUMMARY"
+          echo '' >> "$GITHUB_STEP_SUMMARY"
+          for site in data-heavy-dashboard responsive-shell consumer-fixture; do
+            echo "### $site" >> "$GITHUB_STEP_SUMMARY"
+            du -sh "examples/$site/dist" | awk '{print "Total dist: " $1}' >> "$GITHUB_STEP_SUMMARY"
+            find "examples/$site/dist/assets" -maxdepth 1 -type f -printf '%f %s bytes\n' | sort >> "$GITHUB_STEP_SUMMARY"
+            echo '' >> "$GITHUB_STEP_SUMMARY"
+          done
+
+      - name: Upload built showcase sites
+        uses: actions/upload-artifact@v4
+        with:
+          name: depo-ui-showcase-sites
+          path: |
+            examples/data-heavy-dashboard/dist
+            examples/responsive-shell/dist
+            examples/consumer-fixture/dist
+          retention-days: 7
+          if-no-files-found: error

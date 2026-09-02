@@ -2,21 +2,15 @@
   "name": "@depo-ui/example-consumer-fixture",
   "version": "0.0.0",
   "private": true,
-  "description": "Consumer fixture for public package boundaries",
+  "description": "Public-facing launch site used to exercise the Depo UI consumer entrypoint",
   "type": "module",
   "scripts": {
-    "build": "tsc -p tsconfig.build.json",
+    "dev": "vite --host 0.0.0.0",
+    "build": "vite build",
+    "preview": "vite preview --host 0.0.0.0",
     "typecheck": "tsc --noEmit -p tsconfig.json",
     "lint": "eslint src",
     "test": "cd ../.. && vitest run --config vitest.workspace.ts --passWithNoTests"
-  },
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js",
-      "default": "./dist/index.js"
-    },
-    "./package.json": "./package.json"
   },
   "dependencies": {
     "@depo-ui/react": "workspace:*"

@@ -1,0 +1,39 @@
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+html, body, #root { min-height: 100%; margin: 0; }
+body { font-family: var(--dui-typography-body-family); }
+.launch-app { min-height: 100vh; background: var(--dui-color-bg-canvas); color: var(--dui-color-fg-primary); }
+.launch-header { position: sticky; inset-block-start: 0; z-index: 10; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: var(--dui-space-layout-section); padding: var(--dui-space-control-group) var(--dui-space-layout-page); border-block-end: var(--dui-border-width-default) solid var(--dui-color-border-subtle); background: color-mix(in srgb, var(--dui-color-bg-canvas) 88%, transparent); backdrop-filter: blur(16px); }
+.launch-brand { display: inline-flex; align-items: center; gap: var(--dui-space-control-group); color: var(--dui-color-fg-primary); text-decoration: none; }
+.launch-brand span { inline-size: 2.4rem; block-size: 2.4rem; display: grid; place-items: center; border-radius: var(--dui-radius-control-md); background: var(--dui-color-action-primary); color: var(--dui-color-action-on-primary); font-weight: var(--dui-typography-heading-weight); }
+.launch-header nav { justify-self: center; display: flex; gap: var(--dui-space-layout-section); }
+.launch-header nav a { color: var(--dui-color-fg-secondary); text-decoration: none; font-weight: var(--dui-typography-label-weight); }
+.launch-actions { display: flex; gap: var(--dui-space-control-group); }
+.hero-section { max-inline-size: var(--dui-size-content-panel); margin-inline: auto; padding: clamp(4rem, 10vw, 8rem) var(--dui-space-layout-page); display: grid; grid-template-columns: minmax(0, 1fr) minmax(22rem, 0.9fr); align-items: center; gap: clamp(3rem, 8vw, 7rem); }
+.hero-copy h1 { margin-block: var(--dui-space-control-group); max-inline-size: 11ch; font-size: clamp(3rem, 8vw, 6.5rem); line-height: 0.98; letter-spacing: -0.045em; }
+.hero-copy > p { max-inline-size: 42rem; color: var(--dui-color-fg-secondary); font-size: 1.12rem; line-height: 1.7; }
+.hero-actions, .perf-line { display: flex; align-items: center; flex-wrap: wrap; gap: var(--dui-space-control-group); margin-block-start: var(--dui-space-layout-section); }
+.perf-line { color: var(--dui-color-fg-secondary); font-size: var(--dui-typography-supporting-size); }
+.hero-product { padding: var(--dui-space-layout-panel); }
+.product-window-bar { display: flex; align-items: center; justify-content: space-between; gap: var(--dui-space-control-group); padding-block-end: var(--dui-space-control-group); border-block-end: var(--dui-border-width-default) solid var(--dui-color-border-subtle); color: var(--dui-color-fg-secondary); font-size: var(--dui-typography-supporting-size); }
+.product-metrics { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--dui-space-control-group); padding-block: var(--dui-space-layout-section); }
+.signal-list { display: grid; }
+.signal-list > div { display: flex; align-items: center; justify-content: space-between; gap: var(--dui-space-control-group); padding-block: var(--dui-space-control-group); border-block-start: var(--dui-border-width-default) solid var(--dui-color-border-subtle); }
+.signal-list span { display: grid; gap: var(--dui-space-detail-hairline); }
+.signal-list span:last-child { justify-items: end; }
+.signal-list small { color: var(--dui-color-fg-secondary); }
+.proof-strip { border-block: var(--dui-border-width-default) solid var(--dui-color-border-subtle); background: var(--dui-color-bg-surface-sunken); display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--dui-space-layout-section); padding: var(--dui-space-layout-page) max(var(--dui-space-layout-page), calc((100vw - var(--dui-size-content-panel)) / 2)); }
+.feature-section, .contact-section { max-inline-size: var(--dui-size-content-panel); margin-inline: auto; padding: clamp(4rem, 8vw, 7rem) var(--dui-space-layout-page); }
+.section-intro { max-inline-size: 50rem; margin-block-end: var(--dui-space-layout-section); }
+.section-intro h2, .contact-section h2 { margin-block: var(--dui-space-control-group); font-size: clamp(2.2rem, 5vw, 4rem); line-height: 1.05; }
+.section-intro p, .contact-section > div > p { color: var(--dui-color-fg-secondary); line-height: 1.7; }
+.eyebrow { margin: 0; color: var(--dui-color-fg-secondary); font-size: var(--dui-typography-supporting-size); font-weight: var(--dui-typography-label-weight); text-transform: uppercase; letter-spacing: 0.08em; }
+.feature-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--dui-space-control-group); }
+.feature-card { padding: var(--dui-space-layout-panel); }
+.feature-card p { margin-block: var(--dui-space-layout-section) 0; color: var(--dui-color-fg-secondary); line-height: 1.65; }
+.contact-section { display: grid; grid-template-columns: minmax(0, 1fr) minmax(20rem, 0.8fr); gap: var(--dui-space-layout-section); align-items: start; }
+.contact-card { padding: var(--dui-space-layout-panel); }
+.contact-card form { display: grid; gap: var(--dui-space-layout-section); }
+footer { max-inline-size: var(--dui-size-content-panel); margin-inline: auto; padding: var(--dui-space-layout-page); border-block-start: var(--dui-border-width-default) solid var(--dui-color-border-subtle); color: var(--dui-color-fg-secondary); display: flex; justify-content: space-between; flex-wrap: wrap; gap: var(--dui-space-control-group); font-size: var(--dui-typography-supporting-size); }
+@media (max-width: 64rem) { .hero-section, .contact-section { grid-template-columns: 1fr; } .feature-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .proof-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 46rem) { .launch-header { grid-template-columns: auto 1fr; } .launch-header nav { display: none; } .launch-actions { justify-self: end; } .launch-actions .dui-button:first-child { display: none; } .hero-section { padding-block-start: var(--dui-space-layout-section); } .hero-copy h1 { font-size: clamp(2.8rem, 15vw, 4.8rem); } .product-metrics, .feature-grid, .proof-strip { grid-template-columns: 1fr; } .signal-list > div { align-items: start; } }
