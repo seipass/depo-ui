@@ -39,6 +39,9 @@ jobs:
           npm install --global npm@11.15.0
           npm --version
 
+      - name: Clear token credentials for OIDC
+        run: echo 'NODE_AUTH_TOKEN=' >> "$GITHUB_ENV"
+
       - name: Verify npm registry access
         run: |
           test "$(npm config get registry)" = "https://registry.npmjs.org/"
