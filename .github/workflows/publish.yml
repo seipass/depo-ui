@@ -38,6 +38,14 @@ jobs:
           npm install --global npm@11.15.0
           npm --version
 
+      - name: Verify npm registry authentication
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          test "$(npm config get registry)" = "https://registry.npmjs.org/"
+          npm whoami --registry=https://registry.npmjs.org/
+          npm ping --registry=https://registry.npmjs.org/
+
       - name: Activate pnpm
         run: |
           corepack enable
