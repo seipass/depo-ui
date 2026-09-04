@@ -7,6 +7,6 @@ const outputDirectory = path.join(repoRoot, 'packages/react/dist/css');
 
 await mkdir(outputDirectory, { recursive: true });
 for (const fileName of await readdir(sourceDirectory)) {
-  if (!fileName.endsWith('.css')) continue;
+  if (!fileName.endsWith('.css') && !fileName.endsWith('.d.ts')) continue;
   await copyFile(path.join(sourceDirectory, fileName), path.join(outputDirectory, fileName));
 }

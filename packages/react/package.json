@@ -40,7 +40,10 @@
       "import": "./dist/index.js",
       "default": "./dist/index.js"
     },
-    "./css": "./dist/css/index.css",
+    "./css": {
+      "types": "./dist/css/index.d.ts",
+      "default": "./dist/css/index.css"
+    },
     "./package.json": "./package.json"
   },
   "dependencies": {

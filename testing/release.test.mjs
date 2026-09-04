@@ -19,6 +19,14 @@ const hasPendingReleaseIntent = () =>
     (entry) => entry.isFile() && entry.name.endsWith('.md') && entry.name !== 'README.md',
   );
 
+const pendingReleasePackages = () =>
+  readdirSync(path.join(repoRoot, '.changeset'), { withFileTypes: true })
+    .filter((entry) => entry.isFile() && entry.name.endsWith('.md') && entry.name !== 'README.md')
+    .flatMap((entry) => {
+      const content = readFileSync(path.join(repoRoot, '.changeset', entry.name), 'utf8');
+      return [...content.matchAll(/['"](@depo-ui\/[^'"]+)['"]\s*:/g)].map((match) => match[1]);
+    });
+
 const reactVersion = () =>
   JSON.parse(readFileSync(path.join(repoRoot, 'packages/react/package.json'), 'utf8')).version;
 
@@ -31,12 +39,13 @@ describe('Phase 10 governance and release workflow', () => {
     expect(result.stdout).toContain('cycle-free version graph');
   }, 15_000);
 
-  it('reports the initial public release intent through Changesets', () => {
+  it('reports the pending public release intent through Changesets', () => {
     const result = runNode(['tooling/release/status.mjs']);
     expect(result.status, result.stderr || result.stdout).toBe(0);
     if (hasPendingReleaseIntent()) {
-      expect(result.stdout).toContain('@depo-ui/react');
-      expect(result.stdout).toContain('@depo-ui/tokens');
+      for (const packageName of pendingReleasePackages()) {
+        expect(result.stdout).toContain(packageName);
+      }
     } else {
       expect(result.stdout).toContain('no pending release intents');
       expect(reactVersion()).not.toBe('0.0.0');
@@ -47,7 +56,7 @@ describe('Phase 10 governance and release workflow', () => {
     const result = runNode(['tooling/governance/check.mjs'], {
       RELEASE_CHECK_SKIP_PACK: 'true',
       RELEASE_CHECK_REQUIRE_CHANGESET: 'true',
-      RELEASE_CHANGED_FILES: 'packages/components/src/actions/Button/Button.tsx',
+      RELEASE_CHANGED_FILES: 'packages/react/src/index.ts',
     });
     if (!hasPendingReleaseIntent()) {
       expect(result.status).not.toBe(0);
