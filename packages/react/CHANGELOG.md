@@ -1,5 +1,11 @@
 # @depo-ui/react
 
+## 0.1.1
+
+### Patch Changes
+
+- f011d47: Add TypeScript resolution support for the public CSS entrypoint.
+
 ## 0.1.0
 
 ### Minor Changes
