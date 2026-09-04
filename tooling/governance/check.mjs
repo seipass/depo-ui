@@ -280,8 +280,8 @@ const validatePolicy = async (packages, errors) => {
   if (releasePolicy.baseBranch !== changesetConfig.baseBranch) {
     errors.push('release policy and Changesets baseBranch differ');
   }
-  if (changesetConfig.privatePackages?.version !== true) {
-    errors.push('Changesets must version private workspace packages for graph verification');
+  if (changesetConfig.privatePackages?.version !== false) {
+    errors.push('Changesets must not version private workspace packages for public release');
   }
 
   const componentFiles = await listFiles(repoPath('specs/components'), '.json');
