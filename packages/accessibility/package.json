@@ -1,6 +1,6 @@
 {
   "name": "@depo-ui/accessibility",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "React accessibility helpers for Depo UI primitives and components",
   "license": "MIT",
   "repository": {
