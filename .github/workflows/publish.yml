@@ -38,12 +38,9 @@ jobs:
           npm install --global npm@11.15.0
           npm --version
 
-      - name: Verify npm registry authentication
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Verify npm registry access
         run: |
           test "$(npm config get registry)" = "https://registry.npmjs.org/"
-          npm whoami --registry=https://registry.npmjs.org/
           npm ping --registry=https://registry.npmjs.org/
 
       - name: Activate pnpm
@@ -62,13 +59,12 @@ jobs:
         env:
           RELEASE_PUBLISH_APPROVED: 'true'
           RELEASE_ENVIRONMENT: release
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: pnpm release:check -- --publish
 
       - name: Publish
         env:
           RELEASE_PUBLISH_APPROVED: 'true'
           RELEASE_ENVIRONMENT: release
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          RELEASE_PUBLISH_BACKEND: npm-oidc
           NPM_CONFIG_PROVENANCE: 'true'
         run: pnpm release:publish

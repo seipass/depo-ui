@@ -2,7 +2,7 @@
 
 `status.mjs` wraps the official Changesets status command. A clean tree with no pending release-intent files is reported as a successful no-op; when a Changeset exists, the official status command validates its release graph.
 
-`publish.mjs` is the final fail-closed boundary. A real publish requires the protected release approval, the expected cloud-hosted GitHub Actions `publish.yml` runtime, and either npm Trusted Publishing OIDC context or a bootstrap granular access token supplied by the `release` environment. A local machine cannot publish by setting the approval flag or a token. It supports an explicit dry-run without touching the registry.
+`publish.mjs` is the final fail-closed boundary. A real publish requires the protected release approval, the expected cloud-hosted GitHub Actions `publish.yml` runtime, and either npm Trusted Publishing OIDC context or a bootstrap granular access token supplied by the `release` environment. OIDC releases use the npm CLI directly because npm Trusted Publishing authenticates the `npm publish` operation; Changesets still owns versioning and release intent. A local machine cannot publish by setting the approval flag or a token. It supports an explicit dry-run without touching the registry.
 
 ## Trusted Publishing migration
 
