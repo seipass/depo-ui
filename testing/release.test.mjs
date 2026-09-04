@@ -1,4 +1,5 @@
 import { mkdtemp, readFile, rm } from 'node:fs/promises';
+import { readFileSync, readdirSync } from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { spawnSync } from 'node:child_process';
@@ -13,6 +14,14 @@ const runNode = (args, environment = {}) =>
     env: { ...process.env, ...environment },
   });
 
+const hasPendingReleaseIntent = () =>
+  readdirSync(path.join(repoRoot, '.changeset'), { withFileTypes: true }).some(
+    (entry) => entry.isFile() && entry.name.endsWith('.md') && entry.name !== 'README.md',
+  );
+
+const reactVersion = () =>
+  JSON.parse(readFileSync(path.join(repoRoot, 'packages/react/package.json'), 'utf8')).version;
+
 describe('Phase 10 governance and release workflow', () => {
   it('validates the lifecycle, owner, evidence, migration, and version graph', () => {
     const result = runNode(['tooling/governance/check.mjs'], {
@@ -25,8 +34,13 @@ describe('Phase 10 governance and release workflow', () => {
   it('reports the initial public release intent through Changesets', () => {
     const result = runNode(['tooling/release/status.mjs']);
     expect(result.status, result.stderr || result.stdout).toBe(0);
-    expect(result.stdout).toContain('@depo-ui/react');
-    expect(result.stdout).toContain('@depo-ui/tokens');
+    if (hasPendingReleaseIntent()) {
+      expect(result.stdout).toContain('@depo-ui/react');
+      expect(result.stdout).toContain('@depo-ui/tokens');
+    } else {
+      expect(result.stdout).toContain('no pending release intents');
+      expect(reactVersion()).not.toBe('0.0.0');
+    }
   }, 20_000);
 
   it('recognizes the public source release intent when Changeset enforcement is enabled', () => {
@@ -35,6 +49,11 @@ describe('Phase 10 governance and release workflow', () => {
       RELEASE_CHECK_REQUIRE_CHANGESET: 'true',
       RELEASE_CHANGED_FILES: 'packages/components/src/actions/Button/Button.tsx',
     });
+    if (!hasPendingReleaseIntent()) {
+      expect(result.status).not.toBe(0);
+      expect(result.stderr).toContain('releaseable source changed without a Changeset');
+      return;
+    }
     expect(result.status, result.stderr || result.stdout).toBe(0);
     expect(result.stdout).toContain('cycle-free version graph');
   }, 15_000);
