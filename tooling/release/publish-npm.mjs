@@ -1,5 +1,6 @@
-import { readdir, readFile } from 'node:fs/promises';
+import { mkdtemp, readdir, readFile, rm } from 'node:fs/promises';
 import { spawnSync } from 'node:child_process';
+import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { getPublishAuthentication } from './auth.mjs';
@@ -11,6 +12,7 @@ const policy = JSON.parse(
 const registry = policy.registry.replace(/\/+$/, '');
 const publicPackageNames = new Set(policy.publish.publicPackages);
 const npmCommand = process.platform === 'win32' ? 'npm.cmd' : 'npm';
+const pnpmCommand = process.platform === 'win32' ? 'pnpm.cmd' : 'pnpm';
 
 const runtimeDependencies = (manifest) => [
   ...Object.keys(manifest.dependencies ?? {}),
@@ -64,16 +66,49 @@ const orderForPublish = (entries, candidates) => {
   return ordered;
 };
 
-const publish = (entry) => {
+const pack = (entry, destination, environment) => {
+  const packageDestination = path.join(
+    destination,
+    entry.manifest.name.replace(/^@/, '').replaceAll('/', '-'),
+  );
+  const result = spawnSync(
+    pnpmCommand,
+    ['pack', '--pack-destination', packageDestination, '--json'],
+    {
+      cwd: entry.directory,
+      encoding: 'utf8',
+      env: environment,
+      stdio: ['ignore', 'pipe', 'pipe'],
+    },
+  );
+  if (result.status !== 0)
+    throw new Error(
+      `pnpm pack failed for ${entry.manifest.name}: ${result.stderr.trim() || 'unknown error'}`,
+    );
+  let metadata;
+  try {
+    metadata = JSON.parse(result.stdout);
+  } catch {
+    throw new Error(`pnpm pack returned invalid metadata for ${entry.manifest.name}`);
+  }
+  if (metadata.name !== entry.manifest.name || metadata.version !== entry.manifest.version)
+    throw new Error(`pnpm pack metadata does not match ${entry.manifest.name}`);
+  if (!metadata.filename)
+    throw new Error(`pnpm pack produced no tarball for ${entry.manifest.name}`);
+  return metadata.filename;
+};
+
+const publish = (entry, destination) => {
   const access = entry.manifest.publishConfig?.access ?? 'public';
   const packageRegistry = entry.manifest.publishConfig?.registry ?? `${registry}/`;
   const environment = { ...process.env, NPM_CONFIG_PROVENANCE: 'true' };
   delete environment.NODE_AUTH_TOKEN;
   delete environment.NPM_TOKEN;
+  const tarball = pack(entry, destination, environment);
   const result = spawnSync(
     npmCommand,
-    ['publish', '--access', access, '--provenance', '--registry', packageRegistry],
-    { cwd: entry.directory, env: environment, stdio: 'inherit' },
+    ['publish', tarball, '--access', access, '--provenance', '--registry', packageRegistry],
+    { cwd: repoRoot, env: environment, stdio: 'inherit' },
   );
   if (result.status !== 0) throw new Error(`npm publish failed for ${entry.manifest.name}`);
   console.log(
@@ -110,7 +145,12 @@ const main = async () => {
   console.log(
     `OIDC npm publish plan: ${ordered.map((entry) => `${entry.manifest.name}@${entry.manifest.version}`).join(', ')}`,
   );
-  for (const entry of ordered) publish(entry);
+  const temporaryDirectory = await mkdtemp(path.join(os.tmpdir(), 'depo-ui-oidc-publish-'));
+  try {
+    for (const entry of ordered) publish(entry, temporaryDirectory);
+  } finally {
+    await rm(temporaryDirectory, { recursive: true, force: true });
+  }
 };
 
 try {
