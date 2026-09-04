@@ -1,5 +1,15 @@
 # @depo-ui/react
 
+## 0.1.2
+
+### Patch Changes
+
+- 0506ef4: Verify the Trusted Publishing OIDC release path.
+- Updated dependencies [0506ef4]
+  - @depo-ui/components@0.1.1
+  - @depo-ui/foundations@0.1.1
+  - @depo-ui/patterns@0.1.1
+
 ## 0.1.1
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @depo-ui/utilities
 
+## 0.1.1
+
+### Patch Changes
+
+- 0506ef4: Verify the Trusted Publishing OIDC release path.
+
 ## 0.1.0
 
 ### Minor Changes
