@@ -1,6 +1,6 @@
 {
   "name": "@depo-ui/tokens",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Token source and generated token boundary",
   "license": "MIT",
   "repository": {
