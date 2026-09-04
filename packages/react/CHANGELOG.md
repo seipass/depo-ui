@@ -1,5 +1,15 @@
 # @depo-ui/react
 
+## 0.1.3
+
+### Patch Changes
+
+- a553d34: Fix published workspace dependencies for clean npm installs.
+- Updated dependencies [a553d34]
+  - @depo-ui/components@0.1.2
+  - @depo-ui/foundations@0.1.2
+  - @depo-ui/patterns@0.1.2
+
 ## 0.1.2
 
 ### Patch Changes
