@@ -13,9 +13,9 @@ Depo UI は、Figma、CSS、TypeScript、React、Docs が同じ意味の Token �
 
 1. DTCG Format Module 2025.10 を JSON の交換形式として採用する。DTCG の構造は specs/_schemas/token.schema.json と tooling/token-build/model.mjs で検証し、Depo UI 固有の tier、status、theme は $extensions.depo-ui で検証する。
 2. Token の依存方向を Reference → Semantic → Component に固定する。Reference は raw value、Semantic は UI の意味、Component は Component 内部の local alias とする。
-3. Product 向けの公開面は Semantic CSS Custom Property、型付き Semantic map、Theme manifest とする。Reference JSON と Component Token は public API にしない。
+3. Product 向けの公開面は Semantic CSS Custom Property、型付き Semantic map、dark appearance manifest とする。Reference JSON と Component Token は public API にしない。
 4. packages/tokens/src/ が人が編集する Source of Truth、packages/tokens/generated/ が build で再現する committed artifact である。生成物を直接編集せず、pnpm tokens:check で再生成との差分を検出する。
-5. Theme は Semantic contract を変更せず、dark、light、high-contrast の mapping と system color を提供する。欠落した override は semantic default に解決する。
+5. Dark is the single standard appearance. The semantic defaults and `dark.json` provide its mapping; there is no runtime theme selector or switching API. Forced-colors is an OS accessibility mode implemented with CSS system colors, not a token theme.
 6. Reference と Semantic の canonical path は同一にしない。Semantic の安定した public name（例: size.control.md）と Reference の raw name（例: size.control.visual-md）を分離し、resolver が自己参照と曖昧な解決を起こさないようにする。
 7. 生成物には CSS、TypeScript source、TypeScript declaration、ES module runtime、manifest を含める。runtime JavaScript は package export の実行入口に必要な build artifact であり、source ではない。
 

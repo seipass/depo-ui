@@ -15,7 +15,7 @@ describe('documentation source pipeline', () => {
     expect(generated.navigation).toHaveLength(10);
     expect(generated.model.components).toHaveLength(56);
     expect(generated.model.patterns).toHaveLength(19);
-    expect(generated.model.tokens.themes).toEqual(['dark', 'high-contrast', 'light']);
+    expect(generated.model.tokens.appearance).toBe('dark');
     expect(checked.manifest.figma.componentCount).toBe(56);
   });
 

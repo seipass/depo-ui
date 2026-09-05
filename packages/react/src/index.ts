@@ -5,5 +5,4 @@ export type {
   FoundationAttributes,
   FoundationDensity,
   FoundationDirection,
-  FoundationTheme,
 } from '@depo-ui/foundations';

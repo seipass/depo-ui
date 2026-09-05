@@ -12,11 +12,6 @@
   --ifm-footer-background-color: var(--dui-color-bg-surface-sunken);
 }
 
-html[data-theme='light'] {
-  --ifm-background-color: var(--dui-color-bg-canvas);
-  --ifm-background-surface-color: var(--dui-color-bg-surface);
-}
-
 .dui-doc-hero {
   background: linear-gradient(
     135deg,

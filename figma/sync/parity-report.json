@@ -6,9 +6,7 @@
     "expected": 125,
     "mapped": 125,
     "modes": [
-      "dark",
-      "light",
-      "high-contrast"
+      "dark"
     ]
   },
   "components": {

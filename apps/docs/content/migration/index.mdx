@@ -21,3 +21,9 @@ Migration guidance is published with the release that changes the contract. It d
 Codemods must be AST-aware and must not guess at product-specific domain code. If no safe codemod exists, the release page must say so and provide a precise manual recipe.
 
 The repository fixture `button-kind-to-variant` demonstrates the migration runner. Run `node tooling/codemods/run.mjs --migration button-kind-to-variant --input <file> --output <file>` in a branch, inspect the diff, and rerun the complete consumer and accessibility matrix before release.
+
+## 0.2.0: dark-only appearance
+
+Depo UI 0.2.0 removes the Light appearance and runtime appearance switching. The standard Dark values are loaded automatically by `@depo-ui/react/css`; remove `data-theme`, theme providers, and appearance switcher controls from consumers. Continue to apply density and direction through `foundationAttributes` when those options are needed.
+
+OS `forced-colors` / Windows High Contrast support remains available as an accessibility mode and does not require a selectable theme. Review focus indicators, borders, status cues, and text wrapping after removing the old appearance controls. There is no automatic codemod for this contract change.

@@ -1,6 +1,5 @@
-import type { SemanticTokenName, ThemeName } from '@depo-ui/tokens';
+import type { SemanticTokenName } from '@depo-ui/tokens';
 
-export type FoundationTheme = ThemeName;
 export type FoundationDensity = 'compact' | 'comfortable' | 'touch';
 export type FoundationDirection = 'ltr' | 'rtl';
 

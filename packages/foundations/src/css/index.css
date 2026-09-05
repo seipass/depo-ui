@@ -1,5 +1,5 @@
 @import './reset.css';
-@import './theme.css';
+@import './appearance.css';
 @import './typography.css';
 @import './density.css';
 @import './layout.css';

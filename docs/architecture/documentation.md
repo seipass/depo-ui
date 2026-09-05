@@ -14,4 +14,4 @@ Change the JSON specification, Component Story, Pattern narrative, token source,
 
 ## Accessibility and examples
 
-The site itself follows the repository WCAG 2.2 AA baseline. The Examples page exercises dark, light, high-contrast, RTL, density, reduced motion, narrow containers, long labels, and CJK content. The browser fixture checks keyboard focus, landmarks, headings, search labeling, and reflow.
+The site itself follows the repository WCAG 2.2 AA baseline. The Examples page exercises the standard dark appearance, forced colors, RTL, density, reduced motion, narrow containers, long labels, and CJK content. The browser fixture checks keyboard focus, landmarks, headings, search labeling, and reflow.

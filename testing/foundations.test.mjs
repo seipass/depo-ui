@@ -4,27 +4,21 @@ import {
   foundationAttributes,
   foundationDensities,
   foundationDirections,
-  foundationThemes,
   foundationTokens,
   isFoundationDensity,
   isFoundationDirection,
-  isFoundationTheme,
 } from '../packages/foundations/src/index.ts';
 
 describe('Depo UI foundations', () => {
-  it('exposes the supported theme, density, and direction contract', () => {
-    expect(foundationThemes).toEqual(['dark', 'light', 'high-contrast']);
+  it('exposes the dark-only appearance, density, and direction contract', () => {
     expect(foundationDensities).toEqual(['compact', 'comfortable', 'touch']);
     expect(foundationDirections).toEqual(['ltr', 'rtl']);
     expect(foundationAttributes()).toEqual({
-      'data-theme': 'dark',
       'data-density': 'comfortable',
       dir: 'ltr',
     });
-    expect(isFoundationTheme('light')).toBe(true);
     expect(isFoundationDensity('touch')).toBe(true);
     expect(isFoundationDirection('rtl')).toBe(true);
-    expect(isFoundationTheme('unknown')).toBe(false);
   });
 
   it('uses semantic CSS variables rather than raw foundation values', async () => {
@@ -33,6 +27,10 @@ describe('Depo UI foundations', () => {
 
     const css = await readFile('packages/foundations/src/css/index.css', 'utf8');
     expect(css).toContain("@import './reset.css'");
+    const appearanceCss = await readFile('packages/foundations/src/css/appearance.css', 'utf8');
+    expect(appearanceCss).toContain('color-scheme: dark');
+    expect(appearanceCss).toContain('(forced-colors: active)');
+    expect(appearanceCss).not.toContain('data-theme');
     expect(await readFile('packages/foundations/src/css/density.css', 'utf8')).toContain(
       '--dui-density-touch-control-height',
     );

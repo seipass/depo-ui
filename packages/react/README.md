@@ -27,6 +27,6 @@ export function App() {
 }
 ```
 
-React 19 is required. Apply `foundationAttributes({ theme, density, direction })` from `@depo-ui/react` to the application foundation element. Supported themes are `dark`, `light`, and `high-contrast`; supported densities are `compact`, `comfortable`, and `touch`.
+React 19 is required. Depo UI uses a dark appearance by default; no theme provider or theme attribute is required. Apply `foundationAttributes({ density, direction })` from `@depo-ui/react` only when the application needs subtree density or direction. Supported densities are `compact`, `comfortable`, and `touch`. OS-level forced-colors / Windows High Contrast remains supported for accessibility.
 
 The lower-level Depo UI packages are available for design-system integrations. Product applications should start with this package and its semantic token boundary.

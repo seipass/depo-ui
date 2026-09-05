@@ -34,22 +34,23 @@ const modelWith = ({ reference = [], semantic = [], themes = new Map() } = {}) =
   });
 
 describe('Depo UI token model', () => {
-  it('loads the three themes and preserves the required palette anchors', async () => {
+  it('loads the dark appearance and preserves the required palette anchors', async () => {
     const model = await loadTokenModel();
 
     expect(validateTokenModel(model)).toEqual([]);
     expect(validateContrast(model)).toEqual([]);
-    expect(model.themes.size).toBe(3);
+    expect(model.themes.size).toBe(1);
     expect(model.reference.get('color.brand.600').value).toBe('#6C6FF6');
     expect(model.reference.get('color.neutral.950').value).toBe('#05060A');
   });
 
-  it('resolves semantic aliases against the selected theme', async () => {
+  it('resolves semantic aliases against the dark appearance', async () => {
     const model = await loadTokenModel();
 
     expect(resolveToken(model, 'color.action.primary', 'dark').value).toBe('#6C6FF6');
-    expect(resolveToken(model, 'color.action.primary', 'light').value).toBe('#5256D8');
-    expect(resolveToken(model, 'color.bg.canvas', 'high-contrast').value).toBe('Canvas');
+    expect(() => resolveToken(model, 'color.action.primary', 'light')).toThrow(
+      'unsupported theme light',
+    );
   });
 
   it('rejects malformed JSON and malformed DTCG token metadata', () => {
@@ -87,13 +88,7 @@ describe('Depo UI token model', () => {
 
   it('reports missing themes and duplicate token paths', () => {
     const missingThemeErrors = validateTokenModel(modelWith());
-    expect(missingThemeErrors).toEqual(
-      expect.arrayContaining([
-        'missing theme dark',
-        'missing theme light',
-        'missing theme high-contrast',
-      ]),
-    );
+    expect(missingThemeErrors).toEqual(expect.arrayContaining(['missing theme dark']));
 
     const duplicate = mergeTokenMaps(
       [
@@ -133,7 +128,7 @@ describe('Depo UI token model', () => {
     expect(aliasTarget('{color.brand.600}')).toBe('color.brand.600');
 
     const model = await loadTokenModel();
-    for (const themeName of ['dark', 'light']) {
+    for (const themeName of ['dark']) {
       const values = resolvedTheme(model, themeName);
       expect(
         contrastRatio(values.get('color.focus.ring').value, values.get('color.bg.canvas').value),
@@ -142,9 +137,15 @@ describe('Depo UI token model', () => {
 
     const manifest = JSON.parse(await readFile('packages/tokens/generated/manifest.json', 'utf8'));
     const declaration = await readFile('packages/tokens/generated/tokens.d.ts', 'utf8');
+    const css = await readFile('packages/tokens/generated/tokens.css', 'utf8');
     expect(manifest.format).toBe('DTCG Format Module 2025.10');
     expect(manifest.reference.find(({ path }) => path === 'color.brand.600').value).toBe('#6C6FF6');
-    expect(manifest.themes.light['color.action.primary'].value).toBe('#5256D8');
+    expect(manifest.appearance).toBe('dark');
+    expect(manifest.values['color.action.primary'].value).toBe('#6C6FF6');
+    expect(manifest).not.toHaveProperty('themes');
+    expect(declaration).not.toContain('ThemeName');
+    expect(css).not.toContain('data-theme');
+    expect(css).not.toContain('prefers-color-scheme');
     expect(declaration).toContain('export declare const semanticTokens');
   });
 });

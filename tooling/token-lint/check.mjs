@@ -9,6 +9,6 @@ if (errors.length > 0) {
   process.exitCode = 1;
 } else {
   console.log(
-    'Token lint passed: DTCG metadata, tier boundaries, aliases, themes, palette anchors, and contrast are valid.',
+    'Token lint passed: DTCG metadata, tier boundaries, aliases, dark appearance, palette anchors, and contrast are valid.',
   );
 }

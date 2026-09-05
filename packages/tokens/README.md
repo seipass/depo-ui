@@ -2,6 +2,8 @@
 
 Generated Depo UI reference and semantic token artifacts.
 
+The standard appearance is dark-only. The generated semantic values are emitted at `:root`; appearance switching is not part of this package's public API. OS forced-colors behavior remains an accessibility mode in the foundation CSS.
+
 The package provides generated CSS, JavaScript, TypeScript declarations, and a token manifest:
 
 ```css

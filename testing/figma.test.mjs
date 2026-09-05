@@ -18,12 +18,8 @@ describe('Depo UI Figma architecture', () => {
     });
 
     expect(expected.variables).toHaveLength(model.semantic.size);
-    expect(source.collections.collection.modes.map((mode) => mode.id)).toEqual([
-      'dark',
-      'light',
-      'high-contrast',
-    ]);
-    expect(expected.variables.every((variable) => Object.keys(variable.modes).length === 3)).toBe(
+    expect(source.collections.collection.modes.map((mode) => mode.id)).toEqual(['dark']);
+    expect(expected.variables.every((variable) => Object.keys(variable.modes).length === 1)).toBe(
       true,
     );
     expect(expected.components.length).toBeGreaterThan(0);
@@ -72,6 +68,6 @@ describe('Depo UI Figma architecture', () => {
     const report = JSON.parse(await readFile('figma/sync/parity-report.json', 'utf8'));
     expect(report.generatedBy).toBe('tooling/figma-sync/report.mjs');
     expect(report.variables).toMatchObject({ expected: 125, mapped: 125 });
-    expect(report.variables.modes).toEqual(['dark', 'light', 'high-contrast']);
+    expect(report.variables.modes).toEqual(['dark']);
   });
 });

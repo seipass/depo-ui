@@ -44,20 +44,18 @@ Depo UI の Color は、ブランドの識別、情報の階層、操作状態�
 
 ## Supporting values
 
-Phase 1 では、指定アンカーだけでは Light、High Contrast、Disabled、Focus、Status text を安全に表現できないため、次の補助値を追加した。
+Phase 1 では、指定アンカーだけでは Disabled、Focus、Status text、inverse surfaces、forced-colors の安全な表現に不足するため、次の補助値を追加した。
 
-- neutral.0、neutral.25、neutral.100、neutral.300、neutral.500: Light Theme の canvas、field、hover、divider、disabled を段階的に表現する。
-- brand.700、brand.800、accent.700、accent.800: Light Theme の action/link と hover で AA を満たすための中間 ramp。
+- neutral.0、neutral.25、neutral.100、neutral.300、neutral.500: inverse surface、disabled、divider、状態表現のための中間 ramp。
+- brand.700、brand.800、accent.700、accent.800: status、link、hover の role で AA を満たすための中間 ramp。
 - focus、overlay、disabled: semantic role を opacity や shadow だけに依存させない。
-- High Contrast の Canvas、CanvasText、ButtonFace、ButtonText、LinkText、Highlight、GrayText など: OS の forced-colors 設定に追従する。
+- Canvas、CanvasText、ButtonFace、ButtonText、LinkText、Highlight、GrayText などの CSS system color: OS の forced-colors 設定に追従する。
 
 補助値は Reference に置き、Product に直接公開しない。Semantic role と Contrast test が不要になった補助値は追加しない。
 
-## Theme and contrast rules
+## Appearance and contrast rules
 
-- dark、light、high-contrast は同じ Semantic Token contract を共有する。
-- high-contrast は system color を使い、色相差、透過、shadow を情報伝達の唯一の手段にしない。
-- Light の filled primary action は brand.700 と neutral.50 を使い、白文字の contrast を維持する。
-- Light の status container は対応する 100 ramp、status text は対応する 900 ramp を使う。
+- Dark is the single standard appearance and is emitted at `:root`; no theme attribute or switching provider is required.
+- Forced-colors is an OS accessibility mode, not a selectable theme. CSS system colors, visible borders, focus indicators, and redundant state cues remain active there.
 - Token build は通常文字について 4.5:1 の contrast pair を検証する。大きな文字、非テキスト、focus indicator の基準は Foundation と Component のテストで追加検証する。
 - 状態は icon、label、border、text、layout などの冗長な手掛かりを併用する。

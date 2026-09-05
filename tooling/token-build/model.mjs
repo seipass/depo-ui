@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url';
 export const repoRoot = fileURLToPath(new URL('../..', import.meta.url));
 export const tokenSourceRoot = path.join(repoRoot, 'packages/tokens/src');
 export const generatedRoot = path.join(repoRoot, 'packages/tokens/generated');
-export const themeNames = ['dark', 'light', 'high-contrast'];
+export const themeNames = ['dark'];
 
 const referenceFiles = [
   'color.json',
@@ -247,6 +247,9 @@ const checkMetadata = (token, expectedTier, errors) => {
 const compatibleType = (left, right) => left === right || (!left && !right);
 
 export const resolveToken = (model, tokenPath, themeName, stack = [], useTheme = true) => {
+  if (!themeNames.includes(themeName)) {
+    throw new Error(`unsupported theme ${themeName}; Depo UI provides dark only`);
+  }
   if (stack.includes(tokenPath)) {
     throw new Error(`alias cycle: ${[...stack, tokenPath].join(' -> ')}`);
   }
@@ -393,7 +396,7 @@ const contrastPairs = [
 
 export const validateContrast = (model) => {
   const errors = [];
-  for (const themeName of ['dark', 'light']) {
+  for (const themeName of themeNames) {
     const values = resolvedTheme(model, themeName);
     for (const [foregroundPath, backgroundPath, minimum] of contrastPairs) {
       const foreground = values.get(foregroundPath)?.value;

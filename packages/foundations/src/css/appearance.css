@@ -1,25 +1,13 @@
-:root[data-theme='dark'] {
+:root {
   color-scheme: dark;
 }
 
-:root[data-theme='light'] {
-  color-scheme: light;
-}
-
-:root[data-theme='high-contrast'] {
-  color-scheme: only light;
-}
-
-:where([data-theme='dark'], [data-theme='light'], [data-theme='high-contrast']) {
+:where(html, body) {
   background-color: var(--dui-color-bg-canvas);
   color: var(--dui-color-fg-primary);
 }
 
 @media (forced-colors: active) {
-  :where([data-theme='high-contrast']) {
-    forced-color-adjust: none;
-  }
-
   :where(*, *::before, *::after) {
     border-color: CanvasText;
   }

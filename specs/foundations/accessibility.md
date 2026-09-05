@@ -18,7 +18,7 @@ Focus must remain visible, must not be obscured by Depo UI chrome, and must retu
 
 ## Visual and content rules
 
-Color is never the only indication of state. Theme and forced-colors behavior must preserve text, borders, focus, selection, and control affordances. Touch targets use the touch density metric. Text must remain usable at 200% text resize and 400% zoom with 320 CSS px reflow. Long labels, CJK, RTL, and localized dates/numbers are required fixtures for Stable candidates.
+Color is never the only indication of state. The standard dark appearance and forced-colors behavior must preserve text, borders, focus, selection, and control affordances. Touch targets use the touch density metric. Text must remain usable at 200% text resize and 400% zoom with 320 CSS px reflow. Long labels, CJK, RTL, and localized dates/numbers are required fixtures for Stable candidates.
 
 ## Motion and media preferences
 

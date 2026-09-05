@@ -11,16 +11,6 @@
         "id": "dark",
         "name": "Dark",
         "source": "packages/tokens/src/themes/dark.json"
-      },
-      {
-        "id": "light",
-        "name": "Light",
-        "source": "packages/tokens/src/themes/light.json"
-      },
-      {
-        "id": "high-contrast",
-        "name": "High Contrast",
-        "source": "packages/tokens/src/themes/high-contrast.json"
       }
     ]
   },

@@ -22,7 +22,7 @@ async function loadFixture(
   const styles = await readFoundationStyles({ includePrimitives: true });
   await page.setContent(`
     <!doctype html>
-    <html data-theme="dark" data-density="${density}" dir="rtl" lang="en">
+    <html data-density="${density}" dir="rtl" lang="en">
       <head><title>Primitive fixture</title><meta name="viewport" content="width=device-width, initial-scale=1" /></head>
       <body>
         <main class="dui-container" data-dui-container data-padding="page" data-size="xl">

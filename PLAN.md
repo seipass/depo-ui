@@ -4,6 +4,8 @@
 >
 > Research baseline: 2026-09-01（技術のバージョンは実装開始時に公式ドキュメントで再確認し、採用したバージョンを ADR に記録する）。
 
+> Current appearance contract (0.2.0): Depo UI is dark-only. The dark semantic values are emitted at `:root`; consumers do not select a theme or provide a theme attribute. OS `forced-colors` / Windows High Contrast remains an accessibility mode implemented with system colors and redundant state cues, not a selectable theme.
+
 ## 1. Goals
 
 Depo UI は、SaaS、Dashboard、管理画面、Desktop Web、Responsive Web、Data-heavy UI、Internal Tool、Documentation UI を横断して利用できる、Web アプリケーション向けの汎用デザインシステムとする。
@@ -21,8 +23,8 @@ Depo UI は、SaaS、Dashboard、管理画面、Desktop Web、Responsive Web、D
 
 成功指標は Component 数ではなく、次の品質ゲートを継続的に通過できることである。
 
-1. Token の依存グラフ、Theme、Contrast、生成物の鮮度が CI で検証できる。
-2. Stable Component が共通の Contract、Keyboard、Focus、A11y、Theme、Responsive、Localization、Visual のテストを持つ。
+1. Token の依存グラフ、Dark appearance、Contrast、生成物の鮮度が CI で検証できる。
+2. Stable Component が共通の Contract、Keyboard、Focus、A11y、Dark appearance、Forced Colors、Responsive、Localization、Visual のテストを持つ。
 3. Figma と Code の Variant、Property、Token、Lifecycle の差分を報告できる。
 4. 仕様から Docs の参照情報を生成でき、重要なルールが Docs だけ、または Code だけに存在しない。
 5. Package の依存グラフが DAG であり、Consumer が内部ファイルに依存しない。
@@ -35,7 +37,7 @@ Depo UI は、SaaS、Dashboard、管理画面、Desktop Web、Responsive Web、D
 - すべてのプラットフォーム向けの Native UI を同時に実装しない。初期実装の主対象は Web と React である。
 - すべての業務画面を一つの万能 Component で表現しない。
 - Component の API を自由な CSS、任意の DOM、任意の状態文字列で無制限に拡張しない。
-- Accessibility、Localization、Reduced Motion、High Contrast を後付けの QA として扱わない。
+- Accessibility、Localization、Reduced Motion、Forced Colors を後付けの QA として扱わない。
 - 今回の作業で package.json、tsconfig.json、Component、Token、CSS、React code、CI、Test、Docs app を作成しない。
 
 ## 3. Design Principles
@@ -58,7 +60,7 @@ Primitive は小さく、Component は一つの目的に集中させる。複合
 
 ### 3.5 Explicit contracts
 
-Purpose、Anatomy、Variant、State、Props、Keyboard、ARIA、Content、Responsive、Density、Theme、Loading、Error、Recovery、Test、Lifecycle を機械可読な Metadata と人間向けの Specification に記録する。
+Purpose、Anatomy、Variant、State、Props、Keyboard、ARIA、Content、Responsive、Density、Dark appearance、Forced Colors、Loading、Error、Recovery、Test、Lifecycle を機械可読な Metadata と人間向けの Specification に記録する。
 
 ### 3.6 One name across tools
 
@@ -128,7 +130,7 @@ Proposal、Trial、Stable、Deprecated、Removed を明示する。利用実績�
 │  │  ├─ src/
 │  │  │  ├─ css/
 │  │  │  ├─ layout/
-│  │  │  ├─ theme/
+│  │  │  ├─ attributes/
 │  │  │  ├─ typography/
 │  │  │  └─ index.ts
 │  │  └─ package.json
@@ -222,7 +224,8 @@ Proposal、Trial、Stable、Deprecated、Removed を明示する。利用実績�
 │  ├─ interaction/
 │  ├─ accessibility/
 │  ├─ visual/
-│  ├─ themes/
+│  ├─ fixtures/
+│  │  └─ accessibility-matrix.mjs
 │  └─ fixtures/
 │
 ├─ tooling/
@@ -284,7 +287,7 @@ Proposal、Trial、Stable、Deprecated、Removed を明示する。利用実績�
 
 - `apps/docs/` は公式 Docs Site。Getting Started から Releases/Migration までを提供し、正式仕様や Metadata を読みやすく表示する。
 - `apps/playground/` は Component を自由に試す環境。Storybook と deterministic fixture を統合し、実 Product の認証、API、データを持ち込まない。
-- `apps/visual-tests/` は Visual Regression 専用の実行環境。固定 Theme、Density、Container、Locale、Browser で stories/fixtures を描画し、結果を baseline と比較する。
+- `apps/visual-tests/` は Visual Regression 専用の実行環境。固定 Dark appearance、Density、Container、Locale、Browser で stories/fixtures を描画し、結果を baseline と比較する。
 
 ### 4.1 Folder boundary rules
 
@@ -329,15 +332,15 @@ specs/ を正式仕様、apps/docs/ を人間向けサイト、docs/ をリポ�
 
 | Package | 責任 | 公開するもの | 禁止事項 |
 |---|---|---|---|
-| @depo-ui/tokens | DTCG JSON の Source、Theme、生成 CSS/TS 型 | Semantic CSS variables、型付き token map、Theme manifest | Component import、React、Product の raw token 利用を強制する API |
-| @depo-ui/foundations | Reset、Theme root、Typography、Layer、layout CSS の基盤 | CSS、Theme/Direction/Density の基礎、layout helpers | Button などの業務 Component、具体的な画面 |
+| @depo-ui/tokens | DTCG JSON の Source、Dark appearance mapping、生成 CSS/TS 型 | Semantic CSS variables、型付き token map、Dark appearance manifest | Component import、React、Product の raw token 利用を強制する API |
+| @depo-ui/foundations | Reset、Dark appearance root、Typography、Layer、layout CSS の基盤 | CSS、Direction/Density の基礎、layout helpers | Button などの業務 Component、具体的な画面 |
 | @depo-ui/primitives | DOM と layout の最小構成 | Box、Stack、Text、Grid、Icon など | API call、Data fetch、複雑な業務 state、意味の曖昧な万能 wrapper |
 | @depo-ui/components | 再利用可能な UI Component | Button、TextInput、Dialog、Table など | Product 固有の data shape、routing、business validation |
 | @depo-ui/patterns | ユーザータスクの標準的な composition | Search and filter、Form submission、List detail など | Core Component の再実装、Product の API client |
 | @depo-ui/icons | SVG Icon の canonical catalog | Tree-shakable Icon、Icon metadata | 独自の状態管理、ラベルを含む業務 UI |
 | @depo-ui/accessibility | Focus、Keyboard、ID、ARIA、live region の共通機能 | framework-neutral な計算・型・DOM helper | 色、見た目、Componentごとの業務挙動 |
 | @depo-ui/utilities | UI に依存しない小さな純粋関数 | class/token formatting、collection、Intl formatter | 何でも入れる utils.ts、React Component、Product logic |
-| @depo-ui/react | React consumer の安定した入口 | re-export、ThemeProvider、DensityProvider、DirectionProvider | 別の Component 実装、内部 Package からの逆参照 |
+| @depo-ui/react | React consumer の安定した入口 | re-export、density/direction helpers | 別の Component 実装、内部 Package からの逆参照、appearance switching |
 
 @depo-ui/components の Component source は packages/components/src/<category>/<Component>/ に統一する。packages/components/package.json、公開 entrypoint、build 設定など Package root の管理ファイルは root に置き、src/ には移動しない。category directory を Package root 直下に作る構成は採用しない。
 
@@ -394,9 +397,9 @@ React 18 を support する選択をした場合、ref compatibility の実装�
 ### 7.1 三層モデル
 
 ~~~text
-Reference  ── raw value、theme 非依存
+Reference  ── raw value、appearance 非依存
     ↓
-Semantic   ── UI 上の意味、theme で値が変わる
+Semantic   ── UI 上の意味、Dark appearance の role
     ↓
 Component  ── Component 内部の slot/state 用 alias
 ~~~
@@ -420,14 +423,14 @@ Component の slot と state を実装する local alias である。例は butt
 ~~~text
 packages/tokens/src/reference/*.json  = 人が編集する Reference
 packages/tokens/src/semantic/*.json   = 人が編集する Semantic contract/alias
-packages/tokens/src/themes/*.json     = 人が編集する Theme mapping
+packages/tokens/src/themes/dark.json = 人が編集する Dark appearance mapping
 specs/components/**/*.json            = Component metadata/contract
 packages/tokens/generated/*           = 自動生成、直接編集禁止
 ~~~
 
-Design Token の exchange format は DTCG Format Module 2025.10 を基準にする。DTCG は W3C Community Group の仕様であり W3C Recommendation そのものではないため、Depo UI では「ツール間交換形式」として利用し、独自の tier/theme policy は別の schema で検証する。独自拡張は $extensions.depo-ui の namespace に限定する。DTCG が将来 supersede された場合は、正規化層で吸収し、Source の意味と canonical name を不用意に変えない。
+Design Token の exchange format は DTCG Format Module 2025.10 を基準にする。DTCG は W3C Community Group の仕様であり W3C Recommendation そのものではないため、Depo UI では「ツール間交換形式」として利用し、独自の tier/dark-mapping policy は別の schema で検証する。独自拡張は $extensions.depo-ui の namespace に限定する。DTCG が将来 supersede された場合は、正規化層で吸収し、Source の意味と canonical name を不用意に変えない。
 
-各 Token は $value、適切な $type、$description、$extensions.depo-ui.tier、status、必要なら figma metadata を持つ。Alias は DTCG の参照記法で表し、未定義参照、型不一致、alias cycle、Theme 間の欠落を build 失敗にする。
+各 Token は $value、適切な $type、$description、$extensions.depo-ui.tier、status、必要なら figma metadata を持つ。Alias は DTCG の参照記法で表し、未定義参照、型不一致、alias cycle、Dark appearance mapping の欠落を build 失敗にする。
 
 例（構造例であり、実装時は schema に合わせて確定する）。
 
@@ -454,11 +457,11 @@ Design Token の exchange format は DTCG Format Module 2025.10 を基準にす�
 
 ### 7.3 ディレクトリと生成物
 
-packages/tokens/src/reference/ は color.json、spacing.json、typography.json、sizing.json、radius.json、border.json、elevation.json、motion.json、layout.json、density.json に分ける。src/semantic/ は color.json、spacing.json、typography.json、sizing.json、motion.json、layout.json、density.json、radius.json、border.json、elevation.json とし、Theme 固有の値は src/themes/dark.json、light.json、high-contrast.json に置く。
+packages/tokens/src/reference/ は color.json、spacing.json、typography.json、sizing.json、radius.json、border.json、elevation.json、motion.json、layout.json、density.json に分ける。src/semantic/ は color.json、spacing.json、typography.json、sizing.json、motion.json、layout.json、density.json、radius.json、border.json、elevation.json とし、Dark appearance 固有の値は src/themes/dark.json に置く。
 
 generated/ は commit して差分をレビュー可能にする。tokens.css、tokens.ts、tokens.js、tokens.d.ts、manifest.json は build で再生成し、pnpm tokens:build && git diff --exit-code -- packages/tokens/generated を CI に置く。生成物を直接編集した場合は CI が失敗する。tokens.js は ESM consumer が実行時に利用する生成入口であり、他の生成物と同じく直接編集しない。
 
-生成 CSS は --dui-* prefix を使用する。Reference は developer-only の inspect 用に限定し、Product 向けの public export は Semantic Token と Theme を中心にする。
+生成 CSS は --dui-* prefix を使用する。Reference は developer-only の inspect 用に限定し、Product 向けの public export は Semantic Token と Dark appearance values を中心にする。
 
 ### 7.4 Depo UI の Color palette
 
@@ -502,25 +505,23 @@ neutral.925 のような中間段階は、Depo UI の supplied surface anchors �
 
 ### 7.5 追加する色と理由
 
-指定 palette だけでは Light、High Contrast、Disabled、Focus、Status text の全組合せを安全に表現できないため、次の追加色を Phase 1 で設計し、Contrast test を通過したものだけを採用する。
+指定 palette だけでは Dark appearance の Disabled、Focus、Status text、inverse surface、forced-colors の全組合せを安全に表現できないため、次の追加色を Phase 1 で設計し、Contrast test を通過したものだけを採用する。
 
-1. neutral.0、neutral.25、neutral.100、neutral.300、neutral.500 などの light neutral ramp。Light Theme の canvas、field、hover、divider、disabled を中間色で構成し、すべてを白黒の二値にしないために必要である。指定された #F8FAFC、#D8DDE6、#858C9B、#414753 はこの ramp の anchor として再利用する。
-2. color.focus.ring の Theme 別値。Brand Primary と Focus Indicator は役割が違い、背景によって必要な 3:1 の non-text contrast を満たす値が変わるためである。
-3. color.fg.success、color.fg.warning、color.fg.danger の strong text/icon 値。指定された明るい status color は fill として適していても、Light Theme の通常文字として常に十分な Contrast になるとは限らないためである。
+1. neutral.0、neutral.25、neutral.100、neutral.300、neutral.500 などの neutral ramp。inverse surface、field、hover、divider、disabled を中間色で構成し、すべてを白黒の二値にしないために必要である。指定された #F8FAFC、#D8DDE6、#858C9B、#414753 はこの ramp の anchor として再利用する。
+2. color.focus.ring の semantic value。Brand Primary と Focus Indicator は役割が違い、背景に対して必要な 3:1 の non-text contrast を満たす必要があるためである。
+3. color.fg.success、color.fg.warning、color.fg.danger の strong text/icon 値。明るい status color は fill として適していても、Dark appearance の通常文字として常に十分な Contrast になるとは限らないためである。
 4. color.overlay.scrim、color.focus.inner、color.disabled.*。Dialog/Drawer の背面、二重 focus ring、非活性文字・背景を opacity だけに頼らず表現するためである。
-5. High Contrast Theme 用の CSS system color（Canvas、CanvasText、Field、FieldText、ButtonFace、ButtonText、LinkText、Highlight、HighlightText、GrayText 等）。ユーザーの OS 設定に従い、色名を固定しないためである。
+5. Forced Colors 用の CSS system color（Canvas、CanvasText、Field、FieldText、ButtonFace、ButtonText、LinkText、Highlight、HighlightText、GrayText 等）。ユーザーの OS 設定に従い、色名を固定しないためである。
 
 追加色は「ブランドの自由な拡張」ではなく、特定の Semantic role と Contrast 検証に紐づく最小限の補助 palette とする。未使用の見た目目的の色は追加しない。
 
-### 7.6 Theme architecture
+### 7.6 Dark-only appearance architecture
 
-- Reference Token は Theme 非依存である。
-- Semantic Token の名前、型、説明、用途は全 Theme で同じにする。Light/Dark/High Contrast は同じ role に別の値を割り当てる。
+- Reference Token は appearance 非依存である。
+- Semantic Token の名前、型、説明、用途は Dark appearance の role contract として固定する。
 - dark.json は指定された Surface、Foreground、Border、Primary、Secondary、Status anchors を default とする。
-- light.json は追加した light neutral と accessible status/focus value を使い、指定色は brand/status fill として可能な箇所で維持する。
-- high-contrast.json は system color と visible border を優先する。shadow、透過、色相差だけを情報伝達に使わない。
-- Runtime は data-theme="dark|light|high-contrast" を基本とし、system は OS preference を解決して同じ semantic variables に切り替える。SSR では初回 Theme を決める仕組みを用意し、FOUC を避ける。
-- Theme override が Semantic contract にない新しい public Token を追加することを禁止する。新しい role が必要なら先に Semantic contract と ADR を更新する。
+- Runtime は `:root` の Dark values を利用し、`data-theme`、theme provider、OS preference による appearance switching を提供しない。
+- Forced-colors の system color、visible border、focus indicator は CSS media query として維持し、通常の theme mapping やFigma modeにはしない。
 
 ## 8. Foundation Architecture
 
@@ -528,11 +529,11 @@ Foundation は Component の見た目の共通語彙であり、Product の画�
 
 | Foundation | 初期設計 | 受け入れ条件 |
 |---|---|---|
-| Color | 7.4 の Depo palette、Semantic role、Light/Dark/High Contrast | Contrast、forced colors、color-only prohibition を検証できる |
+| Color | 7.4 の Depo palette、Semantic role、Dark appearance、forced colors | Contrast、forced colors、color-only prohibition を検証できる |
 | Typography | UI は Inter, Noto Sans JP, Noto Sans, Segoe UI, system-ui, sans-serif の順を初期候補とする。Monospace は ui-monospace 系。Font は role と fallback を token 化する | CJK、英数混在、長文、200% resize、font 未インストール時に layout が壊れない |
 | Spacing | 4px を基本単位、2px hairline を細部専用。初期 scale は 0, hairline, 1, 2, 3, 4, 5, 6, 8, 10, 12, 16, 20, 24 | arbitrary spacing の増殖がなく、semantic spacing へ解決できる |
 | Sizing | size.control.sm=32px、md=40px、lg=48px を基礎候補。Touch density は視覚サイズと hit target を分離し、最低 44px の操作領域を優先 | 3 density、keyboard、coarse pointer、long label で操作できる |
-| Radius | none=0、sm=4、md=6、lg=8、xl=12、full=9999 の初期候補 | Component が独自の radius を発明せず、Theme で一貫する |
+| Radius | none=0、sm=4、md=6、lg=8、xl=12、full=9999 の初期候補 | Component が独自の radius を発明せず、Dark appearance で一貫する |
 | Border | 通常 1px、strong/focus 2px、divider と outline を別 role にする。Focus は layout をずらさない outline/inner ring を使う | 3:1 non-text contrast、forced colors、focus not obscured を満たす |
 | Elevation | base、raised、floating、popover、modal の 5 level。Dark は shadow だけでなく Surface/Border を変える | layering が z-index と一致し、shadow がなくても階層を理解できる |
 | Layout | logical properties、min/max content、Container、Split、Sidebar、scroll boundary を基礎とする | RTL、zoom、narrow container、overflow で内容を失わない |
@@ -580,11 +581,11 @@ Typography の font 候補は Phase 0 でライセンスと Figma 利用可否�
 |---|---|---|
 | <Component>.tsx | render、slot、event wiring、controlled/uncontrolled state、semantic HTML | raw color/spacing、巨大な domain logic |
 | <Component>.types.ts | public props、slot、event、value/selection 型 | Component ごとの別名 API、any による逃げ道 |
-| <Component>.styles.ts | token を参照する build-time style recipe、slot、state selector | hex、任意の px、theme 固有の秘密の値 |
+| <Component>.styles.ts | token を参照する build-time style recipe、slot、state selector | hex、任意の px、appearance 固有の秘密の値 |
 | <Component>.tokens.ts | Component Token の local alias と slot/state mapping | global token の再定義、Product 向け public token |
 | <Component>.test.tsx | props、render、state transition、event、controlled/uncontrolled の単体/interaction | screen reader の全検証をここだけに閉じること |
 | <Component>.a11y.test.tsx | axe、名前/role/state、focus、keyboard、live region の自動検証 | 自動検証だけで WCAG 達成と判断すること |
-| <Component>.visual.tsx | Theme、Density、Responsive、long text、状態の visual fixture | 仕様にない状態の追加 |
+| <Component>.visual.tsx | Dark appearance、Forced Colors、Density、Responsive、long text、状態の visual fixture | 仕様にない状態の追加 |
 | <Component>.stories.tsx | Default、Variants、States、Edge cases、play interaction、Docs 用 story | 仕様と矛盾する demo、Product API のモック依存 |
 | index.ts | public export と型 export | 内部 helper、test fixture、未承認 export |
 
@@ -657,7 +658,7 @@ Content rules
 
 Responsive behavior
 Density behavior
-Theme behavior
+Appearance behavior
 
 Loading behavior
 
@@ -1003,7 +1004,7 @@ figma/
 
 ### 18.3 Variables
 
-- Collection は Reference、Semantic、必要な場合のみ Component に分ける。Theme mode は dark、light、high-contrast とし、Code の Theme 名と一致させる。
+- Collection は Reference、Semantic、必要な場合のみ Component に分ける。Appearance mode は単一の dark とし、Code の Dark values と一致させる。
 - Designer が通常使うのは Semantic と Component の公開された role。Reference は inspect/maintenance 用であり、Product UI の設計で直接選ばない。
 - Figma variable name は color/bg/canvas、space/control/inline のように slash-separated にし、JSON path と mapping/tokens.json で一対一に対応させる。自動変換で名前が推測されないよう mapping を保存する。
 - Figma Component set は Button、TextInput 等の canonical Component name、properties は variant、size、tone、state、disabled 等の canonical name を使う。Code の prop と Figma property を別名にしない。
@@ -1011,7 +1012,7 @@ figma/
 ### 18.4 Sync workflow
 
 1. PR で JSON Token/Metadata を変更する。
-2. Token build が CSS/TS/manifest を生成し、schema、alias、contrast、theme completeness を検証する。
+2. Token build が CSS/TS/manifest を生成し、schema、alias、contrast、Dark mapping completeness を検証する。
 3. Figma sync は mapping と manifest に従い、差分 preview を生成する。
 4. 承認された PR のみ Figma Variables REST API または Plugin API で push する。Figma 側の publish が必要な場合は明示的な step とする。
 5. pull は read-only parity check として利用し、Figma 変更を自動で repo に上書きしない。意図的な Figma 変更は PR と ADR を経て JSON に反映する。
@@ -1032,7 +1033,7 @@ Figma Variables REST API は利用プラン、Full seat、権限、scope の制�
 Component Metadata JSON から、Docs の次の部分を生成する。
 
 - Purpose、Anatomy、Lifecycle、Variants、Sizes、Tones、States、Props、Events の reference table。
-- Keyboard、ARIA、Responsive、Density、Theme、Loading、Error、Recovery、Test matrix。
+- Keyboard、ARIA、Responsive、Density、Dark appearance、Forced Colors、Loading、Error、Recovery、Test matrix。
 - Figma mapping、Token usage、Story link、Visual fixture link。
 
 人が編集する MDX/Markdown は、使い方、理由、例、Content guidance、Migration narrative に限定する。生成セクションには marker を付け、手編集との差分を CI で検出する。
@@ -1051,7 +1052,7 @@ Component folder に co-locate し、実装の変更理由と同じ場所で更�
 | Interaction | Story play、Vitest browser mode | click、type、select、open/close、submit、retry、cancel |
 | Keyboard | *.test.tsx / testing/interaction/ | Tab order、Arrow、Home/End、Escape、typeahead、shortcut |
 | Accessibility | *.a11y.test.tsx、testing/accessibility/ | Axe、name/role/state/value、label/error relation、focus/announcement |
-| Visual | *.visual.tsx、apps/visual-tests/ | Theme、Variant、State、Density、long text、container width |
+| Visual | *.visual.tsx、apps/visual-tests/ | Dark appearance、Variant、State、Density、long text、container width |
 | Story | *.stories.tsx | Contract 上の全状態を再現可能な fixture として保持 |
 
 ### 20.1.1 Ref contract tests
@@ -1062,7 +1063,7 @@ Component folder に co-locate し、実装の変更理由と同じ場所で更�
 
 ### 20.2 System-level tests
 
-- Token schema、alias graph、theme completeness、contrast、raw value lint、generated freshness。
+- Token schema、alias graph、Dark mapping completeness、contrast、raw value lint、generated freshness。
 - Package graph、exports、cycle、build order、未公開 deep import。
 - Playwright の browser matrix、responsive/reflow、forced colors、reduced motion、RTL、CJK、long text。
 - Docs link、生成 marker、metadata-to-story、metadata-to-Figma parity。
@@ -1078,8 +1079,7 @@ Keyboard
 Focus
 Accessibility
 Dark
-Light
-High Contrast
+Forced Colors
 Reduced Motion
 Responsive / Container query
 Long Text / CJK / RTL
@@ -1102,7 +1102,7 @@ Visual baseline は CI の固定 browser/container image で生成する。Playw
 | Monorepo task runner | Turborepo | package/task graph、parallelism、local/remote cache、段階導入ができる | Nx、Moon。task script と package graph を標準形に保ち、runner を交換可能にする |
 | Language | TypeScript、strict、ESM | Props、Token schema、Metadata、generator の型安全性と AI 可読性 | JS でも public contract は JSON Schema と .d.ts で維持 |
 | App/library build | Vite、library mode、TypeScript declaration build | browser app と library の開発体験を揃え、公開 entry を明示できる | Rollup、tsdown。package の exports と CSS artifact を契約にする |
-| Styling | CSS Custom Properties + build-time typed styles | Theme、semantic token、SSR、runtime performance、state selectors に向く | CSS Modules。Component から compiler API を隠す |
+| Styling | CSS Custom Properties + build-time typed styles | Dark appearance、semantic token、SSR、runtime performance、state selectors に向く | CSS Modules。Component から compiler API を隠す |
 | Unit/component runner | Vitest（Node + browser mode）、Testing Library、user-event | Vite と同じ transform、browser の実 DOM interaction を扱える | Jest。テスト API を薄い testing/ wrapper に分離 |
 | Browser E2E / visual | Playwright Test | multi-browser、keyboard、screenshot、forced-color/emulation を一つにまとめる | Cypress。E2E fixture と page object の境界を維持 |
 | Component explorer | Storybook React + Vite | Stories を docs、interaction、a11y、visual の入力として再利用できる | Ladle。CSF/portable story を孤立させない |
@@ -1110,7 +1110,7 @@ Visual baseline は CI の固定 browser/container image で生成する。Playw
 | Documentation | Docusaurus/MDX を採用 | React component の例、version、i18n、検索を扱いやすい | Astro Starlight、Storybook Docs。生成 layer と content layer を分離 |
 | Lint | ESLint flat config、typescript-eslint、import boundary、Stylelint、Markdown lint | code/style/CSS/Markdown のルールを用途別に機械検査する | Biome。raw token rule と dependency rule の portability を確認 |
 | Formatting | Prettier | TS/JSON/MD/YAML の共通整形、editor/CI が多い | Biome formatter。format と lint の責任を混ぜない |
-| Token build | DTCG validator + custom normalizer/resolver/renderer | DTCG の tier/theme/component policy、contrast、Figma mapping を明示的に制御できる | Style Dictionary。DTCG adapter を tooling/token-build の入出力境界に置く |
+| Token build | DTCG validator + custom normalizer/resolver/renderer | DTCG の tier/dark-mapping/component policy、contrast、Figma mapping を明示的に制御できる | Style Dictionary。DTCG adapter を tooling/token-build の入出力境界に置く |
 | Generator | custom CLI + templates、schema driven | Component の同じ file set、Metadata、Test stub を強制できる | Plop/Hygen。template engine を CLI から分離 |
 | Release | Changesets | monorepo の package version、internal dependency、changelog を意図ベースで扱える | Release Please、Rush。semver/change intent の metadata を失わない |
 | Migration | TypeScript AST の codemod（ts-morph/jscodeshift 相当） | prop rename、token rename、deprecated API を安全に移行できる | 手動 migration。breaking change では codemod を優先 |
@@ -1184,7 +1184,7 @@ Stable への昇格には最低限、次を checklist として全て記録す�
 - Keyboard test
 - Screen reader test
 - Responsive review
-- Theme review（Dark / Light / High Contrast）
+- Appearance review（Dark / Forced Colors）
 - Reduced motion review
 - Localization review（Long text / CJK / RTL を含む）
 - Visual regression
@@ -1289,7 +1289,7 @@ Root の package.json、pnpm-workspace.yaml、pnpm-lock.yaml、turbo.json、Type
 
 **Goal**
 
-DTCG JSON を Source of Truth とする Reference/Semantic/Theme、生成 CSS/TS、schema/contrast/lint を確立する。
+DTCG JSON を Source of Truth とする Reference/Semantic/Dark mapping、生成 CSS/TS、schema/contrast/lint を確立する。
 
 **Dependencies**
 
@@ -1302,26 +1302,26 @@ packages/tokens/src/reference/、semantic/、themes/、generated/、tooling/toke
 **Tasks**
 
 - DTCG 2025.10 の schema/normalizer を用意し、tier、type、description、extension、alias の validation を実装する。
-- Depo UI の supplied color anchor を入力し、light neutral、focus、status text、overlay、system color の追加理由と mapping を記録する。
-- dark/light/high-contrast の semantic matrix を作り、missing role、contrast、forced-color の検証を追加する。
+- Depo UI の supplied color anchor を入力し、neutral ramp、focus、status text、overlay、system color の追加理由と mapping を記録する。
+- Dark appearance の semantic matrix と forced-colors browser coverage を作り、missing role、contrast、forced-color の検証を追加する。
 - CSS/TS/ES module runtime/d.ts/manifest を生成し、generated freshness check と raw value lint を有効にする。
 
 **Tests**
 
-- valid/invalid JSON、unknown alias、cycle、type mismatch、theme missing、duplicate name。
-- text/non-text contrast、status、focus、surface の全 Theme matrix。
+- valid/invalid JSON、unknown alias、cycle、type mismatch、dark mapping missing、duplicate name。
+- text/non-text contrast、status、focus、surface の Dark/Forced Colors matrix。
 - CSS variable naming、TS type export、generated diff、DTCG round-trip。
 
 **Exit criteria**
 
-Product から Reference を直接 import できず、Semantic Token が全 Theme で解決する。指定色が変更されず、追加色は理由と test を持ち、generated file を再生成しても diff がない。
+Product から Reference を直接 import できず、Semantic Token が Dark mapping で解決する。指定色が変更されず、追加色は理由と test を持ち、generated file を再生成しても diff がない。
 
 **Phase status**
 
 - Status: Completed
 - Tests: pnpm tokens:build、pnpm tokens:check、pnpm lint:tokens、pnpm lint:raw-values、pnpm lint:deps、pnpm format:check、pnpm lint、pnpm typecheck、pnpm test、pnpm build
 - Commit: feat(phase-1): implement token architecture
-- Known limitations: Component Token、Foundation、React/Component source、Figma Variables、visual/manual forced-colors evidenceは後続Phaseで追加する。High Contrast の system color は browser test で検証する。
+- Known limitations: Component Token、Foundation、React/Component source、Figma Variables、visual/manual forced-colors evidenceは後続Phaseで追加する。Forced Colors の system color は browser test で検証する。
 - Blocked items: なし。
 
 ### Phase 2 — Foundations
@@ -1342,7 +1342,7 @@ tsconfig.base.json、packages/foundations/src/、packages/foundations/tsconfig.j
 
 - 4px scale と 2px hairline、control sizing、radius/border/elevation/layer を確定する。
 - font stack、type scale、line-height、CJK/RTL fallback、logical layout property を定義する。
-- data-density、Theme root、Direction、Layer、container query、shell fallback breakpoint の contract を作る。
+- data-density、Dark root、Direction、Layer、container query、shell fallback breakpoint の contract を作る。
 - motion token と reduced-motion stylesheet を設計する。
 - Foundation CSS/APIをpackages/foundations/src/に実装し、semantic variableだけを参照する。Iconographyの命名、size、stroke、RTL、accessibility規則をspecs/foundations/iconography.mdに記録する。
 
@@ -1429,7 +1429,7 @@ Table は semantic table/thead/tbody/th/td/caption を中心とする static dat
 
 **Tests**
 
-- 各 Component の minimum matrix（Keyboard、Focus、Accessibility、Dark、Light、High Contrast、Reduced Motion、Responsive、Long Text、Visual Regression）。
+- 各 Component の minimum matrix（Keyboard、Focus、Accessibility、Dark、Forced Colors、Reduced Motion、Responsive、Long Text、Visual Regression）。
 - React 19 の ref-as-prop contract と、ref を公開しない Component に余計な ref API がないこと。React 18 を support range に含める場合は、Phase 0 で選んだ compatibility strategy の test を追加する。
 - native semantics、screen-reader manual checklist、consumer fixture の public import。
 
@@ -1443,7 +1443,7 @@ Table は semantic table/thead/tbody/th/td/caption を中心とする static dat
 - Implemented source: `packages/components/src/actions/`、`packages/components/src/forms/`、`packages/components/src/data-display/`、`packages/components/src/feedback/`。公開 entrypoint は `packages/components/src/index.ts`、React facade は `packages/react/src/index.ts` とする。
 - Metadata: `specs/components/{actions,forms,data-display,feedback}/*.json`。Component generator は `tooling/component-generator/generate.mjs` から同一の source、styles、tokens、stories、visual、unit/a11y test skeleton を生成できる。
 - Tests: `pnpm install --frozen-lockfile`、`pnpm tokens:build`、`pnpm tokens:check`、`pnpm lint:tokens`、`pnpm lint:raw-values`、`pnpm lint:deps`、`pnpm --filter @depo-ui/components typecheck`、`pnpm --filter @depo-ui/components test`（24 tests）、`pnpm test:a11y`（16 tests）、`pnpm test:visual -- components-basic.spec.ts`（3 tests）、`pnpm format:check`、`pnpm lint`、consumer fixture typecheck/build。
-- Review evidence: native HTML semantics、React 19 ref-as-prop の型利用、Dark/Light/High Contrast の theme root、Reduced Motion、touch density、narrow viewport、long/CJK text、axe smoke、Table と DataGrid の役割境界を fixture で確認した。React 18 を support range に含める場合の compatibility test は Phase 0 の決定に従い、必要な場合だけ追加する。
+- Review evidence: native HTML semantics、React 19 ref-as-prop の型利用、Dark appearance root、Forced Colors、Reduced Motion、touch density、narrow viewport、long/CJK text、axe smoke、Table と DataGrid の役割境界を fixture で確認した。React 18 を support range に含める場合の compatibility test は Phase 0 の決定に従い、必要な場合だけ追加する。
 - Lifecycle: 全 Phase 4A Component は `Trial`。Production usage、owner、API/A11y/Figma parity の Stable gate は Governance の条件を別途満たすまで変更しない。
 - Commit: `feat(phase-4a): implement basic controls`
 - Known limitations: browser test は Chromium、screen-reader evidence は manual checklist 前提、DateInput/SearchField は overlay を持たない基本入力、Table は static semantic table であり、advanced interaction は Phase 5 の DataGrid 等で扱う。
@@ -1514,13 +1514,13 @@ packages/components/src/actions/SplitButton/、packages/components/src/forms/Sel
 
 **Tests**
 
-- Basic Component と composition した API vocabulary、state model、keyboard、focus、accessibility、theme、density、responsive behavior。
+- Basic Component と composition した API vocabulary、state model、keyboard、focus、accessibility、Dark appearance、Forced Colors、density、responsive behavior。
 - Menu/Select の Arrow/Home/End/Escape/Enter、MenuButton の focus return、Toast の announcement/timeout/undo、Tabs の tablist model、Disclosure/Accordion の heading/button/region semantics。
 - narrow/wide navigation、long label、RTL、CJK、forced colors、reduced motion、nested composition。
 
 **Exit criteria**
 
-Composite Component が必要な依存だけを持ち、4A/4B の API vocabulary、state model、keyboard、focus、accessibility、theme、density、responsive behavior を崩さない。Menu 等が Overlay Infrastructure より前に実装されておらず、各 Component の first implementation phase が matrix で一意に確認できる。
+Composite Component が必要な依存だけを持ち、4A/4B の API vocabulary、state model、keyboard、focus、accessibility、Dark appearance、Forced Colors、density、responsive behavior を崩さない。Menu 等が Overlay Infrastructure より前に実装されておらず、各 Component の first implementation phase が matrix で一意に確認できる。
 
 **Phase status**
 
@@ -1573,7 +1573,7 @@ FileUpload、Slider、Disclosure/Accordion の配置基準は次のとおりと�
 - Dependency decision: Combobox、DatePicker、CommandPalette、Drawer は Phase 4B の Popover/Dialog、Portal、DismissableLayer、FocusScope、positioning、scroll lock を必要な範囲だけ利用する。FileUpload と Slider は native input を基礎にし、Tree は独自の二次元ではない roving focus model、DataGrid は semantic `role="grid"` と最小限の selection/sort/edit/pinning contract を持つ。Table は Phase 4A の semantic static table のまま再実装しない。
 - Placement decision: Advanced Component の source は `packages/components/src/forms/`、`data-display/`、`navigation/`、`overlays/` に置き、共有 overlay/accessibility/DOM helper は既存の `packages/accessibility/src/`、`packages/utilities/src/`、Phase 4B の境界を再利用する。巨大な Advanced manager や Product 固有 adapter は追加しない。
 - Tests: `pnpm --filter @depo-ui/components typecheck`、`pnpm test:a11y`（59 files、80 tests）、`pnpm test:visual`（19 browser tests）、`pnpm test`、`pnpm build`、`pnpm typecheck`、`pnpm lint`、`pnpm lint:deps`、`pnpm lint:raw-values`、`pnpm format:check` が通過した。Advanced 固有では contract Vitest 3 tests、各 Component の unit/a11y test、Chromium 3 tests、axe、narrow viewport、grid/tree focus、forced colors、reduced motion を確認した。
-- Review evidence: Combobox の active descendant/listbox、DatePicker の dialog trigger、DataGrid の row/column semantics、Tree の level/expanded state、Drawer の modal role と focus boundary、FileUpload の error/progress、Slider の native range、CommandPalette の command result contract を確認した。React 19 ref-as-prop、Theme、Density、Long/CJK text、Responsive の共通方針は既存 Phase の contract を継承する。
+- Review evidence: Combobox の active descendant/listbox、DatePicker の dialog trigger、DataGrid の row/column semantics、Tree の level/expanded state、Drawer の modal role と focus boundary、FileUpload の error/progress、Slider の native range、CommandPalette の command result contract を確認した。React 19 ref-as-prop、Dark appearance、Forced Colors、Density、Long/CJK text、Responsive の共通方針は既存 Phase の contract を継承する。
 - Lifecycle: Phase 5 Component はすべて `Trial`。Production usage、owner、manual screen-reader evidence、API/A11y/Figma parity を含む Stable gate は Governance の条件を満たすまで変更しない。
 - Known limitations: DataGrid はこの Phase では resize drag、virtualization、column chooser、server-side data adapter を実装せず、基本の sorting/selection/editing/pinning boundary に限定する。DatePicker は native date input を calendar fallback として使い、range calendar UI は後続の仕様拡張対象とする。Combobox、CommandPalette、Tree、Drawer の screen-reader/manual evidence と Safari/Firefox matrix は後続で拡張する。Browser automation は Chromium、visual fixture は deterministic static fixture を前提とする。
 - Commit: `feat(phase-5): implement advanced components`
@@ -1721,7 +1721,7 @@ apps/docs/、tooling/docs-generator/、docs/、specs/、README.md。
 
 - Getting Started、Foundations、Components、Patterns、Accessibility、Content Design、API、Examples、Releases、Migration Guide の navigation を作る。
 - Metadata から API/state/a11y/test/Figma tables を生成する。
-- Dark/Light/High Contrast、RTL、long text、responsive の live examples を提供する。
+- Dark appearance、Forced Colors、RTL、long text、responsive の live examples を提供する。
 - versioned docs、deprecated banner、migration/codemod link を release と結びつける。
 
 **Tests**
@@ -1734,7 +1734,7 @@ apps/docs/、tooling/docs-generator/、docs/、specs/、README.md。
 
 **Phase status**
 
-- Status: Completed。Docusaurus 3.10.2 の Docs Site、10 セクションの navigation、spec/source boundary、Component/Pattern metadata generator、search/index、preview fixture、theme/density/RTL/long-text の live example を追加した。Component reference は `specs/components/`、Pattern reference は `specs/patterns/`、Token manifest は `packages/tokens/generated/manifest.json`、Figma parity は `figma/mapping/components.json` を入力として生成する。生成物は `apps/docs/content/generated/` と `apps/docs/static/generated/` に置き、手編集しない。
+- Status: Completed。Docusaurus 3.10.2 の Docs Site、10 セクションの navigation、spec/source boundary、Component/Pattern metadata generator、search/index、preview fixture、Dark appearance/Forced Colors/density/RTL/long-text の live example を追加した。Component reference は `specs/components/`、Pattern reference は `specs/patterns/`、Token manifest は `packages/tokens/generated/manifest.json`、Figma parity は `figma/mapping/components.json` を入力として生成する。生成物は `apps/docs/content/generated/` と `apps/docs/static/generated/` に置き、手編集しない。
 - Tests: `pnpm --filter @depo-ui/docs typecheck`、`pnpm --filter @depo-ui/docs lint`、`pnpm --filter @depo-ui/docs build`、`pnpm docs:check`、`pnpm --filter @depo-ui/docs test`、`pnpm exec playwright test apps/visual-tests/tests/docs.spec.ts --pass-with-no-tests`、`pnpm test`、`pnpm test:visual`、`pnpm typecheck`、`pnpm lint`、`pnpm lint:deps`、`pnpm lint:raw-values`、`pnpm format:check` が通過した。Docs browser test は navigation、landmark/heading、keyboard skip、320px reflow、forced colors、reduced motion、axe を確認する。
 - Documentation policy: Formal specs と Docs Site の本文を二重管理せず、Docs の reference 部分は metadata/generator から更新する。Docusaurus の broken-link policy により repository 内の formal spec は直接 import せず、source path と generator input を明示する。Story が存在する Component には Story への参照を付け、live Figma publish と外部 hosting は Phase 10 以降の運用対象とする。
 - Known limitations: Search は静的生成 index、Docs の live example は deterministic fixture、browser verification は Chromium 前提である。Safari/Firefox、実 Figma file/credential、production hosting、manual screen-reader evidence は後続の運用で補完する。
@@ -1801,8 +1801,6 @@ packages/tokens/src/semantic/typography.json
 packages/tokens/src/semantic/sizing.json
 packages/tokens/src/semantic/motion.json
 packages/tokens/src/themes/dark.json
-packages/tokens/src/themes/light.json
-packages/tokens/src/themes/high-contrast.json
 packages/tokens/generated/tokens.css
 packages/tokens/generated/tokens.ts
 packages/tokens/generated/tokens.d.ts
@@ -1813,10 +1811,10 @@ packages/tokens/generated/manifest.json
 |---|---|
 | reference/color.json | Depo の palette anchor、追加 neutral/status/focus/overlay の raw value。alias は持たない |
 | semantic/color.json | bg、fg、border、action、status、focus、overlay の role と説明。default alias または contract を定義 |
-| themes/*.json | 同一 Semantic path の mode value。未定義 role と新規 public role を禁止 |
+| themes/dark.json | Dark appearance の Semantic override。未定義 role と新規 public role を禁止 |
 | reference/spacing.json 等 | 4px scale、2px hairline、size/radius/border/elevation/motion の raw value |
-| generated/tokens.css | Theme selector、Semantic CSS Custom Property、必要な developer-only output。直接編集禁止 |
-| generated/tokens.ts | 型付き token name、theme manifest、内部 tooling が使う map |
+| generated/tokens.css | `:root` の Dark appearance と Semantic CSS Custom Property。直接編集禁止 |
+| generated/tokens.ts | 型付き token name と Dark appearance values |
 | generated/tokens.d.ts | consumer 向け declaration。source ではない |
 | generated/manifest.json | resolved graph、version、hash、Figma mapping、generation metadata |
 
@@ -1847,7 +1845,7 @@ figma/mapping/components.json
 | Button.tokens.ts | button.primary.bg.rest 等の local alias。public global token は export しない |
 | Button.test.tsx | click/keyboard、loading、disabled、controlled state、slot、native type、event の test |
 | Button.a11y.test.tsx | accessible name、role、focus ring、axe、disabled/loading semantics、contrast fixture |
-| Button.visual.tsx | 全 variant/size/tone/state、Theme、Density、long label、icon-only misuse fixture |
+| Button.visual.tsx | 全 variant/size/tone/state、Dark appearance、Forced Colors、Density、long label、icon-only misuse fixture |
 | Button.stories.tsx | Default、Primary、Secondary、Destructive、Loading、Disabled、With icons、Play interaction、Docs source |
 | index.ts | Button と public types のみ export |
 | button.json | Purpose、Anatomy、API、state precedence、ARIA、keyboard、responsive、lifecycle、Figma key、tests |
@@ -2020,7 +2018,7 @@ figma/variables/modes.json
 - components.json: Button、TextInput 等の canonical Component ↔ Figma component set/key/lifecycle。各 mapping に packages/components/src/<category>/<Component>/ の source path と public export を紐づける。
 - properties.json: variant/size/tone/state/disabled と Figma property type/name/value の対応。
 - exceptions.json: 既知の Figma API/asset 制約だけを owner、reason、expiry 付きで記録する。
-- collections.json/modes.json: Reference/Semantic/Component と dark/light/high-contrast の manifest。値の Source ではない。
+- collections.json: Semantic と単一 Dark appearance mode の manifest。値の Source ではない。
 
 ### 25.10 Docs
 
@@ -2047,7 +2045,7 @@ testing/unit/render.tsx
 testing/interaction/user.ts
 testing/accessibility/axe.ts
 testing/accessibility/focus.ts
-testing/themes/theme-matrix.ts
+testing/fixtures/accessibility-matrix.mjs
 testing/visual/screenshot.ts
 testing/fixtures/long-text.ts
 testing/fixtures/locales.ts
@@ -2055,13 +2053,13 @@ packages/components/src/<category>/<Component>/<Component>.test.tsx
 packages/components/src/<category>/<Component>/<Component>.a11y.test.tsx
 packages/components/src/<category>/<Component>/<Component>.visual.tsx
 apps/visual-tests/tests/components.spec.ts
-apps/visual-tests/snapshots/<browser>/<theme>/<component>/
+apps/visual-tests/snapshots/<browser>/<component>/
 playwright.config.ts
 vitest.workspace.ts
 ~~~
 
 - testing/ は fixture/harness の Source。個別 assertions は Component folder に置く。
-- theme-matrix.ts は dark/light/high-contrast と density、reduced-motion、forced-colors の組み合わせを供給する。
+- Dark fixture と density、reduced-motion、forced-colors の組み合わせを供給する。
 - long-text.ts は英語長文、CJK、RTL、pseudo-localized string、複数行 error を供給する。
 - Visual snapshots は固定 browser/font/container と一緒に管理し、baseline update は PR review を通す。
 
@@ -2069,7 +2067,7 @@ vitest.workspace.ts
 
 | Risk | 影響 | 対策 |
 |---|---|---|
-| Dark-first palette が Light/Status text で Contrast を満たさない | A11y failure、semantic role の乱立 | 追加の accessible ramp/role、Theme matrix、Contrast CI、brand fill と text value を分離 |
+| Dark palette の status text で Contrast を満たさない | A11y failure、semantic role の乱立 | 追加の accessible ramp/role、Dark appearance matrix、Contrast CI、brand fill と text value を分離 |
 | Token 層が増えすぎる | 名前の混乱、Product の raw/reference 利用 | 3 層を固定、public は Semantic 中心、Component Token は local、追加は ADR |
 | DTCG と外部ツールの対応差 | Figma/renderer の drift | custom normalize layer、schema version、round-trip fixture、DTCG update を ADR 化 |
 | Figma が実質 Source になる | repo と design の二重管理 | repo→Figma を主経路、pull は read-only parity、secret/exception policy |
@@ -2080,7 +2078,7 @@ vitest.workspace.ts
 | generated drift | stale CSS/TS/Docs/Figma | build diff check、生成物 read-only、source hash、CI failure |
 | dependency cycle | build order/AI 理解の破綻 | pnpm cycle fail、Turborepo graph、AST boundary、public exports |
 | Docs の二重管理 | ルールの矛盾、更新漏れ | specs/metadata を Source、reference table を生成、links/schema check |
-| SSR/hydration/FOUC | Theme 切替時のちらつき・不一致 | initial theme resolution、CSS-first token、hydration test |
+| SSR/hydration/FOUC | Dark root の初期描画不一致 | CSS-first token、hydration test、forced-colors browser test |
 | Font/license/locale | 文字崩れ、配布制約 | fallback contract、license ADR、CJK/RTL/pseudo-locale fixture |
 | Screen reader 互換性 | 自動 test では見つからない欠陥 | NVDA/VoiceOver manual matrix、complex component の Trial、known limitation |
 | AI が巨大な文書を読めない | 誤実装、context 消費 | 短い AGENTS、schema/metadata、task-specific Docs、生成 index |
@@ -2112,7 +2110,7 @@ vitest.workspace.ts
 - Depo UI の目的と non-goals が明確。
 - Design Principles、Repository 構造、各 Folder の責任と境界が明確。
 - Package の責任、依存方向、cycle/deep-import 検査方法が明確。
-- Reference → Semantic → Component の Token architecture、DTCG JSON、Theme、generated policy が明確。
+- Reference → Semantic → Component の Token architecture、DTCG JSON、Dark mapping、generated policy が明確。
 - Depo UI の指定色を anchor とし、追加色の理由と Contrast 方針が明確。
 - Color、Typography、Spacing、Sizing、Radius、Border、Elevation、Layout、Grid、Responsive、Density、Icon、Motion、Layer の Foundation が設計されている。
 - Component の分類、重複を避ける命名、内部 file structure、Contract、共通 API、State priority、React 19 ref-as-prop と React 18 compatibility strategy の境界が明確。
@@ -2121,7 +2119,7 @@ vitest.workspace.ts
 - WCAG 2.2 AA、Keyboard、Focus、Screen reader、Contrast、Forced colors、Target size、Reduced motion、Zoom/Reflow の要件が最初から Contract/Test に組み込まれている。
 - Figma Variables、Component properties、Mapping、sync、parity、secret policy が明確。
 - Specs、Docs Site、repo docs の責任と生成方法が明確。
-- Unit、Interaction、Keyboard、A11y、Visual、Theme、Responsive、Localization、Consumer、manual review の Test 方針が明確。
+- Unit、Interaction、Keyboard、A11y、Visual、Dark appearance、Forced Colors、Responsive、Localization、Consumer、manual review の Test 方針が明確。
 - Token build/lint、raw value lint、Generator、Figma sync、Visual regression、Changesets、Migration/Codemod の tooling 方針が明確。
 - Lifecycle、Stable gate、Owner、Production usage、Deprecation、Removal、Release governance が明確。
 - AGENTS.md が入口として何を案内し、詳細をどこに置くかが明確。

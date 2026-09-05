@@ -22,6 +22,6 @@ if (errors.length > 0) {
   process.exitCode = 1;
 } else {
   console.log(
-    'Token check passed: schema, aliases, themes, contrast, and generated artifacts are current.',
+    'Token check passed: schema, aliases, dark appearance, contrast, and generated artifacts are current.',
   );
 }

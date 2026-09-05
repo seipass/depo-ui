@@ -6,7 +6,7 @@ async function loadOverlayFixture(page: Page) {
   const styles = await readFoundationStyles({ includePrimitives: true, includeComponents: true });
   await page.setContent(`
     <!doctype html>
-    <html lang="en" data-theme="dark" data-density="comfortable">
+    <html lang="en" data-density="comfortable">
       <head><title>Overlay fixture</title></head>
       <body>
         <main id="app"><button id="open" type="button">Open details</button></main>

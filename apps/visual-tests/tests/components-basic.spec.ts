@@ -23,7 +23,7 @@ const fixture = `
 async function loadFixture(page: Page) {
   const styles = await readFoundationStyles({ includePrimitives: true, includeComponents: true });
   await page.setContent(
-    `<!doctype html><html lang="en" data-theme="dark" data-density="comfortable"><head><title>Basic controls</title></head><body>${fixture}</body></html>`,
+    `<!doctype html><html lang="en" data-density="comfortable"><head><title>Basic controls</title></head><body>${fixture}</body></html>`,
   );
   await page.addStyleTag({ content: styles });
 }
@@ -42,7 +42,7 @@ test.describe('Depo UI basic component browser contract', () => {
     expect(height?.height).toBeGreaterThanOrEqual(44);
   });
 
-  test('keeps focus visible, themes, and reduced motion available', async ({ page }) => {
+  test('keeps focus visible, dark appearance, and reduced motion available', async ({ page }) => {
     await loadFixture(page);
     await page.keyboard.press('Tab');
     await expect(page.locator('input')).toBeFocused();
@@ -56,10 +56,9 @@ test.describe('Depo UI basic component browser contract', () => {
         .locator('button')
         .evaluate((element) => getComputedStyle(element).transitionDuration),
     ).toBe('0s');
-    await page.locator('html').evaluate((element) => {
-      element.dataset.theme = 'high-contrast';
-    });
-    expect(await page.locator('html').getAttribute('data-theme')).toBe('high-contrast');
+    await page.emulateMedia({ forcedColors: 'active' });
+    expect(await page.evaluate(() => matchMedia('(forced-colors: active)').matches)).toBe(true);
+    await expect(page.locator('html')).not.toHaveAttribute('data-theme');
   });
 
   test('passes the automated accessibility smoke check', async ({ page }) => {

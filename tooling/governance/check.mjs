@@ -51,12 +51,12 @@ const run = (command, args, options = {}) => {
 };
 
 const runPnpm = (args, options = {}) => {
-  if (process.platform !== 'win32') return run('pnpm', args, options);
+  if (process.platform !== 'win32') return run('corepack', ['pnpm', ...args], options);
   const quoteWindowsArg = (argument) => {
     const value = String(argument);
     return /[\s"]/.test(value) ? `"${value.replaceAll('"', '\\"')}"` : value;
   };
-  const command = ['pnpm.cmd', ...args].map(quoteWindowsArg).join(' ');
+  const command = ['corepack.cmd', 'pnpm', ...args].map(quoteWindowsArg).join(' ');
   return spawnSync(process.env.ComSpec ?? 'cmd.exe', ['/d', '/s', '/c', command], {
     cwd: repoRoot,
     encoding: 'utf8',

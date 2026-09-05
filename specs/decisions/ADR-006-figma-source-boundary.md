@@ -10,8 +10,8 @@ Depo UI needs Figma Variables and component sets to use the same names as code w
 
 ## Decision
 
-- `packages/tokens/src/` remains the source of truth for Reference, Semantic, and Theme token values. `specs/components/**/*.json` remains the source of truth for Component metadata and lifecycle.
-- `figma/variables/collections.json` defines one Semantic collection with Dark, Light, and High Contrast modes. `figma/mapping/tokens.json` is generated from Semantic token JSON and contains names, types, source paths, and mode identities, not copied values.
+- `packages/tokens/src/` remains the source of truth for Reference, Semantic, and the single Dark appearance mapping. `specs/components/**/*.json` remains the source of truth for Component metadata and lifecycle.
+- `figma/variables/collections.json` defines one Semantic collection with a single Dark appearance mode. `figma/mapping/tokens.json` is generated from Semantic token JSON and contains names, types, source paths, and mode identities, not copied values. OS forced-colors is handled by CSS and is not a Figma theme mode.
 - `figma/components/naming.json` defines the shared Component set and property vocabulary. `figma/mapping/components.json` is generated from Component metadata and retains the `packages/components/src/` source path.
 - Every mapping has a stable `depoUiKey` based on its repository identity. A changed display name is reported as a rename, not silently treated as a new object. Extra Figma objects are review findings and are not deleted automatically.
 - Repository-to-Figma push is dry-run by default. Figma-to-repository pull is read-only and produces a diff; it never overwrites token JSON, metadata, or mapping policy.

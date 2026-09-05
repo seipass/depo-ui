@@ -19,7 +19,7 @@
   "contentRules": "Use concise, actionable labels and allow long content to wrap.",
   "responsiveBehavior": "Adapt within the available container without relying only on viewport width.",
   "densityBehavior": "Support compact, comfortable, and touch density through semantic tokens.",
-  "themeBehavior": "Consume semantic tokens for dark, light, and high-contrast themes.",
+  "themeBehavior": "Consume semantic tokens for the standard dark appearance; preserve OS forced-colors overrides.",
   "loadingBehavior": "Loading is explicit and must prevent duplicate actions when applicable.",
   "errorBehavior": "Describe what went wrong and preserve the user input where possible.",
   "recoveryBehavior": "Offer a nearby retry, correction, or alternate action when recovery exists.",

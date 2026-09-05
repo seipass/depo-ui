@@ -130,7 +130,7 @@ export const collectDocsModel = async () => {
     componentFiles.map((filePath) => componentDetails(filePath, figmaMapping.components ?? [])),
   );
   const patterns = await Promise.all(patternFiles.map(patternDetails));
-  const themes = Object.keys(tokenManifest.themes ?? {}).sort();
+  const appearance = tokenManifest.appearance ?? 'dark';
   const semanticCount = Array.isArray(tokenManifest.semantic)
     ? tokenManifest.semantic.length
     : Object.keys(tokenManifest.semantic ?? {}).length;
@@ -140,7 +140,7 @@ export const collectDocsModel = async () => {
     ),
     patterns: patterns.sort((left, right) => left.id.localeCompare(right.id)),
     tokens: {
-      themes,
+      appearance,
       referenceCount: Array.isArray(tokenManifest.reference)
         ? tokenManifest.reference.length
         : Object.keys(tokenManifest.reference ?? {}).length,
@@ -286,7 +286,7 @@ const previewHtml = (navigation, model) => {
     )
     .join('');
   return `<!doctype html>
-<html lang="en" data-theme="dark" data-density="comfortable" dir="ltr">
+<html lang="en" data-density="comfortable" dir="ltr">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />

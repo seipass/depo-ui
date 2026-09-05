@@ -126,12 +126,6 @@ export declare const semanticTokens: {
   readonly "elevation.surface.popover": "--dui-elevation-surface-popover";
   readonly "elevation.surface.modal": "--dui-elevation-surface-modal";
 };
-export declare const themes: {
-  readonly dark: Readonly<Record<string, string>>;
-  readonly light: Readonly<Record<string, string>>;
-  readonly "high-contrast": Readonly<Record<string, string>>;
-};
-export declare const tokenValues: typeof themes.dark;
-export type ThemeName = keyof typeof themes;
+export declare const tokenValues: Readonly<Record<string, string>>;
 export type SemanticTokenName = keyof typeof semanticTokens;
 export declare const cssVariable: (name: SemanticTokenName) => (typeof semanticTokens)[SemanticTokenName];

@@ -25,16 +25,15 @@ const longText =
 type FixtureOptions = {
   density?: 'compact' | 'comfortable' | 'touch';
   direction?: 'ltr' | 'rtl';
-  theme?: 'dark' | 'light' | 'high-contrast';
 };
 
 async function loadFixture(page: Page, options: FixtureOptions = {}) {
-  const { density = 'comfortable', direction = 'ltr', theme = 'dark' } = options;
+  const { density = 'comfortable', direction = 'ltr' } = options;
   const styles = await readFoundationStyles();
 
   await page.setContent(`
     <!doctype html>
-    <html data-theme="${theme}" data-density="${density}" dir="${direction}">
+    <html data-density="${density}" dir="${direction}">
       <head><meta name="viewport" content="width=device-width, initial-scale=1" /></head>
       <body>
         <main data-dui-container data-fixture>
@@ -98,18 +97,18 @@ test.describe('Depo UI foundation browser contract', () => {
     expect(reducedMotionDuration).toBe('0s');
   });
 
-  test('keeps theme and forced-colors semantics available', async ({ page }) => {
-    await page.emulateMedia({ colorScheme: 'light', forcedColors: 'active' });
-    await loadFixture(page, { theme: 'high-contrast' });
+  test('keeps dark appearance and forced-colors semantics available', async ({ page }) => {
+    await page.emulateMedia({ colorScheme: 'dark', forcedColors: 'active' });
+    await loadFixture(page);
 
     const mediaState = await page.evaluate(() => ({
       forcedColors: matchMedia('(forced-colors: active)').matches,
-      theme: document.documentElement.dataset.theme,
+      themeAttribute: document.documentElement.dataset.theme,
       colorScheme: getComputedStyle(document.documentElement).colorScheme,
     }));
 
     expect(mediaState.forcedColors).toBe(true);
-    expect(mediaState.theme).toBe('high-contrast');
-    expect(mediaState.colorScheme).toContain('light');
+    expect(mediaState.themeAttribute).toBeUndefined();
+    expect(mediaState.colorScheme).toContain('dark');
   });
 });

@@ -1,5 +1,5 @@
 {
-  "$description": "Default dark theme. Semantic defaults are the dark contract; this file records the active theme and explicit overlay overrides.",
+  "$description": "Default dark appearance. Semantic defaults are the dark contract; this file records the active appearance and explicit overlay overrides.",
   "color": {
     "overlay": {
       "scrim": {

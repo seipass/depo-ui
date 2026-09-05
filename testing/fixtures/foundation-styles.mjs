@@ -6,7 +6,7 @@ const repositoryRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url))
 const foundationCssFiles = [
   'packages/tokens/generated/tokens.css',
   'packages/foundations/src/css/reset.css',
-  'packages/foundations/src/css/theme.css',
+  'packages/foundations/src/css/appearance.css',
   'packages/foundations/src/css/typography.css',
   'packages/foundations/src/css/density.css',
   'packages/foundations/src/css/layout.css',

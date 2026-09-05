@@ -51,7 +51,7 @@
       "id": "contrast-and-forced-colors",
       "successCriteria": ["1.4.3", "1.4.11"],
       "evidence": [
-        "packages/foundations/src/css/theme.css",
+        "packages/foundations/src/css/appearance.css",
         "apps/visual-tests/tests/accessibility.spec.ts"
       ],
       "status": "partial"

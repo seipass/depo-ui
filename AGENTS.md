@@ -7,13 +7,13 @@ Depo UI is a reusable Web and React design system for SaaS, dashboards, administ
 ## Architecture map
 
 - packages/tokens/: token source and generated artifacts.
-- Phase 1 starts at packages/tokens/src/reference/, packages/tokens/src/semantic/, packages/tokens/src/themes/, with build/lint work under tooling/token-build/ and tooling/token-lint/.
-- packages/foundations/: theme, typography, layout, density, motion, and layer foundations.
+- Phase 1 starts at packages/tokens/src/reference/, packages/tokens/src/semantic/, and the single dark mapping in packages/tokens/src/themes/dark.json, with build/lint work under tooling/token-build/ and tooling/token-lint/.
+- packages/foundations/: dark appearance, typography, layout, density, motion, and layer foundations.
 - packages/primitives/: small layout and DOM primitives.
 - packages/components/src/<category>/: all reusable Component source.
 - packages/patterns/: task-oriented composition.
 - packages/accessibility/, packages/utilities/, packages/icons/: shared lower-level capabilities.
-- packages/react/: React public facade and providers.
+- packages/react/: React public facade and foundation attribute helpers.
 - specs/: formal contracts and ADRs.
 - testing/, tooling/, governance/: shared verification, generation, and operating policy.
 - apps/: Docs, Playground, and Visual Test consumers.
@@ -44,7 +44,7 @@ Token, generator, Docs, Figma, Changeset, governance, and release commands are i
 
 ## Testing rules
 
-Run the smallest relevant check, then the Phase exit checks. Accessibility, keyboard, focus, theme, responsive, localization, and reduced-motion requirements are part of the Component Contract; do not defer them.
+Run the smallest relevant check, then the Phase exit checks. Accessibility, keyboard, focus, dark appearance, forced-colors, responsive, localization, and reduced-motion requirements are part of the Component Contract; do not defer them.
 
 ## Generated files and documentation
 

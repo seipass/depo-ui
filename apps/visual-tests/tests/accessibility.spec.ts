@@ -29,7 +29,7 @@ const fixture = `
 async function loadFixture(page: Page) {
   const styles = await readFoundationStyles({ includePrimitives: true, includeComponents: true });
   await page.setContent(
-    `<!doctype html><html lang="en" data-theme="dark" data-density="comfortable"><head><title>Accessibility fixture</title><meta name="viewport" content="width=device-width, initial-scale=1" /></head><body>${fixture}</body></html>`,
+    `<!doctype html><html lang="en" data-density="comfortable"><head><title>Accessibility fixture</title><meta name="viewport" content="width=device-width, initial-scale=1" /></head><body>${fixture}</body></html>`,
   );
   await page.addStyleTag({ content: styles });
 }
@@ -69,7 +69,10 @@ test.describe('Depo UI accessibility infrastructure browser contract', () => {
   }) => {
     await loadFixture(page);
     await page.emulateMedia({ forcedColors: 'active', reducedMotion: 'reduce' });
-    await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
+    await expect(page.locator('html')).not.toHaveAttribute('data-theme');
+    expect(
+      await page.evaluate(() => getComputedStyle(document.documentElement).colorScheme),
+    ).toContain('dark');
     expect(await page.evaluate(() => matchMedia('(forced-colors: active)').matches)).toBe(true);
     expect(await page.evaluate(() => matchMedia('(prefers-reduced-motion: reduce)').matches)).toBe(
       true,

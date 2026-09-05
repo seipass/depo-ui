@@ -31,7 +31,7 @@ const fixture = `
 async function loadFixture(page: Page) {
   const styles = await readFoundationStyles({ includePrimitives: true, includeComponents: true });
   await page.setContent(
-    `<!doctype html><html lang="en" data-theme="dark" data-density="comfortable"><head><title>Patterns</title></head><body>${fixture}</body></html>`,
+    `<!doctype html><html lang="en" data-density="comfortable"><head><title>Patterns</title></head><body>${fixture}</body></html>`,
   );
   await page.addStyleTag({ content: styles });
 }

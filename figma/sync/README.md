@@ -1,6 +1,6 @@
 # Figma synchronization boundary
 
-Depo UI treats repository token JSON and Component metadata as the Source of Truth. Figma is a named projection used for design work and parity review. The mapping keys, names, modes, variants, properties, and lifecycle values are versioned in this repository; Figma-only values are not an alternate design-system source.
+Depo UI treats repository token JSON and Component metadata as the Source of Truth. Figma is a named projection used for design work and parity review. The mapping keys, names, the single Dark appearance mode, variants, properties, and lifecycle values are versioned in this repository; Figma-only values are not an alternate design-system source.
 
 ## Workflow
 

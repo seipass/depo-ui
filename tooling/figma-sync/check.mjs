@@ -9,7 +9,7 @@ const report = JSON.parse(
   await readFile(path.join(repoRoot, 'figma/sync/parity-report.json'), 'utf8'),
 );
 const errors = [];
-const expectedModes = ['dark', 'light', 'high-contrast'];
+const expectedModes = ['dark'];
 
 if (collections.sourceOfTruth !== 'packages/tokens/src')
   errors.push('Figma variables must use token JSON as Source of Truth.');
@@ -17,7 +17,7 @@ if (
   JSON.stringify(collections.collection.modes.map((mode) => mode.id)) !==
   JSON.stringify(expectedModes)
 ) {
-  errors.push('Figma modes must be Dark, Light, and High Contrast in the shared order.');
+  errors.push('Figma must expose the single Dark appearance mode.');
 }
 if (tokenMapping.variables.length !== model.semantic.size)
   errors.push('Every Semantic token must have exactly one Figma mapping.');
