@@ -1,6 +1,6 @@
 {
   "name": "@depo-ui/react",
-  "version": "0.1.3",
+  "version": "0.2.0",
   "description": "Stable React entrypoint for Depo UI",
   "license": "MIT",
   "repository": {
